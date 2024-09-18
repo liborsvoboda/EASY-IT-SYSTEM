@@ -1,0 +1,63 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:XamlExt="clr-namespace:EasyITSystemCenter.GlobalStyles"
+    xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
+    <!--
+        Custom Effect Definitions Library
+        LIMITATIONS Target Property is For Static Named Oject and One Object Applying By Form
+        For Multiple and dynamic Using USE ProgramaticXamlBehaviors Storyboards
+        Without Limitations
+    -->
+
+    <!--
+        EFFECT: BLINK
+        USING Example: textBox.BeginStoryboard(FindResource("StoryBoardFlashEffect") as Storyboard);
+    -->
+    <Storyboard x:Key="StoryBoardFlashEffect" RepeatBehavior="Forever">
+        <DoubleAnimation
+            AutoReverse="True"
+            RepeatBehavior="Forever"
+            Storyboard.TargetProperty="Opacity"
+            From="3.0"
+            To="0.0"
+            Duration="0:0:1.8" />
+    </Storyboard>
+
+
+    <!--  Effect Shadow Definition  -->
+    <DropShadowEffect
+        x:Key="DropShadowEffect"
+        BlurRadius="25"
+        Direction="315"
+        Opacity="0.6"
+        ShadowDepth="5" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ResourceDictionary>

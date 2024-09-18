@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe Game</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+  
+</head>
+
+<body>
+    
+    <div class="container text-center">
+        <div id = "header" class="text-center">
+            <h1>Let's play Tic Tac Toe!</h1>
+        </div>
+    <div class="player">
+      <h3>Choose your turn:</h3> 
+    <button class="btn btn-primary" onclick = "setText('XO')"> X </button>
+    <button class="btn btn-primary" onclick = "setText('OX')"> O </button>
+    </div>
+
+    <div class="box text-center">
+    <div class="row  text-center">
+        <div class="col">
+            <a class="btn tile" onclick = "claim(this)" > </a> 
+            <a class="btn tile" onclick = "claim(this)" > </a> 
+            <a class="btn tile" onclick = "claim(this)" > </a>  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <a class="btn tile" onclick = "claim(this)" > </a> 
+            <a class="btn tile" onclick = "claim(this)" > </a> 
+            <a class="btn tile" onclick = "claim(this)" > </a>  
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <a class="btn tile" onclick = "claim(this)" > </a> 
+            <a class="btn tile" onclick = "claim(this)" > </a> 
+            <a class="btn tile" onclick = "claim(this)" > </a>  
+        </div>
+    </div>
+    </div>
+      
+    <div class="bottom">
+    <button class="button btn btn-primary" onclick = "reset()"> Reset </button>
+    </div>
+    
+        <p id = "won">Yay! You won! </p>
+        <p id = "lost">Aww, You Lost! </p>
+        <p id = "draw">Draw! </p>
+    </div>
+   <footer>
+    &copy Created by Pankajashree
+  </footer>
+  
+  
+
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

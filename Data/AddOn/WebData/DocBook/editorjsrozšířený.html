@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ver.4: editorjs rozšířený - EIC&amp;ESB Dokumentace</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="EasyITcenter &amp; EasySYSTEMbuilder Dokumentace">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB-Globální IT Řešení na míru</li><li class="chapter-item expanded "><a href="VizeaNápadyaPostupy.html"><strong aria-hidden="true">1.</strong> Ver.9: Vize a Nápady a Postupy</a></li><li class="chapter-item expanded "><a href="HistorieReklamníchSdělení.html"><strong aria-hidden="true">2.</strong> Ver.5: Historie Reklamních Sdělení</a></li><li class="chapter-item expanded "><a href="ÚvodníInformace.html"><strong aria-hidden="true">3.</strong> Ver.22: Úvodní Informace</a></li><li class="chapter-item expanded "><a href="PřipravovanéNovinky.html"><strong aria-hidden="true">4.</strong> Ver.42: Připravované Novinky</a></li><li class="chapter-item expanded "><a href="AutomatickéFunkcinality.html"><strong aria-hidden="true">5.</strong> Ver.5: Automatické Funkcinality</a></li><li class="chapter-item expanded "><a href="DatabázeNápověda.html"><strong aria-hidden="true">6.</strong> Ver.3: Databáze Nápověda</a></li><li class="chapter-item expanded "><a href="EIC&ESB3rdNástrojeaModuly.html"><strong aria-hidden="true">7.</strong> Ver.5: EIC&ESB 3rd Nástroje a Moduly</a></li><li class="chapter-item expanded "><a href="ZpracovávánéAChangeLog.html"><strong aria-hidden="true">8.</strong> Ver.33: Zpracováváné A ChangeLog</a></li><li class="chapter-item expanded "><a href="CeníkEIC&ESBaITSlužeb.html"><strong aria-hidden="true">9.</strong> Ver.22: Ceník EIC&ESB a IT Služeb</a></li><li class="chapter-item expanded "><a href="Kontakty.html"><strong aria-hidden="true">10.</strong> Ver.2: Kontakty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Start -DATABASE-RULE</li><li class="chapter-item expanded "><a href="WebRozcestník.html"><strong aria-hidden="true">11.</strong> Ver.8: Web Rozcestník</a></li><li class="chapter-item expanded "><a href="DBTabulkyŘešení.html"><strong aria-hidden="true">12.</strong> Ver.49: DB Tabulky Řešení</a></li><li class="chapter-item expanded "><a href="DBProceduryŘešení.html"><strong aria-hidden="true">13.</strong> Ver.48: DB Procedury Řešení</a></li><li class="chapter-item expanded "><a href="DBTriggery.html"><strong aria-hidden="true">14.</strong> Ver.46: DB Triggery</a></li><li class="chapter-item expanded "><a href="DBViewaFunkce.html"><strong aria-hidden="true">15.</strong> Ver.44: DB View a Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-Dev Pravidla</li><li class="chapter-item expanded "><a href="EICServerInstalaceWIN_LIN.html"><strong aria-hidden="true">16.</strong> Ver.15: EIC Server Instalace WIN_LIN</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="EIC-LogikaaStruktura.html"><strong aria-hidden="true">17.</strong> Ver.12: EIC - Logika a Struktura</a></li><li class="chapter-item expanded "><a href="EICUnikátníAPISlužby.html"><strong aria-hidden="true">18.</strong> Ver.8: EIC Unikátní API Služby</a></li><li class="chapter-item expanded "><a href="ZákladníKonfiguraceServeru.html"><strong aria-hidden="true">19.</strong> Ver.22: Základní Konfigurace Serveru</a></li><li class="chapter-item expanded "><a href="SeznamImpl.ModulůServeru.html"><strong aria-hidden="true">20.</strong> Ver.8: Seznam Impl. Modulů Serveru</a></li><li class="chapter-item expanded "><a href="EICXMLKomentářezProjektu.html"><strong aria-hidden="true">21.</strong> Ver.14: EIC XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="EICRadyprogramování.html"><strong aria-hidden="true">22.</strong> Ver.8: EIC Rady programování</a></li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">23.</strong> Ver.60: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="StaticWebPortál.html"><strong aria-hidden="true">24.</strong> Ver.3: Static Web Portál</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">ESB - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="ESB-LogikaaStuktura.html"><strong aria-hidden="true">25.</strong> Ver.5: ESB - Logika a Stuktura</a></li><li class="chapter-item expanded "><a href="SeznamImplementovanýchAgend.html"><strong aria-hidden="true">26.</strong> Ver.17:  Seznam Implementovaných Agend</a></li><li class="chapter-item expanded "><a href="SeznamukázkovýchModulůSystému.html"><strong aria-hidden="true">27.</strong> Ver.12: Seznam ukázkových Modulů Systému</a></li><li class="chapter-item expanded "><a href="ESBXMLKomentářezProjektu.html"><strong aria-hidden="true">28.</strong> Ver.6: ESB XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="MikročíselníkyunikátníFunkce.html"><strong aria-hidden="true">29.</strong> Ver.7: Mikročíselníky unikátní Funkce</a></li><li class="chapter-item expanded "><a href="GlobálníFunkce.html"><strong aria-hidden="true">30.</strong> Ver.9: Globální Funkce</a></li><li class="chapter-item expanded "><a href="ESBRadyprogramování.html"><strong aria-hidden="true">31.</strong> Ver.8: ESB Rady programování</a></li><li class="chapter-item expanded "><a href="XAMLŠablonySystému.html"><strong aria-hidden="true">32.</strong> Ver.63: XAML Šablony Systému</a></li><li class="chapter-item expanded "><a href="ESBTiskovéřešení.html"><strong aria-hidden="true">33.</strong> Ver.5: ESB Tiskové řešení</a></li><li class="chapter-item expanded "><a href="DoplňujícíSubProjekty.html"><strong aria-hidden="true">34.</strong> Ver.8: Doplňující SubProjekty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC Knihovny Kódů a Šablony</li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">35.</strong> Ver.61: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="GenerátoryaJejichFunkce.html"><strong aria-hidden="true">36.</strong> Ver.62: Generátory a Jejich Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIS-ESB-ClonedSmallServers</li><li class="chapter-item expanded "><a href="ExpertDocSPAManager.html"><strong aria-hidden="true">37.</strong> Ver.18: ExpertDoc SPA Manager</a></li><li class="chapter-item expanded "><a href="ExpertDocWebServer.html"><strong aria-hidden="true">38.</strong> Ver.18: ExpertDoc Web Server</a></li><li class="chapter-item expanded "><a href="ExpertDocExportSPADocWebu.html"><strong aria-hidden="true">39.</strong> Ver.21: ExpertDoc Export SPADoc Webu</a></li><li class="chapter-item expanded "><a href="ExpertDocUkázkyFormátování.html"><strong aria-hidden="true">40.</strong> Ver.19: ExpertDoc Ukázky Formátování</a></li><li class="chapter-item expanded "><a href="ExpertDocGrafickéUkázky.html"><strong aria-hidden="true">41.</strong> Ver.21: ExpertDoc Grafické Ukázky</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-CanceledRazorBuild</li><li class="chapter-item expanded "><a href="ZrušenýMVCWebPortalCsHtml.html"><strong aria-hidden="true">42.</strong> Ver.77: Zrušený MVC Web Portal CsHtml</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB Github a Svět Neomezená Řešení</li><li class="chapter-item expanded "><a href="awesome-dotnet-core.html"><strong aria-hidden="true">43.</strong> Ver.1: awesome-dotnet-core</a></li><li class="chapter-item expanded "><a href="awesome-dotnet-coreNext.html"><strong aria-hidden="true">44.</strong> Ver.2: awesome-dotnet-core Next</a></li><li class="chapter-item expanded "><a href="awesome-workflow-engines.html"><strong aria-hidden="true">45.</strong> Ver.3: awesome-workflow-engines</a></li><li class="chapter-item expanded "><a href="editorjsrozšířený.html" class="active"><strong aria-hidden="true">46.</strong> Ver.4: editorjs rozšířený</a></li><li class="chapter-item expanded "><a href="AwesomeWPF.html"><strong aria-hidden="true">47.</strong> Ver.4: Awesome WPF</a></li><li class="chapter-item expanded "><a href="ZaznamenanéNápadykprověření.html"><strong aria-hidden="true">48.</strong> Ver.1: Zaznamenané Nápady k prověření </a></li><li class="chapter-item expanded "><a href="InspiraceGithubBohatéProfily.html"><strong aria-hidden="true">49.</strong> Ver.3: Inspirace Github Bohaté Profily </a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Systém Šablon EIC & ESB</li><li class="chapter-item expanded "><a href="templates/index.html"><strong aria-hidden="true">50.</strong> Šablony, Kódy, Příklady</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">EIC&amp;ESB Dokumentace</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p><a href="https://editorjs.io/"><img src="./assets/editor-awesome.png" alt="" /></a></p>
+<h1 id="awesome-editorjs"><a class="header" href="#awesome-editorjs">Awesome Editor.js <a href="https://awesome.re"><img src="https://awesome.re/badge-flat.svg" alt="Awesome" /></a></a></h1>
+<blockquote>
+<p>A curated list of awesome Editor.js tools, libraries and resources.</p>
+</blockquote>
+<p>Inspired by the <a href="https://github.com/sindresorhus/awesome">awesome</a> list. Feel free to improve this list by contributing!</p>
+<h2 id="contents"><a class="header" href="#contents">Contents</a></h2>
+<ul>
+<li><a href="#tools">Tools</a>
+<ul>
+<li><a href="#block-tools">Block Tools</a>
+<ul>
+<li><a href="#text-and-typography">Text and typography</a></li>
+<li><a href="#lists">Lists</a></li>
+<li><a href="#media--embed">Media &amp; Embed</a></li>
+<li><a href="#table">Table</a></li>
+<li><a href="#code">Code</a></li>
+<li><a href="#button">Button</a></li>
+</ul>
+</li>
+<li><a href="#inline-tools">Inline Tools</a></li>
+<li><a href="#plugins">Plugins</a></li>
+</ul>
+</li>
+<li><a href="#libraries">Libraries</a>
+<ul>
+<li><a href="#javascript">JavaScript</a>
+<ul>
+<li><a href="#vuejs">Vue.js</a></li>
+<li><a href="#react">React</a></li>
+<li><a href="#angular">Angular</a></li>
+</ul>
+</li>
+<li><a href="#php">PHP</a></li>
+<li><a href="#python">Python</a></li>
+<li><a href="#ruby">Ruby</a></li>
+<li><a href="#go">Go</a></li>
+<li><a href="#swift">Swift</a></li>
+<li><a href="#kotlin">Kotlin</a></li>
+<li><a href="#plugins-for-cms">Plugins for CMS</a></li>
+</ul>
+</li>
+<li><a href="#tutorials-and-sources">Tutorials and sources</a></li>
+<li><a href="#projects-using-editorjs">Projects Using Editor.js</a>
+<ul>
+<li><a href="#open-source-projects">Open source projects</a></li>
+</ul>
+</li>
+</ul>
+<!-- * [Apps / Websites](#apps-websites) -->    
+<!-- * [Commercial Products](#commercial-products) -->    
+<h2 id="tools"><a class="header" href="#tools">Tools</a></h2>
+<h3 id="block-tools"><a class="header" href="#block-tools">Block Tools</a></h3>
+<h4 id="text-and-typography"><a class="header" href="#text-and-typography">Text and typography</a></h4>
+<ul>
+<li><a href="https://github.com/editor-js/paragraph">@editorjs/paragraph</a> — text block base tool</li>
+<li><a href="https://github.com/editor-js/header">@editorjs/header</a> — header block</li>
+<li><a href="https://github.com/editor-js/quote">@editorjs/quote</a> — tool for quotes</li>
+<li><a href="https://github.com/editor-js/warning">@editorjs/warning</a> — warning tool can be used as editorials notifications or appeals</li>
+<li><a href="https://github.com/editor-js/delimiter">@editorjs/delimiter</a> — delimiter tool</li>
+<li><a href="https://github.com/vishaltelangre/editorjs-alert">editorjs-alert</a> - tool for adding colorful alert messages</li>
+<li><a href="https://github.com/kaaaaaaaaaaai/paragraph-with-alignment">paragraph-with-alignment</a> - text block base tool with alignment control</li>
+<li><a href="https://github.com/Aleksst95/header-with-anchor">header-with-anchor</a> - header block with the ability to set an anchor text</li>
+</ul>
+<h4 id="lists"><a class="header" href="#lists">Lists</a></h4>
+<ul>
+<li><a href="https://github.com/editor-js/list">@editorjs/list</a> — ordered or unordered (bulleted) lists</li>
+<li><a href="https://github.com/editor-js/checklist">@editorjs/checklist</a> — checklists for your texts</li>
+</ul>
+<h4 id="media--embed"><a class="header" href="#media--embed">Media &amp; Embed</a></h4>
+<ul>
+<li><a href="https://github.com/editor-js/image">@editorjs/image</a> — image block</li>
+<li><a href="https://github.com/editor-js/simple-image">@editorjs/simple-image</a> — add images to article by pasting image URLs. no server-side uploader required</li>
+<li><a href="https://github.com/editor-js/link">@editorjs/link</a> — link with preview</li>
+<li><a href="https://github.com/editor-js/attaches">@editorjs/attaches</a> — attach files to your article</li>
+<li><a href="https://github.com/editor-js/embed">@editorjs/embed</a> — pasted patterns handling and inserts iframe with embedded content</li>
+<li><a href="https://github.com/PaulKinlan/simple-image">simple-image-editorjs</a> — fork of the SimpleImage repository. It adds in extra functionality such as a toolbar to add images (rather than just drag and drop) and uses blob URL's to improve memory usage</li>
+<li><a href="https://github.com/ranemihir/editorjs-github-gist-plugin">editorjs-github-gist-plugin</a> — add Github Gists to Editor.js</li>
+<li><a href="https://github.com/ranemihir/editorjs-social-post-plugin">editorjs-social-post-plugin</a> — embed uploaded posts from different social media platforms to Editor.js</li>
+<li><a href="https://github.com/kommitters/editorjs-inline-image">editorjs-inline-image</a> — embed images from image files, URLs or Unsplash</li>
+</ul>
+<h4 id="table"><a class="header" href="#table">Table</a></h4>
+<ul>
+<li><a href="https://github.com/editor-js/table">@editorjs/table</a> — table constructor tool</li>
+<li><a href="https://github.com/4rw44z/editorjs-table">editorjs-table</a> - Table contructor tool with great editing row/column options.</li>
+</ul>
+<h4 id="code"><a class="header" href="#code">Code</a></h4>
+<ul>
+<li><a href="https://github.com/editor-js/code">@editorjs/code</a> — tools for code examples</li>
+<li><a href="https://github.com/editor-js/raw">@editorjs/raw</a> — include raw HTML code to your article</li>
+<li><a href="https://github.com/paraswaykole/editor-js-code">editor-js-code</a> — a fork of Code Tool for the Editor.js that allows to include code examples along with language codes that are supported by PrismJs in your articles</li>
+<li><a href="https://github.com/alexiej/editorjs-codemirror">editorjs-codemirror</a> — Code Mirror for the Editor.js allows to include code examples in your articles.</li>
+<li><a href="https://github.com/BomdiZane/codebox">@bomdi/codebox</a> — code syntax highlighting tool for Editor.js</li>
+</ul>
+<h4 id="button"><a class="header" href="#button">Button</a></h4>
+<ul>
+<li><a href="https://github.com/kaaaaaaaaaaai/editorjs-button">editorjs-button</a> — Create a button with a link and text.</li>
+</ul>
+<h3 id="inline-tools"><a class="header" href="#inline-tools">Inline Tools</a></h3>
+<ul>
+<li><a href="https://github.com/editor-js/marker">@editorjs/marker</a> — tool for highlighting text-fragments</li>
+<li><a href="https://github.com/editor-js/inline-code">@editorjs/inline-code</a> — tool for marking monospace code-fragments</li>
+<li><a href="https://github.com/editor-js/underline">@editorjs/underline</a> — underlining text fragments</li>
+<li><a href="https://github.com/trinhtam/editorjs-hyperlink">editorjs-hyperlink</a> — A tool link with target &amp; rel attribute for Editor.js</li>
+<li><a href="https://www.npmjs.com/package/editorjs-inline-spoiler-tool">editorjs-inline-spoiler-tool</a> — inline text spoiler</li>
+<li><a href="https://github.com/natterstefan/editorjs-inline-tool">editorjs-inline-tool</a> — create an inline tool for (editorjs.io) with text formatting tags (eg. bold, strong, em, u, ...)</li>
+<li><a href="https://github.com/hata6502/editorjs-inline">editorjs-inline</a> — Inline-Editor.js Tool for Editor.js</li>
+<li><a href="https://github.com/hata6502/editorjs-style">editorjs-style</a> — Inline-style Tool for Editor.js</li>
+</ul>
+<h3 id="plugins"><a class="header" href="#plugins">Plugins</a></h3>
+<ul>
+<li><a href="https://github.com/kommitters/editorjs-drag-drop">editorjs-drag-drop</a> — Drag/Drop feature for Editor.js</li>
+<li><a href="https://github.com/kommitters/editorjs-undo">editorjs-undo</a> — Undo/Redo feature for Editor.js</li>
+<li><a href="https://github.com/stejul/editorjs-markdown-parser">editorjs-markdown-parser</a> - Two plugins which allow you to export/import Markdown file</li>
+</ul>
+<h2 id="libraries"><a class="header" href="#libraries">Libraries</a></h2>
+<h3 id="javascript"><a class="header" href="#javascript">JavaScript</a></h3>
+<ul>
+<li><a href="https://github.com/MichaelMikeJones/editorjs-parser">editorjs-parser</a> — a library to parse Editorjs clean data to HTML in Node and Browser</li>
+<li><a href="https://github.com/pavittarx/editorjs-html">editorjs-html</a> — a utility to parse editorjs clean data to HTML</li>
+</ul>
+<h4 id="vuejs"><a class="header" href="#vuejs">Vue.js</a></h4>
+<ul>
+<li><a href="https://github.com/ChangJoo-Park/vue-editor-js">vue-editor-js</a> — editor.js for Vue users</li>
+</ul>
+<h4 id="react"><a class="header" href="#react">React</a></h4>
+<ul>
+<li><a href="https://github.com/Jungwoo-An/react-editor-js">react-editor-js</a> — the unofficial editor-js component for React</li>
+<li><a href="https://github.com/stfy/react-editor.js">@stfy/react-editor.js</a> — React wrapper component for Editor.js</li>
+<li><a href="https://github.com/moveyourdigital/editorjs-blocks-react-renderer">editorjs-blocks-react-renderer</a> - React component to render blocks to semantic HTML5 tags</li>
+</ul>
+<h4 id="angular"><a class="header" href="#angular">Angular</a></h4>
+<ul>
+<li><a href="https://www.npmjs.com/package/@tinynodes/ngx-editorjs">@tinynodes/ngx-editorjs</a> — This library provides Angular support for EditorJS.</li>
+</ul>
+<h3 id="php"><a class="header" href="#php">PHP</a></h3>
+<ul>
+<li><a href="https://github.com/editor-js/editorjs-php">editorjs-php</a> — server-side data validation, HTML sanitization and convertation output JSON to the Block objects</li>
+<li><a href="https://github.com/AlexSabur/orchid-editorjs-field">orchid-editorjs-field</a></li>
+<li><a href="https://github.com/zakurdaev/yii2-editorjs-widget">yii2-editorjs-widget</a> — Editor.js widget for Yii 2</li>
+<li><a href="https://github.com/tbmatuka/EditorjsBundle">EditorjsBundle</a> — Symfony bundle for Editor.js</li>
+<li><a href="https://github.com/aswal94/editorjs2html">editorjs2html</a> — Convert blocks of editorjs into html. The parser has been written in php</li>
+<li><a href="https://github.com/advoor/nova-editor-js">nova-editor-js</a> — Editor JS field for Laravel Nova</li>
+<li><a href="https://github.com/Archakov06/codex-to-html">codex-to-html</a> — Converter EditorJS JSON to HTML</li>
+</ul>
+<h3 id="python"><a class="header" href="#python">Python</a></h3>
+<ul>
+<li><a href="https://github.com/2ik/django-editorjs-fields">django-editorjs-fields</a> — Django admin plugin for using Editor.js</li>
+</ul>
+<h3 id="ruby"><a class="header" href="#ruby">Ruby</a></h3>
+<ul>
+<li><a href="https://rubygems.org/gems/editor_js">editor_js</a> — it validates, parses, and renders content from editorjs</li>
+</ul>
+<h3 id="go"><a class="header" href="#go">Go</a></h3>
+<ul>
+<li><a href="https://github.com/micheleriva/editorjs-go">micheleriva/editorjs-go</a> — Fast markdown/HTML generator for Editor.js</li>
+<li><a href="https://github.com/davidscottmills/goeditorjs">davidscottmills/goeditorjs</a> - An extensible HTML/markdown generator for editorjs.</li>
+</ul>
+<h3 id="swift"><a class="header" href="#swift">Swift</a></h3>
+<ul>
+<li><a href="https://github.com/Upstarts/editor.js-kit-ios">editor.js-kit-ios</a> - iOS framework for parsing and rendering blocks</li>
+</ul>
+<h3 id="kotlin"><a class="header" href="#kotlin">Kotlin</a></h3>
+<ul>
+<li><a href="https://github.com/Upstarts/editor.js-kit-android">editor.js-kit-android</a> - Android framework for parsing and rendering blocks</li>
+</ul>
+<h3 id="plugins-for-cms"><a class="header" href="#plugins-for-cms">Plugins for CMS</a></h3>
+<ul>
+<li><a href="https://wpfronteditor.com/">Front Editor</a> - Front Editor plugin for <a href="https://wordpress.com">WordPress</a></li>
+<li><a href="https://octobercms.com/plugin/reazzon-editor">EditorJS</a> - Backend formwidget for <a href="https://octobercms.com">OctoberCMS</a></li>
+</ul>
+<h2 id="tutorials-and-sources"><a class="header" href="#tutorials-and-sources">Tutorials and sources</a></h2>
+<ul>
+<li><a href="https://editorjs.io">editorjs.io</a> — offical docs</li>
+<li><a href="https://www.walkthrough.so/pblc/snKICMzxzedr/codelab-integrating-editor-js-into-your-react-application">Tutorial: Integrating Editor.js into your react application</a></li>
+<li><a href="https://www.walkthrough.so/pblc/QCawSCKwOQLn/creating-a-custom-editorjs-block-tool-with-react">Tutorial: Creating a custom editorjs block tool with React</a></li>
+</ul>
+<h2 id="projects-using-editorjs"><a class="header" href="#projects-using-editorjs">Projects Using Editor.js</a></h2>
+<p>?? <a href="https://github.com/editor-js/awesome-editorjs/edit/master/readme.md">Add your project!</a></p>
+<ul>
+<li><a href="https://djit.su">? djit.su</a> — hyper-reactive notebook interface</li>
+<li><a href="https://poda.io">Poda</a> — Project planning and roadmaping</li>
+<li><a href="http://walkthrough.so/">Walkthrough</a> - Write great codelab style tutorials.</li>
+</ul>
+<h3 id="open-source-projects"><a class="header" href="#open-source-projects">Open source projects</a></h3>
+<ul>
+<li><a href="https://github.com/codex-team/codex.docs">CodeX Docs</a> — documentation engine</li>
+<li><a href="https://github.com/codex-team/codex.media">CodeX Media</a> — platform for building modern website for educational or media organizations</li>
+<li><a href="https://github.com/codex-team/codex.notes">CodeX Notes</a> — crossplatform desktop notes application based on Electron and Editor.js</li>
+<li><a href="https://OmniaWrite.com">OmniaWrite.com</a> — a text editor engineered for creative writing</li>
+<li><a href="https://automad.org">automad.org</a> — a flat-file content management system and template engine</li>
+<li><a href="https://noter.sambitsahoo.com">Noter</a> - A State of the Art realtime and collaborative note taking platform</li>
+</ul>
+<!--    
+### Apps/Websites    
+-->    
+<p><a href="#contents">Back to top</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="awesome-workflow-engines.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="AwesomeWPF.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="awesome-workflow-engines.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="AwesomeWPF.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/mermaid.min.cdn.js"></script>
+        <script src="./js/globalscript.js"></script>
+
+
+    </div>
+    </body>
+</html>

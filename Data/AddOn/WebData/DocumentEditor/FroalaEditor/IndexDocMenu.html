@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+    <link href='./froala.min.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="./plugins/fullscreen.min.css" />
+
+</head>
+<body>
+    <div id="HtmlArea" style="height:100%;"></div>
+    <script type='text/javascript' src='./jquery-3.6.0.min.js'></script>
+    <script type='text/javascript' src='./froala.min.js'></script>
+    <script type="text/javascript" src="./plugins/fullscreen.min.js"></script>
+    <script type='text/javascript' src='./languages/cs.js'></script>
+
+    <script>
+		 //let editor = new FroalaEditor('div#froala-editor', {}, function () {
+		//	console.log(editor.html.get())
+		 //});
+        let editor = new FroalaEditor('#HtmlArea', { language: 'cs',toolbarButtons: ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', '|', 'fontFamily', 'fontSize', 'color', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', 'quote', '-', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'emoticons', 'specialCharacters', 'insertHR', 'selectAll', 'clearFormatting', '|', 'print', 'help', 'html', '|', 'undo', 'redo','trackChanges','markdown'] }, function (){
+			if (!editor.fullscreen.isActive()) {editor.fullscreen.toggle ()};
+		});
+        //if (!editor.fullscreen.isActive()) {editor.fullscreen.toggle ()};
+
+
+        
+		/* // Testing First
+         setTimeout(()=>{
+            editor.html.set("test");
+            editor.html.get();
+         },1000);
+        */
+
+        //GLOBAL FUNCTION FOR SAME USING IN ALL EDITORS
+        function SetEditorData(inputValue) {
+        try {
+            setTimeout(() => { editor.html.set(inputValue); }, 1000);
+        } catch (err) { return false; }
+            return true;    
+        }
+
+        //GLOBAL FUNCTION FOR SAME USING IN ALL EDITORS
+        function GetEditorData() {
+            try {
+                return editor.html.get();
+            } catch (err) { return err; }
+        }
+
+    </script>
+</body>
+</html>

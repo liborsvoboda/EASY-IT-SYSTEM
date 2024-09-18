@@ -1,0 +1,159 @@
+html, body{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+background: #45484d; /* Old browsers */
+background: -moz-linear-gradient(-45deg, #45484d 0%, #000000 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+height: 100%;
+background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1{
+	padding-top: 1%;
+	color: #f5deb3;
+	font-family: 'Lato';
+	text-align: center;
+}
+
+.pomodoro{
+    position: absolute;
+    width: 60vw;
+    height:70vh;
+    text-align: center;
+    top:15%;
+    left:20%;
+	font-family: 'Lato';
+}
+
+.timer{
+    width:35%;
+    height:auto;
+    background: #8b0000;
+    border-radius: 15px;
+    padding:2%;
+    color: #f5deb3;
+    display: inline-block;
+	margin: 2%;
+    }
+
+.break{
+    width:35%;
+	height:auto;
+    background: #8b0000;
+    border-radius: 15px;
+    padding:2%;
+    color: #f5deb3;
+    display: inline-block;
+	margin: 2%;
+    }
+
+#start{
+    width:25%;
+    height:10%;
+    background: #8b0000;
+    border-radius: 15px;
+    padding:2%;
+    color: #f5deb3;
+    display: inline-block;
+	margin: 2%;
+    }
+
+#reset{
+    width:25%;
+    height:10%;
+    background: #8b0000;
+    border-radius: 15px;
+    padding:2%;
+    color: #f5deb3;
+    display: inline-block;
+	margin: 2%;
+    }
+	
+#stop{
+    width:25%;
+    height:10%;
+    background: #8b0000;
+    border-radius: 15px;
+    padding:2%;
+    color: #f5deb3;
+    display: inline-block;
+	margin: 2%;
+    }
+	
+#countdown{
+	width:60%;
+	padding: 5%;
+    background: #8b0000;
+    border-radius: 50px;
+    text-align:center;
+    color: #f5deb3;
+	margin: 2% auto;
+	font-size: 5em;
+}
+	
+#brk-counter{
+	display:none;
+	position: fixed;
+	padding: 1%;
+	width:20%;
+    background: #8b0000;
+    border-radius: 50px;
+    text-align:center;
+    color: #f5deb3;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 2em;
+    top: 40%;
+    left:1%;
+}
+
+*{
+	outline:none;
+}
+
+.timer button, .break button{
+	color: #8b0000;
+    border-radius: 5px;
+    padding:2% 3%;
+    background: #f5deb3;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+#timer-count, #break-count{
+	font-size: 1.2em;
+	font-weight: bold;
+	padding:2% 3%;
+	margin:1%;
+}
+
+footer{
+	position: fixed;
+	width: 50%;
+	left: 25%;
+	padding:0;
+	color: #f5deb3;
+	bottom:0;
+}
+
+#start, #reset, #stop{
+    font-size: 1.2em;
+    font-weight: bold;
+    padding:1%;
+    text-align: center;
+}
+
+@media all and (max-width:800px){
+    #countdown{
+	width:auto;
+	padding: 5%;
+    background: #8b0000;
+    border-radius: 50px;
+    text-align:center;
+    color: #f5deb3;
+	margin: 2% auto;
+	font-size: 5em;
+}
+}

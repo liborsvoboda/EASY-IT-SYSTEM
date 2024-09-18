@@ -1,0 +1,20 @@
+{
+  "name": "editorjs-VAR_TOOL_NAME",
+  "description": "VAR_TOOL_NAME Tool for Editor.js",
+  "version": "1.0.0",
+  "main": "dist/VAR_TOOL_NAME.umd.js",
+  "module": "dist/VAR_TOOL_NAME.mjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@codexteam/icons": "^0.2.0",
+    "@editorjs/editorjs": "^2.26.4",
+    "@types/node": "^18.11.16",
+    "ts-loader": "^9.1.0",
+    "typescript": "^4.2.4",
+    "vite": "^4.0.1",
+    "vite-plugin-css-injected-by-js": "^2.1.1"
+  }
+}

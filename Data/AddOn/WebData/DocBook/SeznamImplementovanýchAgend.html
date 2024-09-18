@@ -1,0 +1,706 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ver.17:  Seznam Implementovaných Agend - EIC&amp;ESB Dokumentace</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="EasyITcenter &amp; EasySYSTEMbuilder Dokumentace">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB-Globální IT Řešení na míru</li><li class="chapter-item expanded "><a href="VizeaNápadyaPostupy.html"><strong aria-hidden="true">1.</strong> Ver.9: Vize a Nápady a Postupy</a></li><li class="chapter-item expanded "><a href="HistorieReklamníchSdělení.html"><strong aria-hidden="true">2.</strong> Ver.5: Historie Reklamních Sdělení</a></li><li class="chapter-item expanded "><a href="ÚvodníInformace.html"><strong aria-hidden="true">3.</strong> Ver.22: Úvodní Informace</a></li><li class="chapter-item expanded "><a href="PřipravovanéNovinky.html"><strong aria-hidden="true">4.</strong> Ver.42: Připravované Novinky</a></li><li class="chapter-item expanded "><a href="AutomatickéFunkcinality.html"><strong aria-hidden="true">5.</strong> Ver.5: Automatické Funkcinality</a></li><li class="chapter-item expanded "><a href="DatabázeNápověda.html"><strong aria-hidden="true">6.</strong> Ver.3: Databáze Nápověda</a></li><li class="chapter-item expanded "><a href="EIC&ESB3rdNástrojeaModuly.html"><strong aria-hidden="true">7.</strong> Ver.5: EIC&ESB 3rd Nástroje a Moduly</a></li><li class="chapter-item expanded "><a href="ZpracovávánéAChangeLog.html"><strong aria-hidden="true">8.</strong> Ver.33: Zpracováváné A ChangeLog</a></li><li class="chapter-item expanded "><a href="CeníkEIC&ESBaITSlužeb.html"><strong aria-hidden="true">9.</strong> Ver.22: Ceník EIC&ESB a IT Služeb</a></li><li class="chapter-item expanded "><a href="Kontakty.html"><strong aria-hidden="true">10.</strong> Ver.2: Kontakty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Start -DATABASE-RULE</li><li class="chapter-item expanded "><a href="WebRozcestník.html"><strong aria-hidden="true">11.</strong> Ver.8: Web Rozcestník</a></li><li class="chapter-item expanded "><a href="DBTabulkyŘešení.html"><strong aria-hidden="true">12.</strong> Ver.49: DB Tabulky Řešení</a></li><li class="chapter-item expanded "><a href="DBProceduryŘešení.html"><strong aria-hidden="true">13.</strong> Ver.48: DB Procedury Řešení</a></li><li class="chapter-item expanded "><a href="DBTriggery.html"><strong aria-hidden="true">14.</strong> Ver.46: DB Triggery</a></li><li class="chapter-item expanded "><a href="DBViewaFunkce.html"><strong aria-hidden="true">15.</strong> Ver.44: DB View a Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-Dev Pravidla</li><li class="chapter-item expanded "><a href="EICServerInstalaceWIN_LIN.html"><strong aria-hidden="true">16.</strong> Ver.15: EIC Server Instalace WIN_LIN</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="EIC-LogikaaStruktura.html"><strong aria-hidden="true">17.</strong> Ver.12: EIC - Logika a Struktura</a></li><li class="chapter-item expanded "><a href="EICUnikátníAPISlužby.html"><strong aria-hidden="true">18.</strong> Ver.8: EIC Unikátní API Služby</a></li><li class="chapter-item expanded "><a href="ZákladníKonfiguraceServeru.html"><strong aria-hidden="true">19.</strong> Ver.22: Základní Konfigurace Serveru</a></li><li class="chapter-item expanded "><a href="SeznamImpl.ModulůServeru.html"><strong aria-hidden="true">20.</strong> Ver.8: Seznam Impl. Modulů Serveru</a></li><li class="chapter-item expanded "><a href="EICXMLKomentářezProjektu.html"><strong aria-hidden="true">21.</strong> Ver.14: EIC XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="EICRadyprogramování.html"><strong aria-hidden="true">22.</strong> Ver.8: EIC Rady programování</a></li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">23.</strong> Ver.60: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="StaticWebPortál.html"><strong aria-hidden="true">24.</strong> Ver.3: Static Web Portál</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">ESB - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="ESB-LogikaaStuktura.html"><strong aria-hidden="true">25.</strong> Ver.5: ESB - Logika a Stuktura</a></li><li class="chapter-item expanded "><a href="SeznamImplementovanýchAgend.html" class="active"><strong aria-hidden="true">26.</strong> Ver.17:  Seznam Implementovaných Agend</a></li><li class="chapter-item expanded "><a href="SeznamukázkovýchModulůSystému.html"><strong aria-hidden="true">27.</strong> Ver.12: Seznam ukázkových Modulů Systému</a></li><li class="chapter-item expanded "><a href="ESBXMLKomentářezProjektu.html"><strong aria-hidden="true">28.</strong> Ver.6: ESB XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="MikročíselníkyunikátníFunkce.html"><strong aria-hidden="true">29.</strong> Ver.7: Mikročíselníky unikátní Funkce</a></li><li class="chapter-item expanded "><a href="GlobálníFunkce.html"><strong aria-hidden="true">30.</strong> Ver.9: Globální Funkce</a></li><li class="chapter-item expanded "><a href="ESBRadyprogramování.html"><strong aria-hidden="true">31.</strong> Ver.8: ESB Rady programování</a></li><li class="chapter-item expanded "><a href="XAMLŠablonySystému.html"><strong aria-hidden="true">32.</strong> Ver.63: XAML Šablony Systému</a></li><li class="chapter-item expanded "><a href="ESBTiskovéřešení.html"><strong aria-hidden="true">33.</strong> Ver.5: ESB Tiskové řešení</a></li><li class="chapter-item expanded "><a href="DoplňujícíSubProjekty.html"><strong aria-hidden="true">34.</strong> Ver.8: Doplňující SubProjekty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC Knihovny Kódů a Šablony</li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">35.</strong> Ver.61: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="GenerátoryaJejichFunkce.html"><strong aria-hidden="true">36.</strong> Ver.62: Generátory a Jejich Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIS-ESB-ClonedSmallServers</li><li class="chapter-item expanded "><a href="ExpertDocSPAManager.html"><strong aria-hidden="true">37.</strong> Ver.18: ExpertDoc SPA Manager</a></li><li class="chapter-item expanded "><a href="ExpertDocWebServer.html"><strong aria-hidden="true">38.</strong> Ver.18: ExpertDoc Web Server</a></li><li class="chapter-item expanded "><a href="ExpertDocExportSPADocWebu.html"><strong aria-hidden="true">39.</strong> Ver.21: ExpertDoc Export SPADoc Webu</a></li><li class="chapter-item expanded "><a href="ExpertDocUkázkyFormátování.html"><strong aria-hidden="true">40.</strong> Ver.19: ExpertDoc Ukázky Formátování</a></li><li class="chapter-item expanded "><a href="ExpertDocGrafickéUkázky.html"><strong aria-hidden="true">41.</strong> Ver.21: ExpertDoc Grafické Ukázky</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-CanceledRazorBuild</li><li class="chapter-item expanded "><a href="ZrušenýMVCWebPortalCsHtml.html"><strong aria-hidden="true">42.</strong> Ver.77: Zrušený MVC Web Portal CsHtml</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB Github a Svět Neomezená Řešení</li><li class="chapter-item expanded "><a href="awesome-dotnet-core.html"><strong aria-hidden="true">43.</strong> Ver.1: awesome-dotnet-core</a></li><li class="chapter-item expanded "><a href="awesome-dotnet-coreNext.html"><strong aria-hidden="true">44.</strong> Ver.2: awesome-dotnet-core Next</a></li><li class="chapter-item expanded "><a href="awesome-workflow-engines.html"><strong aria-hidden="true">45.</strong> Ver.3: awesome-workflow-engines</a></li><li class="chapter-item expanded "><a href="editorjsrozšířený.html"><strong aria-hidden="true">46.</strong> Ver.4: editorjs rozšířený</a></li><li class="chapter-item expanded "><a href="AwesomeWPF.html"><strong aria-hidden="true">47.</strong> Ver.4: Awesome WPF</a></li><li class="chapter-item expanded "><a href="ZaznamenanéNápadykprověření.html"><strong aria-hidden="true">48.</strong> Ver.1: Zaznamenané Nápady k prověření </a></li><li class="chapter-item expanded "><a href="InspiraceGithubBohatéProfily.html"><strong aria-hidden="true">49.</strong> Ver.3: Inspirace Github Bohaté Profily </a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Systém Šablon EIC & ESB</li><li class="chapter-item expanded "><a href="templates/index.html"><strong aria-hidden="true">50.</strong> Šablony, Kódy, Příklady</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">EIC&amp;ESB Dokumentace</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="seznam-implementovaných-agend"><a class="header" href="#seznam-implementovaných-agend">Seznam Implementovaných Agend,</a></h1>
+<p>Zde je Seznam implementovaných Agend Systému. Systém je aktuálně zaměřen na Správu IT, a všeho Okolo.
+Je Modifikován tak Aby zvládnul všechny možné typy požadavků. Upravit sio je pro Svá data je otázkou v řádech týdnů, protože
+disponuje všemi možnými nástroji pro zpracování každého typu požadavku.</p>
+<hr />
+<h1 id="basicagendas"><a class="header" href="#basicagendas">BasicAgendas</a></h1>
+<ul>
+<li>Dial  <strong>BasicCurrencyListPage</strong></li>
+</ul>
+<p>*Globální číselník nastavení Druhů měn.
+Systém i celé řešení je multi Jazyčný, Multipobočkový což nastavuje rozsah využití na celý svět.
+Zde jde Centrální Správa
+*</p>
+<pre><code class="language-- Dial  **BasicUnitListPage**">*Globální Číselník Jednotek Systému. 
+Lze Libovolně snadno rozšířit o automatické přepočty, převody, atd*
+</code></pre>
+<ul>
+<li>Dial  <strong>BasicVatListPage</strong></li>
+</ul>
+<p>*Zakladní Agenda nastavení DPH. To je to za co platíte Roční maintanace fe firmách.
+V tomto Systému si za stejné peníze koupíte další 20 typů serverů/systémů a řešení
+*</p>
+<pre><code class="language-- Agenda  **BasicCalendarListPage**">*Zakladní agenda Kalednáře. Můžete si zapisovat Poznamky, a máte celou Historii.
+Lze snadno rozšířit o Implementaci z Gitgub Globální Kalendář s napojením na Github, Facebook, Window, Google,
+Notifikce, atd...*
+</code></pre>
+<ul>
+<li>Agenda  <strong>BasicImageGalleryListPage</strong></li>
+</ul>
+<p><em>Ukázka Agendy Vlastní Multiplikované Galerie Obrázků. Galerií k zaimplementování z Github je celá řada
+včetně interaktiní s nepřeberným množstvím editorů, přípravy Tisku / Potisku, atd.
+Je možné i zaimplementovat interaktivní galerie v provedení prezentací, videí atd..</em></p>
+<pre><code class="language-- Agenda  **BasicItemListPage**">*Globální sdílená Agenda Položek Systému. Jsou Využity všude kde narazíte na položky, dle typů je můžete od sebe odlišit
+Použito v Licenčním Serveru, Modulu Obchodu v Dokladech. Jedná se o Distribuční, Evidenční, managované položky všetně vazeb 
+na Jednotky, Měny, Kurzy, Pobočky, Doklady, Přílohy*
+</code></pre>
+<ul>
+<li>View  <strong>BasicAttachmentListPage</strong></li>
+</ul>
+<p>*Globální Prohlížeč Všech typů příloh a dokumentů v Systému.
+Můžete online prohlížet , 3D, Office, Videa, Zvuky, Dokumenty PDF, Obrázky a všechny běžně používáné formáty.
+z Github Lze Snadno doimplementovat Jakýkoliv Jiný Formát, Např Statistika Auta, výrobní stroje Atd.
+*</p>
+<pre><code class="language-- View  **BasicViewAttachmentListPage**">*Globální Prohlížeč Všech typů příloh a dokumentů v Systému.
+Můžete online prohlížet , 3D, Office, Videa, Zvuky, Dokumenty PDF, Obrázky a všechny běžně používáné formáty.
+z Github Lze Snadno doimplementovat Jakýkoliv Jiný Formát, Např Statistika Auta, výrobní stroje Atd.
+*
+</code></pre>
+<hr />
+<h1 id="business"><a class="header" href="#business">Business</a></h1>
+<ul>
+<li>Dial  <strong>BusinessExchangeRateListPage</strong></li>
+</ul>
+<p><em>Globální Agenda nastavení Menových kurzů pro jednotlivé Měny.
+Lze snadno zaimplementovat Script pro Automatickou aktualizaci přímo z DB, serverem, Globální Operací
+Manuálním úkonem či Jakkoliv Jinak dle potřeby</em></p>
+<pre><code class="language-- Dial  **BusinessMaturityListPage**">*Číselník Splatností*
+</code></pre>
+<ul>
+<li>Dial  <strong>BusinessNotesListPage</strong></li>
+</ul>
+<p><em>Číselník Poznámerk Dokladů</em></p>
+<pre><code class="language-- Dial  **BusinessPaymentMethodListPage**">*Číselník Platebních Metod*
+</code></pre>
+<ul>
+<li>Dial  <strong>BusinessPaymentStatusListPage</strong></li>
+</ul>
+<p><em>Číselník Platebních Statusů</em></p>
+<pre><code class="language-- Dial  **BusinessWarehouseListPage**">*Agenda Správy Skladů*
+</code></pre>
+<ul>
+<li>Dial  <strong>SystemDocumentTypeListPage</strong></li>
+</ul>
+<p><em>Definice typů dokladů systému a jejich číselných řad. 
+Je to globálbí řešení pro všechny typy dokladů pro rozsáhle systémy
+Platnost od-do, prefix, pobočka</em></p>
+<pre><code class="language-- Dial  **SystemDocumentAdviceListPage**">*Agenda nastavení Řad Dokladů Systému*
+</code></pre>
+<ul>
+<li>Agenda  <strong>BusinessAddressListPage</strong></li>
+</ul>
+<p><em>Číselník Kontaktů Adresář</em></p>
+<pre><code class="language-- Agenda  **BusinessBranchListPage**">*Číselník Poboček*
+</code></pre>
+<ul>
+<li>Agenda  <strong>BusinessCreditNoteListPage</strong></li>
+</ul>
+<p><em>Agenda Dobropisů</em></p>
+<pre><code class="language-- Agenda  **BusinessIncomingInvoiceListPage**">*Agenda Příchozí Faktury*
+</code></pre>
+<ul>
+<li>Agenda  <strong>BusinessOutgoingInvoiceListPage</strong></li>
+</ul>
+<p><em>Agenda Odchozí Faktury</em></p>
+<pre><code class="language-- Agenda  **BusinessOfferListPage**">*Agenda správy Nabídek*
+</code></pre>
+<ul>
+<li>Agenda  <strong>BusinessIncomingOrderListPage</strong></li>
+</ul>
+<p><em>Agenda Příchozí Objednávky</em></p>
+<pre><code class="language-- Agenda  **BusinessOutgoingOrderListPage**">*Agenda Odchozí Objednávky*
+</code></pre>
+<ul>
+<li>Agenda  <strong>BusinessReceiptListPage</strong></li>
+</ul>
+<p><em>Agenda pokladních Dokladů</em></p>
+<pre><code>---   
+# DocumentServer         
+- Agenda  **DocSrvDocumentationGroupListPage**
+*Dokument Server:  Agenda Jednoduché Členění Dokumentace do Skupin Dla témát, logik, Atd*
+</code></pre>
+<ul>
+<li>Agenda  <strong>DocSrvDocumentationListPage</strong></li>
+</ul>
+<p><em>Dokument Server:  Agenda Globální Dokumentace MD Formátu pro možnost Generování dalších Libovolných
+struktur, webů, Knich, Manuálů, Mediálních Návodů atd...Knihovna vám usnadnuje používání a předefinování šablon pro 
+Stylizaci a jednotný Desing. Agenda má Zaimplementován Generátor Verzování, generování FullTextSearch Webu, 
+a je připravenou  ještě řada dalších Web nástrojů pro Publikaci Nejruznějšího Typu Dokumentace.</em></p>
+<pre><code class="language-- Agenda  **DocSrvDocumentationCodeLibraryListPage**">*Dokument Server:  Agenda Knihovna kódů Dokumentace MD Formátu pro možnost Generování dalších Libovolných
+struktur, webů, Knich, Manuálů, Mediálních Návodů atd...Knihovna vám usnadnuje použvání a předefinování šablon pro 
+Stylizaci a jednotný Desing*
+</code></pre>
+<ul>
+<li>Agenda  <strong>DocSrvDocTemplateListPage</strong></li>
+</ul>
+<p><em>Souborové šablony a ukázky</em></p>
+<pre><code>---   
+# Examples         
+- Agenda  **TemplateWebViewPage**
+*Ukázková šablona Jak jednoduše lze vytvořit Agendu*
+</code></pre>
+<ul>
+<li>Agenda  <strong>GraphsPage</strong></li>
+</ul>
+<p><em>Systémový Formulář s Ukázkou Nejzákladnějšícho Grafů z Doplnku o více jak 100 typů interaktivních Grafů.
+Lze implementovat Spusty dalších doplňků s typy Grafů z Github.
+Zde Je implementován Nejednodušší Modul který bude nasazen jako dynamický Controling</em></p>
+<pre><code class="language-- Agenda  **SystemMonitorPage**">*Systémový Formulář s Ukázkou Monitorování HardWare Počítače RAM + CPU.
+Je možné monitorovat Online, na pozadí, vzdáleně naprosto Cokoliv
+Lze implementovat nespočetné množstí dalších rozšíření z Github*
+</code></pre>
+<ul>
+<li>Agenda  <strong>TemplateSTLPage</strong></li>
+</ul>
+<p><em>Systémový Formulář s Ukázkou Nejzákladnějšího Object 3D,Stl, GWG a spusty dalších formátů 3D
+Lze implementovat nespočetné množstí Formátů z Github</em></p>
+<pre><code class="language-- Agenda  **TemplateVideoPage**">*Systémový Formulář s Ukázkou Nejzákladnějšího Video přehrávače.
+Lze implementovat nespočetné množstí typů přhrávačů z Github*
+</code></pre>
+<ul>
+<li>Agenda  <strong>SupportPage</strong></li>
+</ul>
+<p>*EasyITcenter &amp; EasySYSTEMbuilder
+Formulář s Kontaktními Informacemi. Neváhejte se kdykoliv Ozvat, na Cokoliv Zeptat o Cokoliv Požádat.
+I velmi složité Záležitosti se dají v tomto prostředí Vytvořit Velmi Snadno. 
+*</p>
+<pre><code>---   
+# LicenseServer         
+- Agenda  **LicSrvLicenseAlgorithmListPage**
+*Licenční Server: Agenda Správa Licencí, Generátoru licencí a jejich Platností s okamžitou Online funkčností. 
+Diky zaimplementovánemu SQL Designeru můžete Generovat a udělovat firmamá Libovolné Licence, Sady Licencí
+s mnoha dalšími parametry pro lůzné licenční Logiky. Je tak zaimplementováno Neomezené množství druhů a logik Licencí*
+</code></pre>
+<ul>
+<li>View  <strong>LicSrvLicenseActivationFailListPage</strong></li>
+</ul>
+<p><em>Licenční Server: Přehled neúspěných pokusů o Aktivací pomocí neplatně LICENCE.
+Zaznamenány jsou všechny údaje Kdo, čím, jakou, kdy, odkud, pro možnost zabězpečení, Ověření,Eliminaci, Blokaci 
+nežadoucích pokusů o prolomení Licenčího serveru.</em></p>
+<pre><code class="language-- View  **LicSrvUsedLicenseListPage**">*Přehled Použitých Licencí*
+</code></pre>
+<hr />
+<h1 id="messagingmodul"><a class="header" href="#messagingmodul">MessagingModul</a></h1>
+<ul>
+<li>Dial  <strong>SolutionEmailTemplateListPage</strong></li>
+</ul>
+<p>*Správa a nastavení emailových šablon pro všechna použití celého řešení.
+*</p>
+<pre><code class="language-- Dial  **SolutionMessageTypeListPage**">*Nastavení Typů Zpráv Messagingu. Zprávy jsou Tříděny a zpracovánány
+dle začlenění a nastavení.  Speciální funkcionality je nutné zaimplementovat.
+*
+</code></pre>
+<ul>
+<li>Agenda  <strong>SolutionMessageModuleListPage</strong></li>
+</ul>
+<p><em>Administrace Agend Messaging Modulu, Novinky,
+Web Blog, Privátní Zprávy,</em></p>
+<pre><code class="language-- View  **SolutionEmailerHistoryListPage**">*Kompletní Přehled Rozeslaných Emailů. Historie se řídí dle
+nastavení Null User v Parametrech Systému*
+</code></pre>
+<hr />
+<h1 id="production"><a class="header" href="#production">Production</a></h1>
+<ul>
+<li>Agenda  <strong>ProdGuidPartListPage</strong></li>
+</ul>
+<p><em>Agenda Vykazování Práce Zaměstanců ve výrobě pro Firmy. 
+Agenda Byla naprogramována za 1 týden. Další Krok Je jen Upravit pro Dotykový Panel
+Jde oČíselníky Operací, Zamestanců, Středisek, Výkazy práce a Generování + Tisk měsíčních Podkladů 
+pro Mzdy, Plnění Norem, Kapacity, Docházku.</em></p>
+<pre><code class="language-- Agenda  **ProdGuidGroupListPage**">*Agenda Vykazování Práce Zaměstanců ve výrobě pro Firmy. 
+Agenda Byla naprogramována za 1 týden. Další Krok Je jen Upravit pro Dotykový Panel
+Jde oČíselníky Operací, Zamestanců, Středisek, Výkazy práce a Generování + Tisk měsíčních Podkladů 
+pro Mzdy, Plnění Norem, Kapacity, Docházku.*
+</code></pre>
+<ul>
+<li>Agenda  <strong>ProdGuidPersonListPage</strong></li>
+</ul>
+<p><em>Agenda Vykazování Práce Zaměstanců ve výrobě pro Firmy. 
+Agenda Byla naprogramována za 1 týden. Další Krok Je jen Upravit pro Dotykový Panel
+Jde oČíselníky Operací, Zamestanců, Středisek, Výkazy práce a Generování + Tisk měsíčních Podkladů 
+pro Mzdy, Plnění Norem, Kapacity, Docházku.</em></p>
+<pre><code class="language-- Agenda  **ProdGuidWorkListPage**">*Agenda Vykazování Práce Zaměstanců ve výrobě pro Firmy. 
+Agenda Byla naprogramována za 1 týden. Další Krok Je jen Upravit pro Dotykový Panel
+Jde o Číselníky Operací, Zamestanců, Středisek, Výkazy práce a Generování + Tisk měsíčních Podkladů 
+pro Mzdy, Plnění Norem, Kapacity, Docházku.*
+</code></pre>
+<ul>
+<li>Agenda  <strong>ProdGuidOperationListPage</strong></li>
+</ul>
+<p><em>Agenda Vykazování Práce Zaměstanců ve výrobě pro Firmy. 
+Agenda Byla naprogramována za 1 týden. Další Krok Je jen Upravit pro Dotykový Panel
+Jde o Číselníky Operací, Zamestanců, Středisek, Výkazy práce a Generování + Tisk měsíčních Podkladů 
+pro Mzdy, Plnění Norem, Kapacity, Docházku.</em></p>
+<pre><code>---   
+# Provider         
+- View  **ProviderGeneratedToolListPage**
+*Agenda Poskytovaných Generátorů na internetu*
+</code></pre>
+<ul>
+<li>View  <strong>ProviderAutoGenServerReqListPage</strong></li>
+</ul>
+<p><em>Agenda Evidence požadavků Generování Licencí.</em></p>
+<pre><code class="language-- View  **ProviderGeneratedLicenseListPage**">*Agenda Správy generovaných Licencí Licenčního Serveru*
+</code></pre>
+<ul>
+<li>View  <strong>ProviderViewGeneratedToolRatingListPage</strong></li>
+</ul>
+<p><em>Hotnocení Nástrojů a Generátorů</em></p>
+<pre><code>---   
+# ServerSettings         
+- Dial  **SolutionMottoListPage**
+*Agenda Hesel zobrtazujících se při spouštění Systému a ve Web Portálu. může to využít třeba pro informování o změnách, jakkoliv jinak*
+</code></pre>
+<ul>
+<li>Dial  <strong>SolutionLanguageListPage</strong></li>
+</ul>
+<p><em>Nastavení Jazyku serveru. Server odpovídá na API akce bud validní odpovědí nebo definvanýou odpovědí, která se tak automaticky přeloží pro všechny dotazy - SYSTEM/INTERNET/ANY
+Server se vždy Snaží vracet validní Info Odpověd v případfě chyby, která se nepřekládá ale přesně ukáže důvod Chyby, Kde ji najdete v kódu - takže k vývoji stačí už jen umět číst.</em></p>
+<pre><code class="language-- Dial  **WebModulePage**">*Systémový Formulář. Samostatně je neaktivní
+Slouží pro práci s Webovými Moduly.
+Je řízen Výhradně Systémem*
+</code></pre>
+<ul>
+<li>Agenda  <strong>SolutionSchedulerProcessListPage</strong></li>
+</ul>
+<p><em>SubTabulka Plánovače Úloh.
+Slouží Pouze pro sběr Dat.
+Nemá Ovládací Formulář</em></p>
+<pre><code class="language-- Agenda  **SolutionSchedulerListPage**">*Globální Plánovač Úloh. Ulohy jsou různých typů až po plné automatizování libovolných procxesů. Jwe to vlastně TaskFlow.
+Aktuálně jsou zaimplementovány Zpracování SQL, Zasílání Emailu, Vygenerování WebSocket Notifikace, Spuštění příkazu na Serveru
+Tím se dají řešit/řídit nejrůznější požadavky*
+</code></pre>
+<ul>
+<li>Agenda  <strong>SolutionFailListPage</strong></li>
+</ul>
+<p><em>Celé řešení má zaimplementováno monitorování ze všech typů serverů a systémů. V případě vzniku chyby, jsou zalogovány pro možnost snadné opravy.
+Monitorovány jsou všechny stavy i třeba nedostupnost URl, neexistují soubor pro spuštění atd. co nemusejí být chyby. 
+Vy tak máte mohutný nástroj Kontroly úplně veškerého dění.</em></p>
+<pre><code class="language-- Agenda  **ServerCorsDefAllowedOriginListPage**">*Definice Pobvolených Origin URL, Domén na Serveru ve Formátu http://domain.com:3000, https://localhost*
+</code></pre>
+<ul>
+<li>Agenda  <strong>ServerSettingListPage</strong></li>
+</ul>
+<p><em>Agenda Nastavení Serveru EIC. Zde je úplná Správa Serveru nastavení Zabezpečení, Aktivace Modulů, služeb, Serverů,
+a všeho co je Součástí Serveru bez vazby na Systém. 
+Online lze Zapínat a Vypínat vybrané Služby, nebo pro Aplikaci lze provést okažitý rerstart Serveru.</em></p>
+<pre><code class="language-- Agenda  **ServerHealthCheckTaskListPage**">*Agenda Nastavení Dohledového Centra.  Zde se nastavuje Monitoring Služeb, SW/ HW/ NET /DB atd. a hlidá se Dostupnost.
+V případě Výpadku či poruchy - negativního stavu kontroly, je zaslán email Správci Systému.
+*
+</code></pre>
+<ul>
+<li>Agenda  <strong>SystemTranslationListPage</strong></li>
+</ul>
+<p><em>Online překladač tzpráv nastavení popisů systému, serveru, hlášení, zpráv atd..
+Pouze Chybové zprávy jsou originální s přesným popisem chyby</em></p>
+<pre><code>---   
+# SolutionOnlineDevelope         
+- Agenda  **WebCodeEditorPage**
+*Web Code Editor k Volnému Testování  a vývoji Webových Stránek.
+Nemá žádné Vazby, vše je nutné si definovat, ideálně s kódy z Web knihovny
+A Tvořit si Vlastní. K dispozici je i Online Náhled Vytvořeného kódu*
+</code></pre>
+<ul>
+<li>Agenda  <strong>XamlCodeEditorPage</strong></li>
+</ul>
+<p><em>Výchozí XamlCode Editor pro snadnou tvorbu a práci s Formuláři.
+Je to součást Systému, Web Verze je zatím ve vývoji.</em></p>
+<pre><code class="language-- Agenda  **WebServerViewPage_001**">*Systémový název Formuláře: WebServerViewPage, Funcionalitu Zajišťuje vlastní Web
+Zde Implementován: Server Modul Vývoj kódu CSharpEdit s kontrolou Online
+Zabezpečení Modulu: Open -  over Internal web API solution*
+</code></pre>
+<ul>
+<li>Agenda  <strong>WebServerViewPage_002</strong></li>
+</ul>
+<p><em>Modul Vývoj kódu MonacoEdit s kontrolou a InteliSense Online jak ve Webu tak v Systému
+Pomocí Těchto nástrojů , šablon a knihoven kódu je vývoj naprostou hračkou pro každé IT Oddělení</em></p>
+<pre><code class="language-- Agenda  **WebServerViewPage_003**">*Manuální Kontrola Rozdílů Souborů Projektu*
+</code></pre>
+<ul>
+<li>Agenda  <strong>WebServerViewPage_004</strong></li>
+</ul>
+<p><em>Run Csharp Code Online</em></p>
+<pre><code class="language-- Agenda  **WebServerViewPage_005**">*Web Developer Portal Online s automatickým přihlášením
+*
+</code></pre>
+<ul>
+<li>Agenda  <strong>SolutionTaskListPage</strong></li>
+</ul>
+<p>*Agenda Plánovaných úloh Vývoje Řešení.  Ze stavů je automaticky generovaná Dokumentace pomocí Hromadné Úlohy.
+Dokumentace se Přepisuje. Pokud Se provadí Update/Upgrade, ideálně otevřít existující hotovou úlohu a a přidat dokumentaci do ní pro přehlednost.
+Stavy a Příslušnost se definuje v mikro číselníku.
+*</p>
+<pre><code class="language-- Agenda  **UniversalCodeEditorPage**">*Implemetovaný Universální Code Editor pro různé Sytace s nápověhou , zvýrazněním, automatickým dokončením
+pro Online správu a Vývoj EASY projektů Online Přímo ze systému. 
+*
+</code></pre>
+<hr />
+<h1 id="systemsettings"><a class="header" href="#systemsettings">SystemSettings</a></h1>
+<ul>
+<li>Dial  <strong>SolutionMixedEnumListPage</strong></li>
+</ul>
+<p><em>Centrální Správa všech potřebných mikro číselníků pro dynamické plnění a správu obsahu</em></p>
+<pre><code class="language-- Dial  **SystemMenuListPage**">*Agenda Správy nastavení Zobrazení Menu Systému a jeho položek, nápovědy a práv.
+Systém je plně Dynamický takže když pridáte multiplikovanou položku do menu musíte nastavit
+kde se zobrazí, komu a co má provést.*
+</code></pre>
+<ul>
+<li>Dial  <strong>SystemCustomPageListPage</strong></li>
+</ul>
+<p><em>Agenda Unikátních Formulářů Mediální, Editory, Multifunkční</em></p>
+<pre><code class="language-- Dial  **SystemIgnoredExceptionListPage**">*Systém, Servwer i Web mohou být plně sledovány na jakýkoliv úkon. v Případě Chyby se každá chyba zapíše do managovaného DB Logu.
+Zde je Nastavení Ignorování Sledování jednotlivých druhů chyb, protože ne každá chyba je chybou.
+Aby Nebyla agenda spanována určitými nepodstatnými Chybami.  Vy tak máte plnou kontrolu na systémem, Serverem i Webem
+a všemi implementovanými moduly, nástorji atd co je součátí tchto 3 systémů - to je CELÝ IT SVĚT.
+*
+</code></pre>
+<ul>
+<li>Dial  <strong>SystemGroupMenuListPage</strong></li>
+</ul>
+<p><em>Dynamická Agenda Definic Skupin Menu Systému.
+Sami si můžete nastavit jak se mají jmenovat co budou obsahovat, 
+komu se zobrazí, co Bude spuštěno</em></p>
+<pre><code class="language-- Dial  **SystemSvgIconListPage**">*Systémový Číselník Ikon pro Technologii Metro. Totožná Tehnologie je Nasazena i na webu a je 100% kopatibilní
+pro generované panely. Slouží pro generování Systémových  přehledů Nástrojů na Web*
+</code></pre>
+<ul>
+<li>Agenda  <strong>SystemReportQueueListPage</strong></li>
+</ul>
+<p>*Agenda definic SQL datazů pro Volání z Reportů - RePORT Builderu pro Tisk ze Systému.
+Tento způsob je jednodušší něž zapisovat definici v ReportBuilderu, je interaktivní a při změně nastavení adresy serveru
+se Automaticky změní Také.  Tím je Definice Dynamická s implementovaným SQL spuštením Online
+Bude Vylepšen O Inteligentní SQL Designer s našeptávačem</p>
+<ul>
+<li></li>
+</ul>
+<pre><code class="language-- Agenda  **SystemReportListPage**">*Agenda definic Tiskových Reportů - které si můžete sami vytvářet pomocí Report Builderu pro Tisk ze Systému.
+Rodporovány jsou všechny typy reportů štítky, čárové kódy, grafy, tabulky, přehledy, tiskopisy.
+Není nutný žádný další vývoj 
+*
+</code></pre>
+<ul>
+<li>Agenda  <strong>ClientSettingsPage</strong></li>
+</ul>
+<p><em>Generický Formulář, stejně jako nastavení Serveru. Zde je ještě 1 rozdíl a to nutnosti použití slovníku offline
+než naběhne systém, a překlady jsou zpracovávány z globálního slovníku.  Všechny Takové Specifické Formuláře
+nezapoměňte nastavit  Xaml Tag=&quot;Setting&quot;</em></p>
+<pre><code class="language-- Agenda  **SolutionUserRoleListPage**">*Uživatelské Role, dle nich jsou omezovány, nebo povoleny, menu systému, 
+Přístupy na webu, Jednotlivé služby a moduly sereveru - API*
+</code></pre>
+<ul>
+<li>Agenda  <strong>SolutionUserListPage</strong></li>
+</ul>
+<p><em>Správa uživatelů řešení</em></p>
+<pre><code class="language-- Agenda  **SystemParameterListPage**">*Nastavení Chování Systému, Defaultně Nastaveno dle Uživatele NULL = System Default. 
+Toto nastavcení se následně klonuje na každého nového uživatele, který má možnost si nastavení změnit dle potřeby.
+V nastavení jsou Spoje mezi Moduly, Funkcionalitami, Vzhledu Systému, Chování Systému, atd. *
+</code></pre>
+<ul>
+<li>View  <strong>SystemLoginHistoryListPage</strong></li>
+</ul>
+<p>*Automatický Pohled přihlašování uživatelů do systému
+Implementováno pomocí API TRIGERU pri Přihlašování
+*</p>
+<pre><code class="language-- View  **TemplateListPage**">*Šablona Tvorby Systému. Celý vývoj je tak jednoduchý, že na něj stačí kopírovat a lehce modifikovat šablony ať už Databáze, Serve, Webu nebo Systému
+a vy si můžete jednoduše vytvořit Libovolné IT řešení přesně vám na míru. Už neexistuje že něco nejde, Toto řeěšení Umožnuje naprosto vše hned při prvním použití*
+</code></pre>
+<hr />
+<h1 id="tools"><a class="header" href="#tools">Tools</a></h1>
+<ul>
+<li>Dial  <strong>ServerToolTypeListPage</strong></li>
+</ul>
+<p><em>Agenda správy Typů Nástrojů Řešení. Jsou to skupiny pro pro evidenci a třídění jednotlivých nástrojů řešení</em></p>
+<pre><code class="language-- Dial  **ServerToolPanelDefinitionListPage**">*Agenda Definic Panelu Nástrojů*
+</code></pre>
+<ul>
+<li>Dial  <strong>ServerModuleAndServiceListPage</strong></li>
+</ul>
+<p><em>Správa Modulů a Služeb Řešení. Jedná se o webové moduly, aplikační moduly, implementované moduly a rozšíření, Externí Aplikace,, 
+které mohou být přímo implementovány na serveru, či implementovány v web serveru Systému, nebo můžete vložit libovolnou IRL adresu z Internetu.
+Tak můžete mít své oblíbené stránky, nástore, nápovědy vždy po ruce.</em></p>
+<pre><code class="language-- Dial  **SystemModuleListPage**">*Konfigurátor Nastavení Systémových Modulů
+Zde si můžete přidat i vlastní Moduly, Web Stránky, Aplikace
+
+*
+</code></pre>
+<ul>
+<li>Dial  <strong>SolutionOperationListPage</strong></li>
+</ul>
+<p><em>Definované Operace Řešení, Importy, Exporty, Spouštění procesů, dotazů dávek
+Vyplňujte pouze v případě, že chcete omezit Vybrané Domény, Jinak povolte vše v Konfiguraci Serveru</em></p>
+<pre><code class="language-- Agenda  **SystemOperationListPage**">*Agenda Hromadných nástrojů Serveru, Systému i Webu pro Prováděšní Specifických Operací
+BackupDb, Exporty/Importy, Generování, atd.  Lze Libovolně Rozšířit o Libovolné Funkcionality
+*
+</code></pre>
+<ul>
+<li>Agenda  <strong>ServerToolPanelListPage</strong></li>
+</ul>
+<p><em>Přehled a Zobrazení Implementovaných Modulů Server, Technologií , Webových nástrojů, mimo Externích aplikací a Modulů Systému.
+Přehled Dokumentací Řešení, i Dokumentací Implementovaných Technologií a Nástrojů</em></p>
+<pre><code>---   
+# WebHosting         
+- Dial  **SolutionStaticFilePathListPage**
+*Přehled Adresářových Struktur SubDomén*
+</code></pre>
+<ul>
+<li>Agenda  <strong>SolutionStaticFileListPage</strong></li>
+</ul>
+<p><em>Správa Souborů Webových Subdomén</em></p>
+<pre><code class="language-- Agenda  **SolutionWebsiteListPage**">*Webstránky Uživatelů zobrazené na subdoméně*
+</code></pre>
+<ul>
+<li>Agenda  <strong>WebBannedIpAddressListPage</strong></li>
+</ul>
+<p><em>Blokované IP Adresy ze seznamu návštěvníků</em></p>
+<pre><code class="language-- View  **WebVisitIpListPage**">*IP Adresy Návštěvníků WebServeru*
+</code></pre>
+<hr />
+<h1 id="webportal"><a class="header" href="#webportal">WebPortal</a></h1>
+<ul>
+<li>Dial  <strong>WebCodeLibraryListPage</strong></li>
+</ul>
+<p>*Agenda Knihovny  Webových kódů pro řízenou nápovědu a usnadnění implementací různých řešení při Vývoji Webového Portálu či ostatních webových Editorů.
+Zde si ukládejte všechny poznatky.  Je plánován Centrální Update ze Serveru.
+*</p>
+<pre><code class="language-- Dial  **WebGroupMenuListPage**">*Agenda správy Členění Menu Web Portálu do Skupin. Zde se Spravují Skupiny do kterých je webové Menu Rozděleno.
+Deaktivace Skupiny, zabrání naččtení všech podřízených položek Menu.*
+</code></pre>
+<ul>
+<li>Dial  <strong>WebDocumentationCodeLibraryListPage</strong></li>
+</ul>
+<p>*Není nad to mít stále Opakované kódy při ruce. K tomu Slouží Code Knihovna. Zde máte Rychlá řešení vývoje
+a přesné deinice co a jak. pro Vývoj vám pak bude stačit jen skládat segmenty kódu do Libovolné výsledné podoby Systémů Serverů, Webů, Celého IT</p>
+<ul>
+<li></li>
+</ul>
+<pre><code class="language-- Agenda  **WebDocumentationListPage**">*Agenda Webové Dokumentace. Každá stránka Webu zde může mít svůj Návod Co a Jak. Je to jednoduché a efektivní řízení Nápovědy pro celý Web Portal
+Snadnější to už ani být nemůže. Vy a všichni ostatní tak máte kompletní návody vždy po ruce
+*
+</code></pre>
+<ul>
+<li>Agenda  <strong>ServerBrowsablePathListPage</strong></li>
+</ul>
+<p><em>Agenda správy Otevřenosti Obsahu Webového Serveru EIC. 
+Zde se nastavují Složky, které se dobrazí jako výpis Souborů a je možné z nich stahovat  jejich Obsah.
+Nastavená Složka automaticky Nabízí k Prohlížení přes Internet Veškerý svůj a podřízený Obsah.</em></p>
+<pre><code class="language-- Agenda  **WebMenuListPage**">*Agenda Správy Web Menu Webového Portálu. Zde se nastavuje kód pro zobrazení příslušného webového obsahu pro Jednotliváé položky Menu.*
+</code></pre>
+<ul>
+<li>Agenda  <strong>WebSettingListPage</strong></li>
+</ul>
+<p>*Dynamická Agenda nastavení WebPortalu Startup Konfigurace
+můžete takto přednastavit jakékoliv globální parametry.
+Tyto Parametry je pak nutno zaprogramovat do Web Portálu pomocí jednoduché přímé funkce
+*</p>
+<pre><code class="language-- Agenda  **WebGlobalPageBlockListPage**">*Globánlí Html Webu - Kód je Dostupný ve všech stránkách webu*
+</code></pre>
+<ul>
+<li>Agenda  <strong>ServerLiveDataMonitorListPage</strong></li>
+</ul>
+<p><em>Automaticky aktualizuje složku projektu i Publikovaného webu a dá pokyn k znovunačtení stránky klienta
+Využití např u dokumentace nebo tam kde nahráváte data a chcete je následně mít ihned přístupná
+bez restartování serveru</em></p>
+<pre><code class="language-- Agenda  **WebCoreFileListPage**">*Správa souborů jádra Web Serveru*
+</code></pre>
+<ul>
+<li>Agenda  <strong>WebDeveloperNewsListPage</strong></li>
+</ul>
+<p><em>Agenda článků Web portálu</em></p>
+<pre><code class="language-- View  **WebUserSettingListPage**">*Správa nastavení Uživatelů Internetu*
+</code></pre>
+<ul>
+<li>View  <strong>WebMessagesListPage</strong></li>
+</ul>
+<p><em>Zprávy na Webovém Portálu</em></p>
+<pre><code></code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ESB-LogikaaStuktura.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="SeznamukázkovýchModulůSystému.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ESB-LogikaaStuktura.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="SeznamukázkovýchModulůSystému.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/mermaid.min.cdn.js"></script>
+        <script src="./js/globalscript.js"></script>
+
+
+    </div>
+    </body>
+</html>

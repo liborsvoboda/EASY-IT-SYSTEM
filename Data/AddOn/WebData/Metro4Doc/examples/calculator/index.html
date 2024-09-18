@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Javascript Calculator</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="box">
+    <div class="calculator">
+        <h4> Javascript Calculator</h4>
+        <form>
+            <div class="row">
+            <input type="text"  name = "cell" width="100" id = "cell" readonly><br>
+            </div>
+
+            <div class="row">
+            <input type="button" name="backspace" value="backspace" onclick="back()">
+            <input type="button" name="clear" value="clear" onclick="cc()"><br>
+            </div>
+
+            <div class="row">
+                <input type="button" name="seven" value="7" onclick="display(this.value)">
+                <input type="button" name="eight" value="8" onclick="display(this.value)">
+                <input type="button" name="nine" value="9" onclick="display(this.value)">
+                <input type="button" name="plus" value="+" onclick="display(this.value)">
+                <input type="button" name="multiply" value="*" onclick="display(this.value)"><br>    
+            </div>
+
+            <div class="row">
+                <input type="button" name="four" value="4" onclick="display(this.value)">
+                <input type="button" name="five" value="5" onclick="display(this.value)">
+                <input type="button" name="six" value="6" onclick="display(this.value)">
+                <input type="button" name="minus" value="-" onclick="display(this.value)">
+                <input type="button" name="divide" value="/" onclick="display(this.value)"><br> 
+            </div>
+
+            
+            <div class="row">
+                <input type="button" name="one" value="1" onclick="display(this.value)">
+                <input type="button" name="two" value="2" onclick="display(this.value)">
+                <input type="button" name="three" value="3" onclick="display(this.value)">
+                <input type="button" name="(" value="(" onclick="display(this.value)">
+                <input type="button" name=")" value=")" onclick="display(this.value)">       
+                </div>
+
+            
+            <div class="row">
+                <input type="button" name="point" value="." onclick="display(this.value)">
+                <input type="button" name="zero" value="0" onclick="display(this.value)">
+                <input type="button" name="percent" value="%" onclick="display(this.value)">
+                <input type="button" name="equals" value="=" id = "equal" onclick="calc(cell.value)">
+                 </div>
+        </form>
+
+    </div>
+</div>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

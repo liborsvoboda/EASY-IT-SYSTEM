@@ -1,0 +1,915 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ver.5: Historie Reklamních Sdělení - EIC&amp;ESB Dokumentace</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="EasyITcenter &amp; EasySYSTEMbuilder Dokumentace">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB-Globální IT Řešení na míru</li><li class="chapter-item expanded "><a href="VizeaNápadyaPostupy.html"><strong aria-hidden="true">1.</strong> Ver.9: Vize a Nápady a Postupy</a></li><li class="chapter-item expanded "><a href="HistorieReklamníchSdělení.html" class="active"><strong aria-hidden="true">2.</strong> Ver.5: Historie Reklamních Sdělení</a></li><li class="chapter-item expanded "><a href="ÚvodníInformace.html"><strong aria-hidden="true">3.</strong> Ver.22: Úvodní Informace</a></li><li class="chapter-item expanded "><a href="PřipravovanéNovinky.html"><strong aria-hidden="true">4.</strong> Ver.42: Připravované Novinky</a></li><li class="chapter-item expanded "><a href="AutomatickéFunkcinality.html"><strong aria-hidden="true">5.</strong> Ver.5: Automatické Funkcinality</a></li><li class="chapter-item expanded "><a href="DatabázeNápověda.html"><strong aria-hidden="true">6.</strong> Ver.3: Databáze Nápověda</a></li><li class="chapter-item expanded "><a href="EIC&ESB3rdNástrojeaModuly.html"><strong aria-hidden="true">7.</strong> Ver.5: EIC&ESB 3rd Nástroje a Moduly</a></li><li class="chapter-item expanded "><a href="ZpracovávánéAChangeLog.html"><strong aria-hidden="true">8.</strong> Ver.33: Zpracováváné A ChangeLog</a></li><li class="chapter-item expanded "><a href="CeníkEIC&ESBaITSlužeb.html"><strong aria-hidden="true">9.</strong> Ver.22: Ceník EIC&ESB a IT Služeb</a></li><li class="chapter-item expanded "><a href="Kontakty.html"><strong aria-hidden="true">10.</strong> Ver.2: Kontakty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Start -DATABASE-RULE</li><li class="chapter-item expanded "><a href="WebRozcestník.html"><strong aria-hidden="true">11.</strong> Ver.8: Web Rozcestník</a></li><li class="chapter-item expanded "><a href="DBTabulkyŘešení.html"><strong aria-hidden="true">12.</strong> Ver.49: DB Tabulky Řešení</a></li><li class="chapter-item expanded "><a href="DBProceduryŘešení.html"><strong aria-hidden="true">13.</strong> Ver.48: DB Procedury Řešení</a></li><li class="chapter-item expanded "><a href="DBTriggery.html"><strong aria-hidden="true">14.</strong> Ver.46: DB Triggery</a></li><li class="chapter-item expanded "><a href="DBViewaFunkce.html"><strong aria-hidden="true">15.</strong> Ver.44: DB View a Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-Dev Pravidla</li><li class="chapter-item expanded "><a href="EICServerInstalaceWIN_LIN.html"><strong aria-hidden="true">16.</strong> Ver.15: EIC Server Instalace WIN_LIN</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="EIC-LogikaaStruktura.html"><strong aria-hidden="true">17.</strong> Ver.12: EIC - Logika a Struktura</a></li><li class="chapter-item expanded "><a href="EICUnikátníAPISlužby.html"><strong aria-hidden="true">18.</strong> Ver.8: EIC Unikátní API Služby</a></li><li class="chapter-item expanded "><a href="ZákladníKonfiguraceServeru.html"><strong aria-hidden="true">19.</strong> Ver.22: Základní Konfigurace Serveru</a></li><li class="chapter-item expanded "><a href="SeznamImpl.ModulůServeru.html"><strong aria-hidden="true">20.</strong> Ver.8: Seznam Impl. Modulů Serveru</a></li><li class="chapter-item expanded "><a href="EICXMLKomentářezProjektu.html"><strong aria-hidden="true">21.</strong> Ver.14: EIC XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="EICRadyprogramování.html"><strong aria-hidden="true">22.</strong> Ver.8: EIC Rady programování</a></li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">23.</strong> Ver.60: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="StaticWebPortál.html"><strong aria-hidden="true">24.</strong> Ver.3: Static Web Portál</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">ESB - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="ESB-LogikaaStuktura.html"><strong aria-hidden="true">25.</strong> Ver.5: ESB - Logika a Stuktura</a></li><li class="chapter-item expanded "><a href="SeznamImplementovanýchAgend.html"><strong aria-hidden="true">26.</strong> Ver.17:  Seznam Implementovaných Agend</a></li><li class="chapter-item expanded "><a href="SeznamukázkovýchModulůSystému.html"><strong aria-hidden="true">27.</strong> Ver.12: Seznam ukázkových Modulů Systému</a></li><li class="chapter-item expanded "><a href="ESBXMLKomentářezProjektu.html"><strong aria-hidden="true">28.</strong> Ver.6: ESB XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="MikročíselníkyunikátníFunkce.html"><strong aria-hidden="true">29.</strong> Ver.7: Mikročíselníky unikátní Funkce</a></li><li class="chapter-item expanded "><a href="GlobálníFunkce.html"><strong aria-hidden="true">30.</strong> Ver.9: Globální Funkce</a></li><li class="chapter-item expanded "><a href="ESBRadyprogramování.html"><strong aria-hidden="true">31.</strong> Ver.8: ESB Rady programování</a></li><li class="chapter-item expanded "><a href="XAMLŠablonySystému.html"><strong aria-hidden="true">32.</strong> Ver.63: XAML Šablony Systému</a></li><li class="chapter-item expanded "><a href="ESBTiskovéřešení.html"><strong aria-hidden="true">33.</strong> Ver.5: ESB Tiskové řešení</a></li><li class="chapter-item expanded "><a href="DoplňujícíSubProjekty.html"><strong aria-hidden="true">34.</strong> Ver.8: Doplňující SubProjekty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC Knihovny Kódů a Šablony</li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">35.</strong> Ver.61: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="GenerátoryaJejichFunkce.html"><strong aria-hidden="true">36.</strong> Ver.62: Generátory a Jejich Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIS-ESB-ClonedSmallServers</li><li class="chapter-item expanded "><a href="ExpertDocSPAManager.html"><strong aria-hidden="true">37.</strong> Ver.18: ExpertDoc SPA Manager</a></li><li class="chapter-item expanded "><a href="ExpertDocWebServer.html"><strong aria-hidden="true">38.</strong> Ver.18: ExpertDoc Web Server</a></li><li class="chapter-item expanded "><a href="ExpertDocExportSPADocWebu.html"><strong aria-hidden="true">39.</strong> Ver.21: ExpertDoc Export SPADoc Webu</a></li><li class="chapter-item expanded "><a href="ExpertDocUkázkyFormátování.html"><strong aria-hidden="true">40.</strong> Ver.19: ExpertDoc Ukázky Formátování</a></li><li class="chapter-item expanded "><a href="ExpertDocGrafickéUkázky.html"><strong aria-hidden="true">41.</strong> Ver.21: ExpertDoc Grafické Ukázky</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-CanceledRazorBuild</li><li class="chapter-item expanded "><a href="ZrušenýMVCWebPortalCsHtml.html"><strong aria-hidden="true">42.</strong> Ver.77: Zrušený MVC Web Portal CsHtml</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB Github a Svět Neomezená Řešení</li><li class="chapter-item expanded "><a href="awesome-dotnet-core.html"><strong aria-hidden="true">43.</strong> Ver.1: awesome-dotnet-core</a></li><li class="chapter-item expanded "><a href="awesome-dotnet-coreNext.html"><strong aria-hidden="true">44.</strong> Ver.2: awesome-dotnet-core Next</a></li><li class="chapter-item expanded "><a href="awesome-workflow-engines.html"><strong aria-hidden="true">45.</strong> Ver.3: awesome-workflow-engines</a></li><li class="chapter-item expanded "><a href="editorjsrozšířený.html"><strong aria-hidden="true">46.</strong> Ver.4: editorjs rozšířený</a></li><li class="chapter-item expanded "><a href="AwesomeWPF.html"><strong aria-hidden="true">47.</strong> Ver.4: Awesome WPF</a></li><li class="chapter-item expanded "><a href="ZaznamenanéNápadykprověření.html"><strong aria-hidden="true">48.</strong> Ver.1: Zaznamenané Nápady k prověření </a></li><li class="chapter-item expanded "><a href="InspiraceGithubBohatéProfily.html"><strong aria-hidden="true">49.</strong> Ver.3: Inspirace Github Bohaté Profily </a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Systém Šablon EIC & ESB</li><li class="chapter-item expanded "><a href="templates/index.html"><strong aria-hidden="true">50.</strong> Šablony, Kódy, Příklady</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">EIC&amp;ESB Dokumentace</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h3 id="hledám-práci-it-vývojář-webovýchdesktopových-aplikacísystémů-s-vlastními-groupware-řešeními"><a class="header" href="#hledám-práci-it-vývojář-webovýchdesktopových-aplikacísystémů-s-vlastními-groupware-řešeními">Hledám práci: IT vývojář webových/desktopových aplikací/systémů, s vlastními groupWare řešeními</a></h3>
+<p>multiplatforního Backend Serveru: http://kliknetezde.cz:5000 a<br />
+MS SYSTEM Generatoru https://kliknetezde.cz - do roka i ve WEB platformě Metro4</p>
+<p>Zde naleznete Dokumentace, prezentace, screeny, videonávody atd k mým Future projektům:</p>
+<ul>
+<li>Hledám partnera, sponzora, prodejce, marketéra - možnosti jsou až neuvěřitelné</li>
+</ul>
+<p>Mé stránky mají Boostrap pro mobil - ale tolik stručných informací, že je zobrazujte na PC a ne mobilu<br />
+pro mobil: http://kliknetezde.cz:5000/server/Media/Presentation</p>
+<p>hledám nové projekty, spolupráci či trvalý úvazek jediná podminka je remote.<br />
+Ovládám jak WEB/APP/PCL/PLC Siements/Administrace Linux / Windows, vývoj multiplatformních programů (1 projekt pro IOS,Adnrdoid,Windows)<br />
+Instalace Windows/Linux Serverů/Služeb (LDAP,MAIL,SAMBA,FTP,cokoliv), Implementace API, tvorba sítí,webů, aplikací, terminálů na míru.</p>
+<p>Zkušenosti ze 17 zaměstnání jako samostatný Administrátor/IT/Vývojář/IS Specialista/ v nadnárodních korporacích např:<br />
+ISAN Blansko IT Admin/OS/IS/Fuze ,Teva Brno IT Admin/dev, Heunisch Brno Linux IT admin/dev, Acer Brno IT TeamLeader/Support/Dev/Admin/Team Lead,T-Mobile Dev Server/MultiplatformApp</p>
+<p>Nyní praduji sám na sebe z domu, protože ve firmách mě nedokázali ohodnotit ani využít mé schopnosti - PRÝ PŘÍLIŠ AMBICIÓZNÍ<br />
+(s výsledky, tlačil sem vývoj firmy moc rychle)</p>
+<p>Nabízím tedy své služby za hod cenu od 500Kč (spokojen budu se 750Kč 5000Kč/Hod by ale bylo úměrné znalostem v porovnání se stavem IT v ČR a ve světě)</p>
+<ul>
+<li>aktuálně jsem klesl na 500, protože pracovat musím a nenacházím žádný zájem.<br />
+Future technology je u mě vidět přímo na https://kliknetezde.cz - Windows Online například.</li>
+</ul>
+<p>žádný JAZYK ani OS/IS mi není cízí (Kromě C++)<br />
+Oblíbené technologie mám ASPNET/CORE,WPF,WCF, NodeJs,Vue,MSSQL,MYSQL,WIN/LIN.</p>
+<p>Nebráním se ani vícero malým support úukonům na dálku (umím pomoci s čímkoliv, dětat analýzy,<br />
+najít a aplikovat řešení vašeho problému z místa- Telefonického hovoru, RDP/VNC připojení, správu serverů, nastavení AZURE/GCLOUD/DOCKER/GITHUB/GITLAB/ atd..</p>
+<p>Více info na mých stránkách https://Groupware-solution.eu - Menu &quot;Co děláme&quot;<br />
+Github: https://github.com/liborsvoboda uvolněno 57 projektů, převážně serverů a systémů - ideální pro středně velké podniky</p>
+<p>beru i malé zakázky (téměř s okamžitým vyřešením), než si mě konečně někdo zaplatí a vymezí pouze pro sebe, fakturace hodinová dle domluvy<br />
+když se učím něco nového (technologie) - nefakturuji, beru jako osobní rozvoj</p>
+<p>Svoboda Libor<br />
+IT Architekt/Analytik/Vývojář/Administrátor/Údržbář/Školitel/ srdcem i duší</p>
+<p>Zavoláním na tel: 00 420 724 986 873 se můžete sami přesvědčit<br />
+Dostupnost 24/7, email: Libor.Svoboda@GroupWare-Solution.Eu<br />
+Jsem vyjímka na trhu a odpovídám vždy (pokud to není jak zde je zvykem jen tupá úrážka)</p>
+<p>Je možný i sponzoring projektů a domluva na spoluvlastnictví připravovaných projektů<br />
+EASY-DATA-Center - Lin/Win Groupware Backend Server Online Generator (FullAPI,FTP,MD,WEB,DB,HealthCheck,AutoServices) + 100 technologií<br />
+EASY-SYSTEM-Builder - WIN ANY system builder brzy AUTO generator ze Snapshotu Backend serveru - Vygeneruje celý systém podle struktury API</p>
+<p>v budoucnu chci mít vlastní tým pracující v mém duchu - COkoliv, spolehlivě, kvalitně, rychle = levně</p>
+<hr />
+<h3 id="hlídání-serveru-přes-websocket-multiemail-api---vlastní-emailer-licenční-server"><a class="header" href="#hlídání-serveru-přes-websocket-multiemail-api---vlastní-emailer-licenční-server">Hlídání serveru přes webSocket, MultiEmail API - vlastní emailer, Licenční Server,</a></h3>
+<p>Centralizované Tabulky, Vzdálená Správa/Monitoring/Administrace/Vývoj Serveru</p>
+<p>A to vše Zdarma právě nyní:</p>
+<p>Pravé tlačítko a překlad do češtiny vám vše na webu odhalí :)</p>
+<p>Už jste slyšeli o MultiServerech? Takzvané GroupWare řešení?<br />
+Já to pojal trochu obsáhleji a z Backernd Serveru se stal MultiServer<br />
+s Fukcemi: Automatizovaného vývoje BACKEND Serveru, DB Management,<br />
+FTP Server, Multi WEB Server, Hromadný Emailer, Licence Server, a ještě by se něco našlo.</p>
+<p>Tato šílená 60MB Instalačka pro ASPNETCORE (Lin/Win/Docker/GCloud) a snad každý typ<br />
+Databáze jediným příkazem obtiskne libovolnou databázi do Projektu a již Brzy<br />
+teď jestě manuálně, zkopírováním šablon zduplikuje tabulky na API s automatickým napojením<br />
+na všechny nástroje serveru, které po celou dobu nevidíte.</p>
+<p>Web je v Metro4? Ultra nová technologie, byť 5let stará, vidět nikde není<br />
+Zato kritiky na můj Tscript Web s konstruktivním obsahem a ne nějakou reklamou co čekáte - bylo ažaž</p>
+<p>Tak nyní je vše ke stažení na adrese SHOWROOM port 5000, Celý 60MB EDC Server, k němu EBSManager třeba s napojením na core logování<br />
+přes Web Socket nabízí všechny obsažené služby a servery zdarma.</p>
+<p>Další vývoj či převzetzí stávajících řešení Backendů je otázkou dní - a ne měsíců jak doposud</p>
+<p>Tak kdo zvládne nainmportovat databázi (již rok nabízím i s import scriptem), Tak celé to</p>
+<p>HITECH řešení může vyzkoušet u sebe doma</p>
+<p>Tak, třeba mě zas budete mazat, místo ostatních přínosných příspěvků jako Narrator na mém WIN online serveru<br />
+když už nic jiného ničit nemůžete</p>
+<p>Přesto stále věřím že se najdou rozumní lidé a navážeme spolupráci,<br />
+a za měsíc snad již bude na světě plně automatizovaný GroupWare MultiServer Generator</p>
+<p>Sekce DownLoad Vám dá odpovědi</p>
+<hr />
+<h3 id="hledám-práci-či-spolupráci-na-iČo-či-hpp-pouze-remote-s-možností-občasných-návštěv"><a class="header" href="#hledám-práci-či-spolupráci-na-iČo-či-hpp-pouze-remote-s-možností-občasných-návštěv">Hledám práci či spolupráci na IČO či HPP (pouze remote s možností občasných návštěv):</a></h3>
+<p>Nabízím tvorbu Backend Serverů libovolného typu a použití pomocí vlastního řešení pro zrychlený vývoj<br />
+Dále Vývoj libovolných Desktopových, webových či multiplatformních aplikací (WIN + IOS + Android), či v libovolných jazycích.<br />
+Oblíbené technologie: Vue(React,Vite,OtherJs), NodeJS, Typescript, PHP, ASPNET, DOTNET, ASPNETCORE, MYSQL, MSSQL, Oracle, POSTGRESQL, OtherDB.</p>
+<p>Instalace libovolných serverů či serverových služeb WINDOWS/LINUX<br />
+Práce na projektech od A po Z od návrhu technologií/řešení/postupu vývoje až po nasazení/zaškolení/předání</p>
+<p>Dokončuji Stávající projekt a mám volné kapacity.<br />
+Fér přímá jasná domluva.</p>
+<p>napište či volejte, Těším se na spolupráci.<br />
+Svoboda  Libor<br />
+www.groupware-solution.eu<br />
+libor.svoboda@groupware-solution.eu<br />
+00420 724 986 873</p>
+<hr />
+<h3 id="hledám-prácispolupráci-na-fullremote-s-možností-občasných-návštěv"><a class="header" href="#hledám-prácispolupráci-na-fullremote-s-možností-občasných-návštěv">Hledám práci/spolupráci na FullRemote s možností občasných návštěv.</a></h3>
+<p>Domluvit se dá na čemkoliv. Bydlím v Žlutava u Zlína</p>
+<p>Oblíbené technologie MSSQL,MYSQL, NetCore, NET,WPF,C#, Vue, NodeJS,</p>
+<ul>
+<li>Vlastní řešení tvorby libovolných MS systémů a Backend Serverů, Doc Serveru, Git Serveru, atd..</li>
+</ul>
+<p>Dělám Servery LIN/WIN, Systémy, Nadstavby, Můstky, Implementace API,atd..</p>
+<p>Vývojářem jsem už 30let a tudíž mě nezastaví žádný úkol</p>
+<p>více o mně:</p>
+<p>https://www.linkedin.com/in/libor-svoboda-7b96014a/<br />
+https://github.com/liborsvoboda?tab=repositories<br />
+https://www.groupware-solution.eu/<br />
+https://kliknetezde.cz:8000/   login: tester/tester<br />
+https://kliknetezde.cz:5000/<br />
+https://kliknetezde.cz/</p>
+<p>Nabízím tvorbu Backend Serverů libovolného typu s možností použití vlastního řešení pro zrychlený vývoj Dále Vývoj libovolných Desktopových, webových či multiplatformních aplikací (WIN + IOS + Android), či v libovolných jazycích.Oblíbené technologie: Vue(React,Vite,OtherJs), NodeJS, Typescript, PHP, ASPNET, DOTNET, ASPNETCORE, MYSQL, MSSQL, Oracle, POSTGRESQL, OtherDB.<br />
+Instalace libovolných serverů či serverových služeb WINDOWS/LINUXPráce na projektech od A po Z od návrhu technologií/řešení/postupu vývoje až po nasazení/zaškolení/předání<br />
+Dokončuji Stávající projekt a mám volné kapacity.Fér přímá jasná domluva.<br />
+napište či volejte,</p>
+<p>Těším se na spolupráci.</p>
+<p>Svoboda  Libor</p>
+<p>www.groupware-solution.eu</p>
+<p>libor.svoboda@groupware-solution.eu</p>
+<p>00420 724 986 873</p>
+<hr />
+<h3 id="zdravím-před-víkendem-všechny-tech-nadšence"><a class="header" href="#zdravím-před-víkendem-všechny-tech-nadšence">Zdravím před víkendem všechny Tech nadšence</a></h3>
+<p>Už, zatím ještě lokálně, ale již Generuji libovolné Backend servery a desktopové systémy. Jak?<br />
+Podívejte se na náš nový Portál stvořený za 30dní<br />
+na http://KlikneteZde.Cz:5000 sice v angličtině ale s implementovaným překladem</p>
+<p>kde najdete Kompletní Dokumentace, návody, Servery k vyzkoušení.</p>
+<p>Bez registrace si můžete prohlédnout<br />
+Online Generátory Galerií, videí, Dokumentací, Prezentace,<br />
+Moderní Tooly pro Webové stránky a webové systémy,</p>
+<p>které Po registraci budete mít k použití a stažení ZDARMA</p>
+<p>Nabízím také své Kapacity k tvorbě libovolného BE/FE softwaru,<br />
+Serveru, rady či jakoukoliv jinou spolupráci</p>
+<p>Toto byl krok k přípravě Online Generátoru Backend serverů<br />
+který bude již brzy dostupný OnLine</p>
+<p>Toto vše je přínosné jak vývojářským firmám, tak jejich klientům</p>
+<p>A to vše jede na obyčejném počítači<br />
+navíc s možností online vyzkoušení EASY SYSTEM-Builderu<br />
+na https://KlikneteZde.Cz</p>
+<p>V případě dotazu mne neváhejte kontaktovat<br />
+Těším se na společné úspěchy<br />
+Váš http://GroupWare-Solution.Eu</p>
+<hr />
+<h3 id="konečně-dokumentace-psaná-za-běhu"><a class="header" href="#konečně-dokumentace-psaná-za-běhu">Konečně dokumentace psaná za běhu...</a></h3>
+<p>Přiznejte se kdo z vás ma binec v dokumentacích nebo je nemá vůbec?</p>
+<p>Konečně je tu nástroj, který umožnuje psát snadno a rychle dokumentaci za běhu. A Jak - přímo z webu, jen zkopírujete vaše poznámky - uvpravíte vzhled doslova jak budete chcít a uložíte. Dokumentace se sama overzuje, sama se překládá do libovolného jazyka. Jsou tu i další možnosti - exportovat do libovolných jazyků, vkládat naprosto cokoliv včetně grafů, schémat, struktur, UML, map , prostě cokoliv. Lze také exportovat do HTML a vložit do webu.</p>
+<p>nebo co více vytvořit z dokumentace samostatný StaticPage Web s fultextovým vyhledávačem nazvaný ExpertDocManager. Běži ve 3 módech:</p>
+<ol>
+<li>samostatný editor,</li>
+<li>Doc Manager souborů ve složce,</li>
+<li>ApiDocManager s automatickým verzováním.</li>
+</ol>
+<p>A aby toho nebylo málo, protože je to upravená technologie MarkDown rozšířená o další možnosti je k aplikaci i multijazyčný webový prohlížeč taktéž static Spa, který stačí jen nakopírovat do vašich současných stránek. Toto a mnohem více umožnuje nový software Static Web spustitelný pouhým poklikáním na index.html. ApiManager i prohlížeč a mnohem více najdete na https://kliknetezde.cz:5000/solutionservers<br />
+či přímo https://kliknetezde.cz:5000/Tools/ExpertDocManager/ a https://kliknetezde.cz:5000/Tools/ExpertDocViewer/<br />
+kde po načtení jen klikněte na reload Files</p>
+<hr />
+<h3 id="a-je-tu-další-novinka---přes-noc-jsem-vyladil-simplesafe-privátní-git-server-s-možností-sdílení"><a class="header" href="#a-je-tu-další-novinka---přes-noc-jsem-vyladil-simplesafe-privátní-git-server-s-možností-sdílení">A je tu Další Novinka - Přes noc jsem vyladil Simple/Safe Privátní Git Server s možností sdílení</a></h3>
+<p>za pouhé 3000Kč - Server/5000Kč celý kód NETCORE6. Připravena Instalačka. EASY to USE.</p>
+<p>a zpět k:</p>
+<p>JEDINEČNÁ NABÍDKA - IMPLEMENTACE AUTOMATICKÉHO PŘEKLADAČE DO LIBOVOLNÉHO WEBU<br />
+(aplikace, stránky, script, atd.) podmínka - Internet Online</p>
+<p>Vaše stránky ve všech jazycích bez námahy - natrvalo, možnost i dodělat další vychytávky<br />
+jako hromadný Export ve více jazycích (PDF,HTML,MD), atd, atd...</p>
+<p>Automatická Mediální Dokumentace ve všech jayzcích za pouhých 5000Kč<br />
+nikoho nezaujaly, tak tu máme po týdnu programování ve volném čase další novinku</p>
+<p>NABÍZÍM IMPLEMENTACI AUTO PŘEKLADAČE DO LIBOWOLNÝCH WEBOVÝCH STRÁNEK<br />
+ČASOVÁ NÁROČNOST 1-3 DNY ZA JEDNORÁZOVOU CENU 3000-5000Kč</p>
+<p>Váš web tak bude po změně jazyku automaticky online přeložen do kteréhokoliv jazyku,<br />
+bez jakékoliv nutnosti něco ručně překládat.</p>
+<p>Lze nasadit na wšechny typi webových aplikací.<br />
+Ukázky použití najdete třeba na:</p>
+<p>https://kliknetezde.cz:5000<br />
+https://kliknetezde.cz:5000/server/Downloads/ProjectManagement/ExpertDocViewer/<br />
+https://kliknetezde.cz:5001/ ProjectManagement username/password admin@admin.eu/admin</p>
+<p>Na portálu naleznete také spusty NoBuild Static Pages řešení, a mnoho dalšího</p>
+<hr />
+<h3 id="tak-moc-jednorázová-platba-10-000kč30-000kč---multimediální-web-možný-i-za-jediný-den"><a class="header" href="#tak-moc-jednorázová-platba-10-000kč30-000kč---multimediální-web-možný-i-za-jediný-den">Tak Moc? jednorázová platba 10 000Kč/30 000Kč - Multimediální web možný i za Jediný Den</a></h3>
+<p>Nabízím ke koupi či provedení Universální AspNETCORE6 Server Projekt<br />
+sloužící jako multifunkční server k provozu</p>
+<p>MULTIMEDIÁNÍ | MULTIJAZYČNÉ | INTERAKTIVNÍ:</p>
+<p>WEBOVÉ STRÁNKY | PORTÁL | SOC. SÍT | INTRANET</p>
+<p>s automatickým překladem obsahu do všech jazyků<br />
+na technologii ASPNETCORE6 pro OS LINUX,WIN,MAC,GCloud,Docker.</p>
+<p>Projekt je připraven po 10 dnech (80hod*500) pro kosmetický portál, ale prý ostupuje</p>
+<ul>
+<li>normálka a projekt Odřekl bez zaplacení že prý<br />
+od začátku chtěl hotovu Úvodní Finální stránku zadaného vyhledání. (Prý to musí umět i bez dat)<br />
+Tak toto je výsledek tvorby řešení za 10 dní</li>
+<li>snad se na mne usměje štěstí a pochopíte to vy a přeci je vydělám.</li>
+<li>Takže Ještě dnes rychle proměna v plně uživatelský Web s Administrací Group/SubMenu i Stránky,Banování,Limit Vkladů na IP,</li>
+</ul>
+<p>Každý si může v Editoru Udělat 1 stránku na IP adresu - tak třeba nastal čas Aby se IT ukázaly<br />
+co dokáží s prostředky, které můžete vidět na mém portálu Https://KlikneteZde.Cz:5000</p>
+<p>Projekt je již připraven k Extra rychlé Implementaci Libovolného webového Obsahu.<br />
+Server Využívá přes 100 Technologií.<br />
+Součástí je i vlastní MS IS System s Fakturací, Licenčním Serverem, MultiPobočky + 40 agend,</p>
+<p>Další implementované služby serveru s rychlou konfigurací:</p>
+<ul>
+<li>hromadné zasílání emailů</li>
+<li>Agenda multimediální verzovaná dokumentace - pro - help,info,popisy,lektáky, manuály, formuláře,statistiky,</li>
+<li>Download sekce</li>
+<li>vlastní FTP Server</li>
+<li>Vlastní Management Dokumentace ()</li>
+<li>Monitoring sítí, HW/SW/služeb/</li>
+<li>Copy/Paste/Stránek Obsahu (Razor,JS)</li>
+<li>Dynamické API rozhraní s šablonami, SRV Schema, Auto Verzování</li>
+<li>Web Hromadné Funkce Zobrazení Galerií,videí, Prezentací s možností generování vlastních v klientské sekci</li>
+<li>Klient pro vzdálenou konfiguraci a správu serveru</li>
+<li>Neomezená možnost dalšího vývoje, rozšíření</li>
+<li>K dispozici rozšíření [GitServer, Projekt Management]</li>
+<li>k dispozici veškerá Dokumentace podpory vývoje způsobem COPY/PASTE z Knihovny nástrojů (200+)</li>
+<li>Kompletní Dokumentace jak na to, Inteligentní Dokumentace, video návody, vzdálená Podpora</li>
+<li>IS je jednodušší vývoj:  Webová administrace i administrace webu z IS</li>
+<li>Implementovány Nejpokročilejší technologie Serverem pro Nejednodušší druh Vývoje</li>
+<li>100+ dalších Mediálních nástrojů rozšíření je součástí serveru</li>
+<li>Nejpracnější je Dokumentace - je to Vždy nejpracnější úkol (i ona má už svou šablonu :)</li>
+<li>Metro4 100+ nástrojů</li>
+<li>Mermaid 100+ schémat</li>
+<li>přes 50 hotových nástrojů - prohlížeče, editory, buildery</li>
+<li>Javascript = Unlimited</li>
+</ul>
+<p>Šikula, Grafik či jen s chutí mohou zde vytvořit více než běžný prezentační Web za jediný Den</p>
+<p>Projekt je k vidění na https://kliknetezde.cz:8000 s funkčním distribučním loginem<br />
+Vývoj 1 libovoné agendy nezabere více než den.</p>
+<p>např. plánovací kalendář, emailing, eshop, chat, messaging, atd, prostě cokoliv<br />
+viz ukázky kódů s stránek v sekci &quot;ke stažení&quot;</p>
+<p>po jednodenním školení jak vyvíjet stránky to dokáže kdokoliv znalý tvorby DB</p>
+<p>Takže nyní stvořený engine zkouším nabídnout vám</p>
+<ul>
+<li>a vydělat si alespoň na chleba</li>
+</ul>
+<p>Instalace webového serveru 5000Kč- bez zdrojového kódu, možný libovolný vývoj se sazbou 500Kč / hod.<br />
+Předání Projektu Cena 30 000Kč - GitHub kód <br /> možný libovolný vývoj se sazbou 500Kč / hod.<br />
+možný libovolný další vývoj 500Kč / hod.</p>
+<hr />
+<h3 id="potřebujete-systém-web-či-aplikaci-v-řádech-týdnů"><a class="header" href="#potřebujete-systém-web-či-aplikaci-v-řádech-týdnů">Potřebujete Systém, Web, či aplikaci v řádech týdnů?</a></h3>
+<p>Tady je řešení...Systém Golden MS + Web - jako vzpomínka na mrchu co neplatí za práci...</p>
+<ul>
+<li>API + FTP + MaasMail + Download + 100+Tech + 50+Tools</li>
+</ul>
+<p>S rychlostí buďte shovívavý, jede mi to na virtuálech doma</p>
+<p>Informační Systém s vlastním Interaktivním Web Portálem<br />
+Web je plně generovaný z Web Builderu pomocí HTML editoru.<br />
+Není tak nutný žádný zásah programátora (to jen v případě rozšíření API)</p>
+<p>Jen pomocí HTML builderu a kopírování kódů ze šablon stvoříte téměř cokoliv.<br />
+Řešení obsahuje Nepřeberné Množství Modůlů, Doplňků a nástrojů a možností.</p>
+<p>Svůj vlastní API Server, kde pro vývoj převážně jen kopírujete šablony.</p>
+<p>Dvojí Administrace Webu je možná jak z MS Systému tak i z Web Administrace</p>
+<p>Stvořit Libovolný systém ze šablon dalece přesahuje vaše běžné,<br />
+náročné i Specifické požadavky dnešní doby...</p>
+<p>A to vše stačí pro celý svět v mateřském Jazyce, o překlad se stárá Online Translator</p>
+<p>Ukázka MS systému obsahující Web Administraci najdete na https://kliknetezde.cz<br />
+Ukázku 100% Generovaného webu najdete na https://kliknetezde.cz:8000<br />
+Ukázku dalších nástrojů, popisy modulů, možností atd jsou na https://kliknetezde.cz:5000</p>
+<p>A to vše Plně modifikovatelné připraveno<br />
+k Libovolnému nasazení pro plnění vašich potřeb</p>
+<p>Tímto hledám nové zakázky, jelikož mám volné kapacity,<br />
+které chci vyplnit jakožto živitel rodiny...</p>
+<p>Tak Snad už se najdou moudří lidé co potřebují IT cokoliv (ne podvodníci)<br />
+a zahájíme plodnou spolupráci</p>
+<p>s podzravem<br />
+Svoboda Libor</p>
+<hr />
+<h3 id="potřebujete-firemní-systém-nadstavbu-datový-můstek-dotykový-terminál-či-nově-web-portál"><a class="header" href="#potřebujete-firemní-systém-nadstavbu-datový-můstek-dotykový-terminál-či-nově-web-portál">Potřebujete firemní Systém, nadstavbu, datový můstek, dotykový terminál či nově Web portál?</a></h3>
+<p>https://kliknetezde.cz - Ukázky Systému Online - otevřete v anonymní stránce kvůli certifikátu<br />
+https://kliknetezde.cz:8000 - Ukázka portálu online tester/tester přihlášení pro zobrazení web builderu<br />
+(bez nutnosti programování) můžete si zobrazit kód každé stránky webu</p>
+<p>https://kliknetezde.cz:5000 - Popis projektů, dokumentace, nástroje, řešení, dema ke stažení, a další projekty</p>
+<p>EDC &amp; ESB jsou připravené řešení na jednoduch0 3vrstvé arcitektuře.</p>
+<p>Tak jednoduchý vývoj systémů nikde jinde nenajdete a ukázky jsou všude i videa na youtube.</p>
+<p>Je pravda ale že marketingově to ještě nemám dostatečně zpracované,<br />
+protože pro českou IT společnost je bohužel nutné to podat ještě jednodušeji.</p>
+<p>Vyvíjet kromě datové části – kterou má každá firma jinou – v tom právě spočívá customizace , není vlastně co.</p>
+<p>Cena za dodávku systému s 1 customizovanou agendou je 10 000Kč bez vlastnictví kódu<br />
+a každá další agenda 500-5000Kč dle složitosti (tzn. i ta nejsložitější třeba práce s videem se vejde do 10hodin)</p>
+<p>Vlastnictví kódu lze dokoupit za 2x 25 0000Kč každé řešení EDC&amp;ESB včetně 2hodinového zaškolení vývoje.<br />
+2 hodiny školení stačí a budete si umět vytvářet agendy sami - Tak snadný je vývoj.</p>
+<p>pro WEB vám stačí EDC - EASY DATA Center - FTP,WEB server s mnoha přidanými dalšími funkcemi, vlastním WebPortálem+builder<br />
+(libovolný OS, libovolná DB, MaasMail,ServerBrowser, Any Web server type support, RAZOR,BLAZOR,SOCKET,Node,SPA,atd..)</p>
+<p>pro MS System je potřeba ESB - EASY SYSTEM Builder - Windows systémové jádro pro vývoj a běh libovolného systému<br />
+(datové můstky, agendy, komplexní firemní systém, multimediální systém, nadstavby systémů, dotykové systémy, atd...)</p>
+<p>Cena prací 500Kč/Hod</p>
+<p>s pozdravem<br />
+Svoboda Libor</p>
+<p>Žlutava 173<br />
+763 61 Žlutava</p>
+<p>IČO: 869 73 681<br />
+DIČ: CZ 800 629 5319</p>
+<p>mail: Libor.Svoboda@KlikneteZde.Cz<br />
+web: www.Groupware-Solution.eu<br />
+Mob: 724 986 873</p>
+<hr />
+<h3 id="nabízím-dodávku-a-instalaci-libovolného-ms-systému-již-od-10000kč-bez-vlastnictví-kódu"><a class="header" href="#nabízím-dodávku-a-instalaci-libovolného-ms-systému-již-od-10000kč-bez-vlastnictví-kódu">Nabízím Dodávku a instalaci libovolného MS Systému již od 10000Kč bez vlastnictví kódu</a></h3>
+<ul>
+<li>1 agenga dle vlastního zadání (1 Tabulka),<br />
+výběr z 50 existujících agend (fakturace,objednávky, multipobočky, položky, adresář,...)<br />
+neomezený tisk s vestavěným ReportBuilderem<br />
+multimediální web portál s builderem je součástí (stránky tvoříte v html editoru)<br />
+vlastní FTP,Web,Licence,MaasMail - Server<br />
+Automatické API rozhraní,Data Manager, MD Manager<br />
+Možnost zakoupení kódu pro vlastní neomezený vývoj 25tkč za projekt(EDC,ESB)<br />
+Možnost zaškolení vývojáře - stačí pouhé 2 hodiny pro vlastní vývoj<br />
+3 vtrsvá technologie - DB, Backend Server, MS Frontend Aplikace<br />
+více než 50 nástrojů pro Web, 100+ web objektů, Multimediální rožšíření, animace<br />
+a mnoho dalšího a to vše hned ze Startu</li>
+</ul>
+<p>MS system online k vyzkoušení na https://kliknetezde.cz<br />
+nebo Web Portal https://kliknetezde.cz:8000   login:tester/tester<br />
+či Web Tooly a jiná řešení https://kliknetezde.cz:5000<br />
+nebo v Download https://kliknetezde.cz/server</p>
+<hr />
+<h3 id="chcete-pohnout-s-it-projektem"><a class="header" href="#chcete-pohnout-s-it-projektem">Chcete pohnout s IT Projektem?</a></h3>
+<p>Chcete realizovat váš nápad? máte poptávku na IT a zbytečně ji pouštíte k vodě?</p>
+<p>Takto vypadá má stručná fakturace současnému klientu/hotové tasky:<br />
+23.10 10       - app review,app reservations,web guest detailShown<br />
+24.10 12       - komentáře hostitele, web komentáře a hodnocení<br />
+25.10 10       - balíčky kreditů,oprava dost pokoju/stejnyTypVicekrat,zadani date 1 tak auto do nextDay<br />
+26.10  8       - ExtraBed, refresh all terms<br />
+27.10 16       - Extrabed, Kalendář, Poptávka Update, Advertiser Calendar + Data View,Top5<br />
+28.10 14       - AppPřehledy-Oblíbené,rezervace,pokoje,oblibené,graphMail,Edit-Host/Advertiser,<br />
+29.10  8       - AppEdit-GuestSettings,App/WebRole,MultiBooking Calendar,</p>
+<p>další možnosti:</p>
+<ol>
+<li>nabídnout za 10tkč implementaci editoru dokumentace (editace jako admin z webu, save v DB, obsah zobrazován jako nápovědy/nebo you video)<br />
+https://kliknetezde.cz:5000/server/Downloads/ExpertDocManager/ExpertDocViewer/<br />
+https://kliknetezde.cz:5000/server/Downloads/ProjectManagement/ExpertDocViewer/</li>
+<li>uvodní text může být náhodný z tabulky MOTTO</li>
+<li>Emailer Sender rozhraní pro zasílání emilů/newsleterů zpráv</li>
+<li>možnost naimplementovat fakturaci pro admina - dám zdarma</li>
+<li>možnost dolňkový WebEditor pro admina - Metro se musí dělat v apce</li>
+<li>možnost panelu nástrojů a vydáthnout AdminApiDocs,DataManager,Server &amp; Net diagnostic</li>
+</ol>
+<p>Tak neváhejte a Ozvěte se mi a domluvíme se na spolupráci.<br />
+Dodávky IT všeho Druhu: Weby, Systémy, Servery.</p>
+<p>Svoboda Libor<br />
+https://www.linkedin.com/in/libor-svoboda-7b96014a/<br />
+https://github.com/liborsvoboda?tab=repositories<br />
+https://www.groupware-solution.eu/<br />
+https://kliknetezde.cz:8000/   login: tester/tester<br />
+https://kliknetezde.cz:5000/<br />
+https://kliknetezde.cz:5000/server<br />
+https://kliknetezde.cz/</p>
+<hr />
+<h3 id="nabízím-své-služby"><a class="header" href="#nabízím-své-služby">Nabízím své služby...</a></h3>
+<p>Jsou tu vánoce, Čas utratit uspořené Peníze ušetřené na Státu, už je jen rozumně Investovat.<br />
+Nebo Sami dodáváte IT? Chcete začít dodávat Několik Systémů Měsíčně?</p>
+<p>Zde je Řešení: MultiSever+MultiSystem+MultiWeb celé v Multi jazycích<br />
+EASY-DATA-Center a EASY-SYTEM-Builder<br />
+Obsahuje Více jak 20 typů Serverů FTP,Web,MaasMail,Monit,API,Git,TaskMan,License,Document</p>
+<p>Součástí je i IS MS System s 80 agendami pro výše uvedené servery a Navíc.<br />
+Multipobočková Nab/Obj/Dob/Pokl/Fakturace, Výkazy výroby a ještě dále.</p>
+<p>ale nešlo by to bez Multimediálního Dynamického Web Portálu.<br />
+Tvoří se jen pomocí Editorů z Webu či IS Systému s použitím HTML,css,Javascript.</p>
+<p>Ktomu ale slouží více jak 200 objektů, které jen kopírujete a nastavujete.<br />
+A navíc můžete vybírat z hotových 5x portálů,5x systémů,50 webstránek,10 editorů,<br />
+20x prohlížečů,100x doplňků,100x animací,atd.. které jsou nachystány k použití</p>
+<p>Podporovány jsou Všechny OS, Všechny DB a lze Vyvíjet Již jen Šablonami a Auto Funkcemi</p>
+<p>Nevěříte? Podívejte se na multijazyčný Portál stvořený tento týden: na https://kliknetezde.cz<br />
+a Vyzkoušejte si sami Online v Editoru použitím Knihovny jak snadno lze tvořit.</p>
+<p>A k tomu Nadřízený Management MS System Golden na https://kliknetezde.cz:8000<br />
+s agendami pro správu serveru, portálu, dokumentace, fakturace, výroba, atd...</p>
+<p>Dnes ještě do řešení ještě doprogramuji Auto službu: Stažení celého Webu do Zipu :)<br />
+a to nabízí poznamenat si vytvořit úplný Public Online WebModeler ?<br />
+Tak mrknětě v jaké fázi je už teď.<br />
+A takto, můžu na počkání upravit cokoliv byste si přáli</p>
+<p>Neváhejte mne kontaktovat a zahájíme spolupráci,<br />
+či jen kupte Řešení pro vaše IT Oddělení s 1 denním školením.</p>
+<p>Cokoliv je možné libovolně upravit, nebo si objednat řešení na Otisk prstu<br />
+MS Systém k vidění na https://kliknetezde:5000, Web Portál na https://kliknetezde.cz</p>
+<p>Dodávám já https://GroupWare-Solution.Eu  Centrální Řešení Vašeho IT</p>
+<p>Teším se na Vás...</p>
+<hr />
+<h3 id="edc--esb-ještě-více-než-jen-interaktivní-mediální-systÉmy"><a class="header" href="#edc--esb-ještě-více-než-jen-interaktivní-mediální-systÉmy">EDC + ESB ještě Více než jen Interaktivní Mediální SYSTÉMY</a></h3>
+<p>EDC+ESB pouhé 2 jednoduché projekty umožňující<br />
+sestavit Jakýkoliv SYSTÉM, WEB, Portál atd..<br />
+striktně 3Vrstvá Technologie, tedy:<br />
+jakákoliv DB  +  Backend API server EDC + MS Systém ESB</p>
+<p>lehce modifikovatelné jen s pomocí šablon<br />
+dokáži vykouzlit libovolný WEB či Desktopový Systém.</p>
+<p>Chcete Informační Systém? nebo Webové Stránky? Jak?<br />
+Jednoduše budete jen kopírovat šablony pro API a Formuláře<br />
+a po vytvoření tabulek a k nim příslušných formulářů</p>
+<ul>
+<li>máte hotovo = Medální MS Systém třeba i s tvorbou 3D.</li>
+</ul>
+<p>Nahlédněte na https://KlikneteZde.Cz a<br />
+vyzkoušejte si tvorbu Webu Online v připraveném Inteaktivním ŘEŠENÍ Webu.</p>
+<p>Nebo se podívejte na MS SYSTEM online na https://KlikneteZde.Cz:8000</p>
+<p>1 Měsíc trvalo vytvořit portál v cshtml-Razor|Mvc<br />
+ještě s Buildem a nasazením na https://KlikneteZde.Cz:5000<br />
+nyní již stačí Online Editor či přímo Editory v MS Systému</p>
+<p>Řešení se nazývá EASY-DATA-CENTER a EASY-SYSTEM-BUIDER<br />
+více v IT již nepotřebujete.</p>
+<p>Ozvěte se a zjistěte více jak si pořídit daná řešení ještě DNES<br />
+Dodává fa https://GroupWare-Solution.Eu</p>
+<p>Teším se na Vás...</p>
+<hr />
+<h3 id="zdravím-všechny-zájemce-o-it-které-je-přínosem-a-né-přítěží"><a class="header" href="#zdravím-všechny-zájemce-o-it-které-je-přínosem-a-né-přítěží">Zdravím Všechny zájemce O IT, které je přínosem a né přítěží.</a></h3>
+<p>Také Hledám zájemce o mé služby IT a zde je názorná ukázka mé činnosti...</p>
+<p>Mé Unikátní Projekty EASY-IT-CENTER + ESB - už ne EASY-DATA-CENTER,<br />
+protože rozsah Služeb serveru vykrývá téměř celou IT AGENDU (chybí už jen Email server)<br />
+a za to převyšuje Mnohem více službani navíc Například DB Notifikace EMAIL,SOCKET,..</p>
+<p>ALE co je ta Další NOVINKA?<br />
+Právě jsem dokončil nový SOFTWARE:  STATIC Web STUDIO,<br />
+které jsem začal psát před 3 DNY 24-27.12.2023.</p>
+<p>SYSTÉM ZA 3 DNY - potřebujete také systém? Ozvěte se...<br />
+můžete sami posoudit, najdete ho na:</p>
+<p>https://KlikneteZde.Cz/server-web/static-web-studio/</p>
+<p>Takový SYSTÉM U/Vidíte 1x v životě, že?<br />
+Jen 3 Dny tzn. 16<em>3</em>750Kč = Kdybych dodával třeba Právě Vám</p>
+<p>A k čemu slouží? k tvorbě celých Webů, Portálů, Intranetů,<br />
+EShopů a WEB COKOLIV alespoň ve spojení s EASY-IT-CENTER či jiným API serverem.</p>
+<p>Nahlédněte ALESPOŇ ze zvědavosti o IT, či ZDA SI JEJ NEZAKOUPÍTE?<br />
+AKTUÁLNĚ jej podceňuji na POUHÝCH 10000Kč.</p>
+<p>K vyzkoušení ONLINE na<br />
+https://kliknetezde.cz/server-web/static-web-studio/</p>
+<p>Stačí vám 2 Nástroje, Studio A Tool Creator, pravda je ale<br />
+taková:</p>
+<ul>
+<li>více než 400 COPY/PASTE objektů pro tvorbu čehokoliv.</li>
+<li>Implementována SQLite Databáze pro Samostatný BĚH na ANY WEB server</li>
+<li>Nástroj Automatický Překlad Do všech Jazyků, včetně všech manuálů,atd..</li>
+<li>přes 50 dalších Editorů,Prohlížečů, Galerií, Grafů, Schemat</li>
+<li>50 šablon moderních Web Stránek na stále stejné technologii METRO</li>
+<li>Implementovám Grafigký Modul pro Schémata, Grafy, Struktury, UML,..</li>
+<li>Implementován Animační Modul v více jak 50 druhy Animací navíc</li>
+<li>Generuje Online Static Stránky, s JS API, bez Buildu, Online změny</li>
+<li>více jak 1000 Příkladů pro COPY/PASTE použití v Dokumentacích</li>
+<li>ONLINE PODPORA - Těším se na každou Novou Spolupráci</li>
+<li>Navíc K Dispozici MS SYSTEM z řešení EIC+ESB s více jak 50 službami</li>
+<li>JEDE na Všech WEB server - JE STATIC, TZN. nepotřebuje nic než URL</li>
+<li>Není potřeba víc než HTML,CSS,JS - vše předchystáno</li>
+</ul>
+<p>MS System ONLINE na https://KlikneteZde.Cz:8000 s kompletní správou Všeho</p>
+<p>a mnohem více.., stačí se ozvat, pročíst dokumentaci, Vyzkoušet Online..</p>
+<p>v IT aktivní 33let Svoboda Libor, snad to už vidíte...<br />
+00420 724 986 873<br />
+libor.svoboda@KlikneteZde.Cz<br />
+libor.svoboda@GroupWare-Solution.EU<br />
+tak neváhejte a Využijte potenciál mých služeb a produktů...</p>
+<hr />
+<h3 id="easy-it-center--easy-system-builder-ceny-vÝvojovÝ-plÁn"><a class="header" href="#easy-it-center--easy-system-builder-ceny-vÝvojovÝ-plÁn">EASY-IT-CENTER &amp; EASY-SYSTEM-BUILDER CENY, VÝVOJOVÝ PLÁN</a></h3>
+<p>9.1.2024 nasazeny Aktuální verze na Domácím PC na vesnici k vyzkoušení<br />
+CO BUDE FINÁLNÍ?</p>
+<ul>
+<li>ONLINE GENERÁTOR MS SYSTÉMŮ DLE STRUKTURY DB
+<ul>
+<li>BUILDER PRO TOUCHPANELY, BUSINESS PANELY, ANY SYSTEM</li>
+</ul>
+</li>
+<li>WEB PORTAL s MULTI WEB SERVERS - cokoliv z GITU (React,Php,Electron,Vite,Gulp,..)</li>
+<li>SUBDOMAIN WEBSITES - dá se říct skoro JEDNODOMÉNOVÝ HOSTING</li>
+<li>MULTI IT SERVERS &amp; SOLUTIONS, již nyní s velkým počtem Unikátních Funkcionalit</li>
+</ul>
+<p>Změny ve volných chvílích při zaměstnání 12.2023 - Nestačím Zapisovat https://KlikneteZde.Cz<br />
+30.12 Generic API , nyní stačí registace názvu nové tabulky do příslušné Skupiny Dle Práv<br />
+29.12 Agenda Dynamické Moduly a Služby [custom HTML/CSS/JS API moduly] + Sekundární Zabezpečení API<br />
+28.12 Připraven Interface pro DBWebStatic FileStructure<br />
+27.12 Agenda Static WebSites - další webstránky na subdoménách url://website.domain.xx nebo url://domain.xx/website<br />
+26.12 Agenda Operace Systému - DB SP operace, Import/Export/Backup/Clone/Generate Docs/Generate DB Object atd..<br />
+24-27.12 STATIC WEB Studio  https://kliknetezde.cz/server-web/static-web-studio/ - prezentační fáze pro Global Administrátor<br />
+23.12 Předělána Agenda ServerSetting do Dynamic Form, nová nastavení automaticky přiskočí</p>
+<p>9.1 po změnách Změna Klient Setting na Generic Form + MultiSameTab + MultiInstanceCloneByDrag</p>
+<p>09.12.2023<br />
+ESB -  Implementován SystemMenu ToolTip Dle Param nastavení, zobrazen Popisek menu<br />
+ESB+WEB - Imlementována Agenda Správa globálních HTML, a Finálně převeden Layout do DB správy<br />
+Web je Nyní Plně v Režii DB a je Skládán z částí HTML Globální + Stánka z Editoru dle Práv v nastavené sekvenci</p>
+<p>Ceník     EITC-ESB                  = EASY-IT-CENTER &amp; EASY-SYSTEM-BUILDER<br />
+Kč 30000  EITC-ESB Limited          = MS řešení s Portal s omezeným multiwebserver 10x,AutoSched 10x, StaticWeb 1x<br />
+Kč 50000  EITC-ESB Unlimited        = Kompletní řešení Unlimited<br />
+Kč 100000 EITC-ESB OpenCode         = Uvolněny kódy pro vlastní Vývoj pro Vlastní Potřebu<br />
+Kč 150000 EITC-ESB OpenServers      = +WEB/MS Doc Server,GitServer,TaskManServer a budoucí (Email,Notify,atd..)<br />
+Kč 15000/rok EITC-ESB MainTenance   = K dispozici unlimited aktualizace, Online Správa Projektů, AutoUpdate/AutoRepair<br />
+Kč 1500/hod EITC-ESB RemoteSupport  = Online Tel/Remote podpora<br />
+Kč 30000/Tyden EITC-ESB DevTraining = 2dny Kompletní Představení produktů,1den Zaučení vývoje,2dny BONUS tvorba dalších MS/Web Agend<br />
+Kč 500000 Partnerství a Distribuce  = Plný přístup ke všemu, spolupartnerství při vývoji, udávání směru a priorit</p>
+<p>VÝHLED 2024</p>
+<p>LÉTO 2024 -<br />
+ONLINE GENERÁTORY  - API,MS FORM, WEBFORM(z json),<br />
+ONLINE Správa klientských Projektů,Build Projektů, Nasazení Změn, Refactor, Stažení Instalátorů</p>
+<p>ZIMA  2024 -  Průmysl - Implementace Siemens, TouchPanel Builder</p>
+<hr />
+<h3 id="eicesb--easyitcenter--easysystembuilder---jediné-Řešení-pro-celé-vaše-it"><a class="header" href="#eicesb--easyitcenter--easysystembuilder---jediné-Řešení-pro-celé-vaše-it">EIC&amp;ESB  EasyITcenter &amp; EasySYSTEMbuilder - Jediné Řešení pro celé Vaše IT</a></h3>
+<p>provozováno zatím na stanici na vesnici, to je důvod aktuální rychlosti<br />
+LZE PŘEDVÉST NA VAŠICH PC</p>
+<p>Systém byl právě jedinou DB Tabulkou rozšířen o podporu Modulů<br />
+Libovolného programovacího Jazyka. Byly nahrány Pomocné ,<br />
+Informativní a Předchystané Moduly, které mám v plánu naimplementovat.<br />
+WEB Portal již nelze téměř rozšířit, pouze se bude zdokonalovat<br />
+Script Global Knihovna pro všechny potřebné funkcionality.Vývoj<br />
+je už ve fázi, že WEB lze vyvíjet plně Dynamicky ONLINE, API Chyb<br />
+pouze QUERY Builder pro plně Dynamické API BEZ programování, a Vývoj<br />
+Libovolného Systému je již jen Grafická Tvorba Datového či jiného<br />
+TŘEBA multimediálního Formuláře.</p>
+<p>Nové Video<br />
+https://youtu.be/6ThVBv_diGo</p>
+<p>Online Web<br />
+Https://klikneteZde.Cz</p>
+<p>Plné 30denní verze k vyzkoušení,<br />
+či si je nainstalujte Klienta a připojte ke sdílenému API serveru<br />
+https://kliknetezde.cz/Downloads/EITC</p>
+<p>MSQLDB  80MB, Server 100MB, Client  30MB + 1GB ukázkové Doplňky<br />
+Ostatní HTML+JS+CSS 10GB k roztřídění a Implementaci</p>
+<p>Online System K Prohlédnutí<br />
+https://kliknetezde.cz:8000</p>
+<p>V případě jakéhokoliv Zájmu mne neváhejte kontaktovat.<br />
+PS hledá se OBCHODNÍK ideálně s chutí na Okružní Trasu<br />
+po velkých Firmách,kde provede Instalace a zpětná Vazba ukáže</p>
+<p>s pozdravem<br />
+33let IT vývojář<br />
+Libor Svoboda</p>
+<hr />
+<h3 id="multijazyčné-projekty-a-Řešení-easyitcenter--easysystembuilder"><a class="header" href="#multijazyčné-projekty-a-Řešení-easyitcenter--easysystembuilder">MultiJazyčné Projekty a Řešení EasyITcenter &amp; EasySYSTEMbuilder</a></h3>
+<p>to je Správa IT ve vaší firmě s nejmodernějšími technologiemi a agendami pro všechny typy případů.<br />
+Otevřené Řešení nabízí snadnou tvorbu Web Portálu + neomezeně web aplikací pro správu vašeho IT.</p>
+<p>Snadná Tvorba Libovolného Systému: IS,Nadstaveb,Serverů,DataCenter,Dotykových Panelů,Controlingu,...<br />
+Připraveno Řešení WebHostingu, Generování Webů, Dokumentací, Portálů,...</p>
+<p>Snadná tvorba pomocí Editorů v Systému pro správu implementovaných JS knihoven,<br />
+JS/HTML Editory pro snadnou tvorbu I/O Web aplikací pro práci s Daty</p>
+<p>Agendy pro Monitoring stavů SRV/HW/SW/DB/NET/Služeb v cca 2000 Typů sledování.<br />
+Agendy pro Sdílení Dat, MassMailing, WebSocket Messaging a sousty dalšího.</p>
+<p>Přes více jak 50 IT agend pro centrální správu IT.<br />
+Implementovaný Systém Ovládání. Totéž je možné nasadit ve Web Managementu.</p>
+<p>Přes více jak 40 Web Ui Frameworků nachystáno k okamžitému Použití.<br />
+Online Nástroje pro další Neomezený rozvoj Projektů pro:Libovolné Servery, Systémy, Weby.</p>
+<p>Spuštěna Online Dokumentace, Nápovědy, Popisy a Ukázky na:<br />
+https://kliknetezde.cz/EIC&amp;ESBdocs/CodeDocs<br />
+Komplet v češtině [všech jazycích] díky zabudovanému Online Překladači</p>
+<p>Static SPA Portál generovaný z Editorů Systému můžete vidět na:<br />
+https://kliknetezde.cz/Portal</p>
+<p>MS Systém k vidění Online na webu najdete na:<br />
+https://kliknetezde.cz:8000/</p>
+<p>Celé Řešení k dispozici na 30 dní k instalaci v sekci Download<br />
+https://kliknetezde.cz/Downloads/Downloads/EIC&amp;ESB/</p>
+<p>Přes 20 typů Serverů Ihned k dispozici.<br />
+Přes 1000 Web Objektů ke skládání libovolných webu, intranetů, portálů, aplikací....</p>
+<p>Připravovaný je Vývoj Online, kde si budete moci vyvýjet své řešení s možností<br />
+implementovat nové technologie z Hlavního projektu.<br />
+Nástroje pro vývoj Online jsou k vidění v Portálu Dokumentace s CZ nápovědou<br />
+Automatická Kontrola chyb a čistoty kódu.</p>
+<p>Možnost Implementace Modulů = Nových Agend: Serverů, Systémů, Aplikací, Webů<br />
+v libovolném Programovacím Jazyce A mnohem více</p>
+<p>Nachystáno dalších cca 200 řešení Serverů, Systémů, Událostí k Implementaci.</p>
+<p>Startovací Řešení bez kódu za pouhých 35 0000Kč.</p>
+<p>Tak neváhejte a modernizujte své IT, váš Vývoj IT<br />
+na Vývoj Online bez nutnosti Buildů a složitých Implementací</p>
+<hr />
+<h3 id="easyitcenter--easysystembuilder--celé-it-v-jediném-globálním-groupware-Řešení"><a class="header" href="#easyitcenter--easysystembuilder--celé-it-v-jediném-globálním-groupware-Řešení">EasyITcenter &amp; EasySYSTEMbuilder = celé IT v Jediném Globálním Groupware Řešení:</a></h3>
+<p>Naprosto vše: třeba až po Řízení Výroby, Strojů, Průmyslových PCL,Media, Streamy,Touch Panely...<br />
+[Generátor Vyrobních (rozklíčováno Siemens PLC 300-15XX) i Business TouchPanelů je plánován na ROK 2025]</p>
+<p>STÁLE IGNORUJETE NOVÝ IT VĚK 21.STOLETÍ?<br />
+GLOBÁLNÍ EIC&amp;ESB GROUPWARE ŘEŠENÍ OBSAHUJÍCÍ SPOJENÍ VŠECH STĚŽEJNÍCH TECHNOLOGIÍ DO 1 CELKU</p>
+<ul>
+<li>
+<p>Přímí Import libovolného Programu (Github), Systém se může zkládat z Různých programů, svázaných pouze Daty</p>
+</li>
+<li>
+<p>Programy mohou být v Libovolném Jazyce: jsou spouštěny Příkazy/jako Include Web/ Extended Tool</p>
+</li>
+<li>
+<p>OTEVŘENÉ ŘEŠENÍ PRO LIBOVOLNÝ UPDATE PŘÍMO NA MÍRU - JEN ŠABLONAMI (či vytvořím NOVOU)</p>
+</li>
+<li>
+<p>KAŽDÁ IMPLEMENTACE JE BRÁNA GLOBÁLNĚ: Nový NÁSTROJ pro Celé Řešení, Update Stávajících Formů</p>
+</li>
+<li>
+<p>V 1 OSOBĚ AŽ 50 NOVÝCH AGEND NENÍ ŽÁDNÝ PROBLÉM - 2 AGENDY DENNĚ (ČÍSELNÍK zabere 1hod)</p>
+</li>
+</ul>
+<p>poznané Z DENNĚ PROGRESIVNĚ AKTIVNÍ 33leté práce v IT<br />
+v 15 Nadnárodních Firmách Heunich,Isan,TEVA,Acer,Edts,TVD,...</p>
+<p>Hledám IT Firmu, Obchodníka, Zákazníky pro spolupráci na tomto Unikátním Řešení.<br />
+Vysvětlím, zaškolím, zaučím: Stačí 1 Týden, (ale sepsat všechny možnosti Řešení: zabere alespoň 1/2Roku)<br />
+Chtěl Bych se Věnovat Vývoji: a VY byste mohli Distribuovat Klony:</p>
+<ul>
+<li>Chystán Online Portál pro Správu projektů, Sílení Nápadů, Knihoven, Chytrý Vývoj Online, Online Update, Online Build</li>
+</ul>
+<p>EIC&amp;ESB = Servery, Systémy, Weby, a Komplet správa IT v 1 Řešení<br />
+Řešení Pozkládané z Šablon:</p>
+<ul>
+<li>DB: Tabulky,Prodecury,Pohledy</li>
+<li>BE: RestFull API, Generic API, Images, Files, Dynamic Procedures, API = Služba (např: MassMailing)</li>
+<li>FE: Šablony Formulářů číselníků, Agend, 3D, Video, Web, ANY DOC, ANY FILE TYPE Viewer,</li>
+<li>FYIreporting: Report Resigner/Viewer,cmd, pro Grafickou tvorbu Tiskových Sestav</li>
+<li>TOOLS: přes 50vyladěných Customizovaných Github Projektů jako rozšíření</li>
+<li>Jádro: Metro: přes 500+ Objektů pro Stavbu Systému, Webu + Knihovny: Animace,Sequrity,Tools,Funct.</li>
+<li>Web Tools: přes 100 statických Nástrojů vyladěných ihned k použití</li>
+<li>Web Tvorba + BE + FE : pomocí vestavěných Editorů,<br />
+Chystán Portál Online - Nástoje k vidění na portále</li>
+<li>Připravený UPDATE Editorů: UniversalEditor NahradíZastaralé<br />
+(Jednoduchý REPLACE CODE ve VYBVRANÝCH SAMOSTATNÝCH FORMULÁŘÍCH)</li>
+<li>Server = MultiServer, Multi Lang, Multi Web, Multi Portal, ANY DB</li>
+<li>System = local MultiWebserver, Multi Lang, ANY SYSTEM, TOUCH, SIEMENS, STROJE, MEDIA</li>
+<li>Automaticky Překládaná Globální Dokumentace, i 3tích stran do Všech jazyků se všemi Návody,Tipy,Kódy
+<ul>
+<li>Nachystáno 5GB Statických Nástrojů Použitelných jak v Systému (WebView2/CefSharp + Interní WebServer), tak na Webu<br />
+[web aplikace se tváří jako formulář SYSTÉMU]<br />
+(příklad Inteligentní Dokumentace zabírá 1,5MB)<br />
+(Editory, GEnerátory, Webu, Dokumentací, Stránek, Databázi, Grafiky, 40x Statické Frameworky, Knihovny, Atd.)<br />
+Nachystáno k Implementaci přes dalších 20Typů serverů:<br />
+Video Konference, SSH, Stream, SocketCetral Messaging, Multi Sub Domain Web, MultiWebServer, atd..</li>
+</ul>
+</li>
+</ul>
+<p>Nachystány Nástroje pro tvorbu MVC globálních Editorů pro Celé Static úložiště</p>
+<p>Tvorba LIBOVOLNÉHO SYSTÉMU - pouze kopírování FORM šablon a úprava dle Datasetu Agendy: Tabulky<br />
+Tvorba LIBOVOLNÉHO SubServeru - řízení Scriptů a cmd příkazů, node ./server.js = nový Web server</p>
+<p>Podpora LINUX/WINDOWS/ANY DATABASE/MACOS/MULTILANG/DYNAMIC WEB - tvorba pro Klienty stačí jen zabudovanými editory.<br />
+Připravena Implementace Controling, DocumentFlow, Dynamic Report Generator, Online Dev, Private Github,.....</p>
+<p>Jsem Ochotný se rozumně Domluvit - Pro Vás je to Možnost Distribuce Unikátního IT Řešení Hned ze startu</p>
+<ul>
+<li>
+<p>nabízí se absolutně jednoduchá tvora Agend, Reportů, a jiných Drbek pro zákazníky,</p>
+</li>
+<li>
+<p>Ultra Rychlé Implementace Libovolných Customizací,</p>
+</li>
+<li>
+<p>pro Vývoj Stačí Znalosti Excelu a Týden školení: - Vlastně jen Tvorba Tabulek (pomocí Šablon s pravidly)</p>
+</li>
+<li>
+<p>Vývoj je tak Rychlý, že pracnejší je Optimalizovat a nahrazovat již hotové sekvence: Práce pro juniora (REPLACE)</p>
+</li>
+<li>
+<p>Potřeba Dopsat Dokumentace: Možnosti a dovednosti, Pravidla, Logika, Sdílení, které Řešení Aktuálně již Umí čeká na Sepsání,</p>
+<p>Tato Část AUTOGenerována do Dokumentace [Popisy a Významy Menu Položek]:<br />
+PODÍVEJTE se PROSÍM na POPISY Těchto 4 AGEND ze 100 V Dokumentaci:</p>
+<ol>
+<li>SeznamImpl.ModulůServeru</li>
+<li>SeznamukázkovýchModulůSystému</li>
+<li>MikročíselníkyunikátníFunkce</li>
+<li>SeznamImplementovanýchAgend</li>
+<li>ExpertDocGrafickéUkázky - Brzy DokumentFlow</li>
+</ol>
+<p>A ŘEŠENÍ OBSAHUJE V DESÍTKÁCH NE-LI STONÁSOBNĚ VÍCE,(Aktuálně v nastavení je méně než 5% dostupných konfigurací)<br />
+:Funkcionalit, Nástrojů, Předchystaných Vazeb v Existujících 100Agendách</p>
+<p>Vše se Kloubí Spojením Všech Typů Jazyků [SERVER, DESKTOP, WEB, CMD, DB, NET] - TÍM JSOU MOŽNOSTI NEOMEZENÉ<br />
+STAČÍ STAHOVAT Z GITHUB, GITLAB, AZURE, GOOGLE, NPM PACKAGES, INTERNET<br />
+A přitorm stačí základy C# pro Libovolný Vývoj:</p>
+<ul>
+<li>Třída se Překlápí z Tabulky - Tabulka z Šablony</li>
+<li>FULL API se Navazuje z Šablony na Třídu = BE Hotovo</li>
+<li>Formulář se Překlápí z Tabulky přes Šablonu TYPU Formuláře</li>
+<li>Reakce formuláře jsou dané Systémem Jsou Součástí FORM Šablony</li>
+<li>Jen Otevřít Definici Menu, Vybrat Nově Detekovaný Form a přiřadit Práva, umístění v Menu a Překlad<br />
+= FE Hotovo<br />
+A JE TU NOVÁ: AGENDA, ČÍSELNÍK, EDITOR, PROHLÍŽEČ, GRAF, VIDEO, DOKUMENT, PŘÍLOHA, NOTIFIKACE, SOUBOR, PŘÍKAZ,...</li>
+</ul>
+</li>
+</ul>
+<p>Tak si nenechte utéci Příležitost Dodávat DOSLOVA DESÍTKY SERVERŮ, SYSTÉMŮ, WEBŮ I MĚSÍČNĚ<br />
+z Centrálního Řešení s možností sdílení veškerého Vývoje s Klienty - Odkup Agend Od klientů do Central Systému.<br />
+MULTI LANG SERVER/SYSTEM/WEB [nic jiného neexistuje vše je buď Server/System/Web]:  Tedy Řešení pro Celý Svět.</p>
+<p>Já budu dále Pracovat na rozšiřování JADRA SERVERU A SYSTÉMU:<br />
+Jsou To 2 C# Projekty: NetCore6 (+ANY WEB) a NETfrm 4.6.2 WPF - umí naimportovat Libovolnou APP jako Modul<br />
+Vše Online K Vidění JIŽ NYNÍ, Provozuji doma na starším Serveru jako SRV.Farmu:</p>
+<p>Nově Spuštěn AZURE Virtuál 2CPU,8GBRAM,WIN10,pro Provoz Serveru,</p>
+<ul>
+<li>SYSTEM Klienta si můžete Stáhnout, Rozbalit nastavit API URL Serveru a Vyzkoušet u SEBE Doma</li>
+</ul>
+<p>V dokumentaci aktuálně možnost procházení kódu projektů a podívat se na strukturu a složitost.</p>
+<p>Lze se Domluvit třeba i na Distribuci/Implementaci Samostatných Nástrojů<br />
+(Implementováno přes 300 a dalších 500čeká): Brzy K vidění na Serveru, Zdroj Github.</p>
+<p>UŠETŘETE SI I SVOJI PRÁCI A ZAČNĚTE POUŽÍVAT TOTO ŘEŠENÍ.<br />
+VYVÍJET BUDE MOCI KAŽDÝ KLIENT DO CENTRÁLNÍ BANKY FUNKCIONALIT - NE DATA<br />
+30DENNÍ PLNÁ VERZE S NÁSTROJI KE STAŽENÍ (VELIKOST dělají Implmentované Statické Nástroje)<br />
+30DENNÍ MINIMAL PLNÁ VERZE (bez statických nástrojů ke stažení)<br />
+https://KlikneteZde.Cz  DocPortal,WebPortal,150 Apis, Plné Řešení s 7GB Static Nástrojů a Knihoven<br />
+https://KlikneteZde.Cz:8000 SYSTEM Online<br />
+https://GrouWare-Solution.Eu Ovládané Technologie a Řešení(implementované do USER-Friendly Systému)</p>
+<p>tak Vyhoďte Vašich 10 a více Serverů a Nahraďte Jej Jediným. = Úspora Energií, Náročnosti, Prostředků,..<br />
+1 ŘEŠENÍ = MAXIMUM KOMPATIBILNÍCH 100% VAZEB</p>
+<p>ČI SI CHCETE OBJEDNAT ŘEŠENÍ ČI SYSTÉM NA MÍRU?<br />
+EXTRÉMNĚ RYCHLÉ = LEVNÉ DODÁVKY NA MÍRU S TECHNOLOGIEMI, KTERÉ JINDE NENAJDETE</p>
+<p>00 420 724 986 873<br />
+Svoboda Libor ITčkář celou Duší s nutností dělat na jiných projektech pro uživení rodiny<br />
+Projektům mohu aktuálně věnovat 1Týden Měsíčně - I TAK = VŽDY ZÁSADNÍ POSUN</p>
+<p>Neváhejte Mne s čímkoliv Kontaktovat, Rád Vše Vysvětlím/Předvedu.<br />
+Moje sazba je pouhých 750Kč/Hod s Nasazením dle potřeby (až 240Hod/Měsíčně)<br />
+V IT od 1991Atari 65XE(Turbo,Basic) - DOSUD</p>
+<hr />
+<h2 id="opravdu-vlÁdne-v-czech-it-slepota"><a class="header" href="#opravdu-vlÁdne-v-czech-it-slepota">opravdu VLÁDNE V CZECH IT SLEPOTA?</a></h2>
+<p>https://kliknetezde.cz/EiC&amp;ESBCodeBrowser/index/index.html</p>
+<h3 id="eicesb-nova-vize-automaticke-generovani-webms-any-systemu-editorem"><a class="header" href="#eicesb-nova-vize-automaticke-generovani-webms-any-systemu-editorem">EIC&amp;ESB NOVA VIZE: AUTOMATICKE GENEROVANI WEB/MS ANY SYSTEMU EDITOREM</a></h3>
+<p>!!! HLEDÁ SE SPONZOR<br />
+prave pracuji na portale VYVOJ online a SKOČIL mi do TOHO <strong>TENTO NÁPAD</strong><br />
+Tim se DOSTAL na TOP PRIORITU. Neni ale Volný čas musím VYDĚLÁVAT JINDE.<br />
+<strong>POKUD SE NAJDE SPONZOR, MŮŽE TENTO NOVÝ NÁPAD PRODÁVAT UŽ DO 14 DNŮ</strong></p>
+<p>Finální Řešení pro Generovaní SYSTEMŮ+WEB SYSTEMŮ pouhym Založením Tabulky v DB.<br />
+ZDE JE POPIS JAK NA TO:</p>
+<blockquote>
+<p>1] Vytvořit Tabulku <em>třeba s napovědou jak na to TemplateTableList již nyní]</em></p>
+</blockquote>
+<blockquote>
+<p>2A] Překlopit na BE Server jako Pevně Danou API = SCAFOLFING<br />
+<em>s použitím TemplateTableListApi.cs šablony již nyní</em><br />
+nebo<br />
+2B. Naiplementovat jako [Chystáno] DYNAMICKOU API pomocí SQL Definice z EDITORU</p>
+</blockquote>
+<blockquote>
+<p>3] a Nyní MÍT Připravený GENERÁTOR HTML + FORM TEMPLATE<br />
+<em>tak jak už mám Šablony FORMUÁŘŮ nyní</em></p>
+</blockquote>
+<blockquote>
+<p>= nová STATIC URL ADRESA na SERVERU - Kterou stačí Vložit do SYSTEM MENU<br />
+jako <strong>NOVÁ</strong> WEB <strong>AGENDA</strong> lze již nyní, + Nastavit Oprávnění</p>
+</blockquote>
+<p>A JE HOTOVO</p>
+<p>JESTLI TOTO NE NAPROSTY PRELOM v IT tak už FAKT NEVIM.<br />
+Pouhým naklikáním Libovolneho Typu DB[Tabulky+Indexy+ForeignVazby] dostanete<br />
+celý IS SYSTEM, CONTROLING, TOUCH PANELY, WEB SYSTEM<br />
+či LIBOVOLNY SYSTEM založen na SYSTEMU AGEND.</p>
+<p>POUZE NOVE FUNKCE coz je u IS SYSTEMU NULA NULA prd budou vyžadovat trochu namahy.<br />
+<strong>[myšleno TŘEBA STREAM VIDEA - VYSILANI TV]</strong></p>
+<p>A to <strong>JEDNODUŠE</strong> s možnostmi:</p>
+<ul>
+<li>vyřešit v JS,HTML,CSS Přímo ve formuláři ONLINE,</li>
+<li>nebo v C# na BE SERVERU v CHYSTANEM VYVOJI ONLINE<br />
++Rebuild a Nasazeni nove Verze na SERVER</li>
+<li>nebo LZE implemetovat Podporu i jinych jazyku ALE PROČ</li>
+<li>ČI POŽÁDAT MĚ A V REKORDNIM ČASE BUDE VYŘEŠENO</li>
+</ul>
+<p>TAKŽE VÝVOJ DEV PORTALU ONLINE ODKLADAM A AŽ NAIMPLMENTUJI<br />
+VÝŠE ZMÍNĚNÉ A JAK BUDE ČAS SE K NĚMU VRATÍM či NAJDE SE SPONZOR?</p>
+<p>tady se podívejte JAK MĚL VYPADAT:<br />
+https://kliknetezde.cz/Servercoretools/standaloneapps/developerboard</p>
+<p>Systém s EDITORY k Vidění na https://klikneteZde.cz<br />
+Multi WebServer s Multi Dokumentací na https://KlikneteZde.cz/<br />
+SYS Editorem Generovaný Portal: https://KlikneteZde.cz/Portal<br />
+Globální zatím jen 5% Dokumentace: https://kliknetezde.cz/server-doc/md-book/book/</p>
+<p>Nebo SE MI ZASE BUDETE POKOUŠET NAHRÁVAT NA SERVER Č-URÁKY?<br />
+Tak Kam v OBLASTI IT patříte VY?</p>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="VizeaNápadyaPostupy.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="ÚvodníInformace.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="VizeaNápadyaPostupy.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="ÚvodníInformace.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/mermaid.min.cdn.js"></script>
+        <script src="./js/globalscript.js"></script>
+
+
+    </div>
+    </body>
+</html>

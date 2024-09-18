@@ -1,0 +1,42 @@
+﻿ď»ż@page 
+@model ServerCorePages.ESBManagersInfoCZModel
+@{
+    ViewData["Title"] = "";  
+    //Layout = "~/Shared/_Layout.cshtml";  
+}
+
+    @*
+    https://metroui.org.ua/intro.html
+    https://metroui.org.ua/position.html
+    https://www.c-sharpcorner.com/article/custom-login-register-with-identity-in-asp-net-core-3-1/
+    *@
+
+<div class="text-center info-panel mb-2">
+   
+    <div id="imageWindow" data-role="window" class="window"
+         data-title="EDC & ESB Simple Technology And Possibility Information Result For Managers and Lead Workers"
+         data-btn-min="false"
+         data-btn-max="false"
+         data-btn-close="false"
+         data-resizable="false"
+         data-draggable="false"
+         data-width="100%"
+         data-height="1050px"
+         data-shadow="true"
+         data-icon="<span class='mif-image'></span>"
+         data-content="<iframe src='../Tools/PdfViewer/web/viewer.html' frameborder='0' style='overflow:hidden;height:1000px;width:100%'></iframe>">
+
+    </div>
+ 
+    <script>
+
+
+        $(window).ready(function () {
+            setTimeout(function () {
+                window[0].PDFViewerApplication.open('../../../server/Media/DocsDescriptions/EASYBuilder_ProjectDescriptionCZ.pdf', 'EASYBuilder_ProjectDescriptionCZ.pdf');
+            }, 1000);
+        });
+
+
+    </script>
+</div>

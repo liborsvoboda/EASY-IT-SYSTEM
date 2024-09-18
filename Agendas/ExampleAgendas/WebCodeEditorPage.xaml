@@ -1,0 +1,131 @@
+﻿<UserControl
+    x:Class="EasyITSystemCenter.Pages.WebCodeEditorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:bh="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:code="http://icsharpcode.net/sharpdevelop/avalonedit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ext="clr-namespace:EasyITSystemCenter"
+    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+    xmlns:local="clr-namespace:EasyITSystemCenter.Pages"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+    Name="Setting"
+    HorizontalAlignment="Stretch"
+    VerticalAlignment="Stretch"
+    d:DesignHeight="600"
+    d:DesignWidth="900"
+    Foreground="White"
+    Tag="Setting"
+    mc:Ignorable="d">
+
+    <Grid
+        x:Name="ListForm"
+        Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Offset="0" Color="#FF313131" />
+                <GradientStop Offset="1" Color="#FF181818" />
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label
+            x:Name="lbl_webCodeEditor"
+            Grid.Row="0" Grid.Column="0"
+            Margin="0" Padding="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Left"
+            FontSize="50" Foreground="BlueViolet" ToolTip="WebCode Editor For Online Manage EASY Projects" />
+
+
+        <CheckBox
+            x:Name="chb_caseSensitiveIgnore"
+            Grid.Row="0" Grid.Column="1"
+            Margin="10,5,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Checked="CaseSensitiveChange" IsChecked="True" ToolTip="Ignore Case Sensitive" Unchecked="CaseSensitiveChange" />
+        <TextBox
+            x:Name="txt_codeSearch"
+            Grid.Row="0" Grid.Column="1"
+            Width="150" Height="20"
+            Margin="40,0,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+            mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="CodeSearch" TextChanged="CodeSearchTextChanged" />
+        <Button
+            Name="btn_searchText"
+            Grid.Row="0" Grid.Column="1"
+            Width="25" Height="25"
+            Margin="195,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Click="SearchText_Click"
+            Style="{DynamicResource AccentedSquareButtonStyle}"
+            ToolTip="Search Next">
+            <iconPacks:BootstrapIcons Kind="Search" />
+        </Button>
+
+        <CheckBox
+            x:Name="chb_selectedOnly"
+            Grid.Row="0" Grid.Column="1"
+            Margin="10,0,0,5" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+            Checked="SelectedOnlyChange" IsChecked="False" ToolTip="Replace Selected Text Only" Unchecked="SelectedOnlyChange" />
+        <TextBox
+            x:Name="txt_codeReplace"
+            Grid.Row="0" Grid.Column="1"
+            Width="150" Height="20"
+            Margin="40,0,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+            mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="ReplaceWith" TextChanged="CodeReplaceTextChanged" />
+        <Button
+            Name="btn_codeReplace"
+            Grid.Row="0" Grid.Column="1"
+            Width="25" Height="25"
+            Margin="195,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+            Click="CodeReplaceClick"
+            Style="{DynamicResource AccentedSquareButtonStyle}"
+            ToolTip="Replace With">
+            <iconPacks:FontAwesome Kind="ReplyAllSolid" />
+        </Button>
+
+        <Button
+            Name="btn_openInBrowser"
+            Grid.Row="0" Grid.Column="2"
+            Width="150" Height="50"
+            Margin="0,2,160,2" HorizontalAlignment="Right" VerticalAlignment="Center"
+            Click="BtnOpenInBrowser_Click"
+            Style="{DynamicResource AccentedSquareButtonStyle}" />
+
+        <Button
+            Name="btn_loadFromFile"
+            Grid.Row="0" Grid.Column="2"
+            Width="150" Height="50"
+            Margin="0,2,5,2" HorizontalAlignment="Right" VerticalAlignment="Center"
+            Click="BtnLoadFromFile_Click"
+            Style="{DynamicResource AccentedSquareButtonStyle}" />
+
+
+        <code:TextEditor
+            x:Name="WebCodeEditor"
+            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+            Margin="0,0,0,0"
+            Background="LightGray" FontFamily="Consolas" FontSize="10pt" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" SyntaxHighlighting="Javascript" VerticalScrollBarVisibility="Auto" />
+
+        <ListBox
+            x:Name="code_selector"
+            Grid.Row="1" Grid.Column="2"
+            Width="100" Height="150"
+            Margin="0,30,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"
+            SelectionChanged="HighlightCodeChanged">
+            <ListBoxItem Content="JavaScript" />
+            <ListBoxItem Content="HTML" />
+            <ListBoxItem Content="C#" />
+            <ListBoxItem Content="XML" />
+            <ListBoxItem Content="Java" />
+            <ListBoxItem Content="C++" />
+        </ListBox>
+
+    </Grid>
+</UserControl>

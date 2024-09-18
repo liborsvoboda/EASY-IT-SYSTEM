@@ -1,0 +1,21 @@
+﻿
+
+
+
+
+CREATE procedure [dbo].[SystemSpGetTableList]
+AS
+BEGIN 
+
+	--GET ALL TABLES
+	SELECT TABLE_NAME as 'TableList'
+	FROM INFORMATION_SCHEMA.TABLES
+
+	UNION 
+
+	--GET ALL VIEWS
+	SELECT 
+	  TABLE_NAME as 'TableList'
+	FROM INFORMATION_SCHEMA.VIEWS
+
+END;

@@ -1,0 +1,665 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ver.22: Základní Konfigurace Serveru - EIC&amp;ESB Dokumentace</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="EasyITcenter &amp; EasySYSTEMbuilder Dokumentace">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB-Globální IT Řešení na míru</li><li class="chapter-item expanded "><a href="VizeaNápadyaPostupy.html"><strong aria-hidden="true">1.</strong> Ver.9: Vize a Nápady a Postupy</a></li><li class="chapter-item expanded "><a href="HistorieReklamníchSdělení.html"><strong aria-hidden="true">2.</strong> Ver.5: Historie Reklamních Sdělení</a></li><li class="chapter-item expanded "><a href="ÚvodníInformace.html"><strong aria-hidden="true">3.</strong> Ver.22: Úvodní Informace</a></li><li class="chapter-item expanded "><a href="PřipravovanéNovinky.html"><strong aria-hidden="true">4.</strong> Ver.42: Připravované Novinky</a></li><li class="chapter-item expanded "><a href="AutomatickéFunkcinality.html"><strong aria-hidden="true">5.</strong> Ver.5: Automatické Funkcinality</a></li><li class="chapter-item expanded "><a href="DatabázeNápověda.html"><strong aria-hidden="true">6.</strong> Ver.3: Databáze Nápověda</a></li><li class="chapter-item expanded "><a href="EIC&ESB3rdNástrojeaModuly.html"><strong aria-hidden="true">7.</strong> Ver.5: EIC&ESB 3rd Nástroje a Moduly</a></li><li class="chapter-item expanded "><a href="ZpracovávánéAChangeLog.html"><strong aria-hidden="true">8.</strong> Ver.33: Zpracováváné A ChangeLog</a></li><li class="chapter-item expanded "><a href="CeníkEIC&ESBaITSlužeb.html"><strong aria-hidden="true">9.</strong> Ver.22: Ceník EIC&ESB a IT Služeb</a></li><li class="chapter-item expanded "><a href="Kontakty.html"><strong aria-hidden="true">10.</strong> Ver.2: Kontakty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Start -DATABASE-RULE</li><li class="chapter-item expanded "><a href="WebRozcestník.html"><strong aria-hidden="true">11.</strong> Ver.8: Web Rozcestník</a></li><li class="chapter-item expanded "><a href="DBTabulkyŘešení.html"><strong aria-hidden="true">12.</strong> Ver.49: DB Tabulky Řešení</a></li><li class="chapter-item expanded "><a href="DBProceduryŘešení.html"><strong aria-hidden="true">13.</strong> Ver.48: DB Procedury Řešení</a></li><li class="chapter-item expanded "><a href="DBTriggery.html"><strong aria-hidden="true">14.</strong> Ver.46: DB Triggery</a></li><li class="chapter-item expanded "><a href="DBViewaFunkce.html"><strong aria-hidden="true">15.</strong> Ver.44: DB View a Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-Dev Pravidla</li><li class="chapter-item expanded "><a href="EICServerInstalaceWIN_LIN.html"><strong aria-hidden="true">16.</strong> Ver.15: EIC Server Instalace WIN_LIN</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="EIC-LogikaaStruktura.html"><strong aria-hidden="true">17.</strong> Ver.12: EIC - Logika a Struktura</a></li><li class="chapter-item expanded "><a href="EICUnikátníAPISlužby.html"><strong aria-hidden="true">18.</strong> Ver.8: EIC Unikátní API Služby</a></li><li class="chapter-item expanded "><a href="ZákladníKonfiguraceServeru.html" class="active"><strong aria-hidden="true">19.</strong> Ver.22: Základní Konfigurace Serveru</a></li><li class="chapter-item expanded "><a href="SeznamImpl.ModulůServeru.html"><strong aria-hidden="true">20.</strong> Ver.8: Seznam Impl. Modulů Serveru</a></li><li class="chapter-item expanded "><a href="EICXMLKomentářezProjektu.html"><strong aria-hidden="true">21.</strong> Ver.14: EIC XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="EICRadyprogramování.html"><strong aria-hidden="true">22.</strong> Ver.8: EIC Rady programování</a></li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">23.</strong> Ver.60: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="StaticWebPortál.html"><strong aria-hidden="true">24.</strong> Ver.3: Static Web Portál</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">ESB - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="ESB-LogikaaStuktura.html"><strong aria-hidden="true">25.</strong> Ver.5: ESB - Logika a Stuktura</a></li><li class="chapter-item expanded "><a href="SeznamImplementovanýchAgend.html"><strong aria-hidden="true">26.</strong> Ver.17:  Seznam Implementovaných Agend</a></li><li class="chapter-item expanded "><a href="SeznamukázkovýchModulůSystému.html"><strong aria-hidden="true">27.</strong> Ver.12: Seznam ukázkových Modulů Systému</a></li><li class="chapter-item expanded "><a href="ESBXMLKomentářezProjektu.html"><strong aria-hidden="true">28.</strong> Ver.6: ESB XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="MikročíselníkyunikátníFunkce.html"><strong aria-hidden="true">29.</strong> Ver.7: Mikročíselníky unikátní Funkce</a></li><li class="chapter-item expanded "><a href="GlobálníFunkce.html"><strong aria-hidden="true">30.</strong> Ver.9: Globální Funkce</a></li><li class="chapter-item expanded "><a href="ESBRadyprogramování.html"><strong aria-hidden="true">31.</strong> Ver.8: ESB Rady programování</a></li><li class="chapter-item expanded "><a href="XAMLŠablonySystému.html"><strong aria-hidden="true">32.</strong> Ver.63: XAML Šablony Systému</a></li><li class="chapter-item expanded "><a href="ESBTiskovéřešení.html"><strong aria-hidden="true">33.</strong> Ver.5: ESB Tiskové řešení</a></li><li class="chapter-item expanded "><a href="DoplňujícíSubProjekty.html"><strong aria-hidden="true">34.</strong> Ver.8: Doplňující SubProjekty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC Knihovny Kódů a Šablony</li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">35.</strong> Ver.61: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="GenerátoryaJejichFunkce.html"><strong aria-hidden="true">36.</strong> Ver.62: Generátory a Jejich Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIS-ESB-ClonedSmallServers</li><li class="chapter-item expanded "><a href="ExpertDocSPAManager.html"><strong aria-hidden="true">37.</strong> Ver.18: ExpertDoc SPA Manager</a></li><li class="chapter-item expanded "><a href="ExpertDocWebServer.html"><strong aria-hidden="true">38.</strong> Ver.18: ExpertDoc Web Server</a></li><li class="chapter-item expanded "><a href="ExpertDocExportSPADocWebu.html"><strong aria-hidden="true">39.</strong> Ver.21: ExpertDoc Export SPADoc Webu</a></li><li class="chapter-item expanded "><a href="ExpertDocUkázkyFormátování.html"><strong aria-hidden="true">40.</strong> Ver.19: ExpertDoc Ukázky Formátování</a></li><li class="chapter-item expanded "><a href="ExpertDocGrafickéUkázky.html"><strong aria-hidden="true">41.</strong> Ver.21: ExpertDoc Grafické Ukázky</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-CanceledRazorBuild</li><li class="chapter-item expanded "><a href="ZrušenýMVCWebPortalCsHtml.html"><strong aria-hidden="true">42.</strong> Ver.77: Zrušený MVC Web Portal CsHtml</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB Github a Svět Neomezená Řešení</li><li class="chapter-item expanded "><a href="awesome-dotnet-core.html"><strong aria-hidden="true">43.</strong> Ver.1: awesome-dotnet-core</a></li><li class="chapter-item expanded "><a href="awesome-dotnet-coreNext.html"><strong aria-hidden="true">44.</strong> Ver.2: awesome-dotnet-core Next</a></li><li class="chapter-item expanded "><a href="awesome-workflow-engines.html"><strong aria-hidden="true">45.</strong> Ver.3: awesome-workflow-engines</a></li><li class="chapter-item expanded "><a href="editorjsrozšířený.html"><strong aria-hidden="true">46.</strong> Ver.4: editorjs rozšířený</a></li><li class="chapter-item expanded "><a href="AwesomeWPF.html"><strong aria-hidden="true">47.</strong> Ver.4: Awesome WPF</a></li><li class="chapter-item expanded "><a href="ZaznamenanéNápadykprověření.html"><strong aria-hidden="true">48.</strong> Ver.1: Zaznamenané Nápady k prověření </a></li><li class="chapter-item expanded "><a href="InspiraceGithubBohatéProfily.html"><strong aria-hidden="true">49.</strong> Ver.3: Inspirace Github Bohaté Profily </a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Systém Šablon EIC & ESB</li><li class="chapter-item expanded "><a href="templates/index.html"><strong aria-hidden="true">50.</strong> Šablony, Kódy, Příklady</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">EIC&amp;ESB Dokumentace</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="základní-konfigurace-serveru"><a class="header" href="#základní-konfigurace-serveru">Základní Konfigurace Serveru,</a></h1>
+<p>Zde je Aktuální základní konfigurace serveru.Jsou do ní vytažené jen ty nejstěžejnější<br />
+nastavení, protože k dispozici sich je stonásobně víckrát. 
+To Vyplývá z počtu přes 100 nasazených technologií v 1 řešení parfekně vyladěných pro dokonalou práci.</p>
+<hr />
+<h1 id="config"><a class="header" href="#config">Config</a></h1>
+<p><strong>ConfigTimeTokenValidationEnabled</strong></p>
+<ul>
+<li>
+<p>Enable Disable Bearer Token Timeout Validation Token can be valid EveryTime to using:</p>
+<p>Example for machine connection Or is Control last activity</p>
+</li>
+</ul>
+<p><strong>ConfigApiTokenTimeoutMin</strong></p>
+<ul>
+<li>
+<p>Bearer Token Timeout Setting in Minutes. Connection must be Refreshed in Interval After</p>
+<p>Timeout connection Must Login Again. It is as needed. You Can Change Key for close All</p>
+<p>connections Immediately. Timeout is good for Webpages</p>
+<p>Recomended: 15</p>
+</li>
+</ul>
+<p><strong>ConfigServerStartupOnHttps</strong></p>
+<ul>
+<li>
+<p>Setting for Server URL Services. Logically can run only one Http or Https Server has</p>
+<p>more Security Setting Politics.</p>
+<p>Recommended: true</p>
+</li>
+</ul>
+<p><strong>ConfigCertificateDomain</strong></p>
+<ul>
+<li>
+<p>Its Domain for include to Automatic Generated Certificate For Server running on HTTPS.</p>
+<p>Domain is for Your validation Certificate Domain. Can be Changed for commercial.</p>
+<p>Domain is Used for Lets Encrypt also</p>
+<p>Write with Comma separator</p>
+<p>Recommended: 127.0.0.1</p>
+</li>
+</ul>
+<p><strong>ConfigCertificatePassword</strong></p>
+<ul>
+<li>
+<p>Password will be inserted to Server Generated Certificate for HTTPS.</p>
+<p>Recommended: empty = Maximal Security Randomly generated 20 chars string</p>
+</li>
+</ul>
+<p><strong>ConfigServerStartupHttpPort</strong></p>
+<ul>
+<li>
+<p>Set Server Startup  HTTP Port on Http/HttpS/WebSocket and for All Engines, Modules, API</p>
+<p>Controler and WebPages</p>
+<p>Recommended: 5000</p>
+</li>
+</ul>
+<p><strong>ConfigJwtLocalKey</strong></p>
+<ul>
+<li>
+<p>Special Functions:Server AutoGenerated encryption Key For Securing Communication On Each</p>
+<p>Server Restart All Tokens not will be valid and the Login Reconnect is Requested. Its</p>
+<p>AntiHacker Security Rule</p>
+<p>Recommended: empty = Maximal Security Randomly generated 40 chars string</p>
+</li>
+</ul>
+<p><strong>ConfigCoreServerRegisteredName</strong></p>
+<ul>
+<li>
+<p>Server Service Name automatic figured in All IS/OS/Engines info</p>
+<p>Recommended: EASY-IT-CENTER</p>
+</li>
+</ul>
+<p><strong>ConfigServerGetLetsEncrypt</strong></p>
+<ul>
+<li>
+<p>Setting for Automatic Obtain Lets Encrypt</p>
+<p>more Security Setting Politics.</p>
+<p>Recommended: true</p>
+</li>
+</ul>
+<p><strong>ConfigCertificatePath</strong></p>
+<ul>
+<li>
+<p>Certificate file NextFrom'DATA'Path\Filename.pfx For import External Certificate</p>
+<p>Its Path from Data Startup Folder,example &quot;groupware.pfx&quot; is in Data Path</p>
+<p>The Password must be inserted in ConfigCertificatePassword Settings</p>
+<p>Other for ignore this Setting set empty string &quot;&quot;</p>
+<p>This settings has Higest Priority before LesEncrypt enabled</p>
+</li>
+</ul>
+<p><strong>ConfigLogWarnPlusToDbEnabled</strong></p>
+<ul>
+<li>Enable Logging Server Warn and Errors To Database</li>
+</ul>
+<p><strong>ConfigManagerEmailAddress</strong></p>
+<ul>
+<li>Emailová adresa do obchodních kontaktů</li>
+</ul>
+<p><strong>ConfigServerStartupHTTPAndHTTPS</strong></p>
+<ul>
+<li>Startup Server On HTTP and HTTPS on Defined Port 
+/// Aktivuje Provoz na protokolech HTTP i HTTPS současně, 
+/// pro definici HTTP jej nastavte na zapnuto a dále dle nastaveni pro HTTPS</li>
+</ul>
+<p><strong>ConfigServerStartupHttpsPort</strong></p>
+<ul>
+<li>
+<p>Set Server Startup  HTTPS Port on Http/HttpS/WebSocket and for All Engines, Modules, API</p>
+<p>Controler and WebPages</p>
+<p>Recommended: 5001</p>
+</li>
+</ul>
+<hr />
+<h1 id="database"><a class="header" href="#database">Database</a></h1>
+<p><strong>DatabaseInternalCachingEnabled</strong></p>
+<ul>
+<li>
+<p>Enable Disable Entity Framework Internal Cache I recommend turning it off : from Logic,</p>
+<p>Duplicit Functionality with Database Server in complex process can generate problems</p>
+<p>Recommended: false</p>
+</li>
+</ul>
+<p><strong>DatabaseInternalCacheTimeoutMin</strong></p>
+<ul>
+<li>
+<p>Time in Minutes for Database Valid Cache Data and Refreshing Duplicit Functionality with</p>
+<p>Database Server</p>
+<p>Recommended: 30</p>
+</li>
+</ul>
+<hr />
+<h1 id="emailer"><a class="header" href="#emailer">Emailer</a></h1>
+<p><strong>EmailerSMTPSslIsEnabled</strong></p>
+<ul>
+<li>
+<p>EmailerSMTPSslIsEnabled SSl Email Protocol for Login to External Mail Server Its</p>
+<p>Necessary for Correct running Server Internal Core Monitoring</p>
+</li>
+</ul>
+<p><strong>EmailerServiceEmailAddress</strong></p>
+<ul>
+<li>
+<p>Service email, for info about not available service from HeatchCheck Can be used for</p>
+<p>next Develop, automatic checking problems, missing data and all other Its Necessary for</p>
+<p>Correct running Server Internal Core Monitoring</p>
+</li>
+</ul>
+<p><strong>EmailerSMTPServerAddress</strong></p>
+<ul>
+<li>
+<p>SMTP Server Address for Login to External Mail Server Its Necessary for Correct running</p>
+<p>Server Internal Core Monitoring</p>
+</li>
+</ul>
+<p><strong>EmailerSMTPPort</strong></p>
+<ul>
+<li>
+<p>SMTP Port for Login to External Mail Server Its Necessary for Correct running Server</p>
+<p>Internal Core Monitoring</p>
+</li>
+</ul>
+<p><strong>EmailerSMTPLoginUsername</strong></p>
+<ul>
+<li>
+<p>SMTP UserName for Login to External Mail Server Its Necessary for Correct running Server</p>
+<p>Internal Core Monitoring</p>
+</li>
+</ul>
+<p><strong>EmailerSMTPLoginPassword</strong></p>
+<ul>
+<li>
+<p>SMTP Password for Login to External Mail Server Its Necessary for Correct running Server</p>
+<p>Internal Core Monitoring</p>
+</li>
+</ul>
+<hr />
+<h1 id="module"><a class="header" href="#module">Module</a></h1>
+<p><strong>ModuleSwaggerApiDocEnabled</strong></p>
+<ul>
+<li>
+<p>Special Function: Server Automatically Generate Full Documentation of API structure AND</p>
+<p>Database Model. Plus Included API Interface for Online Testing All API Methods with</p>
+<p>Authentication Its Automatic Solution for Third Party cooperation. All changes are</p>
+<p>Reflected after restart server</p>
+</li>
+</ul>
+<p><strong>ModuleWebDataManagerEnabled</strong></p>
+<ul>
+<li>
+<p>Module: AutoGenerated Database DataManager for working with Data Running only</p>
+<p>in Debug mode for simple Develop, can be modified. All changes are Reflected after</p>
+<p>restart server</p>
+</li>
+</ul>
+<p><strong>ModuleHealthServiceEnabled</strong></p>
+<ul>
+<li>
+<p>Special Function: More than 200 Server Statuses Can be monitored by HeathCheckService,</p>
+<p>Over Net can Control Other Company Services Also as Central Control Point With Email</p>
+<p>Service. For Example: Server/Memory/All DB Types/IP/HDD/Port/Api/NET/Cloud/Environment</p>
+<p>Must be run for Metrics AddOn https://learn.microsoft.com/en-us/dotnet/architecture/microservices/implement-resilient-applications/monitor-app-health</p>
+</li>
+</ul>
+<p><strong>ModuleHealthServiceRefreshIntervalSec</strong></p>
+<ul>
+<li>
+<p>Special Function: More than 200 Server Statuses Can be monitored by HeathCheckService,</p>
+<p>Over Net can Control Other Company Services Also as Central Control Point With Email</p>
+<p>Service. For Example: Server/Memory/All DB Types/IP/HDD/Port/Api/NET/Cloud/Environment</p>
+<p>Must be run for Metrics AddOn !!! run in Release mode for Good Reading of Logs without</p>
+<p>HeathChecks Cycling info https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks https://testfully.io/blog/api-health-check-monitoring/</p>
+</li>
+</ul>
+<p><strong>ModuleMdDocumentationEnabled</strong></p>
+<ul>
+<li>
+<p>Enable Server Structure Documentation for Developers Using RootPath, - Block File</p>
+<p>Browsing Is Good for Server with Documentation only Or Use for Show WebPage and Copy</p>
+<p>&quot;Only HTML&quot;</p>
+</li>
+</ul>
+<p><strong>ModuleDbDiagramGeneratorEnabled</strong></p>
+<ul>
+<li>Enable Automatic Database Diagram for Simple show Database structure with All bingings</li>
+</ul>
+<p><strong>EnableAutoShowStaticMdAsHtml</strong></p>
+<ul>
+<li>Zapíná Vypína Automatické zobrazení MD souboru ve Statickém úložišti jako HTML s URL bez &quot;.md&quot;</li>
+</ul>
+<p><strong>EnableCodeBrowser</strong></p>
+<ul>
+<li>Zapíná/Vypína Modul Procházení Kódů Projektů Online</li>
+</ul>
+<p><strong>ModuleDBEntitySchemaEnabled</strong></p>
+<ul>
+<li>Modul Zobrazení DB Entitity Schema</li>
+</ul>
+<p><strong>ModuleDBEntitySchemaPath</strong></p>
+<ul>
+<li>Cestana které se Schema Zobrazí, default: /DBEntitySchema</li>
+</ul>
+<p><strong>ModuleCSharpCodeBuilder</strong></p>
+<ul>
+<li>Zapnout Online Správu Projektu Serveru a vývoj</li>
+</ul>
+<p><strong>ModuleHealthServicePath</strong></p>
+<ul>
+<li>
+<p>Api URL cesta Serveru na které </p>
+<p>bude Dohledové centrum k dispozici</p>
+</li>
+</ul>
+<p><strong>ModuleSwaggerApiDocPath</strong></p>
+<ul>
+<li>
+<p>Api URL cesta Serveru na které </p>
+<p>bude API Dokumentace a Testovací rozhraní  k dispozici</p>
+</li>
+</ul>
+<p><strong>ModuleHealthServiceMessageOnChangeOnly</strong></p>
+<ul>
+<li>Zaznamenávat Logování/zaslání zprávy pouze při změně z OK-&gt;FAIL, jinak bude zaznamenáno v každém cyklu</li>
+</ul>
+<hr />
+<h1 id="server"><a class="header" href="#server">Server</a></h1>
+<p><strong>ServerProviderModeEnabled</strong></p>
+<ul>
+<li>
+<p>Enabling Provider APIs </p>
+<p>More Informations are Published on WepPages</p>
+<p>Are Published Core Informations With</p>
+<p>Full Solutions Info/Tools/Codes/Etc Published</p>
+</li>
+</ul>
+<p><strong>ServerCorsEnabled</strong></p>
+<ul>
+<li>Server Filtrování Dle CORS Zapnuto</li>
+</ul>
+<p><strong>ServerCorsAllowAnyMethod</strong></p>
+<ul>
+<li>CORS Hlavičky HTTP Requestů příchozích na server WEB + API ,Povolit jakoukoliv Metodu</li>
+</ul>
+<p><strong>ServerCorsAllowAnyHeader</strong></p>
+<ul>
+<li>CORS Hlavičky HTTP Requestů příchozích na server WEB + API ,Povolit jakýkoliv Header</li>
+</ul>
+<p><strong>ServerCorsAllowCredentials</strong></p>
+<ul>
+<li>CORS Hlavičky HTTP Requestů příchozích na server WEB + API ,Povolit jakékoliv Pověření  - Autorizaci</li>
+</ul>
+<p><strong>ServerCorsAllowAnyOrigin</strong></p>
+<ul>
+<li>
+<p>CORS Hlavičky HTTP Requestů příchozích</p>
+<p>na server WEB + API, </p>
+<p>Povolit jakýkoli původ</p>
+</li>
+</ul>
+<p><strong>ServerPublicUrl</strong></p>
+<ul>
+<li>Veřejná URL adresa serveru použita v modulech</li>
+</ul>
+<p><strong>BrowserLinkEnabled</strong></p>
+<ul>
+<li>Okamžitý Rerresh při vytvoření změn na Webu, Pomůcka vývoje, Pozor muze delat problemy Je jednoduchy neni staveny na robustni systemy</li>
+</ul>
+<p><strong>DefaultStaticWebFilesFolder</strong></p>
+<ul>
+<li>Root Složka pro Statické soubory Webu</li>
+</ul>
+<hr />
+<h1 id="services"><a class="header" href="#services">Services</a></h1>
+<p><strong>ServiceServerLanguage</strong></p>
+<ul>
+<li>
+<p>Server Language for Translating Server internal statuses</p>
+<p>Recommended: cz or en - other languages are not implemented</p>
+</li>
+</ul>
+<p><strong>ServiceEnableMassEmail</strong></p>
+<ul>
+<li>
+<p>Server support mass emailing as Service</p>
+<p>You can enable Mass Email Api</p>
+</li>
+</ul>
+<p><strong>ServiceUseDbLocalAutoupdatedDials</strong></p>
+<ul>
+<li>
+<p>Special Function: Using Selected Tables with AutoRefresh On change as Local DataSets,</p>
+<p>For Optimize Traffic. For Example LanguageList - Static table with often reading</p>
+<p>Recommended: true - functionality must be implemented in Server Code</p>
+</li>
+</ul>
+<p><strong>ServiceCoreCheckerEmailSenderActive</strong></p>
+<ul>
+<li>
+<p>Activation / Deactivation of Email Sender For Server Core Fails Checker All Catch Write</p>
+<p>to SendEmail, In Debug mode is Written in console in Release mode is Sended email (All</p>
+<p>incorrect server statuses are monitored) Can be writen to Database - !!! Warning for</p>
+<p>infinite Cycling (DB shutdown example)</p>
+<p>Recommended: true</p>
+</li>
+</ul>
+<hr />
+<h1 id="subservers"><a class="header" href="#subservers">SubServers</a></h1>
+<p><strong>ServerFtpSecurityEnabled</strong></p>
+<ul>
+<li>
+<p>Enable FTP Security</p>
+<p>For access to FTP must be logged</p>
+</li>
+</ul>
+<p><strong>ServerFtpStorageRootPath</strong></p>
+<ul>
+<li>
+<p>FTP Server Storage Path Definition</p>
+<p>It Will be under wwwroot for Posibility</p>
+<p>Share Data or For WebAccess/Browser </p>
+<p>Over WebPortal</p>
+</li>
+</ul>
+<p><strong>ModuleAutoSchedulerEnabled</strong></p>
+<ul>
+<li>
+<p>Server Scheduler Module for Automatization Tasks</p>
+<value>
+<p>The serve scheduler enabled.</p>
+</value>**ServerFtpEngineEnabled**
+</li>
+<li>
+<p>Enable FTP File Server oppened for every connection with full rights</p>
+</li>
+</ul>
+<p><strong>ServerDocsOldAutoRemoveEnabled</strong></p>
+<ul>
+<li>Zapíná/Vypíná Automatické Odebírání Starých Verzí Dokumentace. Vztahuje se k Názvu, v Případě Změny Názvu je nutné Starou Verzi Odebrat manuálně</li>
+</ul>
+<p><strong>GitServerEnabled</strong></p>
+<ul>
+<li>Zapíná Vypíná privátní Git Server</li>
+</ul>
+<hr />
+<h1 id="web"><a class="header" href="#web">Web</a></h1>
+<p><strong>RedirectOnPageNotFound</strong></p>
+<ul>
+<li>Aktivuje Presmerovani na Zadanou cestu v případě Stránka nenalezena</li>
+</ul>
+<p><strong>RedirectPath</strong></p>
+<ul>
+<li>Cesta na kterou se přesměruje Webová Stránka v případě 404 stránka nenalezena. Je také nastavena jako Výchozí Stránka</li>
+</ul>
+<p><strong>WebRazorPagesCompileOnRuntime</strong></p>
+<ul>
+<li>Provádí kompilaci Za běhu Serveru. Tzn.. Podporuje Vkládání Stránek Externě </li>
+</ul>
+<p><strong>WebSitemapFileEnabled</strong></p>
+<ul>
+<li>Generovaný Soubor Sitemap z Menu Portálu </li>
+</ul>
+<p><strong>WebRobotTxtFileEnabled</strong></p>
+<ul>
+<li>zapnout zobrazení souboru Robot.txt  , obsah se bere z nastavení Portálu</li>
+</ul>
+<p><strong>WebRSSFeedsEnabled</strong></p>
+<ul>
+<li>Zapnout Generování RSS fédů; z položek, novinek</li>
+</ul>
+<p><strong>WebBrowserContentEnabled</strong></p>
+<ul>
+<li>Enable WebPages File Browsing from server Url on Server</li>
+</ul>
+<p><strong>WebRazorPagesEngineEnabled</strong></p>
+<ul>
+<li>
+<p>Enable Razor WebPages support engine with Correct Configuration for Automaping from</p>
+<p>folder 'ServerCorePages'</p>
+</li>
+</ul>
+<p><strong>WebMvcPagesEngineEnabled</strong></p>
+<ul>
+<li>Enable Mvc WebPages support engine with Correct Configuration</li>
+</ul>
+<p><strong>WebLiveDataMonitorEnabled</strong></p>
+<ul>
+<li>
+<p>Enable Server Static Folder Monitor for Data Changes</p>
+<p>And immediatelly update all Api, Endpoints, Client Browser</p>
+</li>
+</ul>
+<hr />
+<h1 id="websocket"><a class="header" href="#websocket">WebSocket</a></h1>
+<p><strong>WebSocketGlobalNotifyPath</strong></p>
+<ul>
+<li>
+<p>WebPortal Global Notify Path on WebSocket for </p>
+<p>sending messages from scheduler</p>
+<value>
+<p>The web global socket notify path.</p>
+</value>**WebSocketServerMonitorEnabled**
+</li>
+<li>
+<p>Server support online multi watch Logging</p>
+<p>Its Run on Websocket and the Log Messages are</p>
+<p>sent for All opened connections for wathing</p>
+<p>on Path: ServerCoreMonitor</p>
+<p>You can enable Mass Email Api</p>
+</li>
+</ul>
+<p><strong>WebSocketEngineEnabled</strong></p>
+<ul>
+<li>Enable WebSocket Engine with Default Example Api Controller</li>
+</ul>
+<p><strong>WebSocketTimeoutMin</strong></p>
+<ul>
+<li>
+<p>WebSocket Timeout Connection Settings in Minutes. After timeout when not detected any</p>
+<p>communication socket is closed Set according to your need</p>
+<p>Recommended: 2</p>
+</li>
+</ul>
+<p><strong>WebSocketMaxBufferSizeKb</strong></p>
+<ul>
+<li>Určuje Maximální  velikost WebSocket zprávy</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="EICUnikátníAPISlužby.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="SeznamImpl.ModulůServeru.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="EICUnikátníAPISlužby.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="SeznamImpl.ModulůServeru.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/mermaid.min.cdn.js"></script>
+        <script src="./js/globalscript.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0" />
+    <link href='./froala.min.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="./plugins/fullscreen.min.css" />
+
+</head>
+<body>
+    <div id="HtmlArea" style="height:100%;"></div>
+    <script type='text/javascript' src='./jquery-3.6.0.min.js'></script>
+    <script type='text/javascript' src='./froala.min.js'></script>
+    <script type="text/javascript" src="./plugins/fullscreen.min.js"></script>
+    <script type='text/javascript' src='./languages/cs.js'></script>
+
+    <script>
+        let editor = new FroalaEditor('#HtmlArea', { language: 'cs', }, function (){
+			if (!editor.fullscreen.isActive()) {editor.fullscreen.toggle ()};
+		});
+     
+
+
+        
+        //---------------------------------------------------------------------------
+        //WebView2 IO Controls
+
+        //GLOBAL FUNCTION FOR SAME USING IN ALL EDITORS
+        function SetWebViewToEditorData(inputValue) {
+            try { editor.html.set(inputValue); }
+            catch (err) { return false; }
+            return true;    
+        }
+
+        //GLOBAL FUNCTION FOR SAME USING IN ALL EDITORS
+        function GetWebViewFromEditorData() {
+            try {
+                return editor.html.get();
+            } catch (err) { return err; }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Wikipedia Viewer </title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
+
+<div class="container-fluid">
+  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/155px-Wikipedia-logo-v2.svg.png" />
+  <h2> Wikipedia Viewer</h2> 
+  
+<form class='search-box' id="form-container">
+  <p>
+ 	 <input required class="input-search" id="search" type="text" placeholder="What are you looking for ?">
+  </p>
+</form>
+  
+  <button class="btn btn-primary" id="search-btn">Search</button> 
+  <button class="btn btn-primary"><a id="random" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Random article </a></button> 
+  
+  <div class="container">
+    <ul id="results">
+    </ul>
+  </div>
+</div>
+
+<!-- Back to top button -->
+<button class="btn btn-primary" onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+<div class = "footholder">
+<footer class="small">
+  Search box styling adapted from <a href="http://codepen.io/HugoGiraudel/pen/KkDrm" target="_blank">Conceptual search input</a> by Hugo Giraudel
+</footer>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+    <script src="js/index.js"></script>
+
+</body>
+</html>

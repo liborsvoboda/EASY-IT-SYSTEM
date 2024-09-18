@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="https://github.com/JiHong88" />
+    <meta name="keywords" content="wysiwyg,editor,javascript,suneditor,wysiwyg eidtor,rich text editor,html editor,contenteditable">
+    <meta name="description" content="Pure javascript wysiwyg web editor" />
+    <script async src="./cdn/f.js"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    </script>
+    <title>SunEditor</title>
+    <link rel="stylesheet" href="./css/bootstrap.css" media="all">
+    <link rel="stylesheet" href="./css/sample.css" media="all">
+    <link href="./dist/css/suneditor.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./cdn/codemirror.min.css">
+    <link rel="stylesheet" href="./cdn/katex.min.css">
+
+    <style>
+        .tab {
+            overflow: hidden;
+            color: #f4b124;
+            font-weight: bold;
+            border-bottom: 2px solid #f4b124;
+            border-radius: 2px;
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            background-color: transparent;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 35px;
+            transition: 0.3s;
+            font-size: 16px;
+            border-top-left-radius: 2px;
+            border-top-right-radius: 2px;
+            margin: 0;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            color: #f5f5f5;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            color: #fff;
+            background-color: #f4b124;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+        }
+
+        /* inline editor */
+        .inline-margin {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 560px) {
+            .tab button {
+                padding: 12px 24px;
+            }
+        }
+        @media (max-width: 475px) {
+            .tab button {
+                padding: 12px 16px;
+            }
+        }
+        @media (max-width: 407px) {
+            .tab button {
+                padding: 12px 10px;
+            }
+        }
+        @media (max-width: 380px) {
+            .tab button {
+                padding: 12px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content" style="min-width: 100%;min-height:100%;margin:0px !important;">
+
+        <!-- Tab content -->
+       <!--  <select id="language">
+            <option value="ckb">ckb</option>
+            <option value="cs" selected>cs</option>
+            <option value="da">da</option>
+            <option value="de">de</option>
+            <option value="en">en</option>
+            <option value="es">es</option>
+            <option value="fr">fr</option>
+            <option value="he">he</option>
+            <option value="it">it</option>
+            <option value="ja">ja</option>
+            <option value="ko">ko</option>s
+            <option value="lv">lv</option>
+            <option value="nl">nl</option>
+            <option value="pl">pl</option>
+            <option value="pt_br">pt_br</option>
+            <option value="ro">ro</option>
+            <option value="ru">ru</option>
+            <option value="se">se</option>
+            <option value="ua">ua</option>
+            <option value="ur">ur</option>
+            <option value="zh_cn">zh_cn</option>
+        </select> -->
+
+        <textarea id="editor_classic" style="display:none;"></textarea>
+
+    </div>
+
+<!-- ESB SCRIPT -->
+<script src="./ESB-ToolScript.js"></script>
+
+
+<script src="js/common.js"></script>
+<!-- suneditor -->fav
+<script src="./dist/suneditor.min.js"></script>
+<!-- codeMirror -->
+<script src="./cdn/codemirror.min.js"></script>
+<script src="./cdn/htmlmixed.js"></script>
+<script src="./cdn/xml.js"></script>
+<script src="./cdn/css.js"></script>
+
+
+
+<script src="./src/lang/cs.js"></script>
+<script src="./src/lang/ckb.js"></script>
+<script src="./src/lang/cs.js"></script>
+<script src="./src/lang/da.js"></script>
+<script src="./src/lang/de.js"></script>
+<script src="./src/lang/en.js"></script>
+<script src="./src/lang/es.js"></script>
+<script src="./src/lang/fr.js"></script>
+<script src="./src/lang/he.js"></script>
+<script src="./src/lang/it.js"></script>
+<script src="./src/lang/ja.js"></script>
+<script src="./src/lang/ko.js"></script>
+<script src="./src/lang/lv.js"></script>
+<script src="./src/lang/nl.js"></script>
+<script src="./src/lang/pl.js"></script>
+<script src="./src/lang/pt_br.js"></script>
+<script src="./src/lang/ro.js"></script>
+<script src="./src/lang/ru.js"></script>
+<script src="./src/lang/se.js"></script>
+<script src="./src/lang/ua.js"></script>
+<script src="./src/lang/ur.js"></script>
+<script src="./src/lang/zh_cn.js"></script>
+
+
+<script src="./cdn/matchbrackets.js"></script>
+<script src="./cdn/closebrackets.js"></script>
+<script src="./cdn/lint.js"></script>
+<script src="./cdn/json-lint.js"></script>
+<script src="./cdn/javascript.js"></script>
+
+<!-- KaTeX -->
+<script src="./cdn/katex.min.js"></script>
+
+<script>
+    var langSelect = document.getElementById('language');
+</script>
+
+<!-- lang:SUNEDITOR_LANG['cs'], -->
+<script>
+
+    //let esblanguage = GetDataFromESBhosting(ESBapiPaths.filter(obj => obj.systemLanguage)[0].systemLanguage[0]);
+    //console.log("jazyk",esblanguage);
+
+    //lang:GetDataFromESBhosting(ESBapiPaths["systemLanguage"]),
+
+    const editorInstance = SUNEDITOR.create('editor_classic', {
+        display: 'block',
+        width: '100%',
+        height: 'auto',
+        minHeight:CalcFullPageHeight(),
+        popupDisplay: 'full',
+        lang: SUNEDITOR_LANG['cs'],
+        charCounter: true,
+        charCounterLabel: 'Characters :',
+        imageGalleryUrl: './cdn/suneditor-demo.json',
+        buttonList: [
+            // default
+            ['undo', 'redo'],
+            ['font', 'fontSize', 'formatBlock'],
+            ['paragraphStyle', 'blockquote'],
+            ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+            ['fontColor', 'hiliteColor', 'textStyle'],
+            ['removeFormat'],
+            ['outdent', 'indent'],
+            ['align', 'horizontalRule', 'list', 'lineHeight'],
+            ['table', 'link', 'image', 'video', 'audio', 'math'],
+            ['imageGallery'],
+            ['fullScreen', 'showBlocks', 'codeView'],
+            ['preview', 'print'],
+            ['save', 'template'],
+            // (min-width: 1546)
+            ['%1546', [
+                ['undo', 'redo'],
+                ['font', 'fontSize', 'formatBlock'],
+                ['paragraphStyle', 'blockquote'],
+                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+                ['fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                ['table', 'link', 'image', 'video', 'audio', 'math'],
+                ['imageGallery'],
+                ['fullScreen', 'showBlocks', 'codeView'],
+                ['-right', ':i-More Misc-default.more_vertical', 'preview', 'print', 'save', 'template']
+            ]],
+            // (min-width: 1455)
+            ['%1455', [
+                ['undo', 'redo'],
+                ['font', 'fontSize', 'formatBlock'],
+                ['paragraphStyle', 'blockquote'],
+                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+                ['fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                ['table', 'link', 'image', 'video', 'audio', 'math'],
+                ['imageGallery'],
+                ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template']
+            ]],
+            // (min-width: 1326)
+            ['%1326', [
+                ['undo', 'redo'],
+                ['font', 'fontSize', 'formatBlock'],
+                ['paragraphStyle', 'blockquote'],
+                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+                ['fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template'],
+                ['-right', ':r-More Rich-default.more_plus', 'table', 'link', 'image', 'video', 'audio', 'math', 'imageGallery']
+            ]],
+            // (min-width: 1123)
+            ['%1123', [
+                ['undo', 'redo'],
+                [':p-More Paragraph-default.more_paragraph', 'font', 'fontSize', 'formatBlock', 'paragraphStyle', 'blockquote'],
+                ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+                ['fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template'],
+                ['-right', ':r-More Rich-default.more_plus', 'table', 'link', 'image', 'video', 'audio', 'math', 'imageGallery']
+            ]],
+            // (min-width: 817)
+            ['%817', [
+                ['undo', 'redo'],
+                [':p-More Paragraph-default.more_paragraph', 'font', 'fontSize', 'formatBlock', 'paragraphStyle', 'blockquote'],
+                ['bold', 'underline', 'italic', 'strike'],
+                [':t-More Text-default.more_text', 'subscript', 'superscript', 'fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template'],
+                ['-right', ':r-More Rich-default.more_plus', 'table', 'link', 'image', 'video', 'audio', 'math', 'imageGallery']
+            ]],
+            // (min-width: 673)
+            ['%673', [
+                ['undo', 'redo'],
+                [':p-More Paragraph-default.more_paragraph', 'font', 'fontSize', 'formatBlock', 'paragraphStyle', 'blockquote'],
+                [':t-More Text-default.more_text', 'bold', 'underline', 'italic', 'strike', 'subscript', 'superscript', 'fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                ['outdent', 'indent'],
+                ['align', 'horizontalRule', 'list', 'lineHeight'],
+                [':r-More Rich-default.more_plus', 'table', 'link', 'image', 'video', 'audio', 'math', 'imageGallery'],
+                ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template']
+            ]],
+            // (min-width: 525)
+            ['%525', [
+                ['undo', 'redo'],
+                [':p-More Paragraph-default.more_paragraph', 'font', 'fontSize', 'formatBlock', 'paragraphStyle', 'blockquote'],
+                [':t-More Text-default.more_text', 'bold', 'underline', 'italic', 'strike', 'subscript', 'superscript', 'fontColor', 'hiliteColor', 'textStyle'],
+                ['removeFormat'],
+                ['outdent', 'indent'],
+                [':e-More Line-default.more_horizontal', 'align', 'horizontalRule', 'list', 'lineHeight'],
+                [':r-More Rich-default.more_plus', 'table', 'link', 'image', 'video', 'audio', 'math', 'imageGallery'],
+                ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template']
+            ]],
+            // (min-width: 420)
+            ['%420', [
+                ['undo', 'redo'],
+                [':p-More Paragraph-default.more_paragraph', 'font', 'fontSize', 'formatBlock', 'paragraphStyle', 'blockquote'],
+                [':t-More Text-default.more_text', 'bold', 'underline', 'italic', 'strike', 'subscript', 'superscript', 'fontColor', 'hiliteColor', 'textStyle', 'removeFormat'],
+                [':e-More Line-default.more_horizontal', 'outdent', 'indent', 'align', 'horizontalRule', 'list', 'lineHeight'],
+                [':r-More Rich-default.more_plus', 'table', 'link', 'image', 'video', 'audio', 'math', 'imageGallery'],
+                ['-right', ':i-More Misc-default.more_vertical', 'fullScreen', 'showBlocks', 'codeView', 'preview', 'print', 'save', 'template']
+            ]]
+        ],
+        placeholder: 'Start typing something...',
+        templates: [
+            {
+                name: 'Template-1',
+                html: '<p>HTML source1</p>'
+            },
+            {
+                name: 'Template-2',
+                html: '<p>HTML source2</p>'
+            }
+        ],
+        codeMirror: CodeMirror,
+        katex: katex
+    });
+
+
+
+    function openTab(evt, tabName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="clr-namespace:EasyITSystemCenter.SystemStructure"
+    xmlns:ctrl="clr-namespace:System.Windows.Controls;assembly=MultiSelectTreeView"
+    xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
+
+    <!--  Central Metro Styles Definitions Library  -->
+
+
+
+    <Style BasedOn="{StaticResource MahAppsTabablzControlStyle}" TargetType="{x:Type dragablz:TabablzControl}">
+        <Setter Property="AdjacentHeaderItemOffset" Value="-12" />
+        <Setter Property="NewItemFactory" Value="{x:Static common:SystemWindowDataModel.NewItemFactory}" />
+        <Setter Property="ShowDefaultAddButton" Value="False" />
+        <Setter Property="ShowDefaultCloseButton" Value="True" />
+        <Setter Property="HeaderMemberPath" Value="Header" />
+        <Setter Property="FixedHeaderCount" Value="0" />
+        <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />
+    </Style>
+
+
+
+    <Rectangle
+        x:Key="AppThemeMenuIcon"
+        Width="16"
+        Height="16"
+        x:Shared="False"
+        Fill="{Binding ColorBrush, Mode=OneWay}"
+        Stroke="{Binding BorderColorBrush, Mode=OneWay}"
+        StrokeThickness="1" />
+
+
+
+    <Rectangle
+        x:Key="AccentMenuIcon"
+        Width="20"
+        Height="25"
+        x:Shared="False"
+        Fill="{Binding ColorBrush, Mode=OneWay}" />
+
+
+
+    <Style
+        x:Key="AppThemeMenuItemStyle"
+        BasedOn="{StaticResource MetroMenuItem}"
+        TargetType="{x:Type MenuItem}">
+        <Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
+        <Setter Property="Icon" Value="{StaticResource AppThemeMenuIcon}" />
+        <Setter Property="Header" Value="{Binding NameDisplay, Mode=OneWay}" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <!--<Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />-->
+    </Style>
+
+    <Style
+        x:Key="PageStyle"
+        BasedOn="{StaticResource MetroPage}"
+        TargetType="{x:Type Page}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Page}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <ContentPresenter Grid.Row="0" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="4"
+                            FontSize="48"
+                            Text="{TemplateBinding Title}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style
+        x:Key="AccentColorMenuItemStyle"
+        BasedOn="{StaticResource MetroMenuItem}"
+        TargetType="{x:Type MenuItem}">
+        <Setter Property="Command" Value="{Binding ChangeAccentCommand}" />
+        <Setter Property="Icon" Value="{StaticResource AccentMenuIcon}" />
+        <Setter Property="Header" Value="{Binding NameDisplay, Mode=OneWay}" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <!--<Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />-->
+    </Style>
+
+
+
+    <Style BasedOn="{StaticResource MetroMenuItem}" TargetType="MenuItem">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="Padding" Value="5,7,5,0" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="ToolTip" Value="{Binding Path=SelectedItem.Description, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />
+    </Style>
+
+
+
+    <Style BasedOn="{StaticResource MetroButton}" TargetType="{x:Type Button}">
+        <Setter Property="mah:ButtonHelper.PreserveTextCase" Value="True" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="{DynamicResource AccentColorBrush}" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />
+    </Style>
+
+
+
+    <Style BasedOn="{StaticResource MetroTextBox}" TargetType="{x:Type TextBox}">
+        <Setter Property="mah:TextBoxHelper.ClearTextButton" Value="True" />
+        <Setter Property="AcceptsReturn" Value="False" />
+        <Setter Property="AcceptsTab" Value="False" />
+        <Setter Property="mah:TextBoxHelper.IsWaitingForData" Value="True" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />
+    </Style>
+
+
+
+    <Style BasedOn="{StaticResource MetroComboBox}" TargetType="{x:Type ComboBox}">
+        <Setter Property="mah:TextBoxHelper.ClearTextButton" Value="False" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="SelectedItem" Value="null" />
+        <Setter Property="Background" Value="LightYellow" />
+        <Setter Property="IsTextSearchEnabled" Value="True" />
+        <Setter Property="ToolTip" Value="{Binding Path=SelectedItem.Description, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />
+    </Style>
+
+
+
+    <Style BasedOn="{StaticResource MetroCheckBox}" TargetType="{x:Type CheckBox}">
+        <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Setter Property="FlowDirection" Value="RightToLeft" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Style.Resources>
+            <SolidColorBrush x:Key="HighlightBrush" Color="{DynamicResource AccentColor}" />
+        </Style.Resources>
+    </Style>
+
+    <!--
+        Each System Page DataGrid Default style Only bindings can be defined on each Page
+        
+        ToDo:  Global Automatic Translation with definitions of column styles and names - logical field sequence
+    -->
+    <Style BasedOn="{StaticResource MetroDataGrid}" TargetType="{x:Type DataGrid}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="AutoGenerateColumns" Value="True" />
+        <Setter Property="SelectionMode" Value="Single" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="AutoGenerateColumns" Value="True" />
+        <!--<Setter Property="AlternatingRowBackground" Value="LightGray" />-->
+        <!--  EXIST MORE DEfinition ideal to graphics set  -->
+        <!--<Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />-->
+    </Style>
+
+
+    <Style TargetType="{x:Type mah:Tile}">
+        <Setter Property="Effect" Value="{StaticResource DropShadowEffect}" />
+        <Setter Property="ToolTipService.InitialShowDelay" Value="0" />
+        <Setter Property="ToolTipService.ShowOnDisabled" Value="True" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect />
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background" Value="{StaticResource MetroDataGrid.MouseOverHighlightBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+</ResourceDictionary>

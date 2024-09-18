@@ -1,0 +1,45 @@
+﻿<UserControl
+    x:Class="EasyITSystemCenter.Pages.HtmlFullEditorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:globalnet="clr-namespace:EasyITSystemCenter"
+    xmlns:html="clr-namespace:EASYTools.HTMLFullEditor;assembly=EASYTools.HTMLFullEditor"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Name="Settings"
+    HorizontalAlignment="Stretch"
+    VerticalAlignment="Stretch"
+    d:DesignHeight="500"
+    d:DesignWidth="600"
+    Foreground="White"
+    Tag="Settings"
+    mc:Ignorable="d">
+
+    <Grid
+        Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Offset="0" Color="#FF313131" />
+                <GradientStop Offset="1" Color="#FF181818" />
+            </RadialGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+
+        <DockPanel
+            Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2"
+            Width="Auto" Height="Auto"
+            Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <DockPanel DockPanel.Dock="Top">
+                <html:HtmlEditor x:Name="HtmlEditor" />
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</UserControl>

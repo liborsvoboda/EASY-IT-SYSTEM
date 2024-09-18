@@ -1,0 +1,666 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ver.8: Web Rozcestník - EIC&amp;ESB Dokumentace</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="EasyITcenter &amp; EasySYSTEMbuilder Dokumentace">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB-Globální IT Řešení na míru</li><li class="chapter-item expanded "><a href="VizeaNápadyaPostupy.html"><strong aria-hidden="true">1.</strong> Ver.9: Vize a Nápady a Postupy</a></li><li class="chapter-item expanded "><a href="HistorieReklamníchSdělení.html"><strong aria-hidden="true">2.</strong> Ver.5: Historie Reklamních Sdělení</a></li><li class="chapter-item expanded "><a href="ÚvodníInformace.html"><strong aria-hidden="true">3.</strong> Ver.22: Úvodní Informace</a></li><li class="chapter-item expanded "><a href="PřipravovanéNovinky.html"><strong aria-hidden="true">4.</strong> Ver.42: Připravované Novinky</a></li><li class="chapter-item expanded "><a href="AutomatickéFunkcinality.html"><strong aria-hidden="true">5.</strong> Ver.5: Automatické Funkcinality</a></li><li class="chapter-item expanded "><a href="DatabázeNápověda.html"><strong aria-hidden="true">6.</strong> Ver.3: Databáze Nápověda</a></li><li class="chapter-item expanded "><a href="EIC&ESB3rdNástrojeaModuly.html"><strong aria-hidden="true">7.</strong> Ver.5: EIC&ESB 3rd Nástroje a Moduly</a></li><li class="chapter-item expanded "><a href="ZpracovávánéAChangeLog.html"><strong aria-hidden="true">8.</strong> Ver.33: Zpracováváné A ChangeLog</a></li><li class="chapter-item expanded "><a href="CeníkEIC&ESBaITSlužeb.html"><strong aria-hidden="true">9.</strong> Ver.22: Ceník EIC&ESB a IT Služeb</a></li><li class="chapter-item expanded "><a href="Kontakty.html"><strong aria-hidden="true">10.</strong> Ver.2: Kontakty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Start -DATABASE-RULE</li><li class="chapter-item expanded "><a href="WebRozcestník.html" class="active"><strong aria-hidden="true">11.</strong> Ver.8: Web Rozcestník</a></li><li class="chapter-item expanded "><a href="DBTabulkyŘešení.html"><strong aria-hidden="true">12.</strong> Ver.49: DB Tabulky Řešení</a></li><li class="chapter-item expanded "><a href="DBProceduryŘešení.html"><strong aria-hidden="true">13.</strong> Ver.48: DB Procedury Řešení</a></li><li class="chapter-item expanded "><a href="DBTriggery.html"><strong aria-hidden="true">14.</strong> Ver.46: DB Triggery</a></li><li class="chapter-item expanded "><a href="DBViewaFunkce.html"><strong aria-hidden="true">15.</strong> Ver.44: DB View a Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-Dev Pravidla</li><li class="chapter-item expanded "><a href="EICServerInstalaceWIN_LIN.html"><strong aria-hidden="true">16.</strong> Ver.15: EIC Server Instalace WIN_LIN</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="EIC-LogikaaStruktura.html"><strong aria-hidden="true">17.</strong> Ver.12: EIC - Logika a Struktura</a></li><li class="chapter-item expanded "><a href="EICUnikátníAPISlužby.html"><strong aria-hidden="true">18.</strong> Ver.8: EIC Unikátní API Služby</a></li><li class="chapter-item expanded "><a href="ZákladníKonfiguraceServeru.html"><strong aria-hidden="true">19.</strong> Ver.22: Základní Konfigurace Serveru</a></li><li class="chapter-item expanded "><a href="SeznamImpl.ModulůServeru.html"><strong aria-hidden="true">20.</strong> Ver.8: Seznam Impl. Modulů Serveru</a></li><li class="chapter-item expanded "><a href="EICXMLKomentářezProjektu.html"><strong aria-hidden="true">21.</strong> Ver.14: EIC XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="EICRadyprogramování.html"><strong aria-hidden="true">22.</strong> Ver.8: EIC Rady programování</a></li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">23.</strong> Ver.60: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="StaticWebPortál.html"><strong aria-hidden="true">24.</strong> Ver.3: Static Web Portál</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">ESB - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="ESB-LogikaaStuktura.html"><strong aria-hidden="true">25.</strong> Ver.5: ESB - Logika a Stuktura</a></li><li class="chapter-item expanded "><a href="SeznamImplementovanýchAgend.html"><strong aria-hidden="true">26.</strong> Ver.17:  Seznam Implementovaných Agend</a></li><li class="chapter-item expanded "><a href="SeznamukázkovýchModulůSystému.html"><strong aria-hidden="true">27.</strong> Ver.12: Seznam ukázkových Modulů Systému</a></li><li class="chapter-item expanded "><a href="ESBXMLKomentářezProjektu.html"><strong aria-hidden="true">28.</strong> Ver.6: ESB XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="MikročíselníkyunikátníFunkce.html"><strong aria-hidden="true">29.</strong> Ver.7: Mikročíselníky unikátní Funkce</a></li><li class="chapter-item expanded "><a href="GlobálníFunkce.html"><strong aria-hidden="true">30.</strong> Ver.9: Globální Funkce</a></li><li class="chapter-item expanded "><a href="ESBRadyprogramování.html"><strong aria-hidden="true">31.</strong> Ver.8: ESB Rady programování</a></li><li class="chapter-item expanded "><a href="XAMLŠablonySystému.html"><strong aria-hidden="true">32.</strong> Ver.63: XAML Šablony Systému</a></li><li class="chapter-item expanded "><a href="ESBTiskovéřešení.html"><strong aria-hidden="true">33.</strong> Ver.5: ESB Tiskové řešení</a></li><li class="chapter-item expanded "><a href="DoplňujícíSubProjekty.html"><strong aria-hidden="true">34.</strong> Ver.8: Doplňující SubProjekty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC Knihovny Kódů a Šablony</li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">35.</strong> Ver.61: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="GenerátoryaJejichFunkce.html"><strong aria-hidden="true">36.</strong> Ver.62: Generátory a Jejich Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIS-ESB-ClonedSmallServers</li><li class="chapter-item expanded "><a href="ExpertDocSPAManager.html"><strong aria-hidden="true">37.</strong> Ver.18: ExpertDoc SPA Manager</a></li><li class="chapter-item expanded "><a href="ExpertDocWebServer.html"><strong aria-hidden="true">38.</strong> Ver.18: ExpertDoc Web Server</a></li><li class="chapter-item expanded "><a href="ExpertDocExportSPADocWebu.html"><strong aria-hidden="true">39.</strong> Ver.21: ExpertDoc Export SPADoc Webu</a></li><li class="chapter-item expanded "><a href="ExpertDocUkázkyFormátování.html"><strong aria-hidden="true">40.</strong> Ver.19: ExpertDoc Ukázky Formátování</a></li><li class="chapter-item expanded "><a href="ExpertDocGrafickéUkázky.html"><strong aria-hidden="true">41.</strong> Ver.21: ExpertDoc Grafické Ukázky</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-CanceledRazorBuild</li><li class="chapter-item expanded "><a href="ZrušenýMVCWebPortalCsHtml.html"><strong aria-hidden="true">42.</strong> Ver.77: Zrušený MVC Web Portal CsHtml</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB Github a Svět Neomezená Řešení</li><li class="chapter-item expanded "><a href="awesome-dotnet-core.html"><strong aria-hidden="true">43.</strong> Ver.1: awesome-dotnet-core</a></li><li class="chapter-item expanded "><a href="awesome-dotnet-coreNext.html"><strong aria-hidden="true">44.</strong> Ver.2: awesome-dotnet-core Next</a></li><li class="chapter-item expanded "><a href="awesome-workflow-engines.html"><strong aria-hidden="true">45.</strong> Ver.3: awesome-workflow-engines</a></li><li class="chapter-item expanded "><a href="editorjsrozšířený.html"><strong aria-hidden="true">46.</strong> Ver.4: editorjs rozšířený</a></li><li class="chapter-item expanded "><a href="AwesomeWPF.html"><strong aria-hidden="true">47.</strong> Ver.4: Awesome WPF</a></li><li class="chapter-item expanded "><a href="ZaznamenanéNápadykprověření.html"><strong aria-hidden="true">48.</strong> Ver.1: Zaznamenané Nápady k prověření </a></li><li class="chapter-item expanded "><a href="InspiraceGithubBohatéProfily.html"><strong aria-hidden="true">49.</strong> Ver.3: Inspirace Github Bohaté Profily </a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Systém Šablon EIC & ESB</li><li class="chapter-item expanded "><a href="templates/index.html"><strong aria-hidden="true">50.</strong> Šablony, Kódy, Příklady</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">EIC&amp;ESB Dokumentace</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h4 id="Členění-webu-eic-serveru"><a class="header" href="#Členění-webu-eic-serveru">Členění Webu EIC Serveru</a></h4>
+<p><em>Pro myšlení, vývoj nástrojů a práci s nimi hodné 21. století</em></p>
+<p><strong>Podívejte se čerstvě Vydaný Dokumentační Portal komlpet v Češtině.</strong></p>
+<p>Díky implementovanému AUTO překladači se už nestane že něčemu neporozumíte.<br />
+Protože Správné porozumění je nejčastější Kámen Úrazu u tolik Trpících Dokumentací.<br />
+Psát Dokumentaci je totiž horší než vývoj.</p>
+<ol>
+<li>
+<p><a href="https://KlikneteZde.Cz/EIC&amp;ESBdocs/CodeDocs" title="Portál Dokumentace s Ukázkami připravených Nástrojů">Dokument Portal ANY LANG</a></p>
+</li>
+<li>
+<p><a href="https://KlikneteZde.Cz:8000" title="MS System Builder Online">MS System Builder Online na Webu</a></p>
+</li>
+<li>
+<p><a href="https://KlikneteZde.Cz/Portal" title="Web Portal tvořený již nyní Editorem v Systému">Web Portal tvořený již nyní Editorem v Systému</a></p>
+</li>
+<li>
+<p><a href="https://KlikneteZde.Cz/server-doc/md-book/book/">Fultextová Dokumentace EIC&amp;ESB Projektů</a></p>
+</li>
+<li>
+<p><a href="https://KlikneteZde.Cz/EiC&amp;ESBCodeBrowser/index/index.html">Prohlížeč Projektů EIC&amp;ESB Online</a></p>
+</li>
+</ol>
+<p>Věřím, že budete mít zajímavou podívanou co se dá nachystat ve volném čase v 1 Měsíci.</p>
+<hr />
+<h3 id="plánované-implementace-Řešení-eicesb"><a class="header" href="#plánované-implementace-Řešení-eicesb">Plánované Implementace Řešení EIC&amp;ESB</a></h3>
+<ol>
+<li>
+<p>SYSTEM udělat setting limit dataview 500,<br />
+Ne pro číselníky , vyžádá si úpravu all api Get nepovinný lastcount,</p>
+</li>
+<li>
+<p>SYSTEM V datové přidat radek s inputy a multiselect Combo zobrazených dat pro filtraci v nastaveni pridat zobrazit filtry</p>
+</li>
+<li>
+<p>SYSTEM udělat panel utility<br />
+Ping, opět ports, terminál, cmd, srv cmd, SQL, JS,HTML, CSS, MD, C# pro rychlé testy funkčnosti, HTML+JS+CSS pro generátory + select framework pro auto definici knihoven a stylu,<br />
+Přehled runtime settings, tables, v nastaveni pridat on/off utility</p>
+</li>
+</ol>
+<p>4)SERVER backendcheck bude nastavovat user is online, a system vytvořit chat s uzivately.</p>
+<ol start="5">
+<li>SYSTEM udělat left float panel poznamky</li>
+</ol>
+<p>6)SYSTEM  AGENGA WEBSOCKET ENDPOINT<br />
+Aby si mohli implementovat cokoliv na webu a přidat systémový CHAT,</p>
+<p>6b) add bod 10) FILES + k files udělat agendu user Static files s možností nastavit sdílení, verzovani = files flow + přidat do agend  selekci souboru tento zdroj = USER FILE STORE</p>
+<ol start="7">
+<li>
+<p>SYSTEM SEHNAT LEPSI kalkulačku</p>
+</li>
+<li>
+<p>SYSTEM nastavit tooltip description i pro listbox</p>
+</li>
+<li>
+<p>SYSTEM log přidat enum Task/Log a mazat jen logy</p>
+</li>
+<li>
+<p>SYSTEM dodělat static files a přidat typy: framework, subdomain, userfiles, eicproject, eiclibrary, esbproject, esblibrary ,JSlibrary, CSSlibrary<br />
+SystemSharedStore,WebTool,WebObject, WebPage,<br />
+Typy budou agenda s nastavením verzovani, autocleanu or move do storehistory. Nesmí tam být 2x</p>
+</li>
+</ol>
+<p>ATD.... + automaticky verzovat soubory při uložení. BUDE TO GLOBALNI FILE STORE</p>
+<ul>
+<li>Centrální správa static files, zapínání verzovani pro typy, auto mazání old verzi, přesun old verzi do té lokální DB jako STOREHISTORYLOG s hromadnou operaci cleanu se zvoleným typem</li>
+</ul>
+<ol start="11">
+<li>dodělat github</li>
+</ol>
+<p>12)SYSTEM Generické Agendy Pro Uživatele bude vycházet z Dynamic API přes Universální Formulář</p>
+<ol start="14">
+<li>
+<p>Zprovoznit ExperDoc Editor a Viewer Pro Doc Server, potazmo pridat pravo zapisovat externistun</p>
+</li>
+<li>
+<p>Vytvořit Generátor dokumentace z Descriptions jako hromadnou operaci</p>
+</li>
+<li>
+<p>Vytvořit Globální Přepis Description a popisovaču slovo za slovo</p>
+</li>
+</ol>
+<ul>
+<li>
+<p>Routingem muzu treba image nebo html file nebo cokoliv poslat do takoveho layoutu ktery v sobe bude mit editor a nacte si dany soubor sam<br />
+a tak muzu udelat staticky html editor pro subdomain file</p>
+</li>
+<li>
+<p>Přidat Novou Agengu: HTML Generátory: Ya v knihovně nachystat generování různých typů HTML<br />
+bude i nástroj při tvorbě Statických webů, prezentačních stránek, statických stránek,<br />
+Přehledů, dokumentace, partnerská příprava dat</p>
+</li>
+<li>
+<p>vytvořit remote konzoli na server pro moznost instalace a stravy online ze systemu</p>
+</li>
+<li>
+<p>dodělat dynamicke API z SQL</p>
+</li>
+<li>
+<p>dodělat vyhledávání ve všech DB dokumentacích pro Editory - Search Panel</p>
+</li>
+<li>
+<p>Udělat sloučený Export vybraných knihoven jako StartuUp Script CSS</p>
+</li>
+<li>
+<p>Vytvořit agendu Nastavení k Docs, styly s uploadem, linky</p>
+</li>
+<li>
+<p>Vytvořit agendu napoveda kodu s vlastnimi castmi kodu - codecompletention</p>
+</li>
+<li>
+<p>VYTvořit Gendu Generování Dokumentace MD</p>
+</li>
+<li>
+<p>Vytvořit Agendu Generátory pro Web Portal a stranku skladat i z Generátorů</p>
+</li>
+<li>
+<p>Prenest Sablony Html Souboru z Razor do Agendy pro uplnou spravu</p>
+<ul>
+<li>zrusit agendu includovane scripty so sablon, - budou si udrzovat sablony</li>
+<li>takto: vytvořit agendu nastroju a k nim templaty v ni budou i editory a nastroje</li>
+<li>Kazdy Layout bude mit svoji Page a to bude plate i pro portaly</li>
+<li>PS: portalum dat index znacku a dovolit jich neomezene<br />
+A k nim Sablony Stranek a tak pujde delat nastroje s Menu Atd, vazba musi byt zapsana v nich<br />
+Ukladat je stejne jako portal scripty jsou potreba pro build serveru = dynamicke programovani</li>
+</ul>
+</li>
+<li>
+<p>TODO slozky upravit na browsable, allowedOpen in browser, must be authorized Nova agenda<br />
+++++++++</p>
+</li>
+</ul>
+<ol start="8">
+<li>Galerie - Typ Video/Audio/Image/Other - vztahuje se k IMPORT/EXPORT</li>
+</ol>
+<p>vytvořit nový panel Funkcionality - Typ Export/Import/Operace<br />
+1)udelat volani autorefresh DB-&gt;DOC</p>
+<p>2a)Napsat dokumentaci že přepisuje přímo pro Live debuging<br />
+2b)import scriptů ze souborů do DB / export scriptů z DB so souborů</p>
+<ol start="3">
+<li>změnit názvy scriptů podle toho co dělají   a vše co se vztahuje k dané funkcionalitě napsat v 1 scriptu<br />
+nebude se to muset hledat a bude to na 1 místě SUPER</li>
+</ol>
+<ul>
+<li>i translation atd vše nasázet do globalscriptů<br />
+a k tomu udělat nastavení info typu - Global / Only Page /<br />
+a druhý typ Anonymous / ROLE</li>
+</ul>
+<p>a udělat jak je v systému seznam API adres a  ten bude sám měnit volání Anonymou/Auth podle toho jestli je přihlášený</p>
+<p>NEWS<br />
+Nástoje Webu / nastavení Guest/ROLE a dle hoto se načtou - nějaká ikonka na webu<br />
+admin nástroje   -  přesunout logger<br />
+Guest nástroje -<br />
+a k tomu udělat nástroj zobrazení Dat ve Storage s možností smazat<br />
+a do toho nástoje udělat přizazené ID a obsah html stránky načíst do něj</p>
+<ul>
+<li>třeba mu udělat vlastní čast SCRIPT a něm si sám nastaví cokoliv<br />
+= a přesunout tam vševchny statické tooly</li>
+</ul>
+<ul>
+<li>SYSTEM Info Panel - IKONA  ve footeru</li>
+</ul>
+<ol start="0">
+<li>
+<p>Aktualizovat local DB  Dev News</p>
+</li>
+<li>
+<p>při načtení webset uložit Datum načtení a vytvořit nový parameter jak často Refrešovat<br />
+ne neřeší když je to uloženo</p>
+</li>
+</ol>
+<p>Data bude chtít vymyslet s životností něco jako definice dat</p>
+<ol start="5">
+<li>
+<p>udělat třídu co doplní ikonu COPY a PRINT</p>
+</li>
+<li>
+<p>Ke scriptům udělat možnost zadání názvu nástroje a podle toho natahovat CSS a JS<br />
+udělat něco jako INIT a ten zkontroluje jestli je načtený popř ho načte</p>
+</li>
+</ol>
+<p>NáPAD udelat MikroWeby + NODEJS.RUN něco jako vlastní builder a exportit WEBY</p>
+<ol start="7">
+<li>
+<p>Vytvořit a publikovat úkolovník NEWS - přidat typ - Úkoly/ChangeLog/News/Reklama</p>
+</li>
+<li>
+<p>Admin nástroj Importovat Css / Js</p>
+</li>
+</ol>
+<p>VEDE TO K vygenerování INDEX.html s exoportem všeho a spuštění NODE.JS a jede celý web</p>
+<p>NEXT IDEA  Analyzer Obsahu a vytahat všechny dole do knihovny pro Web tool<br />
+následno okno HTML + okno SCRIPT + STYLE ať si každý udělá stránku a vyexportuje ji</p>
+<p>NEXT IDEA  správnost kódu vždy končit středníkem = Analyzer LET,const,VAR a vygeneruje okno proměných stránky<br />
+kotrola, zda již někde neexistuje</p>
+<p>== Generátor multifunkčích Webů s možností si ho celý poskládat z nástrojů</p>
+<ol start="9">
+<li>
+<p>Dát V Systému Settings - zda MultiInstance ENABLE/DISABLE</p>
+</li>
+<li>
+<p>VYMYSLET Export Group/Menu SYSTEM do Dokumentace + Popisy s automatickou grafikou členění a rozklikem pro web<br />
+a takto to pak přidat jako bod na stránku panelů ve skupině IS/MS SYSTEM</p>
+</li>
+<li>
+<p>vymyslet automatické přidání parametru výška řádku systému a automaticky přidat nastavení do kódu<br />
+jinak tento parametr, nebo seznam parametrů by mohl být definovn v menu a daný form už by jen poslouchal a plně dynamicky<br />
+nastaví něco[object with name] - parametrem<br />
+(začít tvořit SYSTEM Generator)</p>
+</li>
+<li>
+<p>jednou provždy opravit TimeStamp Timestamp na TimeStamp</p>
+</li>
+<li>
+<p>we webmenu přidat zda po stránce načíst jen HTML part nebo Celý Obsah</p>
+</li>
+<li>
+<p>dodělat unikatní cesty ke sciptum bez js/css složky kvůli nástrojům co maji bordel i z IS při uložení</p>
+</li>
+<li>
+<p>každý script by měl mít části guest/webuser/admin/provider aby se načítaly jen ty správné</p>
+</li>
+<li>
+<p>přenést css z Layoutu</p>
+</li>
+<li>
+<p>opravit volání API z web Editorů a editor přenést do WebAdmina  -</p>
+</li>
+<li>
+<p>Udělat zálohování scriptů/ Import Složky</p>
+</li>
+<li>
+<p>SYSTEM pro enumy udělat tabulku kde skupina BUDE jen text - takto to půjde spravovat<br />
+jedna tabulka pro všechny enumy</p>
+</li>
+<li>
+<p>minifikace bude operace nebo ať ti to udělá sám</p>
+</li>
+<li>
+<p>dodelat ukladani minify saving je odstaveny SaveNewMinifiedFile</p>
+</li>
+<li>
+<p>SYSTEM sjednotit APP konfiguraci jako na Backendu</p>
+</li>
+</ol>
+<p>24] SYSTEM v nekterych setrecord - Chybi TRY chatch</p>
+<ol start="25">
+<li>scafolging přesunout do prázdného projektu [bude z něho regenetate Projekt] - řeší RYCHLOST</li>
+</ol>
+<p>26 REACT DESKTOP dobry na pouziti v generatoru<br />
+https://react-beautiful-dnd.netlify.app/?path=/story/board--scrollable-columns<br />
+netřeba, již zahrnuto v Technologii Metro4</p>
+<ol start="27">
+<li>
+<p>přidat do stránek OpenDocView jak je na Nomadu</p>
+</li>
+<li>
+<p>zapnout možnost otevřít 1 okno vícekrát, rozdělit do více instancí<br />
+28a) TODO Nastavení Globálních Stylů</p>
+</li>
+<li>
+<p>zapnout možnost rozdělit systém na více instancí</p>
+</li>
+<li>
+<p>designer JS+CSS taky udělat s výběrem jako u knihovny a překlik</p>
+</li>
+<li>
+<p>dodělat vyhledávání ve scriptech</p>
+</li>
+<li>
+<p>prezentační knihovna Funkcionality</p>
+</li>
+<li>
+<p>prezentační knihovna Knihovny</p>
+</li>
+<li>
+<p>prezentační knihovna Služby</p>
+</li>
+<li>
+<p>prezentační knihovna Statické Nástroje a Generátory</p>
+</li>
+<li>
+<p>registrovat více controlerů (teĎ mám default) a na základě toho udělat více webů? Třeba i s překrytím stejné URL?</p>
+</li>
+<li>
+<p>do scheduleru přidat scripty + startcommand [procesy ukladat do runtimelistu]</p>
+</li>
+<li>
+<p>nová agenda Multi Web server (react,php,electron,atd..) =&gt; obsah jako StaticWeby</p>
+</li>
+</ol>
+<ul>
+<li>start command, install command, build command, možná list commandů k zadání
+<ul>
+<li>certifikát do složky server/cert + script na generování pro LIN/WIN, AUTO zahrnout subdomény</li>
+</ul>
+</li>
+</ul>
+<ol start="39">
+<li>
+<p>nová agenda controling - dynamické SQL + předpřipravené GrafFormy pro vlastní definice pohledů</p>
+</li>
+<li>
+<p>nová agenda TableBuilder - Rozšíření DB + vygenerování kódu API</p>
+</li>
+<li>
+<p>StaticWeby jako upload folder/file s Adr strukturou a náhledem souborů(Webview - pict,video,audio/Editor JS,CSS,html)</p>
+</li>
+<li>
+<p>StaticWeb i MultiWebServer by mohly mít direct Clon z Githubu</p>
+</li>
+<li>
+<p>Prověřit Generic GraphQL - jestli má ještě nějaký přínos - DATASET Dynamic Builder pro Controling/Grafy</p>
+</li>
+<li>
+<p>Zaimplementovat SSH</p>
+</li>
+<li>
+<p>dát SSH a FTP do plánovaných úloh</p>
+</li>
+<li>
+<p>zbývá dokumentace vyhledávače pro editory</p>
+</li>
+<li>
+<p>webdocKnihovna není nasazená na webu</p>
+</li>
+<li>
+<p>dodelat sitemapu</p>
+</li>
+<li>
+<p>static files, chybi form a navazane data<br />
+50] v systému řešení tooltipů, vyzobat všechny descriptiony k záznamům, nadřazených skupin atd, a osnovou je vyskládat, a vlevo nahoře pridat ikonu INFO</p>
+</li>
+<li>
+<p>udělat agendu emaillogger</p>
+</li>
+<li>
+<p>udělat 1x SP pro čištění zadaných tabulek</p>
+</li>
+<li>
+<p>Převzít hotel HTML messaging, přidat changelog, group-users-blog,Task Request-Blog,Rss-News,Web-Socket Messaging, Web-Socket Blog</p>
+</li>
+<li>
+<p>licence pro web</p>
+</li>
+<li>
+<p>stahovani předloh stranek v html completu: https://www.creative-tim.com/ tyto pak stačí zeditovat a jede se</p>
+</li>
+<li>
+<p>vytvořit osobní parametry uživatele - dynamický formulář zde si vybere zasílat zprávy atd, paramtry zadá správce v nové agendě s typem parametru - mixed enum + copy dynam param form, funkce link, email  web atd - hosting</p>
+</li>
+<li>
+<p>vytvořit layout s překladačem a modulům dát možnost volby layoutu - až po celé HTML - musí to jít, povinnost ma pouze renderBody</p>
+</li>
+<li>
+<p>provider ke kazde subdomene website moznost zalozit localDB co je nachystany</p>
+</li>
+<li>
+<p>SystemOperation, pridat inputtype [none,int,bit,table,json,etc.], inputdefinition[name,tablestructure], a kdyz bude zobrazit generic popup pro vyplneni - pro operace se vstupy atd</p>
+</li>
+<li>
+<p>docstemplates, pridat higlighttype,filetype [.exe atd] a zobrazovat v highlight okne se stazenim<br />
+61] pro portal, zalozit agendy web backroundvideoList + option zvuku, mp3list<br />
+62] sourcebrowser - zkusit zaimplementovat plugin a generovat browser jako soucast backendu<br />
+63] kompletní dokumentace a zobrazeni mermaidů, pro Server, System, DB, WEB static tools, webFunctions Library-API-behavior-object atd, s popisi , rozložením, atd..</p>
+</li>
+<li>
+<p>zkusit doplnit &quot;Docs&quot; o highlight, mermaid</p>
+</li>
+<li>
+<p>System Vytvořit Datagrid Context menu - obshlahnout ze swap Builder<br />
+E:\Projekty\MyGitHub\FreeProjects\LocalDB-MSSQL-IS-System-Generator</p>
+</li>
+<li>
+<p>implementovat github do serveru jako server službu</p>
+</li>
+<li>
+<p>Nabídnout moje projekty githubu včetně předchopzí verze System generatoru SwapBuilder</p>
+</li>
+<li>
+<p>přidat chystané novinky a vkládat tam github projekty</p>
+</li>
+<li>
+<p>changelogh zaimplementované</p>
+</li>
+<li>
+<p>vytvořit tabulku s datum meno, popis, soubor - a do té se budou ukladat změny, bud tam nahraji celou změnu<br />
+nebo to bude dělat nějaký triger, a tak budu mít hotovou agengu chaglelogu i s generováním pro web</p>
+</li>
+<li>
+<p>Zmenit správu šablon na dynamickou přes agendu, tak jich bude moci být neomezeně<br />
+72] v port8lu tvorba webu udelat knihovnu s onlineukazkami</p>
+</li>
+</ol>
+<hr />
+<p>PROVIDING</p>
+<ol>
+<li>
+<p>dodelat static files a projekty budou ve static files se kopirovat z GLOBAL do určitých složek<br />
+a k tomu bude přidán index a zakouppené administrace, pohledy, dokumentace,</p>
+</li>
+<li>
+<p>vytvorit zobrazeni struktur serverDbDiagram projekt a jejich rozpadů logiky</p>
+</li>
+<li>
+<p>pridat pole globalversion, customversion, solution(licsrv,docsrv,) a vytvořit, migration procedure<br />
+která vyzobe rozdili, uloyi script do DB, povysi verze, upozorni na custom, tzn jeste migracni tabulky</p>
+</li>
+<li>
+<p>vytvorit rozpis struktury databáze a editor s volbou tabulek, s funkcí přidat nové pole  - celá migracni logika rizena ze systému<br />
+musi vzniknoout rizeni rozvoje databáze</p>
+</li>
+<li>
+<p>sjednotit template files a pridat typ, skupinu,</p>
+</li>
+<li>
+<p>sehnat sql convert to jiných typu sql</p>
+</li>
+<li>
+<p>zaimplementovat sourcebrowser do serveru aby zobrazoval web</p>
+</li>
+<li>
+<p>zkusit zaimplementovat astnetstatic pro export webu jako staticky i s daty a vyexportovat soucasny portal</p>
+</li>
+<li>
+<p>vytvořit generator infotouchapp(možno i maui verzi pro mobily) se zobrazením jednoduchých html stránek s group/menu strukturou<br />
+plus sipky tam/zpet menu = resení pro infopanely viz radnice panel</p>
+</li>
+<li>
+<p>system dodat fultext search do knihoven kódů se skrytím položek, kde nebyl nalezen</p>
+</li>
+<li>
+<p>dodat do všech/vybraných tabulek description - bude sloužit jako fast help pro systém i generování webu</p>
+</li>
+<li>
+<p>vyzkoušet konverzi xaml-&gt;html a system prenest na html<br />
+13] opravit načítání portálu a scriptu do server localtable ulevi DB<br />
+14] prestehovat github a docs do podslozky PROVIDER<br />
+15] add xaml web to netcore<br />
+16] azure server pro muj portal bude potřeba z duvodu provider funkcí, které jsou bat atd</p>
+</li>
+<li>
+<p>web popsat jako static Technology - s možností vyseparovat libovolnou funkcionalitu</p>
+</li>
+<li>
+<p>Dodelat WebScrapScript a zaradit do nove agendy servers a takto se budou tvorit node, react atd, servery</p>
+</li>
+<li>
+<p>LayerJS Zoom umi nahledy html stranek a zoomove je otevre</p>
+</li>
+<li>
+<p>vytvořit Server agendu Process Task s možností on Startup a zapínáním a vypínáním online</p>
+</li>
+<li>
+<p>scripty portalu dat do lokalni tabulky - snizi pocet dotazu na DB</p>
+</li>
+<li>
+<p>SYSTEM Přenastavit seznam IT Nástroje a Manuály - Vypublikovat na Web v Novem Desktopu</p>
+</li>
+</ol>
+<hr />
+<h3 id="markdown-item-template"><a class="header" href="#markdown-item-template">MarkDown Item Template</a></h3>
+<pre><code class="language-cs">    
+</code></pre>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="Kontakty.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="DBTabulkyŘešení.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="Kontakty.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="DBTabulkyŘešení.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/mermaid.min.cdn.js"></script>
+        <script src="./js/globalscript.js"></script>
+
+
+    </div>
+    </body>
+</html>

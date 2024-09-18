@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>Simon Game</title>
+</head>
+
+<body>
+
+<div class = "container-fluid text-center">
+<h1>Simon Game</h1>
+
+<table class = "grid" style="width: 373px; height: 263px;"  border="1">
+      <tbody>
+        <tr>
+          <td  id="cell1" class="cell"  style="width: 179.1px;"><br>
+          </td>
+          <td  id="cell2" class="cell" style="width: 179.1px;"><br>
+          </td>
+        </tr>
+        <tr>
+          <td  id="cell3" class="cell" ><br>
+          </td>
+          <td  id="cell4" class="cell" ><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+	
+	<button id = "start">Start</button>
+	<button id = "stop">Stop</button>
+	<button id = "strict">Strict mode</button>
+  <button id = "reset">Reset</button>
+	<div id = "count-disp">Count: <span id ="count"></span></div>
+
+  <audio  src = 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3' > </audio>
+  <audio  src = 'https://s3.amazonaws.com/freecodecamp/simonSound2.mp3' > </audio>
+  <audio  src = 'https://s3.amazonaws.com/freecodecamp/simonSound3.mp3' > </audio>
+  <audio  src = 'https://s3.amazonaws.com/freecodecamp/simonSound4.mp3' > </audio>
+</div>
+    
+    <script src='index.js'></script>
+</body>
+
+</html>

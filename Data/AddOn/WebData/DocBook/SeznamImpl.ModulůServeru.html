@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js rust">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Ver.8: Seznam Impl. Modulů Serveru - EIC&amp;ESB Dokumentace</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="EasyITcenter &amp; EasySYSTEMbuilder Dokumentace">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "rust";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('rust')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB-Globální IT Řešení na míru</li><li class="chapter-item expanded "><a href="VizeaNápadyaPostupy.html"><strong aria-hidden="true">1.</strong> Ver.9: Vize a Nápady a Postupy</a></li><li class="chapter-item expanded "><a href="HistorieReklamníchSdělení.html"><strong aria-hidden="true">2.</strong> Ver.5: Historie Reklamních Sdělení</a></li><li class="chapter-item expanded "><a href="ÚvodníInformace.html"><strong aria-hidden="true">3.</strong> Ver.22: Úvodní Informace</a></li><li class="chapter-item expanded "><a href="PřipravovanéNovinky.html"><strong aria-hidden="true">4.</strong> Ver.42: Připravované Novinky</a></li><li class="chapter-item expanded "><a href="AutomatickéFunkcinality.html"><strong aria-hidden="true">5.</strong> Ver.5: Automatické Funkcinality</a></li><li class="chapter-item expanded "><a href="DatabázeNápověda.html"><strong aria-hidden="true">6.</strong> Ver.3: Databáze Nápověda</a></li><li class="chapter-item expanded "><a href="EIC&ESB3rdNástrojeaModuly.html"><strong aria-hidden="true">7.</strong> Ver.5: EIC&ESB 3rd Nástroje a Moduly</a></li><li class="chapter-item expanded "><a href="ZpracovávánéAChangeLog.html"><strong aria-hidden="true">8.</strong> Ver.33: Zpracováváné A ChangeLog</a></li><li class="chapter-item expanded "><a href="CeníkEIC&ESBaITSlužeb.html"><strong aria-hidden="true">9.</strong> Ver.22: Ceník EIC&ESB a IT Služeb</a></li><li class="chapter-item expanded "><a href="Kontakty.html"><strong aria-hidden="true">10.</strong> Ver.2: Kontakty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Start -DATABASE-RULE</li><li class="chapter-item expanded "><a href="WebRozcestník.html"><strong aria-hidden="true">11.</strong> Ver.8: Web Rozcestník</a></li><li class="chapter-item expanded "><a href="DBTabulkyŘešení.html"><strong aria-hidden="true">12.</strong> Ver.49: DB Tabulky Řešení</a></li><li class="chapter-item expanded "><a href="DBProceduryŘešení.html"><strong aria-hidden="true">13.</strong> Ver.48: DB Procedury Řešení</a></li><li class="chapter-item expanded "><a href="DBTriggery.html"><strong aria-hidden="true">14.</strong> Ver.46: DB Triggery</a></li><li class="chapter-item expanded "><a href="DBViewaFunkce.html"><strong aria-hidden="true">15.</strong> Ver.44: DB View a Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-Dev Pravidla</li><li class="chapter-item expanded "><a href="EICServerInstalaceWIN_LIN.html"><strong aria-hidden="true">16.</strong> Ver.15: EIC Server Instalace WIN_LIN</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="EIC-LogikaaStruktura.html"><strong aria-hidden="true">17.</strong> Ver.12: EIC - Logika a Struktura</a></li><li class="chapter-item expanded "><a href="EICUnikátníAPISlužby.html"><strong aria-hidden="true">18.</strong> Ver.8: EIC Unikátní API Služby</a></li><li class="chapter-item expanded "><a href="ZákladníKonfiguraceServeru.html"><strong aria-hidden="true">19.</strong> Ver.22: Základní Konfigurace Serveru</a></li><li class="chapter-item expanded "><a href="SeznamImpl.ModulůServeru.html" class="active"><strong aria-hidden="true">20.</strong> Ver.8: Seznam Impl. Modulů Serveru</a></li><li class="chapter-item expanded "><a href="EICXMLKomentářezProjektu.html"><strong aria-hidden="true">21.</strong> Ver.14: EIC XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="EICRadyprogramování.html"><strong aria-hidden="true">22.</strong> Ver.8: EIC Rady programování</a></li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">23.</strong> Ver.60: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="StaticWebPortál.html"><strong aria-hidden="true">24.</strong> Ver.3: Static Web Portál</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">ESB - Dokumentace Projektu</li><li class="chapter-item expanded "><a href="ESB-LogikaaStuktura.html"><strong aria-hidden="true">25.</strong> Ver.5: ESB - Logika a Stuktura</a></li><li class="chapter-item expanded "><a href="SeznamImplementovanýchAgend.html"><strong aria-hidden="true">26.</strong> Ver.17:  Seznam Implementovaných Agend</a></li><li class="chapter-item expanded "><a href="SeznamukázkovýchModulůSystému.html"><strong aria-hidden="true">27.</strong> Ver.12: Seznam ukázkových Modulů Systému</a></li><li class="chapter-item expanded "><a href="ESBXMLKomentářezProjektu.html"><strong aria-hidden="true">28.</strong> Ver.6: ESB XML Komentáře z Projektu</a></li><li class="chapter-item expanded "><a href="MikročíselníkyunikátníFunkce.html"><strong aria-hidden="true">29.</strong> Ver.7: Mikročíselníky unikátní Funkce</a></li><li class="chapter-item expanded "><a href="GlobálníFunkce.html"><strong aria-hidden="true">30.</strong> Ver.9: Globální Funkce</a></li><li class="chapter-item expanded "><a href="ESBRadyprogramování.html"><strong aria-hidden="true">31.</strong> Ver.8: ESB Rady programování</a></li><li class="chapter-item expanded "><a href="XAMLŠablonySystému.html"><strong aria-hidden="true">32.</strong> Ver.63: XAML Šablony Systému</a></li><li class="chapter-item expanded "><a href="ESBTiskovéřešení.html"><strong aria-hidden="true">33.</strong> Ver.5: ESB Tiskové řešení</a></li><li class="chapter-item expanded "><a href="DoplňujícíSubProjekty.html"><strong aria-hidden="true">34.</strong> Ver.8: Doplňující SubProjekty</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC Knihovny Kódů a Šablony</li><li class="chapter-item expanded "><a href="APIŠablonySystému.html"><strong aria-hidden="true">35.</strong> Ver.61: API Šablony Systému</a></li><li class="chapter-item expanded "><a href="GenerátoryaJejichFunkce.html"><strong aria-hidden="true">36.</strong> Ver.62: Generátory a Jejich Funkce</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIS-ESB-ClonedSmallServers</li><li class="chapter-item expanded "><a href="ExpertDocSPAManager.html"><strong aria-hidden="true">37.</strong> Ver.18: ExpertDoc SPA Manager</a></li><li class="chapter-item expanded "><a href="ExpertDocWebServer.html"><strong aria-hidden="true">38.</strong> Ver.18: ExpertDoc Web Server</a></li><li class="chapter-item expanded "><a href="ExpertDocExportSPADocWebu.html"><strong aria-hidden="true">39.</strong> Ver.21: ExpertDoc Export SPADoc Webu</a></li><li class="chapter-item expanded "><a href="ExpertDocUkázkyFormátování.html"><strong aria-hidden="true">40.</strong> Ver.19: ExpertDoc Ukázky Formátování</a></li><li class="chapter-item expanded "><a href="ExpertDocGrafickéUkázky.html"><strong aria-hidden="true">41.</strong> Ver.21: ExpertDoc Grafické Ukázky</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC-CanceledRazorBuild</li><li class="chapter-item expanded "><a href="ZrušenýMVCWebPortalCsHtml.html"><strong aria-hidden="true">42.</strong> Ver.77: Zrušený MVC Web Portal CsHtml</a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">EIC&ESB Github a Svět Neomezená Řešení</li><li class="chapter-item expanded "><a href="awesome-dotnet-core.html"><strong aria-hidden="true">43.</strong> Ver.1: awesome-dotnet-core</a></li><li class="chapter-item expanded "><a href="awesome-dotnet-coreNext.html"><strong aria-hidden="true">44.</strong> Ver.2: awesome-dotnet-core Next</a></li><li class="chapter-item expanded "><a href="awesome-workflow-engines.html"><strong aria-hidden="true">45.</strong> Ver.3: awesome-workflow-engines</a></li><li class="chapter-item expanded "><a href="editorjsrozšířený.html"><strong aria-hidden="true">46.</strong> Ver.4: editorjs rozšířený</a></li><li class="chapter-item expanded "><a href="AwesomeWPF.html"><strong aria-hidden="true">47.</strong> Ver.4: Awesome WPF</a></li><li class="chapter-item expanded "><a href="ZaznamenanéNápadykprověření.html"><strong aria-hidden="true">48.</strong> Ver.1: Zaznamenané Nápady k prověření </a></li><li class="chapter-item expanded "><a href="InspiraceGithubBohatéProfily.html"><strong aria-hidden="true">49.</strong> Ver.3: Inspirace Github Bohaté Profily </a></li><li class="spacer"></li><li class="chapter-item expanded affix "><li class="part-title">Systém Šablon EIC & ESB</li><li class="chapter-item expanded "><a href="templates/index.html"><strong aria-hidden="true">50.</strong> Šablony, Kódy, Příklady</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">EIC&amp;ESB Dokumentace</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="seznam-implementovaných-modulů-serveru"><a class="header" href="#seznam-implementovaných-modulů-serveru">Seznam Implementovaných Modulů Serveru,</a></h1>
+<p>Do serveru lze zaimplementovat téměř neomezeně funkcionalit. Sám jich už má přehršel.
+Je tu ale nová Dynamická agenda kde se nastavují přístupy k zaimplementovaným modulům, nebo je možné tvořit vlastní webové moduly
+jako jednostánkové weby pro určitý Účel. ke snadnosti slouží knihovny kódů pomocí kterých tyto moduly můžete doslova Generovat</p>
+<hr />
+<h1 id="fullhtmlpage"><a class="header" href="#fullhtmlpage">FullHtmlPage</a></h1>
+<p><strong>GlobalLogin</strong></p>
+<p>*Html/JS Modul Sloužící k ověření přihlášení a zápisu tokenu.
+JTímto způsobem se jedná o globální použití a může být použit pro každý nástoje, systém
+z jediného místa, takto si můžete postavit další systém, stvořený pouze z funkčních částí</p>
+<p>Použito v Restricted službách*</p>
+<p><strong>NonExistPage</strong></p>
+<p><em>Stránka, která se zobrazí při pokusu o otevření neexistující stránky
+!!! JE SYSTÉMOVÁ NEMĚNIT NÁZEV!!! 
+Do Url a Funkce ve Scriptu zadejte Kam ná být dotyčný přesměrován
+Výchozí je /NonExistPage -  Záchytný Bod Systému</em></p>
+<hr />
+<h1 id="htmlbodyonly"><a class="header" href="#htmlbodyonly">HtmlBodyOnly</a></h1>
+<p><strong>Správa Projektu Řešení</strong></p>
+<p><em>Připravené Online řešení vývoje ,customizace., Editaze, úpravy, správy, administrace.
+K dispozici bude přes 200 nástroů, přes 1000 Objektů, přes 100 nachstaných Řešení,
+50 Webových stánek, 300 Technologií a Postupů a to celé v centrální správe s updatem 
+za hubičku. Jen Nastoupit na stejnou Loď.</em></p>
+<p><strong>SystemWebEditors</strong></p>
+<p><em>Modul Pro Distribuci Web Obsahu z Volných Editorů Systému.
+Obsah je při každém Zobrazení na Webu Přepsán je navázán URL - NEMĚNIT
+Možno Použít pro náhledy Web kódu ze všech Editorů</em></p>
+<p><strong>PrintSystemModuleList</strong></p>
+<p>*Modul pro export Dat z Tabulky ve vzhledu tisku
+*</p>
+<hr />
+<h1 id="serverapi"><a class="header" href="#serverapi">ServerApi</a></h1>
+<p><strong>MikroExport Web Portálu</strong></p>
+<p><em>minimilní Export pro spuštění portálu mimo server
+jen musí být správně nastavena adresa backend serveru</em></p>
+<p><strong>robot.txt</strong></p>
+<p><em>Publikování souboru Robot.txt 
+K Editaci je v nastavení Portálu</em></p>
+<p><strong>sitemap</strong></p>
+<p><em>Publikování Obsahu portálu sitemap a sitemap.xml
+Zatím nachystaý. jer nutné donastavit co bude předmetem publikování</em></p>
+<p><strong>rss.xml</strong></p>
+<p><em>Publikování Obsahu portálu rss a rss.xml
+Zatím nachystaý. jer nutné donastavit co bude předmetem publikování</em></p>
+<p><strong>ExportFullDoc</strong></p>
+<p><em>Api s kompletní dokumentac serveru. v JSON markdowny
+Lze pomocí statických generátorů vygenerovat pohledný Multimediální WEB</em></p>
+<p><strong>ToolPanelDefinition</strong></p>
+<p><em>Export všerchpoložek Toolpanelu
+Lze Vygenerovat Ovládací panel</em></p>
+<p><strong>ExportAllTemplates</strong></p>
+<p><em>Export Agendy Šablony v dokumentaci. Přes nástroj
+se vygeneruje web i možnosti stažení nasazení, použití atd.
+Obsahuje i celou Strukturu Databáze, který se generuje do dokuentace
+Automatickým nástrojem</em></p>
+<p><strong>WebCodeLibrary</strong></p>
+<p>*Export Agendy Globální Knihovna WEB kódů.  Přes nástroj
+se vygeneruje web i možnosti stažení nasazení, použití atd.
+Vývoj se dá snadno zařídit jen skládáním objektů a stačí zvolit hezký desing *</p>
+<p><strong>WebMenuContent</strong></p>
+<p>*Export Agendy Menu Webportálu. Přes nástroj
+se vygeneruje web i s obsahem kte ý naťukáte v grafickém editoru.
+A máte tak třeba jádro exhopu atd. je zde i s obsahem HTML *</p>
+<p><strong>MottoList</strong></p>
+<p><em>Motto List, takto lze snano udělat jakokoliv API
+a použít. Poku je možné ji nechat ke čtení. z toho lze pak 
+Pomocí nástrojů ˇřešení vykouzlit Cokoliv</em></p>
+<p><strong>SystemModuleList</strong></p>
+<p><em>Export Seznamu Systémových Modulů
+Zase lze použít k vygenerování podledné stránky</em></p>
+<p><strong>ProviderToolsList</strong></p>
+<p>*Export Seznamu Generátorů
+*</p>
+<p><strong>WebCodeTemlateList</strong></p>
+<p><em>Export Agendy Knihovna praktických ukázek pro dynamickou tvorbu webu.
+Exportuje Celou knihovnu se vším, - Globální Knihovna nápověd pro weby</em></p>
+<p><strong>WebPortalJsCssManagement</strong></p>
+<p><em>Export všech managovaných scriptů a stlylů Web Portálu. 
+Obsahuje všechny Scripty a Stylizace spravované
+Systémem aktuálního Weboportálu. WebPortál se následně přesouv ja Subdoménu
+a může začít nový vývoj tímto snadnýmn způsobem pomocí DB a systému, Editorů, atd</em></p>
+<p><strong>AgendaSolutionToolList</strong></p>
+<p><em>Export Agendy celého seznamu nástrojů a řešení 
+které jsou jednoduché, levné a ryvchlé rozšíření možností 
+Celého Řešení, které jsou díky své otevřenosti neomezené
+Je to ale pouze seznam s Odkazy a designem daného nástroje</em></p>
+<p><strong>Export NewsLeterů</strong></p>
+<p>*Export nearchivované agendy Newsleter.
+v portálu se můžete přihlásit k automatickému odběru.
+*</p>
+<p><strong>MSSQLcreateDBscript</strong></p>
+<p><em>Export Aktuálního Create Scriptu pro vyrtvoření 
+Kompletní prázdné MSSQL Databáze. Bude součístí řídící agendy
+Online Generátorů a vývoje pro sledování změn</em></p>
+<p><strong>DBEntitySchema</strong></p>
+<p>*Web Generátor Zobrazení modelu Databáze.
+Zobrazí Live  Strukruru s vazbami mezi tabulkami
+a jejich datové Typy
+*</p>
+<p><strong>MssqlDGMLdiagram</strong></p>
+<p>*Export aktálního DGML schematu datazbáze
+je to 1 z nástrojů žešení, které služí k profesionální
+a snadné údržbě Celého Řašení
+*</p>
+<p><strong>AutoExportXamlSystemLangCZ</strong></p>
+<p><em>CZ XAML Auto Generický slovník pro Export a vložení 
+do Systému. Již se plní Kompletně Sám. a to z celéého řešení
+Web, Server, System, Všichni jej používají</em></p>
+<p><strong>AutoExportXamlSystemLangEN</strong></p>
+<p><em>EN XAML Auto Generický slovník pro Export a vložení 
+do Systému. Již se plní Kompletně Sám. a to z celéého řešení
+Web, Server, System, Všichni jej používají</em></p>
+<p><strong>Export Web Portálu</strong></p>
+<p><em>Kompletní Export WebPortálu se všemi knihovnami a styly
+pro možnost spuštění Offline. Musí být správně zadána adresa
+backend serveru pro načtení Dat</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="ZákladníKonfiguraceServeru.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="EICXMLKomentářezProjektu.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="ZákladníKonfiguraceServeru.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="EICXMLKomentářezProjektu.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/mermaid.min.cdn.js"></script>
+        <script src="./js/globalscript.js"></script>
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,28 @@
+section{
+  line-height: 1em;
+  padding-right: 4%; 
+}
+body{
+  background-color: #000086;
+  margin: 5%;
+  color: #d7d7ff;
+  font-family: 'Dosis', sans-serif;
+
+}
+
+.jumbotron{
+  color: #000086;
+  line-height: 1.5;
+  font-size: 1.2em;
+}
+
+.lead a{
+  color: 
+}
+
+.lead a:hover{
+  text-decoration: none;
+  border-bottom: 3px double;
+  color: white;
+}
+

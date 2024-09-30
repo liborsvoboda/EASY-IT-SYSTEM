@@ -240,8 +240,12 @@ namespace EasyITSystemCenter.GlobalOperations {
         public static int? StartExternalProccess(string type, string processCommand, string startupPath = null, string arguments = null) {
             try {
                 Process tmpProcess = new Process();
-                switch (type) {
-                    case "WINcmd":
+                switch (type.ToLower()) {
+                    case "wincmd":
+                    case "powerscript":
+                    case "nodejs":
+                    case "python":
+                    case "php":
                         ProcessStartInfo info = new ProcessStartInfo() {
                             FileName = processCommand,
                             WorkingDirectory = startupPath,
@@ -258,7 +262,11 @@ namespace EasyITSystemCenter.GlobalOperations {
                         tmpProcess.Start();
                         break;
 
-                    case "URL":
+                    case "weburl":
+                    case "githuburl":
+                    case "searchurl":
+                    case "nugeturl":
+                    case "docsurl":
                         tmpProcess = Process.Start(processCommand);
                         break;
 

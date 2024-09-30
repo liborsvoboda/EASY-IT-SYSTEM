@@ -261,7 +261,7 @@ namespace EasyITSystemCenter.Pages {
         }
 
         private void BtnCommandTest_Click(object sender, RoutedEventArgs e) {
-            SystemOperations.StartExternalProccess(((TranslateSet)cb_type.SelectedItem).Value, (((TranslateSet)cb_type.SelectedItem).Value == "EDCservice" ? App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value : "") + txt_command.Text);
+            SystemOperations.StartExternalProccess(((TranslateSet)cb_type.SelectedItem).Value, (((TranslateSet)cb_type.SelectedItem).Value == "ServerUrl" ? App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value : "") + txt_command.Text);
         }
     }
 }

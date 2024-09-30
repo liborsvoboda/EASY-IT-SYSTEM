@@ -88,7 +88,7 @@ namespace EasyITSystemCenter.Pages {
 
         private void ToolPanelListPage_Click(object sender, RoutedEventArgs e) {
             var selectedPanel = ServerToolPanelDefinitionList.Where(a => a.Id == int.Parse(((Tile)sender).Tag.ToString())).FirstOrDefault();
-            SystemOperations.StartExternalProccess(selectedPanel.Type, (selectedPanel.Type == "EDCservice" ? App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value : "") + selectedPanel.Command);
+            SystemOperations.StartExternalProccess(selectedPanel.Type, (selectedPanel.Type == "ServerUrl" ? App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value : "") + selectedPanel.Command);
         }
 
         private void SetRecord(bool? showForm = null) {

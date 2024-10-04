@@ -4,7 +4,7 @@ namespace EasyITSystemCenter.GlobalClasses {
 
     public class ServerServerSettingList {
         public int Id { get; set; }
-        public string InheritedGroupName { get; set; } = null;
+        public string InheritedSrvConfigType { get; set; } = null;
         public string Type { get; set; } = null;
         public string Key { get; set; }
         public string Value { get; set; }

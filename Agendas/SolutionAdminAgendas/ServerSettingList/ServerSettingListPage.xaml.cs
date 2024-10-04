@@ -38,8 +38,8 @@ namespace EasyITSystemCenter.Pages {
         public async void LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                serverLanguages = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/ServerLanguages", App.UserData.Authentification.Token);
-                serverConfigGroups = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/ServerConfig", App.UserData.Authentification.Token);
+                serverLanguages = await DBOperations.LoadInheritedDataList("ServerLanguageType");
+                serverConfigGroups = await DBOperations.LoadInheritedDataList("SrvConfigType");
                 inheritedTokenEncryptTypes = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/TokenEncryptTypes", App.UserData.Authentification.Token);
                 App.ServerSetting = await CommunicationManager.GetApiRequest<List<ServerServerSettingList>>(ApiUrls.EasyITCenterServerSettingList, null, null);
 
@@ -49,7 +49,7 @@ namespace EasyITSystemCenter.Pages {
 
                 App.ServerSetting.ForEach(async serverConfig => {
                     serverConfig.KeyTranslation = await DBOperations.DBTranslation(serverConfig.Key);
-                    serverConfig.GroupNameTranslation = serverConfigGroups.First(a => a.Name == serverConfig.InheritedGroupName).Translation;
+                    serverConfig.GroupNameTranslation = serverConfigGroups.First(a => a.Name == serverConfig.InheritedSrvConfigType).Translation;
                 });
 
                 //Generate Menu Panel
@@ -68,7 +68,7 @@ namespace EasyITSystemCenter.Pages {
                 App.ServerSetting.ForEach(async configuration => {
                     try {
                         //Get Parent Object
-                        WrapPanel targetGrid = ((WrapPanel)TabMenuList.Items.Cast<TabItem>().ToList().Where(a => a.Name == configuration.InheritedGroupName).First().Content);
+                        WrapPanel targetGrid = ((WrapPanel)TabMenuList.Items.Cast<TabItem>().ToList().Where(a => a.Name == configuration.InheritedSrvConfigType).First().Content);
                         DataGrid panel = new DataGrid();
 
                         //Insert Label
@@ -77,6 +77,7 @@ namespace EasyITSystemCenter.Pages {
                             Content = await DBOperations.DBTranslation(configuration.Key),
                             Width = 350,
                             HorizontalAlignment = HorizontalAlignment.Left,
+                            VerticalAlignment = VerticalAlignment.Center,
                             VerticalAlignment = VerticalAlignment.Center,
                             FontSize = 16,
                             Foreground = new SolidColorBrush(Colors.White),
@@ -104,7 +105,7 @@ namespace EasyITSystemCenter.Pages {
                             case "list":
                                 ComboBox comboBox = new ComboBox() { Name = configuration.Key, Text = configuration.Value, Width = 300, HorizontalAlignment = HorizontalAlignment.Right, VerticalAlignment = VerticalAlignment.Center };
 
-                                //All Udes Lists Definitions
+                                //All Uses Lists Definitions
                                 if (configuration.Key.ToLower() == "ServiceServerLanguage".ToLower()) { comboBox.ItemsSource = serverLanguages; comboBox.DisplayMemberPath = "Translation"; comboBox.SelectedValuePath = "Name"; comboBox.SelectedValue = configuration.Value; }
                                 if (configuration.Key.ToLower() == "ConfigTokenEncryption".ToLower()) { comboBox.ItemsSource = inheritedTokenEncryptTypes; comboBox.DisplayMemberPath = "Translation"; comboBox.SelectedValuePath = "Name"; comboBox.SelectedValue = configuration.Value; }
                                 targetGrid.Children.Add(comboBox);
@@ -141,7 +142,7 @@ namespace EasyITSystemCenter.Pages {
             try {
                 App.ServerSetting.ForEach(configuration => {
                     try {
-                        WrapPanel targetGrid = ((WrapPanel)TabMenuList.Items.Cast<TabItem>().ToList().Where(a => a.Name == configuration.InheritedGroupName).First().Content);
+                        WrapPanel targetGrid = ((WrapPanel)TabMenuList.Items.Cast<TabItem>().ToList().Where(a => a.Name == configuration.InheritedSrvConfigType).First().Content);
 
                         targetGrid.Children.OfType<CheckBox>().ToList().ForEach(checkBox => {
                             App.ServerSetting.First(a => a.Key == checkBox.Name).Value = checkBox.IsChecked.ToString();

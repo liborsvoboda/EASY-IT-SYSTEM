@@ -134,6 +134,7 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -4321,6 +4322,9 @@
     <None Include="Data\AddOn\WebData\markdown\plugins\html-entities-dialog\html-entities.json" />
     <None Include="Data\AddOn\WebData\markdown\test.md" />
     <None Include="EasyITGroupWareSolution.snk" />
+    <None Include="FodyWeavers.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="GenericSystemAgendas\_JakPouzivatNastroje.md" />
     <None Include="Data\AddOn\WebSrvData\AngularTest\angular.json" />
     <None Include="Data\AddOn\WebSrvData\AngularTest\package.json" />
@@ -7021,6 +7025,7 @@
     <Content Include="Manual\index.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Nugets.md" />
     <None Include="Next.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -7241,41 +7246,14 @@
     <PackageReference Include="AngleSharp.Xml">
       <Version>1.0.0</Version>
     </PackageReference>
-    <PackageReference Include="AsynchronousBridge">
-      <Version>1.2.2</Version>
-    </PackageReference>
     <PackageReference Include="AutoMapper">
       <Version>10.1.1</Version>
     </PackageReference>
     <PackageReference Include="AvalonEdit">
       <Version>6.3.0.90</Version>
     </PackageReference>
-    <PackageReference Include="AWSSDK.EventBridge">
-      <Version>3.7.401.9</Version>
-    </PackageReference>
     <PackageReference Include="BlurWindow">
       <Version>5.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bond">
-      <Version>0.2.3.2</Version>
-    </PackageReference>
-    <PackageReference Include="Bond.Compiler">
-      <Version>10.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bond.Compiler.CSharp">
-      <Version>9.0.5</Version>
-    </PackageReference>
-    <PackageReference Include="Bond.Core.CSharp">
-      <Version>10.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bond.CSharp">
-      <Version>10.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bond.Runtime.CSharp">
-      <Version>10.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="bootstrap">
-      <Version>5.3.3</Version>
     </PackageReference>
     <PackageReference Include="BouncyCastle.Cryptography">
       <Version>2.4.0</Version>
@@ -7283,162 +7261,11 @@
     <PackageReference Include="BouncyCastle.NetCore">
       <Version>2.2.1</Version>
     </PackageReference>
-    <PackageReference Include="Bridge">
-      <Version>17.10.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.ArcantelMeta">
-      <Version>1.2.0.93</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Aspect">
-      <Version>1.14.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.AspNetCore.SignalR.Client">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.AWS">
-      <Version>0.4.2</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Bootstrap">
-      <Version>3.24.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.BootstrapSelect">
-      <Version>1.13.11.93</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Clean">
-      <Version>17.10.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Collections">
-      <Version>1.3.5</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Console">
-      <Version>1.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Core">
-      <Version>17.10.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.DataTables">
-      <Version>1.5.93</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.EasyTest">
-      <Version>0.0.4</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.EventEmitter3">
-      <Version>2.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Fundamentals">
-      <Version>2024.8.26.2</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Html5">
-      <Version>17.10.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Html5.Console">
-      <Version>1.14.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Ioc">
-      <Version>18.1.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Ioc.Sources">
-      <Version>2019.8.2.3</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.jQuery">
-      <Version>2.24.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.JqueryPromise">
-      <Version>1.1.0.93</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Messenger">
-      <Version>18.1.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Min">
-      <Version>17.10.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Navigation">
-      <Version>18.1.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Networking">
-      <Version>2024.8.26.2</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Newtonsoft.Json">
-      <Version>1.17.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.NRefactory">
-      <Version>5.5.9</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Pages">
-      <Version>0.0.4</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Pixi">
-      <Version>3.0.11.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.QUnit">
-      <Version>1.23.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.QUnit.Sample">
-      <Version>1.7.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Razor">
-      <Version>0.2.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.React">
-      <Version>5.2.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.ReactLoader">
-      <Version>16.4.2</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Rest">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.SecureLs">
-      <Version>1.2.6.93</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.SignalR">
-      <Version>2.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.SlimRouter">
-      <Version>1.1.0.93</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Spaf">
-      <Version>18.1.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Spaf.Sources">
-      <Version>3001.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Test">
-      <Version>1.14.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.Test.Core">
-      <Version>1.14.1</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.TestHelpers">
-      <Version>2024.8.26.2</Version>
-    </PackageReference>
-    <PackageReference Include="Bridge.WebGL">
-      <Version>1.23.0</Version>
-    </PackageReference>
     <PackageReference Include="BrightSharp.Toolkit">
       <Version>2.1.1.1</Version>
     </PackageReference>
-    <PackageReference Include="chocolatey">
-      <Version>2.3.0</Version>
-    </PackageReference>
-    <PackageReference Include="chocolatey.lib">
-      <Version>1.4.0</Version>
-    </PackageReference>
     <PackageReference Include="Codeuctivity.HtmlRenderer">
       <Version>2.2.278</Version>
-    </PackageReference>
-    <PackageReference Include="Confuser.MSBuild">
-      <Version>1.6.0</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="ConfuserEx">
-      <Version>0.6.0</Version>
-    </PackageReference>
-    <PackageReference Include="ConfuserEx.Final">
-      <Version>1.0.0</Version>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-      <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="ControlzEx">
       <Version>3.0.2.4</Version>
@@ -7450,9 +7277,6 @@
     </PackageReference>
     <PackageReference Include="Dapplo.Windows.Common">
       <Version>0.11.29</Version>
-    </PackageReference>
-    <PackageReference Include="DesktopBridge.Helpers">
-      <Version>1.2.2</Version>
     </PackageReference>
     <PackageReference Include="DeviceId">
       <Version>6.6.0</Version>
@@ -7584,12 +7408,6 @@
       <Version>6.8.1</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="FredCK.FCKeditorV2">
-      <Version>2.6.3.22451</Version>
-    </PackageReference>
-    <PackageReference Include="FroalaEditor">
-      <Version>4.2.1</Version>
     </PackageReference>
     <PackageReference Include="FxSocket.SftpServer">
       <Version>5.0.1242</Version>
@@ -7744,9 +7562,6 @@
     <PackageReference Include="LightSwitchMetroTheme">
       <Version>2.2.3</Version>
     </PackageReference>
-    <PackageReference Include="LinqBridge">
-      <Version>1.3.0</Version>
-    </PackageReference>
     <PackageReference Include="Lints.HtmlRenderer.PdfSharp">
       <Version>1.5.9</Version>
     </PackageReference>
@@ -7871,15 +7686,6 @@
     <PackageReference Include="Microsoft.Playwright">
       <Version>1.46.0</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.PowerShell.EditorServices">
-      <Version>0.6.2.389</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.PowerShell.EditorServices.Host">
-      <Version>0.6.2.389</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.PowerShell.EditorServices.Protocol">
-      <Version>0.6.2.389</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Wpf.UI.Controls">
       <Version>5.1.1</Version>
     </PackageReference>
@@ -7894,42 +7700,6 @@
     </PackageReference>
     <PackageReference Include="MimeKit">
       <Version>4.7.1</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler">
-      <Version>4.3.8</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.EF6">
-      <Version>4.3.8</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.EntityFrameworkCore">
-      <Version>4.3.8</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.Integrations">
-      <Version>2.5.1</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.Integrations.MySql">
-      <Version>2.5.1</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.Minimal">
-      <Version>4.3.8</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.Mvc5">
-      <Version>4.3.8</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.Providers.MySql">
-      <Version>4.3.8</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.Providers.Sqlite">
-      <Version>4.3.8</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.Providers.SqlServer">
-      <Version>4.3.8</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.Shared">
-      <Version>4.3.8</Version>
-    </PackageReference>
-    <PackageReference Include="MiniProfiler.WCF">
-      <Version>3.0.11</Version>
     </PackageReference>
     <PackageReference Include="MinoriEditorShell">
       <Version>0.4.0</Version>
@@ -7978,63 +7748,6 @@
     </PackageReference>
     <PackageReference Include="Net4x.AsyncBridge">
       <Version>1.1.0</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.Access">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.ADODBApi">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.Core">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.DAOApi">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.Excel">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.MSComctlLibApi">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.MSDATASRCApi">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.MSFormsApi">
-      <Version>1.8.1</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.MSProject">
-      <Version>1.8.1</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.Office">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.Office.Extensions">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.Outlook">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.OWC10Api">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.PowerPoint">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.Publisher">
-      <Version>1.8.1</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.VbaCompression">
-      <Version>0.5.1</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.VBIDE">
-      <Version>1.9.6</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.Visio">
-      <Version>1.8.1</Version>
-    </PackageReference>
-    <PackageReference Include="NetOfficeFw.Word">
-      <Version>1.9.6</Version>
     </PackageReference>
     <PackageReference Include="NETStandard.Library">
       <Version>2.0.3</Version>
@@ -8116,9 +7829,6 @@
     </PackageReference>
     <PackageReference Include="NReco.VideoConverter">
       <Version>1.2.1</Version>
-    </PackageReference>
-    <PackageReference Include="NServiceBus.Bridge.Connector">
-      <Version>2.0.2</Version>
     </PackageReference>
     <PackageReference Include="NuGetPackageExplorer.Types">
       <Version>4.5.26</Version>
@@ -8238,6 +7948,9 @@
     </PackageReference>
     <PackageReference Include="Softbyte.HtmlTableGenerator">
       <Version>1.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="SolutionScripts">
+      <Version>1.2.0</Version>
     </PackageReference>
     <PackageReference Include="SourceHeader">
       <Version>1.0.0</Version>
@@ -8361,9 +8074,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="BaiqiSoft.WinFormsHtmlEditor.NET4">
-      <Version>24.7.17</Version>
-    </PackageReference>
     <PackageReference Include="FreeSpire.Barcode">
       <Version>6.6.0</Version>
     </PackageReference>
@@ -8391,33 +8101,14 @@
     <PackageReference Include="GroupDocs.Editor">
       <Version>24.6.0</Version>
     </PackageReference>
-    <PackageReference Include="Markdig">
-      <Version>0.33.0</Version>
-    </PackageReference>
-    <PackageReference Include="Markdig.Signed">
-      <Aliases>MarkdigSigned</Aliases>
-      <Version>0.37.0</Version>
-    </PackageReference>
     <PackageReference Include="Selenium.WebDriver">
       <Version>4.23.0</Version>
-    </PackageReference>
-    <PackageReference Include="SolutionScripts">
-      <Version>1.2.0</Version>
-    </PackageReference>
-    <PackageReference Include="TinyHtml.Wpf">
-      <Version>1.2.2</Version>
-    </PackageReference>
-    <PackageReference Include="Zoople.HTMLEditor">
-      <Version>2.8.11.337</Version>
     </PackageReference>
     <PackageReference Include="LiteHtmlSharp">
       <Version>1.1.15</Version>
     </PackageReference>
     <PackageReference Include="LiteHtmlSharp.Wpf">
       <Version>1.1.15</Version>
-    </PackageReference>
-    <PackageReference Include="TinyHtml.Wpf">
-      <Version>1.2.2</Version>
     </PackageReference>
     <PackageReference Include="WpfRichText">
       <Version>1.0.16.2</Version>
@@ -8512,121 +8203,6 @@
     <PackageReference Include="Xwt.WPF">
       <Version>0.2.218</Version>
     </PackageReference>
-    <PackageReference Include="Zeroit.Framework.CodeEditor.TextEditor">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Zeroit.Framework.CodeTextBox">
-      <Version>1.0.0</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Agendas\UserAgendas\_Views\" />
-    <Folder Include="Agendas\WebPortalAgendas\_View\" />
-    <Folder Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\tools\checklist\assets\" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\create-tool\template\src\Globals.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\create-tool\template\src\index.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\create-tool\template\src\types\index.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\dev-stand\src\StandAPI\StandAPI.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\dev-stand\src\StandCreator\ExtensionCreator\ExtensionCreator.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\dev-stand\src\StandCreator\StandCreator.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\dev-stand\src\types\extension.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\editorjs.config.sample.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\extensions\Layout.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\extensions\ReadOnly.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\setup\index.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\setup\Stand\Stand.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\setup\types\config.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\setup\types\editorjs\Core.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\setup\types\editorjs\InstallableTool.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\setup\types\editorjs\Plugin.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\setup\utils\FileData.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\setup\utils\PackageInstaller.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\dev-tools\vite.config.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\ckb.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\cs.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\da.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\de.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\en.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\es.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\fa.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\fr.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\he.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\index.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\it.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\ja.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\ko.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\Lang.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\lv.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\nl.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\pl.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\pt_br.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\ro.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\ru.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\se.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\tr.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\ua.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\ur.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lang\zh_cn.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lib\context.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lib\core.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lib\history.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\lib\util.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\options.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\CommandPlugin.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\command\blockquote.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\DialogPlugin.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\dialog\audio.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\dialog\image.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\dialog\link.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\dialog\math.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\dialog\mention.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\dialog\video.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\FileBrowserPlugin.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\fileBrowser\imageGallery.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\index.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\Module.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\modules\component.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\modules\dialog.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\modules\fileBrowser.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\modules\fileManager.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\modules\index.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\modules\resizing.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\modules\_colorPicker.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\modules\_notice.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\Plugin.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\SubmenuPlugin.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\align.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\font.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\fontColor.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\fontSize.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\formatBlock.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\hiliteColor.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\horizontalRule.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\lineHeight.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\list.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\paragraphStyle.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\table.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\template.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\plugins\submenu\textStyle.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\DocumentEditor\SunEditor\src\suneditor.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\MikroAppCreator\livecodes\types.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\MikroAppCreator\sdk\livecodes.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\js\monaco-editor\esm\vs\editor\editor.api.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\js\monaco-editor\monaco.d.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebSrvData\AngularTest\src\app\app-routing.module.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebSrvData\AngularTest\src\app\app.component.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebSrvData\AngularTest\src\app\app.module.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebSrvData\AngularTest\src\app\webview-listener\webview-listener.component.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebSrvData\AngularTest\src\environments\environment.prod.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebSrvData\AngularTest\src\environments\environment.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebSrvData\AngularTest\src\main.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebSrvData\AngularTest\src\polyfills.ts" />
-    <TypeScriptCompile Include="Data\AddOn\WebSrvData\AngularTest\src\test.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -8639,11 +8215,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
   </Target>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties data_4config_1json__JsonSchema="" />
-    </VisualStudio>
-  </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

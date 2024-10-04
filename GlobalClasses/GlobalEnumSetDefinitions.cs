@@ -1,5 +1,4 @@
-﻿using EasyITSystemCenter.GlobalClasses;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 
 namespace EasyITSystemCenter.GlobalClasses {
 
@@ -51,7 +50,7 @@ namespace EasyITSystemCenter.GlobalClasses {
             new TranslateSet() { Name = "WebUrl", Value = "WebUrl" },
             new TranslateSet() { Name = "GithubUrl", Value = "GithubUrl" },
             new TranslateSet() { Name = "SystemUrl", Value = "SystemUrl" },
-            new TranslateSet() { Name = "SearchUrl", Value = "SearchUrl },
+            new TranslateSet() { Name = "SearchUrl", Value = "SearchUrl" },
             new TranslateSet() { Name = "NugetUrl", Value = "NugetUrl" },
             new TranslateSet() { Name = "DocsUrl", Value = "DocsUrl" },
             new TranslateSet() { Name = "PowerScript", Value = "PowerScript" },

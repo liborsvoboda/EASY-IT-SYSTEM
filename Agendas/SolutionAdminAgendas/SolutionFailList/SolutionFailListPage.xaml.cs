@@ -7,6 +7,7 @@ using Microsoft.Win32;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -23,7 +24,7 @@ namespace EasyITSystemCenter.Pages {
         public static DataViewSupport dataViewSupport = new DataViewSupport();
         public static SolutionFailList selectedRecord = new SolutionFailList();
 
-        private List<SolutionMixedEnumList> solutionMixedEnumList = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedLogMonitorType = new List<SolutionMixedEnumList>();
 
         public SolutionFailListPage() {
             InitializeComponent();
@@ -40,12 +41,12 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                solutionMixedEnumList = await DBOperations.LoadInheritedDataList("LogMonitorType");
+                inheritedLogMonitorType = await DBOperations.LoadInheritedDataList("LogMonitorType");
                 DgListView.ItemsSource = await CommunicationManager.GetApiRequest<List<SolutionFailList>>(ApiUrls.EasyITCenterSolutionFailList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 
-                solutionMixedEnumList.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
+                inheritedLogMonitorType.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
 
-                cb_source.ItemsSource = solutionMixedEnumList;
+                cb_source.ItemsSource = inheritedLogMonitorType;
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
             MainWindow.ProgressRing = Visibility.Hidden; return true;
         }
@@ -69,15 +70,14 @@ namespace EasyITSystemCenter.Pages {
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }
 
+
         public void Filter(string filter) {
             try {
                 if (filter.Length == 0) { dataViewSupport.FilteredValue = null; DgListView.Items.Filter = null; return; }
                 dataViewSupport.FilteredValue = filter;
                 DgListView.Items.Filter = (e) => {
-                    SolutionFailList user = e as SolutionFailList;
-                    return user.UserName.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(user.Source) && user.Source.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(user.Message) && user.Message.ToLower().Contains(filter.ToLower());
+                    DataRowView search = e as DataRowView;
+                    return search.ObjectToJson().ToLower().Contains(filter.ToLower());
                 };
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }
@@ -155,7 +155,7 @@ namespace EasyITSystemCenter.Pages {
         private void SetRecord(bool? showForm = null, bool copy = false) {
             try {
                 txt_id.Value = (copy) ? 0 : selectedRecord.Id;
-                cb_source.SelectedItem = (selectedRecord.Id == 0) ? solutionMixedEnumList.FirstOrDefault() : solutionMixedEnumList.First(a => a.Name == selectedRecord.Source);
+                cb_source.SelectedItem = (selectedRecord.Id == 0) ? inheritedLogMonitorType.FirstOrDefault() : inheritedLogMonitorType.First(a => a.Name == selectedRecord.Source);
                 txt_userId.Text = !string.IsNullOrWhiteSpace(selectedRecord.UserId.ToString()) ? selectedRecord.UserId.ToString() : App.UserData.Authentification.Id.ToString();
                 txt_userName.Text = !string.IsNullOrWhiteSpace(selectedRecord.UserName) ? selectedRecord.UserName : App.UserData.UserName;
                 txt_description.Text = selectedRecord.Message;

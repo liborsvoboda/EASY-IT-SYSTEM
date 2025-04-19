@@ -4,7 +4,7 @@ namespace EasyITSystemCenter.GlobalClasses {
 
     public partial class SolutionFailList {
         public int Id { get; set; } = 0;
-        public string Source { get; set; } = null;
+        public string InheritedLogMonitorType { get; set; } = null;
         public string Message { get; set; } = null;
 
         public string ImageName { get; set; } = null;

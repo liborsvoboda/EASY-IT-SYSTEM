@@ -23,7 +23,7 @@ namespace EasyITSystemCenter.Pages {
 
         private List<DocSrvDocTemplateList> DocSrvDocTemplateList = new List<DocSrvDocTemplateList>();
         private List<DocSrvDocumentationGroupList> docSrvDocumentationGroupList = new List<DocSrvDocumentationGroupList>();
-        private List<SolutionMixedEnumList> mixedEnumTypesList = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedCodeType = new List<SolutionMixedEnumList>();
 
         public DocSrvDocTemplateListPage() {
             InitializeComponent();
@@ -46,13 +46,14 @@ namespace EasyITSystemCenter.Pages {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
 
-                mixedEnumTypesList = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/CodeTypes", App.UserData.Authentification.Token);
+                inheritedCodeType = await DBOperations.LoadInheritedDataList("CodeType");
+                
                 docSrvDocumentationGroupList = await CommunicationManager.GetApiRequest<List<DocSrvDocumentationGroupList>>(ApiUrls.EasyITCenterDocSrvDocumentationGroupList, null, App.UserData.Authentification.Token);
                 DocSrvDocTemplateList = await CommunicationManager.GetApiRequest<List<DocSrvDocTemplateList>>(ApiUrls.EasyITCenterDocSrvDocTemplateList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 
                 DocSrvDocTemplateList.ForEach(item => { item.GroupName = docSrvDocumentationGroupList.First(a => a.Id == item.GroupId).Name; });
 
-                cb_codeType.ItemsSource = mixedEnumTypesList;
+                cb_codeType.ItemsSource = inheritedCodeType;
                 cb_documentationGroup.ItemsSource = docSrvDocumentationGroupList;
                 DgListView.ItemsSource = DocSrvDocTemplateList;
                 DgListView.Items.Refresh();
@@ -171,7 +172,7 @@ namespace EasyITSystemCenter.Pages {
             txt_id.Value = (copy) ? 0 : selectedRecord.Id;
             try {
                 cb_documentationGroup.SelectedItem = (selectedRecord.Id == 0) ? docSrvDocumentationGroupList.FirstOrDefault() : docSrvDocumentationGroupList.First(a => a.Id == selectedRecord.GroupId);
-                cb_codeType.SelectedItem = (selectedRecord.Id == 0) ? mixedEnumTypesList.FirstOrDefault() : mixedEnumTypesList.First(a => a.Name == selectedRecord.InheritedCodeType);
+                cb_codeType.SelectedItem = (selectedRecord.Id == 0) ? inheritedCodeType.FirstOrDefault() : inheritedCodeType.First(a => a.Name == selectedRecord.InheritedCodeType);
 
                 txt_name.Text = selectedRecord.Name;
                 txt_sequence.Value = selectedRecord.Sequence;

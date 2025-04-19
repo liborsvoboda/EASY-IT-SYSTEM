@@ -45,23 +45,23 @@ namespace EasyITSystemCenter.Pages {
         }
 
         // set translate columns in listView
-        private void DgListView_Translate(object sender, EventArgs ex) {
-            ((DataGrid)sender).Columns.ToList().ForEach(e => {
-                string headername = e.Header.ToString();
-                if (headername == "CompanyName") e.Header = Resources["companyName"].ToString();
-                else if (headername == "ContactName") e.Header = Resources["contactName"].ToString();
-                else if (headername == "Street") e.Header = Resources["street"].ToString();
-                else if (headername == "City") e.Header = Resources["city"].ToString();
-                else if (headername == "PostCode") e.Header = Resources["postCode"].ToString();
-                else if (headername == "Phone") e.Header = Resources["phone"].ToString();
-                else if (headername == "Email") e.Header = Resources["email"].ToString();
-                else if (headername == "BankAccount") e.Header = Resources["bankAccount"].ToString();
-                else if (headername == "Ico") e.Header = Resources["ico"].ToString();
-                else if (headername == "Dic") e.Header = Resources["dic"].ToString();
-                else if (headername == "Active") { e.Header = Resources["active"].ToString(); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = 1; }
-                else if (headername == "TimeStamp") { e.Header = Resources["timestamp"].ToString(); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
-                else if (headername == "Id") e.DisplayIndex = 0;
-                else if (headername == "UserId") e.Visibility = Visibility.Hidden;
+        private async void DgListView_Translate(object sender, EventArgs ex) {
+            ((DataGrid)sender).Columns.ToList().ForEach(async e => {
+                string headername = e.Header.ToString().ToLower();
+                if (headername == "CompanyName".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "ContactName".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Street".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "City".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "PostCode".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Phone".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Email".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "BankAccount".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Ico".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Dic".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Active".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = 1; }
+                else if (headername == "TimeStamp".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
+                else if (headername == "Id".ToLower()) e.DisplayIndex = 0;
+                else if (headername == "UserId".ToLower()) e.Visibility = Visibility.Hidden;
             });
         }
 

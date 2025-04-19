@@ -21,8 +21,8 @@ namespace EasyITSystemCenter.Pages {
         public static DataViewSupport dataViewSupport = new DataViewSupport();
         public static ServerModuleAndServiceList selectedRecord = new ServerModuleAndServiceList();
 
-        private List<SolutionMixedEnumList> solutionMixedEnumList = new List<SolutionMixedEnumList>();
-        private List<SolutionMixedEnumList> solutionMixedEnumListLayoutTypes = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedModulePageType = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedWebLayoutType = new List<SolutionMixedEnumList>();
         private List<ServerModuleAndServiceList> ServerModuleAndServiceList = new List<ServerModuleAndServiceList>();
         private List<SolutionUserRoleList> userRoleList = new List<SolutionUserRoleList>();
 
@@ -41,24 +41,24 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                solutionMixedEnumList = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/ModulePageTypes", App.UserData.Authentification.Token);
-                solutionMixedEnumListLayoutTypes = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/WebLayoutTypes", App.UserData.Authentification.Token);
+                inheritedModulePageType = await DBOperations.LoadInheritedDataList("ModulePageType");
+                inheritedWebLayoutType = await DBOperations.LoadInheritedDataList("WebLayoutType");
                 userRoleList = await CommunicationManager.GetApiRequest<List<SolutionUserRoleList>>(ApiUrls.EasyITCenterSolutionUserRoleList, null, App.UserData.Authentification.Token);
                 ServerModuleAndServiceList = await CommunicationManager.GetApiRequest<List<ServerModuleAndServiceList>>(ApiUrls.ServerModuleAndServiceList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 
-                solutionMixedEnumList.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
-                solutionMixedEnumListLayoutTypes.ForEach(async layoutType => { layoutType.Translation = await DBOperations.DBTranslation(layoutType.Name); });
+                inheritedModulePageType.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
+                inheritedWebLayoutType.ForEach(async layoutType => { layoutType.Translation = await DBOperations.DBTranslation(layoutType.Name); });
                 userRoleList.ForEach(async role => { role.Translation = await DBOperations.DBTranslation(role.SystemName); });
                 ServerModuleAndServiceList.ForEach(module => {
-                    module.PageTypeTranslation = solutionMixedEnumList.FirstOrDefault(a => a.Name == module.InheritedPageType).Translation;
-                    try { module.LayoutTypeTranslation = module.InheritedLayoutType == null ? module.InheritedLayoutType : solutionMixedEnumListLayoutTypes.FirstOrDefault(a => a.Name == module.InheritedLayoutType)?.Translation; } catch { }
+                    module.PageTypeTranslation = inheritedModulePageType.FirstOrDefault(a => a.Name == module.InheritedPageType).Translation;
+                    try { module.LayoutTypeTranslation = module.InheritedLayoutType == null ? module.InheritedLayoutType : inheritedWebLayoutType.FirstOrDefault(a => a.Name == module.InheritedLayoutType)?.Translation; } catch { }
                 });
 
             DgListView.ItemsSource = ServerModuleAndServiceList;
                 DgListView.Items.Refresh();
-                cb_inheritedPageType.ItemsSource = solutionMixedEnumList;
+                cb_inheritedPageType.ItemsSource = inheritedModulePageType;
                 cb_allowedRoles.ItemsSource = userRoleList.OrderBy(a => a.Translation).ToList();
-                cb_inheritedLayoutType.ItemsSource = solutionMixedEnumListLayoutTypes.OrderBy(a => a.Translation).ToList();
+                cb_inheritedLayoutType.ItemsSource = inheritedWebLayoutType.OrderBy(a => a.Translation).ToList();
 
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
 
@@ -200,9 +200,9 @@ namespace EasyITSystemCenter.Pages {
         private void SetRecord(bool? showForm = null, bool copy = false) {
             txt_id.Value = (copy) ? 0 : selectedRecord.Id;
 		
-		try {cb_inheritedPageType.SelectedItem = (selectedRecord.Id == 0) ? solutionMixedEnumList.FirstOrDefault() : solutionMixedEnumList.FirstOrDefault(a => a.Name == selectedRecord.InheritedPageType);
+		try {cb_inheritedPageType.SelectedItem = (selectedRecord.Id == 0) ? inheritedModulePageType.FirstOrDefault() : inheritedModulePageType.FirstOrDefault(a => a.Name == selectedRecord.InheritedPageType);
             txt_name.Text = selectedRecord.Name;
-            cb_inheritedLayoutType.SelectedItem = (selectedRecord.Id == 0) ? solutionMixedEnumListLayoutTypes.FirstOrDefault() : solutionMixedEnumListLayoutTypes.FirstOrDefault(a => a.Name == selectedRecord.InheritedLayoutType);
+            cb_inheritedLayoutType.SelectedItem = (selectedRecord.Id == 0) ? inheritedWebLayoutType.FirstOrDefault() : inheritedWebLayoutType.FirstOrDefault(a => a.Name == selectedRecord.InheritedLayoutType);
             txt_description.Text = selectedRecord.Description;
 
             txt_urlSubPath.Text = selectedRecord.UrlSubPath;

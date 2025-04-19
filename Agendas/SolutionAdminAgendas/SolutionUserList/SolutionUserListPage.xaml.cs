@@ -7,6 +7,7 @@ using Microsoft.Win32;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -84,19 +85,13 @@ namespace EasyITSystemCenter.Pages {
             });
         }
 
-        //change filter fields
         public void Filter(string filter) {
             try {
                 if (filter.Length == 0) { dataViewSupport.FilteredValue = null; DgListView.Items.Filter = null; return; }
                 dataViewSupport.FilteredValue = filter;
                 DgListView.Items.Filter = (e) => {
-                    SolutionUserList user = e as SolutionUserList;
-                    return user.Username.ToLower().Contains(filter.ToLower())
-                    || user.Name.ToLower().Contains(filter.ToLower())
-                    || user.Surname.ToLower().Contains(filter.ToLower())
-                    || user.InfoEmail.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(user.Description) && user.Description.ToLower().Contains(filter.ToLower())
-                    ;
+                    DataRowView search = e as DataRowView;
+                    return search.ObjectToJson().ToLower().Contains(filter.ToLower());
                 };
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }

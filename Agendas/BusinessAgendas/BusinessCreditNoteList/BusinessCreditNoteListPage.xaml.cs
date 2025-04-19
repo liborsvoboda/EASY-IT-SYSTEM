@@ -119,38 +119,34 @@ namespace EasyITSystemCenter.Pages {
         }
 
         // set translate columns in listView
-        private void DgListView_Translate(object sender, EventArgs ex) {
+        private async void DgListView_Translate(object sender, EventArgs ex) {
             try {
-                ((DataGrid)sender).Columns.ToList().ForEach(e => {
-                    string headername = e.Header.ToString();
-                    if (headername == "DocumentNumber") e.Header = Resources["documentNumber"].ToString();
-                    else if (headername == "Supplier") e.Header = Resources["supplier"].ToString();
-                    else if (headername == "Customer") e.Header = Resources["customer"].ToString();
-                    else if (headername == "InvoiceNumber") { e.Header = Resources["invoiceNumber"].ToString(); e.DisplayIndex = 2; }
-                    else if (headername == "IssueDate") { e.Header = Resources["issueDate"].ToString(); (e as DataGridTextColumn).Binding.StringFormat = "dd.MM.yyyy"; e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = 7; }
-                    else if (headername == "Storned") { e.Header = Resources["storned"].ToString(); e.DisplayIndex = DgListView.Columns.Count - 2; }
-                    else if (headername == "Description") e.Header = Resources["description"].ToString();
-                    else if (headername == "TotalPriceWithVat") { e.Header = Resources["totalPriceWithVat"].ToString(); e.DisplayIndex = 5; e.CellStyle = ProgramaticStyles.gridTextRightAligment; (e as DataGridTextColumn).Binding.StringFormat = "N2"; }
-                    else if (headername == "TotalCurrency") { e.Header = Resources["currency"].ToString(); e.DisplayIndex = 6; }
-                    else if (headername == "TimeStamp") { e.Header = Resources["timestamp"].ToString(); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
-                    else if (headername == "Id") e.DisplayIndex = 0;
-                    else if (headername == "UserId") e.Visibility = Visibility.Hidden;
-                    else if (headername == "TotalCurrencyId") e.Visibility = Visibility.Hidden;
+                ((DataGrid)sender).Columns.ToList().ForEach(async e => {
+                    string headername = e.Header.ToString().ToLower();
+                    if (headername == "DocumentNumber".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "Supplier".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "Customer".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "InvoiceNumber".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 2; }
+                    else if (headername == "IssueDate".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); ( e as DataGridTextColumn).Binding.StringFormat = "dd.MM.yyyy"; e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = 7; }
+                    else if (headername == "Storned".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = DgListView.Columns.Count - 2; }
+                    else if (headername == "Description".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "TotalPriceWithVat".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 5; e.CellStyle = ProgramaticStyles.gridTextRightAligment; (e as DataGridTextColumn).Binding.StringFormat = "N2"; }
+                    else if (headername == "TotalCurrency".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 6; }
+                    else if (headername == "TimeStamp".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
+                    else if (headername == "Id".ToLower()) e.DisplayIndex = 0;
+                    else if (headername == "UserId".ToLower()) e.Visibility = Visibility.Hidden;
+                    else if (headername == "TotalCurrencyId".ToLower()) e.Visibility = Visibility.Hidden;
                 });
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }
 
-        //change filter fields
         public void Filter(string filter) {
             try {
                 if (filter.Length == 0) { dataViewSupport.FilteredValue = null; DgListView.Items.Filter = null; return; }
                 dataViewSupport.FilteredValue = filter;
                 DgListView.Items.Filter = (e) => {
-                    ExtendedCreditNoteList invoice = e as ExtendedCreditNoteList;
-                    return invoice.Customer.ToLower().Contains(filter.ToLower())
-                    || invoice.IssueDate.ToShortDateString().ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(invoice.InvoiceNumber) && invoice.InvoiceNumber.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(invoice.Description) && invoice.Description.ToLower().Contains(filter.ToLower());
+                    DataRowView search = e as DataRowView;
+                    return search.ObjectToJson().ToLower().Contains(filter.ToLower());
                 };
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }

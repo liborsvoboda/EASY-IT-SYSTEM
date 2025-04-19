@@ -45,7 +45,8 @@ namespace EasyITSystemCenter.Pages {
             try {
 
                 DgListView.ItemsSource = await CommunicationManager.GetApiRequest<List<BusinessAddressList>>(ApiUrls.EasyITCenterBusinessAddressList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
-                inheritedAddressTypesList = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/AddressTypes", App.UserData.Authentification.Token);
+                inheritedAddressTypesList = await DBOperations.LoadInheritedDataList("AddressType");
+
                 inheritedAddressTypesList.ForEach(async item => item.Translation = await DBOperations.DBTranslation(item.Name));
 
                 cb_addressType.ItemsSource = inheritedAddressTypesList;
@@ -57,29 +58,29 @@ namespace EasyITSystemCenter.Pages {
         }
 
         // set translate columns in listView
-        private void DgListView_Translate(object sender, EventArgs ex) {
-            ((DataGrid)sender).Columns.ToList().ForEach(e => {
-                string headername = e.Header.ToString();
-                if (headername == "CompanyName") e.Header = Resources["companyName"].ToString();
-                else if (headername == "ContactName") e.Header = Resources["contactName"].ToString();
-                else if (headername == "Street") e.Header = Resources["street"].ToString();
-                else if (headername == "City") e.Header = Resources["city"].ToString();
-                else if (headername == "PostCode") e.Header = Resources["postCode"].ToString();
-                else if (headername == "Phone") e.Header = Resources["phone"].ToString();
-                else if (headername == "Email") e.Header = Resources["email"].ToString();
-                else if (headername == "BankAccount") e.Header = Resources["bankAccount"].ToString();
-                else if (headername == "Ico") e.Header = Resources["ico"].ToString();
-                else if (headername == "Dic") e.Header = Resources["dic"].ToString();
-                else if (headername == "Default") { e.Header = Resources["defaultAddress"].ToString(); e.DisplayIndex = DgListView.Columns.Count - 6; }
-                else if (headername == "UnlockCode") { e.Header = Resources["unlockCode"].ToString(); e.DisplayIndex = DgListView.Columns.Count - 5; }
-                else if (headername == "UnlockActivationHit") { e.Header = Resources["unlockActivationHit"].ToString(); e.DisplayIndex = DgListView.Columns.Count - 4; }
-                else if (headername == "Active") { e.Header = Resources["active"].ToString(); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 2; }
-                else if (headername == "TimeStamp") { e.Header = Resources["timestamp"].ToString(); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
+        private async void DgListView_Translate(object sender, EventArgs ex) {
+            ((DataGrid)sender).Columns.ToList().ForEach(async e => {
+                string headername = e.Header.ToString().ToLower();
+                if (headername == "CompanyName".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "ContactName".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Street".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "City".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "PostCode".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Phone".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Email".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "BankAccount".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Ico".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Dic".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                else if (headername == "Default".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = DgListView.Columns.Count - 6; }
+                else if (headername == "UnlockCode".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = DgListView.Columns.Count - 5; }
+                else if (headername == "UnlockActivationHit".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = DgListView.Columns.Count - 4; }
+                else if (headername == "Active".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 2; }
+                else if (headername == "TimeStamp".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
 
-                else if (headername == "Id") e.DisplayIndex = 0;
-                else if (headername == "UserId") e.Visibility = Visibility.Hidden;
-                else if (headername == "AddressType") e.Visibility = Visibility.Hidden;
-                else if (headername == "LicenseId") e.DisplayIndex = 0;
+                else if (headername == "Id".ToLower()) e.DisplayIndex = 0;
+                else if (headername == "UserId".ToLower()) e.Visibility = Visibility.Hidden;
+                else if (headername == "AddressType".ToLower()) e.Visibility = Visibility.Hidden;
+                else if (headername == "LicenseId".ToLower()) e.DisplayIndex = 0;
             });
         }
 

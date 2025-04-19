@@ -115,22 +115,22 @@ namespace EasyITSystemCenter.Pages {
         }
 
         // set translate columns in listView
-        private void DgListView_Translate(object sender, EventArgs ex) {
+        private async void DgListView_Translate(object sender, EventArgs ex) {
             try {
-                ((DataGrid)sender).Columns.ToList().ForEach(e => {
-                    string headername = e.Header.ToString();
-                    if (headername == "DocumentNumber") e.Header = Resources["documentNumber"].ToString();
-                    else if (headername == "Supplier") e.Header = Resources["supplier"].ToString();
-                    else if (headername == "Customer") e.Header = Resources["customer"].ToString();
-                    else if (headername == "Storned") { e.Header = Resources["storned"].ToString(); e.DisplayIndex = 7; }
-                    else if (headername == "Description") e.Header = Resources["description"].ToString();
-                    else if (headername == "CustomerOrderNumber") { e.Header = Resources["customerOrderNumber"].ToString(); e.DisplayIndex = 4; }
-                    else if (headername == "TotalPriceWithVat") { e.Header = Resources["totalPriceWithVat"].ToString(); e.DisplayIndex = 5; e.CellStyle = ProgramaticStyles.gridTextRightAligment; (e as DataGridTextColumn).Binding.StringFormat = "N2"; }
-                    else if (headername == "TotalCurrency") { e.Header = Resources["currency"].ToString(); e.DisplayIndex = 6; }
-                    else if (headername == "TimeStamp") { e.Header = Resources["timestamp"].ToString(); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
-                    else if (headername == "Id") e.DisplayIndex = 0;
-                    else if (headername == "UserId") e.Visibility = Visibility.Hidden;
-                    else if (headername == "TotalCurrencyId") e.Visibility = Visibility.Hidden;
+                ((DataGrid)sender).Columns.ToList().ForEach(async e => {
+                    string headername = e.Header.ToString().ToLower();
+                    if (headername == "DocumentNumber".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "Supplier".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "Customer".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "Storned".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 7; }
+                    else if (headername == "Description".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "CustomerOrderNumber".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 4; }
+                    else if (headername == "TotalPriceWithVat".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 5; e.CellStyle = ProgramaticStyles.gridTextRightAligment; (e as DataGridTextColumn).Binding.StringFormat = "N2"; }
+                    else if (headername == "TotalCurrency".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 6; }
+                    else if (headername == "TimeStamp".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
+                    else if (headername == "Id".ToLower()) e.DisplayIndex = 0;
+                    else if (headername == "UserId".ToLower()) e.Visibility = Visibility.Hidden;
+                    else if (headername == "TotalCurrencyId".ToLower()) e.Visibility = Visibility.Hidden;
                 });
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }

@@ -20,7 +20,7 @@ namespace EasyITSystemCenter.Pages {
 
         private List<SolutionMixedEnumList> serverConfigGroups = new List<SolutionMixedEnumList>();
         private List<SolutionMixedEnumList> serverLanguages = new List<SolutionMixedEnumList>();
-        private List<SolutionMixedEnumList> inheritedTokenEncryptTypes = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedTokenEncryptType = new List<SolutionMixedEnumList>();
 
         
         public ServerSettingListPage() {
@@ -40,12 +40,12 @@ namespace EasyITSystemCenter.Pages {
             try {
                 serverLanguages = await DBOperations.LoadInheritedDataList("ServerLanguageType");
                 serverConfigGroups = await DBOperations.LoadInheritedDataList("SrvConfigType");
-                inheritedTokenEncryptTypes = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/TokenEncryptTypes", App.UserData.Authentification.Token);
+                inheritedTokenEncryptType = await DBOperations.LoadInheritedDataList("TokenEncryptType");
                 App.ServerSetting = await CommunicationManager.GetApiRequest<List<ServerServerSettingList>>(ApiUrls.EasyITCenterServerSettingList, null, null);
 
                 serverLanguages.ForEach(async srvLanguage => { srvLanguage.Translation = await DBOperations.DBTranslation(srvLanguage.Name); });
                 serverConfigGroups.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
-                inheritedTokenEncryptTypes.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
+                inheritedTokenEncryptType.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
 
                 App.ServerSetting.ForEach(async serverConfig => {
                     serverConfig.KeyTranslation = await DBOperations.DBTranslation(serverConfig.Key);
@@ -106,7 +106,7 @@ namespace EasyITSystemCenter.Pages {
 
                                 //All Uses Lists Definitions
                                 if (configuration.Key.ToLower() == "ServiceServerLanguage".ToLower()) { comboBox.ItemsSource = serverLanguages; comboBox.DisplayMemberPath = "Translation"; comboBox.SelectedValuePath = "Name"; comboBox.SelectedValue = configuration.Value; }
-                                if (configuration.Key.ToLower() == "ConfigTokenEncryption".ToLower()) { comboBox.ItemsSource = inheritedTokenEncryptTypes; comboBox.DisplayMemberPath = "Translation"; comboBox.SelectedValuePath = "Name"; comboBox.SelectedValue = configuration.Value; }
+                                if (configuration.Key.ToLower() == "ConfigTokenEncryption".ToLower()) { comboBox.ItemsSource = inheritedTokenEncryptType; comboBox.DisplayMemberPath = "Translation"; comboBox.SelectedValuePath = "Name"; comboBox.SelectedValue = configuration.Value; }
                                 targetGrid.Children.Add(comboBox);
                                 break;
                         }

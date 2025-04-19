@@ -17,7 +17,9 @@
     mc:Ignorable="d">
 
     <Grid
-        Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        Margin="0"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
         <Grid.Background>
             <RadialGradientBrush>
                 <GradientStop Offset="0" Color="#FF313131" />
@@ -31,47 +33,60 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
-            <DockPanel
-                Grid.Row="0" Grid.Column="0"
-                Margin="0,30,0,0">
-                <Label
-                    Name="_cpuLabel"
-                    Margin="5" HorizontalAlignment="Center"
-                    DockPanel.Dock="Bottom" FontFamily="Consolas" FontSize="16" Foreground="White">
-                    CPU
-                </Label>
-                <lvc:AngularGauge
-                    Name="_cpuDial"
-                    Margin="20,10,20,0"
-                    LabelsStep="10"
-                    TicksForeground="{DynamicResource HighlightBrush}"
-                    TicksStep="5">
-                    <lvc:AngularGauge.Sections>
-                        <lvc:AngularSection
-                            Fill="#fffafa" FromValue="0" ToValue="100" />
-                    </lvc:AngularGauge.Sections>
-                </lvc:AngularGauge>
-            </DockPanel>
-            <DockPanel Grid.Row="0" Grid.Column="1">
-                <Label
-                    Name="_ramLabel"
-                    Margin="5" HorizontalAlignment="Center"
-                    DockPanel.Dock="Bottom" FontFamily="Consolas" FontSize="16" Foreground="White">
-                    RAM
-                </Label>
-                <lvc:AngularGauge
-                    Name="_ramDial"
-                    Margin="20,10,20,0"
-                    LabelsStep="10"
-                    TicksForeground="{DynamicResource HighlightBrush}"
-                    TicksStep="5">
-                    <lvc:AngularGauge.Sections>
-                        <lvc:AngularSection
-                            Fill="#fffafa" FromValue="0" ToValue="100" />
-                    </lvc:AngularGauge.Sections>
-                </lvc:AngularGauge>
-            </DockPanel>
-    
+        <DockPanel
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="0,30,0,0">
+            <Label
+                Name="_cpuLabel"
+                Margin="5"
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Bottom"
+                FontFamily="Consolas"
+                FontSize="16"
+                Foreground="White">
+                CPU
+            </Label>
+            <lvc:AngularGauge
+                Name="_cpuDial"
+                Margin="20,10,20,0"
+                LabelsStep="10"
+                TicksForeground="{DynamicResource HighlightBrush}"
+                TicksStep="5">
+                <lvc:AngularGauge.Sections>
+                    <lvc:AngularSection
+                        Fill="#fffafa"
+                        FromValue="0"
+                        ToValue="100" />
+                </lvc:AngularGauge.Sections>
+            </lvc:AngularGauge>
+        </DockPanel>
+        <DockPanel Grid.Row="0" Grid.Column="1">
+            <Label
+                Name="_ramLabel"
+                Margin="5"
+                HorizontalAlignment="Center"
+                DockPanel.Dock="Bottom"
+                FontFamily="Consolas"
+                FontSize="16"
+                Foreground="White">
+                RAM
+            </Label>
+            <lvc:AngularGauge
+                Name="_ramDial"
+                Margin="20,10,20,0"
+                LabelsStep="10"
+                TicksForeground="{DynamicResource HighlightBrush}"
+                TicksStep="5">
+                <lvc:AngularGauge.Sections>
+                    <lvc:AngularSection
+                        Fill="#fffafa"
+                        FromValue="0"
+                        ToValue="100" />
+                </lvc:AngularGauge.Sections>
+            </lvc:AngularGauge>
+        </DockPanel>
+
         <!--  Enf Of Stats Part  -->
     </Grid>
 </UserControl>

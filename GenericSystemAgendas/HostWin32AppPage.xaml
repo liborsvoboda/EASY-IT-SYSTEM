@@ -2,10 +2,10 @@
     x:Class="EasyITSystemCenter.Pages.HostWin32AppPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:EasyITSystemCenter="clr-namespace:EasyITSystemCenter"
     xmlns:behaviors="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:win="clr-namespace:MahApps.Metro.SimpleChildWindow;assembly=MahApps.Metro.SimpleChildWindow"
     Name="Settings"
@@ -18,7 +18,9 @@
     mc:Ignorable="d">
 
     <Grid
-        Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        Margin="0"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
         <Grid.Background>
             <RadialGradientBrush>
                 <GradientStop Offset="0" Color="#FF313131" />
@@ -34,8 +36,10 @@
 
         <win:ChildWindow
             x:Name="AppContainer"
-            Grid.Row="0" Grid.Column="0"
-            HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" />
 
     </Grid>
 </UserControl>

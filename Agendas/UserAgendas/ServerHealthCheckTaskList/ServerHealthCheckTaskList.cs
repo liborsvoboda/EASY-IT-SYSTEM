@@ -5,7 +5,7 @@ namespace EasyITSystemCenter.GlobalClasses {
     public partial class ServerHealthCheckTaskList {
         public int Id { get; set; } = 0;
         public string TaskName { get; set; } = null;
-        public string Type { get; set; } = null;
+        public string InheritedCheckType { get; set; } = null;
         public string ServerDrive { get; set; } = null;
         public string FolderPath { get; set; } = null;
         public string DbSqlConnection { get; set; } = null;

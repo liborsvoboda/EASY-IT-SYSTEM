@@ -22,7 +22,9 @@
 
     <Grid
         x:Name="ListForm"
-        Margin="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        Margin="0"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
         <Grid.Background>
             <RadialGradientBrush>
                 <GradientStop Offset="0" Color="#FF313131" />
@@ -41,27 +43,52 @@
 
         <Label
             x:Name="lbl_webCodeEditor"
-            Grid.Row="0" Grid.Column="0"
-            Margin="0" Padding="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Left"
-            FontSize="50" Foreground="BlueViolet" ToolTip="WebCode Editor For Online Manage EASY Projects" />
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="0"
+            Padding="10,0,0,0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            FontSize="50"
+            Foreground="BlueViolet"
+            ToolTip="WebCode Editor For Online Manage EASY Projects" />
 
 
         <CheckBox
             x:Name="chb_caseSensitiveIgnore"
-            Grid.Row="0" Grid.Column="1"
-            Margin="10,5,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top"
-            Checked="CaseSensitiveChange" IsChecked="True" ToolTip="Ignore Case Sensitive" Unchecked="CaseSensitiveChange" />
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="10,5,0,0"
+            Padding="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Checked="CaseSensitiveChange"
+            IsChecked="True"
+            ToolTip="Ignore Case Sensitive"
+            Unchecked="CaseSensitiveChange" />
         <TextBox
             x:Name="txt_codeSearch"
-            Grid.Row="0" Grid.Column="1"
-            Width="150" Height="20"
-            Margin="40,0,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Top"
-            mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="CodeSearch" TextChanged="CodeSearchTextChanged" />
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="150"
+            Height="20"
+            Margin="40,0,0,0"
+            Padding="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            mah:TextBoxHelper.ClearTextButton="True"
+            mah:TextBoxHelper.Watermark="CodeSearch"
+            TextChanged="CodeSearchTextChanged" />
         <Button
             Name="btn_searchText"
-            Grid.Row="0" Grid.Column="1"
-            Width="25" Height="25"
-            Margin="195,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="25"
+            Height="25"
+            Margin="195,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
             Click="SearchText_Click"
             Style="{DynamicResource AccentedSquareButtonStyle}"
             ToolTip="Search Next">
@@ -70,20 +97,38 @@
 
         <CheckBox
             x:Name="chb_selectedOnly"
-            Grid.Row="0" Grid.Column="1"
-            Margin="10,0,0,5" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Bottom"
-            Checked="SelectedOnlyChange" IsChecked="False" ToolTip="Replace Selected Text Only" Unchecked="SelectedOnlyChange" />
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="10,0,0,5"
+            Padding="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Checked="SelectedOnlyChange"
+            IsChecked="False"
+            ToolTip="Replace Selected Text Only"
+            Unchecked="SelectedOnlyChange" />
         <TextBox
             x:Name="txt_codeReplace"
-            Grid.Row="0" Grid.Column="1"
-            Width="150" Height="20"
-            Margin="40,0,0,0" Padding="0" HorizontalAlignment="Left" VerticalAlignment="Bottom"
-            mah:TextBoxHelper.ClearTextButton="True" mah:TextBoxHelper.Watermark="ReplaceWith" TextChanged="CodeReplaceTextChanged" />
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="150"
+            Height="20"
+            Margin="40,0,0,0"
+            Padding="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            mah:TextBoxHelper.ClearTextButton="True"
+            mah:TextBoxHelper.Watermark="ReplaceWith"
+            TextChanged="CodeReplaceTextChanged" />
         <Button
             Name="btn_codeReplace"
-            Grid.Row="0" Grid.Column="1"
-            Width="25" Height="25"
-            Margin="195,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="25"
+            Height="25"
+            Margin="195,0,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
             Click="CodeReplaceClick"
             Style="{DynamicResource AccentedSquareButtonStyle}"
             ToolTip="Replace With">
@@ -92,32 +137,52 @@
 
         <Button
             Name="btn_openInBrowser"
-            Grid.Row="0" Grid.Column="2"
-            Width="150" Height="50"
-            Margin="0,2,160,2" HorizontalAlignment="Right" VerticalAlignment="Center"
+            Grid.Row="0"
+            Grid.Column="2"
+            Width="150"
+            Height="50"
+            Margin="0,2,160,2"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
             Click="BtnOpenInBrowser_Click"
             Style="{DynamicResource AccentedSquareButtonStyle}" />
 
         <Button
             Name="btn_loadFromFile"
-            Grid.Row="0" Grid.Column="2"
-            Width="150" Height="50"
-            Margin="0,2,5,2" HorizontalAlignment="Right" VerticalAlignment="Center"
+            Grid.Row="0"
+            Grid.Column="2"
+            Width="150"
+            Height="50"
+            Margin="0,2,5,2"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
             Click="BtnLoadFromFile_Click"
             Style="{DynamicResource AccentedSquareButtonStyle}" />
 
 
         <code:TextEditor
             x:Name="WebCodeEditor"
-            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
             Margin="0,0,0,0"
-            Background="LightGray" FontFamily="Consolas" FontSize="10pt" HorizontalScrollBarVisibility="Auto" ShowLineNumbers="True" SyntaxHighlighting="Javascript" VerticalScrollBarVisibility="Auto" />
+            Background="LightGray"
+            FontFamily="Consolas"
+            FontSize="10pt"
+            HorizontalScrollBarVisibility="Auto"
+            ShowLineNumbers="True"
+            SyntaxHighlighting="Javascript"
+            VerticalScrollBarVisibility="Auto" />
 
         <ListBox
             x:Name="code_selector"
-            Grid.Row="1" Grid.Column="2"
-            Width="100" Height="150"
-            Margin="0,30,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"
+            Grid.Row="1"
+            Grid.Column="2"
+            Width="100"
+            Height="150"
+            Margin="0,30,0,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
             SelectionChanged="HighlightCodeChanged">
             <ListBoxItem Content="JavaScript" />
             <ListBoxItem Content="HTML" />

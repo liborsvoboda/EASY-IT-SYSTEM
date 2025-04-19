@@ -121,7 +121,7 @@
                 mah:TextBoxHelper.IsWaitingForData="True"
                 DisplayMemberPath="Name"
                 IsEnabled="true"
-                SelectedValuePath="Value" />
+                SelectedValuePath="Name" />
 
             <Label
                 x:Name="lbl_sequence"

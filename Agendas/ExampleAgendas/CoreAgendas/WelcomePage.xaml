@@ -332,10 +332,15 @@
 
         <Rectangle
             x:Name="rectangle"
-            Grid.RowSpan="2" Grid.Column="1"
-            Width="70" Height="70"
-            Margin="0,0,3,3" HorizontalAlignment="Right" VerticalAlignment="Bottom"
-            RenderTransformOrigin="0.5,0.5" StrokeThickness="0"
+            Grid.RowSpan="2"
+            Grid.Column="1"
+            Width="70"
+            Height="70"
+            Margin="0,0,3,3"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            RenderTransformOrigin="0.5,0.5"
+            StrokeThickness="0"
             Style="{StaticResource WelcomeRectangleStyle}">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
@@ -354,10 +359,15 @@
         </Rectangle>
         <Rectangle
             x:Name="rectangle1"
-            Grid.RowSpan="2" Grid.Column="2"
-            Width="60" Height="60"
-            Margin="3,0,0,3" HorizontalAlignment="Left" VerticalAlignment="Bottom"
-            RenderTransformOrigin="0.5,0.5" StrokeThickness="0"
+            Grid.RowSpan="2"
+            Grid.Column="2"
+            Width="60"
+            Height="60"
+            Margin="3,0,0,3"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            RenderTransformOrigin="0.5,0.5"
+            StrokeThickness="0"
             Style="{StaticResource WelcomeRectangleStyle}">
             <Rectangle.RenderTransform>
                 <TransformGroup>
@@ -370,10 +380,15 @@
         </Rectangle>
         <Rectangle
             x:Name="rectangle2"
-            Grid.Row="2" Grid.Column="1"
-            Width="50" Height="50"
-            Margin="0,3,3,0" HorizontalAlignment="Right" VerticalAlignment="Top"
-            RenderTransformOrigin="0.5,0.5" StrokeThickness="0"
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="50"
+            Height="50"
+            Margin="0,3,3,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.5,0.5"
+            StrokeThickness="0"
             Style="{StaticResource WelcomeRectangleStyle}">
             <Rectangle.RenderTransform>
                 <TransformGroup>
@@ -386,10 +401,15 @@
         </Rectangle>
         <Rectangle
             x:Name="rectangle3"
-            Grid.Row="2" Grid.Column="2"
-            Width="40" Height="40"
-            Margin="3,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
-            RenderTransformOrigin="0.5,0.5" StrokeThickness="0"
+            Grid.Row="2"
+            Grid.Column="2"
+            Width="40"
+            Height="40"
+            Margin="3,3,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.5,0.5"
+            StrokeThickness="0"
             Style="{StaticResource WelcomeRectangleStyle}">
             <Rectangle.RenderTransform>
                 <TransformGroup>
@@ -403,12 +423,16 @@
 
         <ProgressBar
             x:Name="progressBarState"
-            Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+            Grid.Row="3"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
             Height="40"
-            Margin="0" VerticalAlignment="Bottom"
+            Margin="0"
+            VerticalAlignment="Bottom"
             Background="{DynamicResource ProgressBarIndicatorAnimatedFill}"
             BorderBrush="{DynamicResource ProgressBarBackground}"
-            BorderThickness="1,1,1,1" IsIndeterminate="True"
+            BorderThickness="1,1,1,1"
+            IsIndeterminate="True"
             Value="100">
             <ProgressBar.Foreground>
                 <SolidColorBrush Color="{DynamicResource ProgressBarBrush}" />
@@ -417,9 +441,17 @@
 
         <Label
             x:Name="labelWelcome"
-            Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="4"
-            HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-            Content="Easy IT System Center" FontFamily="Segoe WP Light" FontSize="48" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="4"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Content="Easy IT System Center"
+            FontFamily="Segoe WP Light"
+            FontSize="48"
+            FontWeight="Bold"
+            RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
@@ -431,15 +463,30 @@
         </Label>
         <Label
             x:Name="labelMotto"
-            Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="4"
+            Grid.Row="2"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="4"
             Height="50"
-            Margin="0,100,0,0" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Top"
-            FontSize="35" FontWeight="Bold" Foreground="#464746" />
+            Margin="0,100,0,0"
+            Padding="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            FontSize="35"
+            FontWeight="Bold"
+            Foreground="#464746" />
         <Label
             x:Name="labelState"
-            Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="4"
+            Grid.Row="3"
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="4"
             Height="50"
-            Margin="0,100,0,0" Padding="0" HorizontalAlignment="Center" VerticalAlignment="Top"
-            Content="GroupWare-Solution.Eu" FontSize="30" FontWeight="Bold" Foreground="#464746" />
+            Margin="0,100,0,0"
+            Padding="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Content="GroupWare-Solution.Eu"
+            FontSize="30"
+            FontWeight="Bold"
+            Foreground="#464746" />
     </Grid>
 </mah:MetroWindow>

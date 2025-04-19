@@ -18,7 +18,8 @@
             <Button
                 x:Name="GoBackButton"
                 Width="{Binding ElementName=ham_UserMenuControl, Path=CompactPaneLength}"
-                AutomationProperties.Name="Go back" Click="GoBack_OnClick" />
+                AutomationProperties.Name="Go back"
+                Click="GoBack_OnClick" />
         </mah:WindowCommands>
     </UserControl.DataContext>
 
@@ -33,7 +34,8 @@
                 </Grid.ColumnDefinitions>
                 <ContentControl
                     Grid.Column="0"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     Content="{Binding Icon}"
                     Focusable="False" />
                 <TextBlock
@@ -52,7 +54,8 @@
             <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)">
                 <SplineDoubleKeyFrame KeyTime="00:00:00" Value="200" />
                 <SplineDoubleKeyFrame
-                    KeySpline="0.1, 0.9, 0.2, 1" KeyTime="00:00:00.300"
+                    KeySpline="0.1, 0.9, 0.2, 1"
+                    KeyTime="00:00:00.300"
                     Value="0" />
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
@@ -99,9 +102,13 @@
 
         <mah:HamburgerMenu
             x:Name="ham_UserMenuControl"
-            Grid.Row="0" Grid.Column="0"
-            HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-            DisplayMode="CompactInline" IsPaneOpen="False" ItemInvoked="HamburgerMenuControl_OnItemInvoked"
+            Grid.Row="0"
+            Grid.Column="0"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            DisplayMode="CompactInline"
+            IsPaneOpen="False"
+            ItemInvoked="HamburgerMenuControl_OnItemInvoked"
             ItemTemplate="{StaticResource MenuItemTemplate}"
             ItemsSource="{Binding Menu}"
             OptionsItemTemplate="{StaticResource MenuItemTemplate}"

@@ -1,12 +1,11 @@
-﻿<mah:MetroTabItem 
+﻿<mah:MetroTabItem
     x:Class="EasyITSystemCenter.Pages.TabItemPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:dataModel="clr-namespace:EasyITSystemCenter.Interact"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mahConverters="http://metro.mahapps.com/winfx/xaml/shared"
-    Name="injecteThemeSetting"              
-    >
+    Name="injecteThemeSetting">
     <DockPanel>
         <Grid>
 
@@ -16,17 +15,17 @@
                     <Setter Property="Margin" Value="2" />
                 </Style>
             </Grid.Resources>-->
-6
+            6
             <Grid.RowDefinitions>
                 <RowDefinition Height="40" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            
+
 
         </Grid>
-        
+
         <Label />
     </DockPanel>
 </mah:MetroTabItem>

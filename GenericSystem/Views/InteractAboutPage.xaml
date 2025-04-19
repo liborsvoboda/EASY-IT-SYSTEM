@@ -17,8 +17,11 @@
     <Grid>
 
         <iconPacks:PackIconFontAwesome
-            Width="48" Height="48"
-            Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top"
+            Width="48"
+            Height="48"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
             Foreground="{DynamicResource AccentBaseColorBrush}"
             Kind="InboxSolid" />
 

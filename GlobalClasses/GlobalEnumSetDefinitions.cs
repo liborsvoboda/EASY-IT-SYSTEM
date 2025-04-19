@@ -59,29 +59,8 @@ namespace EasyITSystemCenter.GlobalClasses {
             new TranslateSet() { Name = "PHP", Value = "PHP" }
         };
 
-        public static ObservableCollection<TranslateSet> HealthCheckTypes = new ObservableCollection<TranslateSet>() {
-            new TranslateSet() { Name = "driveSize", Value = "driveSize" },
-            new TranslateSet() { Name = "processMemory", Value = "processMemory" },
-            new TranslateSet() { Name = "allocatedMemory", Value = "allocatedMemory" },
-            new TranslateSet() { Name = "folderExist", Value = "folderExist" },
 
-            new TranslateSet() { Name = "ping", Value = "ping" },
-            new TranslateSet() { Name = "tcpPort", Value = "tcpPort" },
-            new TranslateSet() { Name = "serverUrlPath", Value = "serverUrlPath" },
-            new TranslateSet() { Name = "urlPath", Value = "urlPath" },
 
-            new TranslateSet() { Name = "mssqlConnection", Value = "mssqlConnection" },
-            new TranslateSet() { Name = "mysqlConnection", Value = "mysqlConnection" },
-            new TranslateSet() { Name = "oracleConnection", Value = "oracleConnection" },
-            new TranslateSet() { Name = "postgresConnection", Value = "postgresConnection" },
-        };
 
-        public static ObservableCollection<TranslateSet> PagePartType = new ObservableCollection<TranslateSet>() {
-            new TranslateSet() { Name = "HeaderPreCss", Value = "HeaderPreCss" },
-            new TranslateSet() { Name = "HeaderPreScripts", Value = "HeaderPreScripts" },
-            new TranslateSet() { Name = "HeaderPostScripts", Value = "HeaderPostScripts" },
-            new TranslateSet() { Name = "Body", Value = "Body" },
-            new TranslateSet() { Name = "Footer", Value = "Footer" }
-        };
     }
 }

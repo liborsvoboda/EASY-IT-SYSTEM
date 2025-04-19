@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:local="clr-namespace:EasyITSystemCenter.Interact"
+    xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
     Name="InteractUserView"
@@ -18,8 +18,11 @@
     <Grid>
 
         <iconPacks:PackIconFontAwesome
-            Width="48" Height="48"
-            Margin="10" HorizontalAlignment="Right" VerticalAlignment="Top"
+            Width="48"
+            Height="48"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
             Foreground="{DynamicResource AccentBaseColorBrush}"
             Kind="PauseSolid" />
 

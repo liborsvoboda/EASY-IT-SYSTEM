@@ -1,4 +1,5 @@
-﻿using EasyITSystemCenter.Api;
+﻿using DocumentFormat.OpenXml.Packaging;
+using EasyITSystemCenter.Api;
 using EasyITSystemCenter.GlobalClasses;
 using EasyITSystemCenter.GlobalClasses;
 using EasyITSystemCenter.GlobalOperations;
@@ -27,6 +28,7 @@ namespace EasyITSystemCenter.Pages {
         public static DataViewSupport dataViewSupport = new DataViewSupport();
         public static WebGlobalPageBlockList selectedRecord = new WebGlobalPageBlockList();
 
+        private List<SolutionMixedEnumList> pagePartType = new List<SolutionMixedEnumList>();
         private List<WebGlobalPageBlockList> WebGlobalPageBlockList = new List<WebGlobalPageBlockList>();
         private int FoundedPositionIndex = 0; private int ReplacePositionIndex = 0;
 
@@ -57,16 +59,19 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
+
+                pagePartType = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/PagePartType", App.UserData.Authentification.Token);
                 WebGlobalPageBlockList = await CommunicationManager.GetApiRequest<List<WebGlobalPageBlockList>>(ApiUrls.EasyITCenterWebGlobalPageBlockList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
+
+                pagePartType.ForEach(async ppType => { ppType.Translation = await DBOperations.DBTranslation(ppType.Name); });
 
                 GuestHtmlContent.Header = await DBOperations.DBTranslation(GuestHtmlContent.Name);
                 UserHtmlContent.Header = await DBOperations.DBTranslation(UserHtmlContent.Name);
                 AdminHtmlContent.Header = await DBOperations.DBTranslation(AdminHtmlContent.Name);
                 ProviderHtmlContent.Header = await DBOperations.DBTranslation(ProviderHtmlContent.Name);
 
-                SystemLocalEnumSets.PagePartType.ToList().ForEach(async item => { item.Value = await DBOperations.DBTranslation(GuestHtmlContent.Name); });
-
-                cb_pagePartType.ItemsSource = SystemLocalEnumSets.PagePartType;
+               
+                cb_pagePartType.ItemsSource = pagePartType; 
                 DgListView.ItemsSource = WebGlobalPageBlockList;
                 DgListView.Items.Refresh();
                 lb_dataList.ItemsSource = WebGlobalPageBlockList;
@@ -183,7 +188,7 @@ namespace EasyITSystemCenter.Pages {
 
                 txt_id.Value = (copy) ? 0 : selectedRecord.Id;
 
-                cb_pagePartType.SelectedItem = (selectedRecord.Id == 0) ? SystemLocalEnumSets.PagePartType.First() : SystemLocalEnumSets.PagePartType.First(a => a.Name == selectedRecord.PagePartType);
+                cb_pagePartType.SelectedItem = (selectedRecord.Id == 0) ? pagePartType.First() : pagePartType.First(a => a.Name == selectedRecord.PagePartType);
 
                 txt_sequence.Value = selectedRecord.Sequence;
                 txt_name.Text = selectedRecord.Name;
@@ -213,7 +218,7 @@ namespace EasyITSystemCenter.Pages {
 
                 DBResultMessage dBResult;
                 selectedRecord.Id = (int)((txt_id.Value != null) && !asNew ? txt_id.Value : 0);
-                selectedRecord.PagePartType = ((TranslateSet)cb_pagePartType.SelectedItem).Name;
+                selectedRecord.PagePartType = ((SolutionMixedEnumList)cb_pagePartType.SelectedItem).Name;
                 selectedRecord.Sequence = int.Parse(txt_sequence.Value.ToString());
 
                 selectedRecord.Name = txt_name.Text;

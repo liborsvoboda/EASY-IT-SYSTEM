@@ -1,4 +1,5 @@
-﻿<mah:MetroWindow x:Class="EasyITSystemCenter.Interact.InteractCleanWindowPage"
+﻿<mah:MetroWindow
+    x:Class="EasyITSystemCenter.Interact.InteractCleanWindowPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,17 +7,16 @@
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-    Title="CleanWindow"
     Name="Settings"
+    Title="CleanWindow"
     HorizontalAlignment="Stretch"
     VerticalAlignment="Stretch"
     d:DesignHeight="500"
     d:DesignWidth="600"
-    Tag="Settings"
-    mc:Ignorable="d"
     GlowBrush="{DynamicResource MahApps.Colors.Accent}"
     Style="{DynamicResource MahApps.Styles.MetroWindow.Clean}"
-    >
+    Tag="Settings"
+    mc:Ignorable="d">
 
     <mah:MetroWindow.Resources>
         <ResourceDictionary>
@@ -30,6 +30,10 @@
     </mah:MetroWindow.Resources>
 
     <Grid>
-        <TextBlock Text="Clean Window works!" FontSize="32" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="32"
+            Text="Clean Window works!" />
     </Grid>
 </mah:MetroWindow>

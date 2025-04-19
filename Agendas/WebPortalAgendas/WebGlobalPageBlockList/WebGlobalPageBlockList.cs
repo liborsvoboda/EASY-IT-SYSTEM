@@ -4,7 +4,7 @@ namespace EasyITSystemCenter.GlobalClasses {
 
     public partial class WebGlobalPageBlockList {
         public int Id { get; set; } = 0;
-        public string PagePartType { get; set; } = null;
+        public string InheritedPagePartType { get; set; } = null;
         public int Sequence { get; set; }
         public string Name { get; set; } = null;
         public string Description { get; set; }

@@ -89,7 +89,6 @@
         /*System Administartion Setting APIs*/
         EasyITCenterSystemCustomPageList,
         EasyITCenterSystemDocumentAdviceList,
-        EasyITCenterSystemDocumentTypeList,
         EasyITCenterSystemGroupMenuList,
         EasyITCenterSystemIgnoredExceptionList,
         EasyITCenterSystemLoginHistoryList,

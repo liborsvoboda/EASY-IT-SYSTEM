@@ -267,13 +267,13 @@
                     </CheckBox>
 
                     <Label
-                        x:Name="lbl_InheritedHelpTabSourceType"
+                        x:Name="lbl_InheritedSystemApiCallType"
                         Grid.Row="0"
                         Grid.Column="2"
                         Margin="2"
                         HorizontalAlignment="Right" />
                     <ComboBox
-                        x:Name="cb_InheritedHelpTabSourceType"
+                        x:Name="cb_InheritedSystemApiCallType"
                         Grid.Row="0"
                         Grid.Column="3"
                         Margin="2"

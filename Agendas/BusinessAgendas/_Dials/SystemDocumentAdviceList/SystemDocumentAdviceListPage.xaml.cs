@@ -22,7 +22,7 @@ namespace EasyITSystemCenter.Pages {
         public static SystemDocumentAdviceList selectedRecord = new SystemDocumentAdviceList();
 
         private List<BusinessBranchList> branchList = new List<BusinessBranchList>();
-        private List<SystemDocumentTypeList> documentTypeList = new List<SystemDocumentTypeList>();
+        private List<SolutionMixedEnumList> inheritedDocumentType = new List<SolutionMixedEnumList>(); 
 
         public SystemDocumentAdviceListPage() {
             InitializeComponent();
@@ -43,15 +43,15 @@ namespace EasyITSystemCenter.Pages {
             try {
                 cb_branch.ItemsSource = branchList = await CommunicationManager.GetApiRequest<List<BusinessBranchList>>(ApiUrls.EasyITCenterBusinessBranchList, null, App.UserData.Authentification.Token);
                 documentAdviceList = await CommunicationManager.GetApiRequest<List<SystemDocumentAdviceList>>(ApiUrls.EasyITCenterSystemDocumentAdviceList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
-                documentTypeList = await CommunicationManager.GetApiRequest<List<SystemDocumentTypeList>>(ApiUrls.EasyITCenterSystemDocumentTypeList, null, App.UserData.Authentification.Token);
+                inheritedDocumentType = await DBOperations.LoadInheritedDataList("DocumentType");
+                inheritedDocumentType.ForEach(async record => { record.Translation = await DBOperations.DBTranslation(record.SystemName); });
 
-                documentTypeList.ForEach(async record => { record.Translation = await DBOperations.DBTranslation(record.SystemName); });
                 documentAdviceList.ForEach(async record => {
                     record.Branch = branchList.First(a => a.Id == record.BranchId).CompanyName;
                     record.DocumentTypeTranslation = await DBOperations.DBTranslation(record.DocumentType);
                 });
 
-                cb_documentType.ItemsSource = documentTypeList;
+                cb_documentType.ItemsSource = inheritedDocumentType;
                 DgListView.ItemsSource = documentAdviceList;
                 DgListView.Items.Refresh();
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
@@ -144,7 +144,7 @@ namespace EasyITSystemCenter.Pages {
                 DBResultMessage dBResult;
                 selectedRecord.Id = (int)((txt_id.Value != null) ? txt_id.Value : 0);
                 selectedRecord.BranchId = ((BusinessBranchList)cb_branch.SelectedItem).Id;
-                selectedRecord.DocumentType = ((SystemDocumentTypeList)cb_documentType.SelectedItem).SystemName;
+                selectedRecord.DocumentType = ((SolutionMixedEnumList)cb_documentType.SelectedItem).Name;
                 selectedRecord.Prefix = txt_prefix.Text;
                 selectedRecord.Number = txt_number.Text;
                 selectedRecord.StartDate = (DateTime)dp_startDate.Value;

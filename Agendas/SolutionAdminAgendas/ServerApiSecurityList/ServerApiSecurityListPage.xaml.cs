@@ -7,6 +7,7 @@ using MahApps.Metro.Controls.Dialogs;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -21,7 +22,7 @@ namespace EasyITSystemCenter.Pages {
         public static DataViewSupport dataViewSupport = new DataViewSupport();
         public static ServerApiSecurityList selectedRecord = new ServerApiSecurityList();
 
-        private List<SolutionMixedEnumList> solutionMixedEnumList = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedApiType = new List<SolutionMixedEnumList>();
         private List<ServerApiSecurityList> ServerApiSecurityList = new List<ServerApiSecurityList>();
         private List<SolutionUserRoleList> userRoleList = new List<SolutionUserRoleList>();
 
@@ -40,19 +41,21 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                solutionMixedEnumList = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/ServerApiTypes", App.UserData.Authentification.Token);
+                inheritedApiType = await DBOperations.LoadInheritedDataList("ApiType");
+                inheritedApiType.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
+
                 userRoleList = await CommunicationManager.GetApiRequest<List<SolutionUserRoleList>>(ApiUrls.EasyITCenterSolutionUserRoleList, null, App.UserData.Authentification.Token);
                 ServerApiSecurityList = await CommunicationManager.GetApiRequest<List<ServerApiSecurityList>>(ApiUrls.EasyITCenterServerApiSecurityList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 
-                solutionMixedEnumList.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
+
                 userRoleList.ForEach(async role => { role.Translation = await DBOperations.DBTranslation(role.SystemName); });
                 ServerApiSecurityList.ForEach(module => {
-                    module.ApiTypeTranslation = solutionMixedEnumList.FirstOrDefault(a => a.Name == module.InheritedApiType).Translation;
+                    module.ApiTypeTranslation = inheritedApiType.FirstOrDefault(a => a.Name == module.InheritedApiType).Translation;
                 });
 
                 DgListView.ItemsSource = ServerApiSecurityList;
                 DgListView.Items.Refresh();
-                cb_InheritedApiType.ItemsSource = solutionMixedEnumList;
+                cb_InheritedApiType.ItemsSource = inheritedApiType;
                 cb_WriteAllowedRoles.ItemsSource = userRoleList.OrderBy(a => a.Translation).ToList();
                 cb_ReadAllowedRoles.ItemsSource = userRoleList.OrderBy(a => a.Translation).ToList();
 
@@ -90,13 +93,8 @@ namespace EasyITSystemCenter.Pages {
                 if (filter.Length == 0) { dataViewSupport.FilteredValue = null; DgListView.Items.Filter = null; return; }
                 dataViewSupport.FilteredValue = filter;
                 DgListView.Items.Filter = (e) => {
-                    ServerApiSecurityList search = e as ServerApiSecurityList;
-                    return search.Name.ToLower().Contains(filter.ToLower())
-                    || search.ApiTypeTranslation.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(search.UrlSubPath) && search.UrlSubPath.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(search.RedirectPathOnError) && search.RedirectPathOnError.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(search.Description) && search.Description.ToLower().Contains(filter.ToLower())
-                    ;
+                    DataRowView search = e as DataRowView;
+                    return search.ObjectToJson().ToLower().Contains(filter.ToLower());
                 };
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }
@@ -184,7 +182,7 @@ namespace EasyITSystemCenter.Pages {
         private void SetRecord(bool? showForm = null, bool copy = false) {
             txt_id.Value = (copy) ? 0 : selectedRecord.Id;
 		
-		try { cb_InheritedApiType.SelectedItem = (selectedRecord.Id == 0) ? solutionMixedEnumList.FirstOrDefault() : solutionMixedEnumList.FirstOrDefault(a => a.Name == selectedRecord.InheritedApiType);
+		try { cb_InheritedApiType.SelectedItem = (selectedRecord.Id == 0) ? inheritedApiType.FirstOrDefault() : inheritedApiType.FirstOrDefault(a => a.Name == selectedRecord.InheritedApiType);
             txt_name.Text = selectedRecord.Name;
             txt_description.Text = selectedRecord.Description;
             txt_urlSubPath.Text = selectedRecord.UrlSubPath;

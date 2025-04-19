@@ -25,16 +25,11 @@ namespace EasyITSystemCenter.Pages {
 
         private List<SolutionEmailTemplateList> emailTemplateList = new List<SolutionEmailTemplateList>();
         private List<SolutionLanguageList> systemLanguageList = new List<SolutionLanguageList>();
-        private List<SolutionMixedEnumList> inheritedEmailTypes = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedEmailType = new List<SolutionMixedEnumList>();
 
         public SolutionEmailTemplateListPage() {
             InitializeComponent();
             _ = SystemOperations.SetLanguageDictionary(Resources, App.appRuntimeData.AppClientSettings.First(a => a.Key == "sys_defaultLanguage").Value);
-
-            //ObservableCollection<TranslateSet> Templates = new ObservableCollection<TranslateSet>() {
-            //                                                    new TranslateSet() { Name = Resources["verification"].ToString(), Value = "verification" },
-            //                                                    new TranslateSet() { Name = Resources["registration"].ToString(), Value = "registration"},
-            //                                                    new TranslateSet() { Name = Resources["resetPassword"].ToString(), Value = "resetPassword"}                                                             };
 
             try {
                 try {
@@ -51,11 +46,11 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                inheritedEmailTypes = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/EmailTypes", App.UserData.Authentification.Token);
+                inheritedEmailType = await DBOperations.LoadInheritedDataList("EmailType");
                 emailTemplateList = await CommunicationManager.GetApiRequest<List<SolutionEmailTemplateList>>(ApiUrls.EasyITCenterSolutionEmailTemplateList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
                 systemLanguageList = await CommunicationManager.GetApiRequest<List<SolutionLanguageList>>(ApiUrls.EasyITCenterSolutionLanguageList, null, App.UserData.Authentification.Token);
 
-                inheritedEmailTypes.ForEach(async item => item.Translation = await DBOperations.DBTranslation(item.Name));
+                inheritedEmailType.ForEach(async item => item.Translation = await DBOperations.DBTranslation(item.Name));
                 systemLanguageList.ForEach(async language => {
                     language.Translation = await DBOperations.DBTranslation(language.SystemName);
                 });
@@ -65,7 +60,7 @@ namespace EasyITSystemCenter.Pages {
                     template.SystemLanguageTranslation = systemLanguageList.First(a => a.Id == template.SystemLanguageId).Translation;
                 });
 
-                cb_templateName.ItemsSource = inheritedEmailTypes;
+                cb_templateName.ItemsSource = inheritedEmailType;
                 DgListView.ItemsSource = emailTemplateList;
                 DgListView.Items.Refresh();
                 cb_systemLanguage.ItemsSource = systemLanguageList;

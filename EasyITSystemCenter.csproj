@@ -458,10 +458,6 @@
     <Compile Include="Agendas\BusinessAgendas\BusinessCreditNoteList\BusinessCreditNoteListPage.xaml.cs">
       <DependentUpon>BusinessCreditNoteListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Agendas\BusinessAgendas\_Dials\SystemDocumentTypeList\SystemDocumentTypeList.cs" />
-    <Compile Include="Agendas\BusinessAgendas\_Dials\SystemDocumentTypeList\SystemDocumentTypeListPage.xaml.cs">
-      <DependentUpon>SystemDocumentTypeListPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Agendas\BusinessAgendas\_Dials\BusinessExchangeRateList\BusinessExchangeRateList.cs" />
     <Compile Include="Agendas\BusinessAgendas\_Dials\BusinessExchangeRateList\BusinessExchangeRateListPage.xaml.cs">
       <DependentUpon>BusinessExchangeRateListPage.xaml</DependentUpon>
@@ -989,10 +985,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Agendas\BusinessAgendas\BusinessCreditNoteList\BusinessCreditNoteListPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Agendas\BusinessAgendas\_Dials\SystemDocumentTypeList\SystemDocumentTypeListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

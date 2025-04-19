@@ -24,7 +24,7 @@ namespace EasyITSystemCenter.Pages {
 
         private List<SystemCustomPageList> systemCustomPageList = new List<SystemCustomPageList>();
         private List<SolutionMixedEnumList> inheritedFormType = new List<SolutionMixedEnumList>();
-        private List<SolutionMixedEnumList> inheritedHelpTabSourceType = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedSystemApiCallType = new List<SolutionMixedEnumList>();
         private List<SystemTranslatedTableList> systemTranslatedTableList = new List<SystemTranslatedTableList>();
         private List<GenericDataList> systemTableList = new List<GenericDataList>();
         private List<GenericDataList> tableSchema = new List<GenericDataList>();
@@ -44,9 +44,13 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                inheritedHelpTabSourceType = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/SystemApiCallTypes", App.UserData.Authentification.Token);
+                inheritedSystemApiCallType = await DBOperations.LoadInheritedDataList("SystemApiCallType");
+                inheritedSystemApiCallType.ForEach(async apiCallType => { apiCallType.Translation = await DBOperations.DBTranslation(apiCallType.Name); });
+
                 systemTableList = await CommunicationManager.GetApiRequest<List<GenericDataList>>(ApiUrls.ServerApi, "DatabaseServices/SpGetTableList", App.UserData.Authentification.Token);
-                inheritedFormType = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/SystemAgendaTypes", App.UserData.Authentification.Token);
+                inheritedFormType = await DBOperations.LoadInheritedDataList("FormType");
+                inheritedFormType.ForEach(async agendaType => { agendaType.Translation = await DBOperations.DBTranslation(agendaType.Name); });
+
                 systemCustomPageList = await CommunicationManager.GetApiRequest<List<SystemCustomPageList>>(ApiUrls.EasyITCenterSystemCustomPageList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 
 
@@ -56,7 +60,7 @@ namespace EasyITSystemCenter.Pages {
 
                 cb_InheritedFormType.ItemsSource = inheritedFormType;
                 cb_DbtableName.ItemsSource = systemTranslatedTableList.OrderBy(a => a.Translate).ToList();
-                cb_InheritedHelpTabSourceType.ItemsSource = inheritedHelpTabSourceType.OrderBy(a => a.Name).ToList();
+                cb_InheritedSystemApiCallType.ItemsSource = inheritedSystemApiCallType.OrderBy(a => a.Name).ToList();
                 DgListView.ItemsSource = systemCustomPageList;
                 DgListView.Items.Refresh();
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
@@ -169,7 +173,7 @@ namespace EasyITSystemCenter.Pages {
                 selectedRecord.DevModeEnabled = (bool)chb_devModeEnabled.IsChecked;
                 selectedRecord.ShowHelpTab = (bool)chb_showHelpTab.IsChecked;
 
-                selectedRecord.InheritedHelpTabSourceType = cb_InheritedHelpTabSourceType.SelectedItem == null ? null : ((SolutionMixedEnumList)cb_InheritedHelpTabSourceType.SelectedItem).Name;
+                selectedRecord.InheritedSystemApiCallType = cb_InheritedSystemApiCallType.SelectedItem == null ? null : ((SolutionMixedEnumList)cb_InheritedSystemApiCallType.SelectedItem).Name;
                 selectedRecord.StartupUrl = txt_startupUrl.Text;
                 selectedRecord.HelpTabUrl = txt_helpTabUrl.Text;
 
@@ -235,7 +239,7 @@ namespace EasyITSystemCenter.Pages {
                 chb_devModeEnabled.IsChecked = selectedRecord.DevModeEnabled;
                 chb_showHelpTab.IsChecked = selectedRecord.ShowHelpTab;
 
-                cb_InheritedHelpTabSourceType.SelectedItem = (selectedRecord.Id == 0) ? inheritedHelpTabSourceType.FirstOrDefault() : inheritedHelpTabSourceType.FirstOrDefault(a => a.Name == selectedRecord.InheritedHelpTabSourceType);
+                cb_InheritedSystemApiCallType.SelectedItem = (selectedRecord.Id == 0) ? inheritedSystemApiCallType.FirstOrDefault() : inheritedSystemApiCallType.FirstOrDefault(a => a.Name == selectedRecord.InheritedHelpTabSourceType);
                 txt_startupUrl.Text = selectedRecord.StartupUrl;
                 txt_helpTabUrl.Text = selectedRecord.HelpTabUrl;
 
@@ -300,7 +304,7 @@ namespace EasyITSystemCenter.Pages {
         }
 
         private void IsHelpTabEnabled(object sender, RoutedEventArgs e) {
-            txt_helpTabUrl.IsEnabled = cb_InheritedHelpTabSourceType.IsEnabled = (bool)chb_showHelpTab.IsChecked;
+            txt_helpTabUrl.IsEnabled = cb_InheritedSystemApiCallType.IsEnabled = (bool)chb_showHelpTab.IsChecked;
         }
     }
 }

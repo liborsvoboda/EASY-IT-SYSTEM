@@ -83,7 +83,7 @@ namespace EasyITSystemCenter.GlobalOperations {
             if (MainWindow.ServiceRunning && MainWindow.UserLogged) {
                 if (string.IsNullOrWhiteSpace(message)) return;
 
-                SolutionFailList SolutionFailList = new SolutionFailList() { Source = "DesktopSystem", UserId = App.UserData.Authentification.Id, UserName = App.UserData.UserName, LogLevel = logLevel, Message = message, TimeStamp = DateTimeOffset.Now.DateTime };
+                SolutionFailList SolutionFailList = new SolutionFailList() { InheritedLogMonitorType = "DesktopSystem", UserId = App.UserData.Authentification.Id, UserName = App.UserData.UserName, LogLevel = logLevel, Message = message, TimeStamp = DateTimeOffset.Now.DateTime };
                 string json = JsonConvert.SerializeObject(SolutionFailList);
                 StringContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
                 await CommunicationManager.PutApiRequest(ApiUrls.EasyITCenterSolutionFailList, httpContent, null, App.UserData.Authentification.Token);

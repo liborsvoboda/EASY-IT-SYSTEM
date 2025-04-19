@@ -188,7 +188,7 @@ namespace EasyITSystemCenter.Pages {
 
                 txt_id.Value = (copy) ? 0 : selectedRecord.Id;
 
-                cb_pagePartType.SelectedItem = (selectedRecord.Id == 0) ? pagePartType.First() : pagePartType.First(a => a.Name == selectedRecord.PagePartType);
+                cb_pagePartType.SelectedItem = (selectedRecord.Id == 0) ? pagePartType.First() : pagePartType.First(a => a.Name == selectedRecord.InheritedPagePartType);
 
                 txt_sequence.Value = selectedRecord.Sequence;
                 txt_name.Text = selectedRecord.Name;
@@ -218,7 +218,7 @@ namespace EasyITSystemCenter.Pages {
 
                 DBResultMessage dBResult;
                 selectedRecord.Id = (int)((txt_id.Value != null) && !asNew ? txt_id.Value : 0);
-                selectedRecord.PagePartType = ((SolutionMixedEnumList)cb_pagePartType.SelectedItem).Name;
+                selectedRecord.InheritedPagePartType = ((SolutionMixedEnumList)cb_pagePartType.SelectedItem).Name;
                 selectedRecord.Sequence = int.Parse(txt_sequence.Value.ToString());
 
                 selectedRecord.Name = txt_name.Text;

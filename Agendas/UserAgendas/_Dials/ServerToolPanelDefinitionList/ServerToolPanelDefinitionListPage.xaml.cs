@@ -204,7 +204,7 @@ namespace EasyITSystemCenter.Pages {
             generatedIcon.IconName = selectedRecord.IconName;
 
             cb_toolType.SelectedItem = (selectedRecord.Id == 0 || toolTypeList.Count == 0) ? toolTypeList.FirstOrDefault() : toolTypeList.First(a => a.Id == selectedRecord.ToolTypeId);
-            cb_type.SelectedItem = (selectedRecord.Id == 0) ? inheritedToolLinkType.FirstOrDefault() : inheritedToolLinkType.First(a => a.Value == selectedRecord.Type);
+            cb_type.SelectedItem = (selectedRecord.Id == 0) ? inheritedToolLinkType.FirstOrDefault() : inheritedToolLinkType.First(a => a.Name == selectedRecord.InheritedToolLinkType);
             txt_command.Text = selectedRecord.Command;
 
             if (selectedRecord.Id != 0) { generatedIcon.IconColor = selectedRecord.IconColor; xct_iconColor.SelectedColor = (Color)ColorConverter.ConvertFromString(selectedRecord.IconColor); }

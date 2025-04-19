@@ -82,7 +82,7 @@ namespace EasyITSystemCenter.Pages {
                     else if (headername == "StartupCommand".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 9; }
                     else if (headername == "DevModeEnabled".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 10; }
                     else if (headername == "ShowHelpTab".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 11; }
-                    else if (headername == "InheritedHelpTabSourceType".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 12; }
+                    else if (headername == "InheritedSystemApiCallType".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 12; }
                     else if (headername == "HelpTabUrl".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 13; }
                     else if (headername == "DbtableName".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 14; }
                     else if (headername == "ColumnName".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 15; }
@@ -239,7 +239,7 @@ namespace EasyITSystemCenter.Pages {
                 chb_devModeEnabled.IsChecked = selectedRecord.DevModeEnabled;
                 chb_showHelpTab.IsChecked = selectedRecord.ShowHelpTab;
 
-                cb_InheritedSystemApiCallType.SelectedItem = (selectedRecord.Id == 0) ? inheritedSystemApiCallType.FirstOrDefault() : inheritedSystemApiCallType.FirstOrDefault(a => a.Name == selectedRecord.InheritedHelpTabSourceType);
+                cb_InheritedSystemApiCallType.SelectedItem = (selectedRecord.Id == 0) ? inheritedSystemApiCallType.FirstOrDefault() : inheritedSystemApiCallType.FirstOrDefault(a => a.Name == selectedRecord.InheritedSystemApiCallType);
                 txt_startupUrl.Text = selectedRecord.StartupUrl;
                 txt_helpTabUrl.Text = selectedRecord.HelpTabUrl;
 

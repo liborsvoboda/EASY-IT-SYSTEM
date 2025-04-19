@@ -41,7 +41,7 @@ namespace EasyITSystemCenter.Pages {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
 
-                inheritedScheduledType = = await DBOperations.LoadInheritedDataList("ScheduledType");
+                inheritedScheduledType = await DBOperations.LoadInheritedDataList("ScheduledType");
                 inheritedIntervalType = await DBOperations.LoadInheritedDataList("IntervalType"); 
                 solutionSchedulerLists = await CommunicationManager.GetApiRequest<List<SolutionSchedulerList>>(ApiUrls.EasyITCenterSolutionSchedulerList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 

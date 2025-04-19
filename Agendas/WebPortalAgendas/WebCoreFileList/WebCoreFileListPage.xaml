@@ -123,14 +123,12 @@
                 NumericInputMode="Numbers"
                 ToolTip="Load Sequence in Layouts Templates" />
 
-            <Label
-                x:Name="lbl_specificationType"
+            <Label x:Name="lbl_inheritedJsCssDefinitionType"
                 Grid.Row="2"
                 Grid.Column="1"
                 HorizontalAlignment="Right"
                 HorizontalContentAlignment="Right" />
-            <ComboBox
-                x:Name="cb_specificationType"
+            <ComboBox x:Name="cb_inheritedJsCssDefinitionType"
                 Grid.Row="2"
                 Grid.Column="2"
                 Margin="0,2,0,2"

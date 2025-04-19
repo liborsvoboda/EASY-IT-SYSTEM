@@ -60,7 +60,7 @@ namespace EasyITSystemCenter.Pages {
 
                 DgListView.ItemsSource = WebCoreFileList;
                 DgListView.Items.Refresh();
-                cb_specificationType.ItemsSource = inheritedJsCssDefinitionType.OrderBy(a=>a.Name);
+                cb_inheritedJsCssDefinitionType.ItemsSource = inheritedJsCssDefinitionType.OrderBy(a=>a.Name);
                 lb_dataList.ItemsSource = WebCoreFileList;
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
             MainWindow.ProgressRing = Visibility.Hidden; return true;
@@ -71,7 +71,7 @@ namespace EasyITSystemCenter.Pages {
                 ((DataGrid)sender).Columns.ToList().ForEach(async e => {
                     string headername = e.Header.ToString().ToLower();
                     if (headername == "FileName".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 1; }
-                    else if (headername == "SpecificationType".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 2; }
+                    else if (headername == "InheritedJsCssDefinitionType".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 2; }
                     else if (headername == "Sequence".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 3; }
                     else if (headername == "MetroPath".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 4; }
                     else if (headername == "RewriteLowerLevel".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 5; }
@@ -179,7 +179,7 @@ namespace EasyITSystemCenter.Pages {
 
                 txt_sequence.Value = selectedRecord.Sequence;
                 int index = 0;
-                cb_specificationType.SelectedItem = selectedRecord.Id == 0 || inheritedJsCssDefinitionType.FirstOrDefault(a => a.Name == selectedRecord.SpecificationType) == null ? inheritedJsCssDefinitionType.First() : inheritedJsCssDefinitionType.FirstOrDefault(a => a.Name == selectedRecord.SpecificationType);
+                cb_inheritedJsCssDefinitionType.SelectedItem = selectedRecord.Id == 0 || inheritedJsCssDefinitionType.FirstOrDefault(a => a.Name == selectedRecord.InheritedJsCssDefinitionType) == null ? inheritedJsCssDefinitionType.First() : inheritedJsCssDefinitionType.FirstOrDefault(a => a.Name == selectedRecord.InheritedJsCssDefinitionType);
                 txt_metroPath.Text = selectedRecord.MetroPath;
                 chb_rewriteLowerLevel.IsChecked = selectedRecord.RewriteLowerLevel;
                 chb_isUniquePath.IsChecked = selectedRecord.IsUniquePath;
@@ -216,7 +216,7 @@ namespace EasyITSystemCenter.Pages {
                 selectedRecord.Id = (int)((txt_id.Value != null) && !asNew ? txt_id.Value : 0);
 
                 selectedRecord.Sequence = int.Parse(txt_sequence.Value.ToString());
-                selectedRecord.SpecificationType = ((SolutionMixedEnumList)cb_specificationType.SelectedItem).Name;
+                selectedRecord.InheritedJsCssDefinitionType = ((SolutionMixedEnumList)cb_inheritedJsCssDefinitionType.SelectedItem).Name;
                 selectedRecord.MetroPath = txt_metroPath.Text;
                 selectedRecord.FileName = txt_fileName.Text;
                 selectedRecord.Description = txt_description.Text;

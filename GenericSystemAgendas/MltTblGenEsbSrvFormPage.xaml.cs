@@ -58,7 +58,7 @@ namespace EasyITSystemCenter.Pages {
             //Initiate WebBrowsers
             webBrowser.CoreWebView2InitializationCompleted += WebBrowser_CoreWebView2InitializationCompleted;
             webBrowser.EnsureCoreWebView2Async(App.appRuntimeData.WebViewEnvironment);
-            if (systemCustomPageList.ShowHelpTab && systemCustomPageList.InheritedHelpTabSourceType.ToLower().Contains("apiurl")) { helpWebBrowser.EnsureCoreWebView2Async(App.appRuntimeData.WebViewEnvironment); }
+            if (systemCustomPageList.ShowHelpTab && systemCustomPageList.InheritedSystemApiCallType.ToLower().Contains("apiurl")) { helpWebBrowser.EnsureCoreWebView2Async(App.appRuntimeData.WebViewEnvironment); }
             else if (systemCustomPageList.ShowHelpTab) {
                 new MarkdownPipelineBuilder().UseEmphasisExtras().UseAbbreviations().UseAdvancedExtensions().UseBootstrap()
                 .UseDiagrams().UseEmphasisExtras().UseEmojiAndSmiley(true).UseDefinitionLists().UseTableOfContent().UseTaskLists()
@@ -299,7 +299,7 @@ namespace EasyITSystemCenter.Pages {
                 if (systemCustomPageList.DevModeEnabled) { webBrowser.CoreWebView2.Settings.AreDevToolsEnabled = true; } else { webBrowser.CoreWebView2.Settings.AreDevToolsEnabled = false; }
                 if (systemCustomPageList.ShowHelpTab && systemCustomPageList.HelpTabUrl != null) {
 
-                    switch (systemCustomPageList.InheritedHelpTabSourceType.ToLower()) {
+                    switch (systemCustomPageList.InheritedSystemApiCallType.ToLower()) {
                         case "eicserverapiurl":
                             ti_helpUrl.SetCurrentValue(VisibilityProperty, Visibility.Visible);
                             helpWebBrowser.CoreWebView2.Navigate(App.appRuntimeData.AppClientSettings.First(a => a.Key == "conn_apiAddress").Value + $"{(systemCustomPageList.HelpTabUrl.StartsWith("/") ? systemCustomPageList.HelpTabUrl : "/" + systemCustomPageList.HelpTabUrl)}");

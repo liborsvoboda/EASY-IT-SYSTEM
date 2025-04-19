@@ -123,7 +123,7 @@ namespace EasyITSystemCenter.Pages {
             try {
                 DBResultMessage dBResult;
                 selectedRecord.Id = (int)((txt_id.Value != null) ? txt_id.Value : 0);
-                selectedRecord.Source = ((SolutionMixedEnumList)cb_source.SelectedItem).Name;
+                selectedRecord.InheritedLogMonitorType = ((SolutionMixedEnumList)cb_source.SelectedItem).Name;
 
                 selectedRecord.UserName = txt_userName.Text;
                 selectedRecord.Message = txt_description.Text;
@@ -155,7 +155,7 @@ namespace EasyITSystemCenter.Pages {
         private void SetRecord(bool? showForm = null, bool copy = false) {
             try {
                 txt_id.Value = (copy) ? 0 : selectedRecord.Id;
-                cb_source.SelectedItem = (selectedRecord.Id == 0) ? inheritedLogMonitorType.FirstOrDefault() : inheritedLogMonitorType.First(a => a.Name == selectedRecord.Source);
+                cb_source.SelectedItem = (selectedRecord.Id == 0) ? inheritedLogMonitorType.FirstOrDefault() : inheritedLogMonitorType.First(a => a.Name == selectedRecord.InheritedLogMonitorType);
                 txt_userId.Text = !string.IsNullOrWhiteSpace(selectedRecord.UserId.ToString()) ? selectedRecord.UserId.ToString() : App.UserData.Authentification.Id.ToString();
                 txt_userName.Text = !string.IsNullOrWhiteSpace(selectedRecord.UserName) ? selectedRecord.UserName : App.UserData.UserName;
                 txt_description.Text = selectedRecord.Message;

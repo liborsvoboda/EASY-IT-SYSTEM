@@ -145,15 +145,15 @@ namespace EasyITSystemCenter.Pages {
                 selectedRecord.Password = pb_password.Password;
                 selectedRecord.Name = txt_name.Text;
                 selectedRecord.Surname = txt_surname.Text;
-                selectedRecord.InfoEmail = txt_infoEmail.Text;
+                selectedRecord.Email = txt_infoEmail.Text;
                 selectedRecord.Description = txt_description.Text;
                 selectedRecord.Active = (bool)chb_active.IsChecked;
                 selectedRecord.TimeStamp = DateTimeOffset.Now.DateTime;
-                selectedRecord.Token = txt_token.Text;
+                selectedRecord.AccessToken = txt_token.Text;
                 selectedRecord.Expiration = dp_expiration.Value;
 
                 if (!string.IsNullOrWhiteSpace(txt_photoPath.Text)) {
-                    selectedRecord.MimeType = MimeMapping.GetMimeMapping(txt_photoPath.Text);
+                    selectedRecord.PhotoMimeType = MimeMapping.GetMimeMapping(txt_photoPath.Text);
                     selectedRecord.Photo = File.ReadAllBytes(txt_photoPath.Text);
                     selectedRecord.PhotoPath = txt_photoPath.Text;
                 }
@@ -188,11 +188,11 @@ namespace EasyITSystemCenter.Pages {
             pb_password.Password = selectedRecord.Password;
             txt_name.Text = selectedRecord.Name;
             txt_surname.Text = selectedRecord.Surname;
-            txt_infoEmail.Text = selectedRecord.InfoEmail;
+            txt_infoEmail.Text = selectedRecord.Email;
             txt_description.Text = selectedRecord.Description;
             chb_active.IsChecked = (selectedRecord.Id == 0) ? bool.Parse(App.appRuntimeData.AppClientSettings.First(a => a.Key == "beh_activeNewInputDefault").Value) : selectedRecord.Active;
             dp_timestamp.Value = selectedRecord.TimeStamp;
-            txt_token.Text = selectedRecord.Token;
+            txt_token.Text = selectedRecord.AccessToken;
             dp_expiration.Value = selectedRecord.Expiration;
             img_photoPath.Source = (!string.IsNullOrWhiteSpace(selectedRecord.PhotoPath)) ? MediaOperations.ByteToImage(selectedRecord.Photo) : new BitmapImage(DataResources.GetImageResource("no_photo.png"));
             txt_photoPath.Text = null;

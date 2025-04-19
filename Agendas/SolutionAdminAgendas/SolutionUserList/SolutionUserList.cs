@@ -22,9 +22,9 @@ namespace EasyITSystemCenter.GlobalClasses {
         public string PhotoMimeType { get; set; } = null;
         public string PhotoPath { get; set; } = "";
         public bool EmailConfirmed { get; set; }
-        public string? Phone { get; set; }
+        public string Phone { get; set; }
         public bool PhoneConfirmed { get; set; }
-        public string UserDbPreffix { get; set; } = null!;
+        public string UserDbPreffix { get; set; } = null;
 
         public string Translation { get; set; } = null;
     }

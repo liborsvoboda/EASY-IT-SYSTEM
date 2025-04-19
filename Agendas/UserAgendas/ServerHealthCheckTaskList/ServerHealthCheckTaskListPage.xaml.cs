@@ -74,7 +74,7 @@ namespace EasyITSystemCenter.Pages {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
 
-                inheritedCheckType = = await DBOperations.LoadInheritedDataList("CheckType");
+                inheritedCheckType = await DBOperations.LoadInheritedDataList("CheckType");
                 inheritedCheckType.ForEach(async ctype => { ctype.Translation = await DBOperations.DBTranslation(ctype.Name); });
 
                 DgListView.ItemsSource = await CommunicationManager.GetApiRequest<List<ServerHealthCheckTaskList>>(ApiUrls.EasyITCenterServerHealthCheckTaskList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
@@ -197,7 +197,7 @@ namespace EasyITSystemCenter.Pages {
             txt_id.Value = (copy) ? 0 : selectedRecord.Id;
             txt_taskName.Text = selectedRecord.TaskName;
 
-            switch (selectedRecord.Type) {
+            switch (selectedRecord.InheritedCheckType) {
                 case "driveSize":
                     rb_driveSizeCheck.IsChecked = true;
                     break;
@@ -281,7 +281,7 @@ namespace EasyITSystemCenter.Pages {
         private void TypeSelectionClick(object sender, RoutedEventArgs e) {
             switch (((RadioButton)sender).Name) {
                 case "rb_driveSizeCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "driveSize").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "driveSize").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = lbl_folderPath.Visibility = txt_folderPath.Visibility = Visibility.Hidden;
@@ -290,7 +290,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_folderExistCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "folderExist").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "folderExist").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = Visibility.Hidden;
@@ -300,7 +300,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_processMemoryCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "processMemory").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "processMemory").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = Visibility.Hidden;
@@ -310,7 +310,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_allocatedMemoryCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "allocatedMemory").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "allocatedMemory").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = Visibility.Hidden;
@@ -320,7 +320,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_pingCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "ping").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "ping").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_sizeMb.Visibility = txt_sizeMb.Visibility = lbl_port.Visibility = txt_port.Visibility = Visibility.Hidden;
@@ -330,7 +330,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_tcpPortCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "tcpPort").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "tcpPort").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_sizeMb.Visibility = txt_sizeMb.Visibility = lbl_dbSqlConnection.Visibility = txt_dbSqlConnection.Visibility = Visibility.Hidden;
@@ -339,7 +339,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_serverUrlPathCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "serverUrlPath").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "serverUrlPath").Name;
 
                     lbl_urlPath.Visibility = txt_urlPath.Visibility = lbl_dbSqlConnection.Visibility = txt_dbSqlConnection.Visibility = Visibility.Hidden;
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = lbl_sizeMb.Visibility = txt_sizeMb.Visibility = Visibility.Hidden;
@@ -348,7 +348,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_urlPathCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "urlPath").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "urlPath").Name;
 
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = Visibility.Hidden;
                     lbl_sizeMb.Visibility = txt_sizeMb.Visibility = lbl_dbSqlConnection.Visibility = txt_dbSqlConnection.Visibility = Visibility.Hidden;
@@ -357,7 +357,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_mssqlConnectionCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "mssqlConnection").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "mssqlConnection").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = lbl_folderPath.Visibility = txt_folderPath.Visibility = Visibility.Hidden;
@@ -366,7 +366,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_mysqlConnectionCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "mysqlConnection").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "mysqlConnection").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = lbl_folderPath.Visibility = txt_folderPath.Visibility = Visibility.Hidden;
@@ -375,7 +375,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_oracleConnectionCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "oracleConnection").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "oracleConnection").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = lbl_folderPath.Visibility = txt_folderPath.Visibility = Visibility.Hidden;
@@ -384,7 +384,7 @@ namespace EasyITSystemCenter.Pages {
                     break;
 
                 case "rb_postgresConnectionCheck":
-                    selectedRecord.Type = inheritedCheckType.First(a => a.Name == "postgresConnection").Name;
+                    selectedRecord.InheritedCheckType = inheritedCheckType.First(a => a.Name == "postgresConnection").Name;
 
                     lbl_serverUrlPath.Visibility = txt_serverUrlPath.Visibility = lbl_urlPath.Visibility = txt_urlPath.Visibility = Visibility.Hidden;
                     lbl_ipAddress.Visibility = txt_ipAddress.Visibility = lbl_port.Visibility = txt_port.Visibility = lbl_folderPath.Visibility = txt_folderPath.Visibility = Visibility.Hidden;

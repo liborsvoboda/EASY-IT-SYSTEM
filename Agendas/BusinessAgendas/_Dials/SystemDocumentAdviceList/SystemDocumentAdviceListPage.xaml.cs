@@ -6,6 +6,7 @@ using MahApps.Metro.Controls.Dialogs;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -44,11 +45,11 @@ namespace EasyITSystemCenter.Pages {
                 cb_branch.ItemsSource = branchList = await CommunicationManager.GetApiRequest<List<BusinessBranchList>>(ApiUrls.EasyITCenterBusinessBranchList, null, App.UserData.Authentification.Token);
                 documentAdviceList = await CommunicationManager.GetApiRequest<List<SystemDocumentAdviceList>>(ApiUrls.EasyITCenterSystemDocumentAdviceList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
                 inheritedDocumentType = await DBOperations.LoadInheritedDataList("DocumentType");
-                inheritedDocumentType.ForEach(async record => { record.Translation = await DBOperations.DBTranslation(record.SystemName); });
+                inheritedDocumentType.ForEach(async record => { record.Translation = await DBOperations.DBTranslation(record.Name); });
 
                 documentAdviceList.ForEach(async record => {
                     record.Branch = branchList.First(a => a.Id == record.BranchId).CompanyName;
-                    record.DocumentTypeTranslation = await DBOperations.DBTranslation(record.DocumentType);
+                    record.DocumentTypeTranslation = await DBOperations.DBTranslation(record.InheritedDocumentType);
                 });
 
                 cb_documentType.ItemsSource = inheritedDocumentType;
@@ -79,17 +80,13 @@ namespace EasyITSystemCenter.Pages {
             });
         }
 
-        //change filter fields
         public void Filter(string filter) {
             try {
                 if (filter.Length == 0) { dataViewSupport.FilteredValue = null; DgListView.Items.Filter = null; return; }
                 dataViewSupport.FilteredValue = filter;
                 DgListView.Items.Filter = (e) => {
-                    SystemDocumentAdviceList report = e as SystemDocumentAdviceList;
-                    return report.DocumentTypeTranslation.ToLower().Contains(filter.ToLower())
-                    || report.Branch.ToLower().Contains(filter.ToLower())
-                    || report.Prefix.ToLower().Contains(filter.ToLower())
-                    || report.Number.ToLower().Contains(filter.ToLower());
+                    DataRowView search = e as DataRowView;
+                    return search.ObjectToJson().ToLower().Contains(filter.ToLower());
                 };
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }
@@ -144,7 +141,7 @@ namespace EasyITSystemCenter.Pages {
                 DBResultMessage dBResult;
                 selectedRecord.Id = (int)((txt_id.Value != null) ? txt_id.Value : 0);
                 selectedRecord.BranchId = ((BusinessBranchList)cb_branch.SelectedItem).Id;
-                selectedRecord.DocumentType = ((SolutionMixedEnumList)cb_documentType.SelectedItem).Name;
+                selectedRecord.InheritedDocumentType = ((SolutionMixedEnumList)cb_documentType.SelectedItem).Name;
                 selectedRecord.Prefix = txt_prefix.Text;
                 selectedRecord.Number = txt_number.Text;
                 selectedRecord.StartDate = (DateTime)dp_startDate.Value;

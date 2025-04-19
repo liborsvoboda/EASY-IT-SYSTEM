@@ -78,7 +78,6 @@ namespace EasyITSystemCenter.Pages {
                             Width = 350,
                             HorizontalAlignment = HorizontalAlignment.Left,
                             VerticalAlignment = VerticalAlignment.Center,
-                            VerticalAlignment = VerticalAlignment.Center,
                             FontSize = 16,
                             Foreground = new SolidColorBrush(Colors.White),
                             ToolTip = (!string.IsNullOrWhiteSpace(configuration.Description)) ? configuration.Description : null

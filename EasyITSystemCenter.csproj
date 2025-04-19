@@ -100,6 +100,9 @@
   <PropertyGroup />
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="EASYTools.Calculator">
+      <HintPath>..\..\EASY-IT-EXTENSIONS\EICESB-MODULES\EASYIT-WPFTOOLS\EASYTools.Calculator\bin\Debug\net452\EASYTools.Calculator.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\dotnet\sdk\2.0.0\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\netstandard.dll</HintPath>
@@ -134,7 +137,6 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -1661,9 +1663,854 @@
     <Content Include="Data\AddOn\WebData\metro\js\metro5.js" />
     <Content Include="Data\AddOn\WebData\metro\js\metro5.min.js" />
     <Content Include="Data\AddOn\WebData\metro\mif\metro.svg" />
-    <Content Include="Data\AddOn\WebData\WebCodeEditor\JSedit\codemirror.js" />
-    <Content Include="Data\AddOn\WebData\WebCodeEditor\JSedit\index.html" />
-    <Content Include="Data\AddOn\WebData\WebCodeEditor\JSedit\jseditor.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\codemirror.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\index.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\jseditor.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\material-darker.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\material.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-all.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-all.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-colors.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-colors.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-common.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-common.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-components.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-components.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-icons.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-icons.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-reset.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-reset.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-rtl.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro-rtl.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro2.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro3-colors.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro3-icons.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro3.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro3.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro5.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro5.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\darcula.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\darcula.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\red-alert.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\red-alert.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\red-dark.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\red-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\red-mirohost.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\red-mirohost.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\sky-net.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\schemes\sky-net.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\third-party\datatables.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\third-party\datatables.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\third-party\select2.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\third-party\select2.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\validation.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\vs2015.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro-4.4.3.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro-storage.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro.4.5.2.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro2.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro3.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro3.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro5.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro5.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\mif\metro.svg" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\animate\css\animate.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\animate\css\animate.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\css\bootstrap-responsive.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\css\bootstrap-treeview.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\css\bootstrap.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\css\docs.css" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\bs-docs-bootstrap-features.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\bs-docs-masthead-pattern.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\bs-docs-responsive-illustrations.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\bs-docs-twitter-github.png" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\close.svg" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\glyphicons-halflings-white.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\glyphicons-halflings.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\grid-baseline-20px.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\less-logo-large.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\img\responsive-illustrations.png" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\animatedModal.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\application.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-affix.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-alert.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-button.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-carousel.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-collapse.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-dropdown.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-modal.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-popover.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-scrollspy.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-tab.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-tooltip.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-transition.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-treeview.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap-typeahead.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\bootstrap.min.tmp.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\google-code-prettify\prettify.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\google-code-prettify\prettify.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\jquery.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\js\jquery.popupoverlay.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\css\bootstrap-responsive.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\css\bootstrap.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\css\docs.css" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\ico\apple-touch-icon-114-precomposed.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\ico\apple-touch-icon-144-precomposed.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\ico\apple-touch-icon-57-precomposed.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\ico\apple-touch-icon-72-precomposed.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\ico\favicon.ico" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\bootstrap-mdo-sfmoma-01.jpg" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\bootstrap-mdo-sfmoma-02.jpg" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\bootstrap-mdo-sfmoma-03.jpg" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\bs-docs-bootstrap-features.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\bs-docs-masthead-pattern.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\bs-docs-responsive-illustrations.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\bs-docs-twitter-github.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\example-sites\fleetio.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\example-sites\jshint.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\example-sites\kippt.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\example-sites\soundready.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\examples\bootstrap-example-fluid.jpg" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\examples\bootstrap-example-hero.jpg" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\examples\bootstrap-example-starter.jpg" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\glyphicons-halflings-white.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\glyphicons-halflings.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\grid-baseline-20px.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\less-logo-large.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\img\responsive-illustrations.png" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\application.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-affix.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-alert.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-button.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-carousel.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-collapse.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-dropdown.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-modal.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-popover.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-scrollspy.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-tab.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-tooltip.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-transition.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap-typeahead.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\bootstrap.min.tmp.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\google-code-prettify\prettify.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\google-code-prettify\prettify.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\jquery.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\base-css.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\index.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\lib\compiler.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\lib\hogan.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\lib\template.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\html\list.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\index.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\index.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\mustache.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\tools\release.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\tools\web_templates.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\1.0.0\hogan.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\1.0.0\hogan.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.0\hogan.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.0\hogan.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.3\hogan.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.3\hogan.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.amd.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.common.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.min.amd.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.min.common.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.min.mustache.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\hogan-1.0.5.mustache.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\template-1.0.5.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\builds\1.0.5\template-1.0.5.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\favicon.ico" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\images\logo.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\images\noise.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\images\small-hogan-icon.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\images\stripes.png" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\stylesheets\layout.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\stylesheets\skeleton.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\alert.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\breadcrumb.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\button-group.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\button.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\dropdown.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\form.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\icon.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\modal.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\nav.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\pagination.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\popover.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\progress-bar.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\table.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\components\tooltip.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\customize.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\examples\fluid.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\examples\hero.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\examples\starter-template.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\extend.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\getting-started.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\index.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\javascript.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\scaffolding.html" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\img\glyphicons-halflings-white.png" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\img\glyphicons-halflings.png" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-affix.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-alert.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-button.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-carousel.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-collapse.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-dropdown.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-modal.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-popover.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-scrollspy.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-tab.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-tooltip.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-transition.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\bootstrap-typeahead.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\index.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\phantom.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\server.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-affix.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-alert.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-button.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-carousel.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-collapse.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-dropdown.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-modal.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-phantom.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-popover.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-scrollspy.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-tab.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-tooltip.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-transition.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\unit\bootstrap-typeahead.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\vendor\jquery.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\vendor\qunit.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\tests\vendor\qunit.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\tests\css-tests.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\tests\css-tests.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\tests\forms.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\tests\navbar.html" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\flexslider\css\flexslider.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\flexslider\js\jquery.flexslider-min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\highlight.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\1c.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\abnf.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\accesslog.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\actionscript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\ada.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\angelscript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\apache.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\applescript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\arcade.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\arduino.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\armasm.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\asciidoc.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\aspectj.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\autohotkey.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\autoit.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\avrasm.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\awk.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\axapta.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\bash.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\basic.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\bnf.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\brainfuck.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\c.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\cal.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\capnproto.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\ceylon.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\clean.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\clojure-repl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\clojure.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\cmake.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\coffeescript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\coq.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\cos.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\cpp.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\crmsh.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\crystal.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\csharp.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\csp.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\css.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\d.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\dart.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\delphi.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\diff.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\django.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\dns.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\dockerfile.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\dos.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\dsconfig.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\dts.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\dust.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\ebnf.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\elixir.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\elm.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\erb.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\erlang-repl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\erlang.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\excel.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\fix.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\flix.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\fortran.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\fsharp.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\gams.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\gauss.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\gcode.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\gherkin.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\glsl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\gml.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\go.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\golo.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\gradle.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\groovy.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\haml.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\handlebars.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\haskell.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\haxe.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\hsp.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\http.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\hy.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\inform7.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\ini.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\irpf90.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\isbl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\java.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\javascript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\jboss-cli.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\json.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\julia-repl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\julia.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\kotlin.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\lasso.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\latex.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\ldif.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\leaf.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\less.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\lisp.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\livecodeserver.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\livescript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\llvm.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\lsl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\lua.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\makefile.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\markdown.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\mathematica.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\matlab.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\maxima.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\mel.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\mercury.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\mipsasm.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\mizar.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\mojolicious.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\monkey.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\moonscript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\n1ql.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\nestedtext.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\nginx.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\nim.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\nix.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\node-repl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\nsis.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\objectivec.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\ocaml.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\openscad.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\oxygene.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\parser3.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\perl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\pf.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\pgsql.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\php-template.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\php.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\plaintext.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\pony.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\powershell.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\processing.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\profile.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\prolog.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\properties.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\protobuf.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\puppet.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\purebasic.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\python-repl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\python.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\q.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\qml.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\r.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\reasonml.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\rib.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\roboconf.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\routeros.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\rsl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\ruby.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\ruleslanguage.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\rust.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\sas.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\scala.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\scheme.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\scilab.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\scss.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\shell.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\smali.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\smalltalk.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\sml.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\sqf.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\sql.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\stan.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\stata.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\step21.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\stylus.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\subunit.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\swift.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\taggerscript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\tap.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\tcl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\thrift.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\tp.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\twig.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\typescript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\vala.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\vbnet.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\vbscript-html.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\vbscript.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\verilog.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\vhdl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\vim.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\wasm.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\wren.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\x86asm.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\xl.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\xml.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\xquery.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\yaml.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\languages\zephir.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\a11y-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\a11y-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\agate.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\an-old-hope.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\androidstudio.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\arduino-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\arta.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\ascetic.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\atom-one-dark-reasonable.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\atom-one-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\atom-one-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\3024.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\apathy.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\apprentice.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\ashes.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-cave-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-cave.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-dune-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-dune.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-estuary-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-estuary.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-forest-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-forest.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-heath-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-heath.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-lakeside-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-lakeside.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-plateau-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-plateau.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-savanna-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-savanna.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-seaside-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-seaside.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-sulphurpool-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atelier-sulphurpool.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\atlas.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\bespin.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-bathory.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-burzum.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-dark-funeral.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-gorgoroth.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-immortal.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-khold.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-marduk.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-mayhem.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-nile.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal-venom.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\black-metal.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\brewer.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\bright.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\brogrammer.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\brush-trees-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\brush-trees.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\chalk.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\circus.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\classic-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\classic-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\codeschool.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\colors.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\cupcake.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\cupertino.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\danqing.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\darcula.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\dark-violet.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\darkmoss.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\darktooth.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\decaf.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\default-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\default-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\dirtysea.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\dracula.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\edge-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\edge-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\eighties.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\embers.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\equilibrium-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\equilibrium-gray-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\equilibrium-gray-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\equilibrium-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\espresso.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\eva-dim.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\eva.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\flat.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\framer.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\fruit-soda.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\gigavolt.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\github.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\google-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\google-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\grayscale-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\grayscale-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\green-screen.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\gruvbox-dark-hard.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\gruvbox-dark-medium.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\gruvbox-dark-pale.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\gruvbox-dark-soft.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\gruvbox-light-hard.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\gruvbox-light-medium.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\gruvbox-light-soft.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\hardcore.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\harmonic16-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\harmonic16-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\heetch-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\heetch-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\helios.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\hopscotch.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\horizon-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\horizon-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\humanoid-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\humanoid-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\ia-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\ia-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\icy-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\ir-black.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\isotope.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\kimber.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\london-tube.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\macintosh.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\marrakesh.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\materia.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\material-darker.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\material-lighter.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\material-palenight.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\material-vivid.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\material.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\mellow-purple.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\mexico-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\mocha.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\monokai.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\nebula.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\nord.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\nova.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\ocean.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\oceanicnext.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\one-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\onedark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\outrun-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\papercolor-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\papercolor-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\paraiso.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\pasque.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\phd.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\pico.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\pop.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\porple.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\qualia.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\railscasts.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\rebecca.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\ros-pine-dawn.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\ros-pine-moon.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\ros-pine.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\sagelight.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\sandcastle.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\seti-ui.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\shapeshifter.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\silk-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\silk-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\snazzy.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\solar-flare-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\solar-flare.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\solarized-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\solarized-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\spacemacs.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\summercamp.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\summerfruit-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\summerfruit-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\synth-midnight-terminal-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\synth-midnight-terminal-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\tango.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\tender.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\tomorrow-night.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\tomorrow.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\twilight.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\unikitty-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\unikitty-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\vulcan.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\windows-10-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\windows-10.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\windows-95-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\windows-95.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\windows-high-contrast-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\windows-high-contrast.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\windows-nt-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\windows-nt.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\woodland.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\xcode-dusk.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\base16\zenburn.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\brown-paper.min.css" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\brown-papersq.png" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\codepen-embed.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\color-brewer.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\default.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\devibeans.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\docco.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\far.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\foundation.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\github-dark-dimmed.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\github-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\github.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\gml.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\googlecode.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\gradient-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\gradient-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\grayscale.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\hybrid.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\idea.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\ir-black.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\isbl-editor-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\isbl-editor-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\kimbie-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\kimbie-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\lightfair.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\lioshi.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\magula.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\mono-blue.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\monokai-sublime.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\monokai.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\night-owl.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\nnfx-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\nnfx-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\nord.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\obsidian.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\paraiso-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\paraiso-light.min.css" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\pojoaque.jpg" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\pojoaque.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\purebasic.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\qtcreator-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\qtcreator-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\rainbow.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\routeros.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\school-book.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\shades-of-purple.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\srcery.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\stackoverflow-dark.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\stackoverflow-light.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\sunburst.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\tomorrow-night-blue.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\tomorrow-night-bright.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\vs.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\vs2015.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\xcode.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\highlightjs\styles\xt256.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\css\icons.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\css\jquery-ui.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\css\jquery-ui.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\css\jquery-ui.structure.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\css\jquery-ui.structure.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\css\jquery-ui.theme.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\css\jquery-ui.theme.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery-3.3.1.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery-3.3.1.slim.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery-3.6.0.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery-ui.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery-ui.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery.printElement.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery.printElement.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery.validate-vsdoc.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery.validate.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery.validate.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery.validate.unobtrusive.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\mermaid\js\mermaid.min.cdn.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ar-AR.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ar-AR.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ar-AR.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-az-AZ.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-az-AZ.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-az-AZ.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-bg-BG.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-bg-BG.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-bg-BG.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ca-ES.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ca-ES.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ca-ES.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-cs-CZ.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-cs-CZ.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-cs-CZ.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-da-DK.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-da-DK.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-da-DK.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-de-DE.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-de-DE.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-de-DE.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-el-GR.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-el-GR.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-el-GR.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-es-ES.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-es-ES.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-es-ES.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-es-EU.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-es-EU.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-es-EU.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-fa-IR.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-fa-IR.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-fa-IR.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-fi-FI.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-fi-FI.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-fi-FI.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-fr-FR.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-fr-FR.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-fr-FR.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-gl-ES.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-gl-ES.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-gl-ES.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-he-IL.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-he-IL.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-he-IL.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-hr-HR.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-hr-HR.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-hr-HR.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-hu-HU.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-hu-HU.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-hu-HU.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-id-ID.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-id-ID.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-id-ID.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-it-IT.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-it-IT.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-it-IT.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ja-JP.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ja-JP.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ja-JP.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ko-KR.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ko-KR.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ko-KR.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-lt-LT.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-lt-LT.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-lt-LT.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-lt-LV.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-lt-LV.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-lt-LV.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-mn-MN.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-mn-MN.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-mn-MN.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-nb-NO.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-nb-NO.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-nb-NO.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-nl-NL.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-nl-NL.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-nl-NL.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-pl-PL.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-pl-PL.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-pl-PL.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-pt-BR.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-pt-BR.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-pt-BR.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-pt-PT.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-pt-PT.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-pt-PT.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ro-RO.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ro-RO.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ro-RO.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ru-RU.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ru-RU.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ru-RU.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sk-SK.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sk-SK.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sk-SK.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sl-SI.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sl-SI.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sl-SI.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sr-RS-Latin.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sr-RS-Latin.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sr-RS-Latin.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sr-RS.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sr-RS.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sr-RS.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sv-SE.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sv-SE.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-sv-SE.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ta-IN.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ta-IN.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-ta-IN.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-th-TH.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-th-TH.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-th-TH.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-tr-TR.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-tr-TR.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-tr-TR.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-uk-UA.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-uk-UA.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-uk-UA.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-uz-UZ.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-uz-UZ.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-uz-UZ.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-vi-VN.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-vi-VN.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-vi-VN.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-zh-CN.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-zh-CN.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-zh-CN.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-zh-TW.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-zh-TW.min.js" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\lang\summernote-zh-TW.min.js.LICENSE.txt" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\plugin\databasic\summernote-ext-databasic.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\plugin\databasic\summernote-ext-databasic.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\plugin\hello\summernote-ext-hello.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\plugin\specialchars\summernote-ext-specialchars.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\plugin\summernote-ext-print.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-bs4.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-bs4.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-bs4.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-bs4.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-lite.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-lite.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-lite.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-lite.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote.min.css" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote.min.js" />
+    <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\ytplayer\js\jquery.mb.YTPlayer.min.js" />
     <Content Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\css\style.css" />
     <Content Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\index.html" />
     <Content Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\js\app.js" />
@@ -3449,7 +4296,6 @@
     <None Include="Data\AddOn\WebData\AnyCodeCompiler\docs\typescript.md" />
     <None Include="Data\AddOn\WebData\AnyCodeCompiler\docs\uikit.md" />
     <None Include="Data\AddOn\WebData\AnyCodeCompiler\docs\vb.md" />
-    <None Include="Data\AddOn\WebData\AnyCodeCompiler\README.md" />
     <None Include="Data\AddOn\WebData\AnyCodeCompiler\tutorials\cassandra\advanced\collection-data-types.md" />
     <None Include="Data\AddOn\WebData\AnyCodeCompiler\tutorials\cassandra\crud-operations\creating-data.md" />
     <None Include="Data\AddOn\WebData\AnyCodeCompiler\tutorials\cassandra\crud-operations\creating-keyspace.md" />
@@ -4246,6 +5092,109 @@
     <None Include="Data\AddOn\WebData\MikroAppCreator\stories\main.41db3e3c.iframe.bundle.js.map" />
     <None Include="Data\AddOn\WebData\MikroAppCreator\stories\project.json" />
     <None Include="Data\AddOn\WebData\MikroAppCreator\stories\vendors~main.8c943162.iframe.bundle.js.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\css\metro2.css.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro.min.js.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\js\metro2.js.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\mif\metro.json" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\mif\metro.ttf" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\mif\metro.woff" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\metro\mif\selection.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\assets\js\README.md" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\.bin\hulk" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\.git_ignore" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\bin\hulk" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\LICENSE" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\Makefile" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\package.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\README.md" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\Changes" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\Rakefile" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\README.md" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\comments.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\comments.yml" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\delimiters.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\delimiters.yml" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\interpolation.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\interpolation.yml" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\inverted.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\inverted.yml" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\partials.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\partials.yml" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\sections.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\sections.yml" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\~lambdas.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\specs\~lambdas.yml" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\spec\TESTING.md" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\test\templates\list.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\web\index.html.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\wrappers\amd.js.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\wrappers\common.js.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\wrappers\js.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\node_modules\hogan.js\wrappers\mustache.js.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\build\package.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\templates\layout.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\templates\pages\base-css.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\templates\pages\components.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\templates\pages\customize.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\templates\pages\extend.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\templates\pages\getting-started.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\templates\pages\index.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\templates\pages\javascript.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\docs\templates\pages\scaffolding.mustache" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\js\.jshintrc" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\accordion.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\alerts.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\bootstrap.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\breadcrumbs.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\button-groups.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\buttons.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\carousel.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\close.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\code.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\component-animations.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\dropdowns.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\forms.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\grid.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\hero-unit.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\labels-badges.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\layouts.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\mixins.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\modals.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\navbar.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\navs.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\pager.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\pagination.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\popovers.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\progress-bars.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\reset.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\responsive-1200px-min.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\responsive-767px-max.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\responsive-768px-979px.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\responsive-navbar.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\responsive-utilities.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\responsive.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\scaffolding.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\sprites.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\tables.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\thumbnails.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\tooltip.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\type.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\utilities.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\variables.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\less\wells.less" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\package.json" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\bootstrap\src\README.md" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\jquery\css\icons.css.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\font\summernote.eot" />
+    <Resource Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\font\summernote.ttf" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\font\summernote.woff" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\font\summernote.woff2" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-bs4.js.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-bs4.min.js.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-lite.js.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote-lite.min.js.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote.js.map" />
+    <None Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\tools\summernote\summernote.min.js.map" />
     <None Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\js\monaco-editor\CHANGELOG.md" />
     <None Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\js\monaco-editor\dev\bundleInfo.json" />
     <None Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\js\monaco-editor\dev\nls.metadata.json" />
@@ -4268,15 +5217,10 @@
     <None Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\js\monaco-editor\min-maps\vs\loader.js.map" />
     <None Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\js\monaco-editor\package.json_" />
     <None Include="Data\AddOn\WebData\WebCodeEditor\MonacoWebEditor\js\monaco-editor\README.md" />
-    <None Include="Data\AddOn\WebData\WebDesigner\.npmignore" />
-    <None Include="Data\AddOn\WebData\WebDesigner\CNAME" />
     <None Include="Data\AddOn\WebData\WebDesigner\dist\index.js.map" />
-    <None Include="Data\AddOn\WebData\WebDesigner\LICENSE" />
-    <None Include="Data\AddOn\WebData\WebDesigner\package-lock.json" />
     <None Include="Data\AddOn\WebData\WebDesigner\package.json" />
     <None Include="Data\AddOn\WebData\WebDesigner\README.md" />
     <None Include="Data\AddOn\WebData\WebDesigner\tsconfig.json" />
-    <None Include="Data\AddOn\WebData\WebDesigner\web-mobile-html-builder-master.zip" />
     <None Include="Data\AddOn\WebData\WebPortal\css\ecommerce.less" />
     <None Include="Data\AddOn\WebData\WebPortal\css\index.css.map" />
     <None Include="Data\AddOn\WebData\WebPortal\css\index.less" />
@@ -4320,7 +5264,6 @@
     <None Include="Data\AddOn\WebData\markdown\plugins\emoji-dialog\emoji.json" />
     <None Include="Data\AddOn\WebData\markdown\plugins\help-dialog\help.md" />
     <None Include="Data\AddOn\WebData\markdown\plugins\html-entities-dialog\html-entities.json" />
-    <None Include="Data\AddOn\WebData\markdown\test.md" />
     <None Include="EasyITGroupWareSolution.snk" />
     <None Include="FodyWeavers.xsd">
       <SubType>Designer</SubType>
@@ -6484,7 +7427,6 @@
     <Content Include="Data\AddOn\WebData\SystemTools\js\metro.min.js" />
     <Content Include="Data\AddOn\WebData\SystemTools\js\start.js" />
     <Content Include="Data\AddOn\WebData\SystemTools\mif\metro.svg" />
-    <Content Include="Data\AddOn\WebData\WebDesigner\.gitignore" />
     <Content Include="Data\AddOn\WebData\WebDesigner\dist\index.html" />
     <Content Include="Data\AddOn\WebData\WebDesigner\dist\index.js" />
     <Content Include="Data\AddOn\WebData\WebDesigner\index.html" />
@@ -7278,6 +8220,9 @@
     <PackageReference Include="Dapplo.Windows.Common">
       <Version>0.11.29</Version>
     </PackageReference>
+    <PackageReference Include="DataGridFilter">
+      <Version>1.0.3</Version>
+    </PackageReference>
     <PackageReference Include="DeviceId">
       <Version>6.6.0</Version>
     </PackageReference>
@@ -7341,6 +8286,9 @@
     <PackageReference Include="EASYTools.MarkdownToHtml">
       <Version>1.0.0</Version>
     </PackageReference>
+    <PackageReference Include="EASYTools.MultiSelectComboBox">
+      <Version>1.0.0</Version>
+    </PackageReference>
     <PackageReference Include="EASYTools.SqlConnectionDialog">
       <Version>1.0.0</Version>
     </PackageReference>
@@ -7349,9 +8297,6 @@
     </PackageReference>
     <PackageReference Include="Elysium.Theme">
       <Version>2.0.4</Version>
-    </PackageReference>
-    <PackageReference Include="Extended.Wpf.Toolkit">
-      <Version>4.6.0</Version>
     </PackageReference>
     <PackageReference Include="FastMember">
       <Version>1.5.0</Version>
@@ -7481,9 +8426,6 @@
     <PackageReference Include="HelixToolkit.Wpf.SharpDX">
       <Version>2.25.0</Version>
     </PackageReference>
-    <PackageReference Include="hima.lib.htmleditor">
-      <Version>1.1.0.3</Version>
-    </PackageReference>
     <PackageReference Include="HtmlAgilityPack">
       <Version>1.11.61</Version>
     </PackageReference>
@@ -7507,6 +8449,9 @@
     </PackageReference>
     <PackageReference Include="HtmlRenderer.WPF">
       <Version>1.5.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="HtmlToXamlConverter">
+      <Version>1.0.5727.24510</Version>
     </PackageReference>
     <PackageReference Include="HtmlWarningsReportGenerator">
       <Version>1.0.5</Version>
@@ -7638,9 +8583,6 @@
     <PackageReference Include="MessagePack">
       <Version>2.5.140</Version>
     </PackageReference>
-    <PackageReference Include="Metro4">
-      <Version>4.5.0</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost">
       <Version>5.3.0</Version>
     </PackageReference>
@@ -7745,9 +8687,6 @@
     </PackageReference>
     <PackageReference Include="Neo.Markdig.Xaml">
       <Version>1.0.5</Version>
-    </PackageReference>
-    <PackageReference Include="Net4x.AsyncBridge">
-      <Version>1.1.0</Version>
     </PackageReference>
     <PackageReference Include="NETStandard.Library">
       <Version>2.0.3</Version>
@@ -7890,6 +8829,9 @@
     <PackageReference Include="Pek.Markdig.HighlightJs">
       <Version>0.5.1</Version>
     </PackageReference>
+    <PackageReference Include="PersianCalendarWPF">
+      <Version>1.2.1</Version>
+    </PackageReference>
     <PackageReference Include="PowerBridge">
       <Version>1.3.6326.41344</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -7913,23 +8855,8 @@
     <PackageReference Include="React.TypeScript.DefinitelyTyped">
       <Version>0.1.12</Version>
     </PackageReference>
-    <PackageReference Include="ReflectionBridge">
-      <Version>0.0.13</Version>
-    </PackageReference>
     <PackageReference Include="ReportGenerator">
       <Version>5.3.6</Version>
-    </PackageReference>
-    <PackageReference Include="Retyped.Core">
-      <Version>1.6.6733</Version>
-    </PackageReference>
-    <PackageReference Include="Retyped.dom">
-      <Version>2.8.6733</Version>
-    </PackageReference>
-    <PackageReference Include="Retyped.es5">
-      <Version>2.8.6733</Version>
-    </PackageReference>
-    <PackageReference Include="Retyped.jsurl">
-      <Version>1.2.6733</Version>
     </PackageReference>
     <PackageReference Include="ReverseMarkdown">
       <Version>4.4.0</Version>
@@ -7948,9 +8875,6 @@
     </PackageReference>
     <PackageReference Include="Softbyte.HtmlTableGenerator">
       <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="SolutionScripts">
-      <Version>1.2.0</Version>
     </PackageReference>
     <PackageReference Include="SourceHeader">
       <Version>1.0.0</Version>
@@ -8008,6 +8932,9 @@
     </PackageReference>
     <PackageReference Include="TimeZoneConverter">
       <Version>6.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="TreeListView">
+      <Version>1.0.0</Version>
     </PackageReference>
     <PackageReference Include="Twilio">
       <Version>7.2.2</Version>
@@ -8116,33 +9043,6 @@
     <PackageReference Include="WpfRichText2">
       <Version>1.0.17</Version>
     </PackageReference>
-    <PackageReference Include="FreeSpire.Barcode">
-      <Version>6.6.0</Version>
-    </PackageReference>
-    <PackageReference Include="FreeSpire.Doc">
-      <Version>12.2.0</Version>
-    </PackageReference>
-    <PackageReference Include="FreeSpire.DocViewer">
-      <Version>7.6.0</Version>
-    </PackageReference>
-    <PackageReference Include="FreeSpire.Office">
-      <Version>8.2.0</Version>
-    </PackageReference>
-    <PackageReference Include="FreeSpire.PDF">
-      <Version>8.6.0</Version>
-    </PackageReference>
-    <PackageReference Include="FreeSpire.PDFViewer">
-      <Version>7.6.0</Version>
-    </PackageReference>
-    <PackageReference Include="FreeSpire.Presentation">
-      <Version>7.8.0</Version>
-    </PackageReference>
-    <PackageReference Include="FreeSpire.XLS">
-      <Version>12.7.0</Version>
-    </PackageReference>
-    <PackageReference Include="GroupDocs.Editor">
-      <Version>24.6.0</Version>
-    </PackageReference>
     <PackageReference Include="WpfAnimatedGif">
       <Version>2.0.2</Version>
     </PackageReference>
@@ -8193,12 +9093,6 @@
     </PackageReference>
     <PackageReference Include="Xwt">
       <Version>0.2.218</Version>
-    </PackageReference>
-    <PackageReference Include="Xwt.Gtk">
-      <Version>0.2.251</Version>
-    </PackageReference>
-    <PackageReference Include="Xwt.Gtk3">
-      <Version>0.2.251</Version>
     </PackageReference>
     <PackageReference Include="Xwt.WPF">
       <Version>0.2.218</Version>

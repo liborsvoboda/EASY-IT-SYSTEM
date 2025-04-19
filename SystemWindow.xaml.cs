@@ -588,7 +588,7 @@ namespace EasyITSystemCenter {
         /// <param name="sender"></param>
         /// <param name="e">     </param>
         private void MainWindow_KeyDown(object sender, KeyEventArgs e) {
-            if (!bool.Parse(App.appRuntimeData.AppClientSettings.First(a => a.Key == "sys_disableSystemHotKeys").Value))
+            if (!bool.Parse(App.appRuntimeData.AppClientSettings.FirstOrDefault(a => a.Key == "sys_disableSystemHotKeys").Value))
             { HardwareOperations.ApplicationKeyboardMaping(e); }
         }
 

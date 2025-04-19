@@ -179,7 +179,7 @@ namespace EasyITSystemCenter.Pages {
 
         private async void BtnOpenInBrowser_Click(object sender, RoutedEventArgs e) {
             await SaveRecord(false, false);
-            SystemOperations.StartExternalProccess(SystemLocalEnumSets.ProcessTypes.First(a => a.Value.ToLower() == "url").Value, App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebBuilderGlobalBodyBlockPreview")) + "/" + txt_id.Value.ToString());
+            SystemOperations.StartExternalProccess("weburl", App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebBuilderGlobalBodyBlockPreview")) + "/" + txt_id.Value.ToString());
         }
 
         private async void SetRecord(bool? showForm = null, bool copy = false) {
@@ -262,7 +262,7 @@ namespace EasyITSystemCenter.Pages {
         }
 
         private async void BtnOpenMinifiTool_Click(object sender, RoutedEventArgs e) {
-            SystemOperations.StartExternalProccess(SystemLocalEnumSets.ProcessTypes.First(a => a.Value.ToLower() == "url").Value, App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebBuilderExternalAutoMinifiTool")));
+            SystemOperations.StartExternalProccess("weburl", App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebBuilderExternalAutoMinifiTool")));
         }
 
         private void CaseSensitiveChange(object sender, RoutedEventArgs e) {

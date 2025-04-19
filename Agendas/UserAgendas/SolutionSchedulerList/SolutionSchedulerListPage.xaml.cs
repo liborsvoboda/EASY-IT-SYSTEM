@@ -21,8 +21,8 @@ namespace EasyITSystemCenter.Pages {
         public static DataViewSupport dataViewSupport = new DataViewSupport();
         public static SolutionSchedulerList selectedRecord = new SolutionSchedulerList();
 
-        private List<SolutionMixedEnumList> timeIntervalTypeList = new List<SolutionMixedEnumList>();
-        private List<SolutionMixedEnumList> solutionScheduledTypeList = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedIntervalType = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedScheduledType = new List<SolutionMixedEnumList>();
         private List<SolutionSchedulerList> solutionSchedulerLists = new List<SolutionSchedulerList>();
 
         public SolutionSchedulerListPage() {
@@ -41,21 +41,21 @@ namespace EasyITSystemCenter.Pages {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
 
-                solutionScheduledTypeList = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/SchedulerDial", App.UserData.Authentification.Token);
-                timeIntervalTypeList = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/TimeIntervalDial", App.UserData.Authentification.Token);
+                inheritedScheduledType = = await DBOperations.LoadInheritedDataList("ScheduledType");
+                inheritedIntervalType = await DBOperations.LoadInheritedDataList("IntervalType"); 
                 solutionSchedulerLists = await CommunicationManager.GetApiRequest<List<SolutionSchedulerList>>(ApiUrls.EasyITCenterSolutionSchedulerList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 
-                timeIntervalTypeList.ForEach(async timeType => { timeType.Translation = await DBOperations.DBTranslation(timeType.Name); });
-                solutionScheduledTypeList.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
+                inheritedIntervalType.ForEach(async timeType => { timeType.Translation = await DBOperations.DBTranslation(timeType.Name); });
+                inheritedScheduledType.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
                 solutionSchedulerLists.ForEach(scheduleTask => {
-                    scheduleTask.GroupNameTranslation = solutionScheduledTypeList.First(a => a.Name == scheduleTask.InheritedGroupName).Translation;
-                    scheduleTask.IntervalTypeTranslation = timeIntervalTypeList.First(a => a.Name == scheduleTask.InheritedIntervalType).Translation;
+                    scheduleTask.GroupNameTranslation = inheritedScheduledType.First(a => a.Name == scheduleTask.InheritedGroupName).Translation;
+                    scheduleTask.IntervalTypeTranslation = inheritedIntervalType.First(a => a.Name == scheduleTask.InheritedIntervalType).Translation;
                 });
 
                 DgListView.ItemsSource = solutionSchedulerLists;
                 DgListView.Items.Refresh();
-                cb_inheritedGroupName.ItemsSource = solutionScheduledTypeList;
-                cb_inheritedIntervalType.ItemsSource = timeIntervalTypeList;
+                cb_inheritedGroupName.ItemsSource = inheritedScheduledType;
+                cb_inheritedIntervalType.ItemsSource = inheritedIntervalType;
 
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
             MainWindow.ProgressRing = Visibility.Hidden; return true;
@@ -187,7 +187,7 @@ namespace EasyITSystemCenter.Pages {
             try {
                 txt_id.Value = (copy) ? 0 : selectedRecord.Id;
 
-                cb_inheritedGroupName.SelectedItem = (selectedRecord.Id == 0) ? solutionScheduledTypeList.FirstOrDefault() : solutionScheduledTypeList.First(a => a.Name == selectedRecord.InheritedGroupName);
+                cb_inheritedGroupName.SelectedItem = (selectedRecord.Id == 0) ? inheritedScheduledType.FirstOrDefault() : inheritedScheduledType.First(a => a.Name == selectedRecord.InheritedGroupName);
                 txt_name.Text = selectedRecord.Name;
                 txt_sequence.Value = selectedRecord.Sequence;
                 txt_email.Text = selectedRecord.Email;
@@ -198,7 +198,7 @@ namespace EasyITSystemCenter.Pages {
                 dp_startAt.Value = selectedRecord.StartAt;
                 dp_finishAt.Value = selectedRecord.FinishAt;
                 txt_interval.Value = selectedRecord.Interval;
-                cb_inheritedIntervalType.SelectedItem = (selectedRecord.Id == 0) ? timeIntervalTypeList.FirstOrDefault() : timeIntervalTypeList.First(a => a.Name == selectedRecord.InheritedIntervalType);
+                cb_inheritedIntervalType.SelectedItem = (selectedRecord.Id == 0) ? inheritedIntervalType.FirstOrDefault() : inheritedIntervalType.First(a => a.Name == selectedRecord.InheritedIntervalType);
                 chb_active.IsChecked = (selectedRecord.Id == 0) ? bool.Parse(App.appRuntimeData.AppClientSettings.First(a => a.Key == "beh_activeNewInputDefault").Value) : selectedRecord.Active;
 
                 if (showForm != null && showForm == true) {

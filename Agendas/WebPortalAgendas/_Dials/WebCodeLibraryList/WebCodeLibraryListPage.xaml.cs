@@ -30,6 +30,7 @@ namespace EasyITSystemCenter.Pages {
         public static TemplateClassList selectedRecord = new TemplateClassList();
 
         private List<DocSrvDocTemplateList> docSrvDocTemplateList = new List<DocSrvDocTemplateList>();
+        private List<SolutionMixedEnumList> inheritedCodeType = new List<SolutionMixedEnumList>();
 
         CompletionWindow completionWindow;
         string currentFileName;
@@ -78,6 +79,7 @@ namespace EasyITSystemCenter.Pages {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
 
+                inheritedCodeType = await DBOperations.LoadInheritedDataList("CodeType");
                 docSrvDocTemplateList = await CommunicationManager.GetApiRequest<List<DocSrvDocTemplateList>>(ApiUrls.EasyITCenterDocSrvDocTemplateList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
                 cb_templates.ItemsSource = docSrvDocTemplateList.OrderBy(a => a.GroupId).ThenBy(a=>a.Sequence).ToList();
 

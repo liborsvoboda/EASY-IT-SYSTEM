@@ -264,6 +264,8 @@ namespace EasyITSystemCenter.GlobalOperations {
 
                     case "weburl":
                     case "githuburl":
+                    case "serverUrl":
+                    case "systemUrl":
                     case "searchurl":
                     case "nugeturl":
                     case "docsurl":

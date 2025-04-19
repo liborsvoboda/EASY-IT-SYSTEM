@@ -24,8 +24,7 @@ namespace EasyITSystemCenter.Pages {
         public static DataViewSupport dataViewSupport = new DataViewSupport();
         public static WebCoreFileList selectedRecord = new WebCoreFileList();
 
-
-        private List<SolutionMixedEnumList> solutionMixedEnumList = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedJsCssDefinitionType = new List<SolutionMixedEnumList>();
         private List<WebCoreFileList> WebCoreFileList = new List<WebCoreFileList>();
         private int FoundedPositionIndex = 0; private int ReplacePositionIndex = 0;
 
@@ -53,14 +52,15 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                solutionMixedEnumList = await DBOperations.LoadInheritedDataList("JsCssDefinitionType");
+
+                inheritedJsCssDefinitionType = await DBOperations.LoadInheritedDataList("JsCssDefinitionType");
                 WebCoreFileList = await CommunicationManager.GetApiRequest<List<WebCoreFileList>>(ApiUrls.EasyITCenterWebCoreFileList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 
-                solutionMixedEnumList.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
+                inheritedJsCssDefinitionType.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });
 
                 DgListView.ItemsSource = WebCoreFileList;
                 DgListView.Items.Refresh();
-                cb_specificationType.ItemsSource = solutionMixedEnumList.OrderBy(a=>a.Name);
+                cb_specificationType.ItemsSource = inheritedJsCssDefinitionType.OrderBy(a=>a.Name);
                 lb_dataList.ItemsSource = WebCoreFileList;
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
             MainWindow.ProgressRing = Visibility.Hidden; return true;
@@ -170,7 +170,7 @@ namespace EasyITSystemCenter.Pages {
 
         private async void BtnOpenInBrowser_Click(object sender, RoutedEventArgs e) {
             await SaveRecord(false, false);
-            SystemOperations.StartExternalProccess(SystemLocalEnumSets.ProcessTypes.First(a => a.Value.ToLower() == "url").Value, App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebBuilderMenuPreview")) + "/" + txt_id.Value.ToString());
+            SystemOperations.StartExternalProccess("weburl", App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebBuilderMenuPreview")) + "/" + txt_id.Value.ToString());
         }
 
         private async void SetRecord(bool? showForm = null, bool copy = false) {
@@ -179,7 +179,7 @@ namespace EasyITSystemCenter.Pages {
 
                 txt_sequence.Value = selectedRecord.Sequence;
                 int index = 0;
-                cb_specificationType.SelectedItem = selectedRecord.Id == 0 || solutionMixedEnumList.FirstOrDefault(a => a.Name == selectedRecord.SpecificationType) == null ? solutionMixedEnumList.First() : solutionMixedEnumList.FirstOrDefault(a => a.Name == selectedRecord.SpecificationType);
+                cb_specificationType.SelectedItem = selectedRecord.Id == 0 || inheritedJsCssDefinitionType.FirstOrDefault(a => a.Name == selectedRecord.SpecificationType) == null ? inheritedJsCssDefinitionType.First() : inheritedJsCssDefinitionType.FirstOrDefault(a => a.Name == selectedRecord.SpecificationType);
                 txt_metroPath.Text = selectedRecord.MetroPath;
                 chb_rewriteLowerLevel.IsChecked = selectedRecord.RewriteLowerLevel;
                 chb_isUniquePath.IsChecked = selectedRecord.IsUniquePath;
@@ -266,7 +266,7 @@ namespace EasyITSystemCenter.Pages {
         }
 
         private async void BtnOpenMinifiTool_Click(object sender, RoutedEventArgs e) {
-            SystemOperations.StartExternalProccess(SystemLocalEnumSets.ProcessTypes.First(a => a.Value.ToLower() == "url").Value, App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebBuilderExternalAutoMinifiTool")));
+            SystemOperations.StartExternalProccess("weburl", App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebBuilderExternalAutoMinifiTool")));
         }
 
         private void MetroPathInputSpaceCheck(object sender, TextChangedEventArgs e) {

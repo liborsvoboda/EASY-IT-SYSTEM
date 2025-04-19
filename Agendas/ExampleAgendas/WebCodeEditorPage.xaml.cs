@@ -99,7 +99,7 @@ namespace EasyITSystemCenter.Pages {
                 DBResultMessage dBResult = await CommunicationManager.PostApiRequest(ApiUrls.ServerModuleAndServiceList, httpContent, null, App.UserData.Authentification.Token);
 
                 if (dBResult.RecordCount > 0) {
-                    SystemOperations.StartExternalProccess(SystemLocalEnumSets.ProcessTypes.First(a => a.Value.ToLower() == "url").Value, App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + systemWebCodeEditor.UrlSubPath);
+                    SystemOperations.StartExternalProccess("weburl", App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + systemWebCodeEditor.UrlSubPath);
                 } else { await MainWindow.ShowMessageOnMainWindow(false, "Exception Error : " + dBResult.ErrorMessage); }
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }

@@ -372,9 +372,6 @@
       <DependentUpon>WebDocumentationCodeLibraryListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Agendas\WebPortalAgendas\_Dials\WebCodeLibraryList\WebCodeLibraryList.cs" />
-    <Compile Include="Agendas\WebPortalAgendas\_Dials\WebCodeLibraryList\WebCodeLibraryListOldPage.xaml.cs">
-      <DependentUpon>WebCodeLibraryListOldPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Agendas\WebPortalAgendas\WebCoreFileList\WebCoreFileList.cs" />
     <Compile Include="Agendas\WebPortalAgendas\WebCoreFileList\WebCoreFileListPage.xaml.cs">
       <DependentUpon>WebCoreFileListPage.xaml</DependentUpon>
@@ -928,10 +925,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Agendas\WebPortalAgendas\_Dials\WebDocumentationCodeLibraryList\WebDocumentationCodeLibraryListPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Agendas\WebPortalAgendas\_Dials\WebCodeLibraryList\WebCodeLibraryListOldPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

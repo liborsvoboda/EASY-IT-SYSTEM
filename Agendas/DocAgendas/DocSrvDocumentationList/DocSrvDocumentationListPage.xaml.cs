@@ -229,7 +229,7 @@ namespace EasyITSystemCenter.Pages {
 
         private async void BtnOpenInBrowser_Click(object sender, RoutedEventArgs e) {
             await SaveRecord(false, false);
-            SystemOperations.StartExternalProccess(SystemLocalEnumSets.ProcessTypes.First(a => a.Value.ToLower() == "url").Value, App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebDocPreview")) + "/" + txt_id.Value.ToString());
+            SystemOperations.StartExternalProccess("weburl", App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebDocPreview")) + "/" + txt_id.Value.ToString());
         }
 
         private void BtnLoadFromFile_Click(object sender, RoutedEventArgs e) {

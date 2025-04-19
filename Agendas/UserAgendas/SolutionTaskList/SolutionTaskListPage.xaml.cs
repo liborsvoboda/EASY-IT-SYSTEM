@@ -41,8 +41,8 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                inheritedTargetType = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/SolutionTargetType", App.UserData.Authentification.Token);
-                inheritedStatusType = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, "ByGroup/TaskStatusType", App.UserData.Authentification.Token);
+                inheritedTargetType = await DBOperations.LoadInheritedDataList("SolutionTargetType");
+                inheritedStatusType = await DBOperations.LoadInheritedDataList("TaskStatusType");
                 DgListView.ItemsSource = await CommunicationManager.GetApiRequest<List<SolutionTaskList>>(ApiUrls.EasyITCenterSolutionTaskList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 
                 inheritedTargetType.ForEach(async tasktype => { tasktype.Translation = await DBOperations.DBTranslation(tasktype.Name); });

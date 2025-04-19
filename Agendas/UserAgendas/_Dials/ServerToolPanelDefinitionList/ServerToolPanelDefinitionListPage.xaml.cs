@@ -8,6 +8,7 @@ using MahApps.Metro.Controls.Dialogs;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -30,7 +31,7 @@ namespace EasyITSystemCenter.Pages {
         };
 
         private List<ServerToolPanelDefinitionList> toolPanelDefinitionList = new List<ServerToolPanelDefinitionList>();
-        //private List<SystemSvgIconList> svgIconList = new List<SystemSvgIconList>();
+        private List<SolutionMixedEnumList> inheritedToolLinkType = new List<SolutionMixedEnumList>();
         private List<ServerToolTypeList> toolTypeList = new List<ServerToolTypeList>();
 
         private bool pageLoaded = false;
@@ -56,9 +57,16 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
+
+                inheritedToolLinkType = await DBOperations.LoadInheritedDataList("ToolLinkType");
+                inheritedToolLinkType.ForEach(async timeType => { timeType.Translation = await DBOperations.DBTranslation(timeType.Name); });
+
+
                 toolPanelDefinitionList = await CommunicationManager.GetApiRequest<List<ServerToolPanelDefinitionList>>(ApiUrls.EasyITCenterServerToolPanelDefinitionList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
                 //svgIconList = await CommApi.GetApiRequest<List<SystemSvgIconList>>(ApiUrls.EasyITCenterSystemSvgIconList, null, App.UserData.Authentification.Token);
                 toolTypeList = await CommunicationManager.GetApiRequest<List<ServerToolTypeList>>(ApiUrls.EasyITCenterServerToolTypeList, null, App.UserData.Authentification.Token);
+
+
 
                 lv_iconViewer.Items.Clear();
                 App.SystemSvgIconList.ForEach(icon => {
@@ -72,7 +80,7 @@ namespace EasyITSystemCenter.Pages {
                     item.Translation = await DBOperations.DBTranslation(item.SystemName);
                     item.ToolTypeName = toolTypeList.First(a => a.Id == item.ToolTypeId).Name;
                 });
-                cb_type.ItemsSource = SystemLocalEnumSets.ProcessTypes;
+                cb_type.ItemsSource = inheritedToolLinkType;
                 cb_toolType.ItemsSource = toolTypeList;
                 DgListView.ItemsSource = toolPanelDefinitionList;
                 DgListView.Items.Refresh();
@@ -80,25 +88,25 @@ namespace EasyITSystemCenter.Pages {
             MainWindow.ProgressRing = Visibility.Hidden; return true;
         }
 
-        private void DgListView_Translate(object sender, EventArgs ex) {
+        private async void DgListView_Translate(object sender, EventArgs ex) {
             try {
-                ((DataGrid)sender).Columns.ToList().ForEach(e => {
-                    string headername = e.Header.ToString();
-                    if (headername == "SystemName") { e.Header = Resources["systemName"].ToString(); e.DisplayIndex = 1; }
-                    else if (headername == "Translation") { e.Header = Resources["translation"].ToString(); e.DisplayIndex = 2; }
-                    else if (headername == "ToolTypeName") { e.Header = Resources["toolType"].ToString(); e.DisplayIndex = 3; }
-                    else if (headername == "Type") e.Header = Resources["processType"].ToString();
-                    else if (headername == "Command") e.Header = Resources["command"].ToString();
-                    else if (headername == "Description") e.Header = Resources["description"].ToString();
-                    else if (headername == "TimeStamp") { e.Header = Resources["timestamp"].ToString(); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
-                    else if (headername == "Id") e.DisplayIndex = 0;
-                    else if (headername == "ToolTypeId") e.Visibility = Visibility.Hidden;
-                    else if (headername == "BitmapImage") e.Visibility = Visibility.Hidden;
-                    else if (headername == "IconName") e.Visibility = Visibility.Hidden;
-                    else if (headername == "IconColor") e.Visibility = Visibility.Hidden;
-                    else if (headername == "BackgroundColor") e.Visibility = Visibility.Hidden;
-                    else if (headername == "SvgIconPath") e.Visibility = Visibility.Hidden;
-                    else if (headername == "UserId") e.Visibility = Visibility.Hidden;
+                ((DataGrid)sender).Columns.ToList().ForEach(async e => {
+                    string headername = e.Header.ToString().ToLower();
+                    if (headername == "SystemName".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 1; }
+                    else if (headername == "Translation".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 2; }
+                    else if (headername == "ToolTypeName".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.DisplayIndex = 3; }
+                    else if (headername == "Type".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "Command".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "Description".ToLower()) e.Header = await DBOperations.DBTranslation(headername);
+                    else if (headername == "TimeStamp".ToLower()) { e.Header = await DBOperations.DBTranslation(headername); e.CellStyle = ProgramaticStyles.gridTextRightAligment; e.DisplayIndex = DgListView.Columns.Count - 1; }
+                    else if (headername == "Id".ToLower()) e.DisplayIndex = 0;
+                    else if (headername == "ToolTypeId".ToLower()) e.Visibility = Visibility.Hidden;
+                    else if (headername == "BitmapImage".ToLower()) e.Visibility = Visibility.Hidden;
+                    else if (headername == "IconName".ToLower()) e.Visibility = Visibility.Hidden;
+                    else if (headername == "IconColor".ToLower()) e.Visibility = Visibility.Hidden;
+                    else if (headername == "BackgroundColor".ToLower()) e.Visibility = Visibility.Hidden;
+                    else if (headername == "SvgIconPath".ToLower()) e.Visibility = Visibility.Hidden;
+                    else if (headername == "UserId".ToLower()) e.Visibility = Visibility.Hidden;
                 });
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }
@@ -108,12 +116,8 @@ namespace EasyITSystemCenter.Pages {
                 if (filter.Length == 0) { dataViewSupport.FilteredValue = null; DgListView.Items.Filter = null; return; }
                 dataViewSupport.FilteredValue = filter;
                 DgListView.Items.Filter = (e) => {
-                    ServerToolPanelDefinitionList user = e as ServerToolPanelDefinitionList;
-                    return user.SystemName.ToLower().Contains(filter.ToLower())
-                    || user.Translation.ToLower().Contains(filter.ToLower())
-                    || user.Type.ToLower().Contains(filter.ToLower())
-                    || user.Command.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(user.Description) && user.Description.ToLower().Contains(filter.ToLower());
+                    DataRowView search = e as DataRowView;
+                    return search.ObjectToJson().ToLower().Contains(filter.ToLower());
                 };
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }
@@ -162,7 +166,7 @@ namespace EasyITSystemCenter.Pages {
                 selectedRecord.SystemName = txt_systemName.Text;
 
                 selectedRecord.ToolTypeId = ((ServerToolTypeList)cb_toolType.SelectedItem).Id;
-                selectedRecord.Type = ((TranslateSet)cb_type.SelectedItem).Value;
+                selectedRecord.InheritedToolLinkType = ((SolutionMixedEnumList)cb_type.SelectedItem).Name;
                 selectedRecord.Command = txt_command.Text;
                 selectedRecord.IconName = generatedIcon.IconName;
                 selectedRecord.IconColor = xct_iconColor.SelectedColorText;
@@ -200,7 +204,7 @@ namespace EasyITSystemCenter.Pages {
             generatedIcon.IconName = selectedRecord.IconName;
 
             cb_toolType.SelectedItem = (selectedRecord.Id == 0 || toolTypeList.Count == 0) ? toolTypeList.FirstOrDefault() : toolTypeList.First(a => a.Id == selectedRecord.ToolTypeId);
-            cb_type.SelectedItem = (selectedRecord.Id == 0) ? SystemLocalEnumSets.ProcessTypes.FirstOrDefault() : SystemLocalEnumSets.ProcessTypes.First(a => a.Value == selectedRecord.Type);
+            cb_type.SelectedItem = (selectedRecord.Id == 0) ? inheritedToolLinkType.FirstOrDefault() : inheritedToolLinkType.First(a => a.Value == selectedRecord.Type);
             txt_command.Text = selectedRecord.Command;
 
             if (selectedRecord.Id != 0) { generatedIcon.IconColor = selectedRecord.IconColor; xct_iconColor.SelectedColor = (Color)ColorConverter.ConvertFromString(selectedRecord.IconColor); }

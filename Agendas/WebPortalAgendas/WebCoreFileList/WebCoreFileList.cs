@@ -4,7 +4,7 @@ namespace EasyITSystemCenter.GlobalClasses {
 
     public partial class WebCoreFileList {
         public int Id { get; set; } = 0;
-        public string SpecificationType { get; set; } = null;
+        public string InheritedJsCssDefinitionType { get; set; } = null;
         public int Sequence { get; set; }
         public string MetroPath { get; set; } = null;
         public string FileName { get; set; } = null;

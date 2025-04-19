@@ -283,7 +283,7 @@ namespace EasyITSystemCenter.Pages {
                     MainWindow.ProgressRing = Visibility.Hidden;
 
                     if (dBResult.Status.ToLower() != "success") { await MainWindow.ShowMessageOnMainWindow(false, await DBOperations.DBTranslation("ParameterWebNewsLetterPreviewPostAPIerror") + Environment.NewLine + dBResult.ErrorMessage); }
-                    else { SystemOperations.StartExternalProccess(SystemLocalEnumSets.ProcessTypes.First(a => a.Value.ToLower() == "url").Value, App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebNewsLetterPreviewPostAPI"))); }
+                    else { SystemOperations.StartExternalProccess("weburl", App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + (await DataOperations.ParameterCheck("WebNewsLetterPreviewPostAPI"))); }
                 } catch (Exception ex) {
                     MainWindow.ProgressRing = Visibility.Hidden;
                     await MainWindow.ShowMessageOnMainWindow(false, "Exception Error : " + ex.Message + Environment.NewLine + ex.StackTrace);

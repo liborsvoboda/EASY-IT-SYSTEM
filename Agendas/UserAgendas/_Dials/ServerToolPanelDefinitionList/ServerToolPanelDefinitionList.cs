@@ -7,7 +7,7 @@ namespace EasyITSystemCenter.GlobalClasses {
         public int Id { get; set; } = 0;
         public int ToolTypeId { get; set; }
         public string SystemName { get; set; } = null;
-        public string Type { get; set; } = null;
+        public string InheritedToolLinkType { get; set; } = null;
         public string Command { get; set; } = null;
         public string IconName { get; set; } = null;
         public string IconColor { get; set; } = null;

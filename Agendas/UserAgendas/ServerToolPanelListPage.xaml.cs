@@ -22,7 +22,6 @@ namespace EasyITSystemCenter.Pages {
         public static ServerToolPanelDefinitionList selectedRecord = new ServerToolPanelDefinitionList();
 
         private List<ServerToolPanelDefinitionList> ServerToolPanelDefinitionList = new List<ServerToolPanelDefinitionList>();
-        //private List<SystemSvgIconList> SystemSvgIconList = new List<SystemSvgIconList>();
         private List<ServerToolTypeList> ServerToolTypeList = new List<ServerToolTypeList>();
 
         public ServerToolPanelListPage() {
@@ -38,7 +37,6 @@ namespace EasyITSystemCenter.Pages {
             try {
                 ServerToolTypeList = await CommunicationManager.GetApiRequest<List<ServerToolTypeList>>(ApiUrls.EasyITCenterServerToolTypeList, null, App.UserData.Authentification.Token);
                 ServerToolPanelDefinitionList = await CommunicationManager.GetApiRequest<List<ServerToolPanelDefinitionList>>(ApiUrls.EasyITCenterServerToolPanelDefinitionList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
-                //SystemSvgIconList = await CommApi.GetApiRequest<List<SystemSvgIconList>>(ApiUrls.EasyITCenterSystemSvgIconList, null, App.UserData.Authentification.Token);
 
                 //Generate Menu Panel
                 if (ServerToolTypeList.Any()) { TabMenuList.Items.Clear(); }

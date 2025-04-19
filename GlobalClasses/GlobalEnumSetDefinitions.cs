@@ -44,23 +44,5 @@ namespace EasyITSystemCenter.GlobalClasses {
             new TranslateSet() { Name = "Agenda", Value = "Agenda" }
         };
 
-        public static ObservableCollection<TranslateSet> ProcessTypes = new ObservableCollection<TranslateSet>() {
-            new TranslateSet() { Name = "ServerUrl", Value = "ServerUrl" },
-            new TranslateSet() { Name = "WINcmd", Value = "WINcmd" },
-            new TranslateSet() { Name = "WebUrl", Value = "WebUrl" },
-            new TranslateSet() { Name = "GithubUrl", Value = "GithubUrl" },
-            new TranslateSet() { Name = "SystemUrl", Value = "SystemUrl" },
-            new TranslateSet() { Name = "SearchUrl", Value = "SearchUrl" },
-            new TranslateSet() { Name = "NugetUrl", Value = "NugetUrl" },
-            new TranslateSet() { Name = "DocsUrl", Value = "DocsUrl" },
-            new TranslateSet() { Name = "PowerScript", Value = "PowerScript" },
-            new TranslateSet() { Name = "NodeJs", Value = "NodeJs" },
-            new TranslateSet() { Name = "Python", Value = "Python" },
-            new TranslateSet() { Name = "PHP", Value = "PHP" }
-        };
-
-
-
-
     }
 }

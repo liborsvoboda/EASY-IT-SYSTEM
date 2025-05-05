@@ -60,7 +60,7 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>true</Prefer32Bit>
     <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
-    <DocumentationFile>Y:\EASY-IT-EXTENSIONS\EASY-IT-PROJECTS\WIN-GENERATORS.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\EasyITSystemCenter.xml</DocumentationFile>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <UseWinFormsOutOfProcDesigner>False</UseWinFormsOutOfProcDesigner>
   </PropertyGroup>
@@ -1210,6 +1210,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Resource Include="Assets\link.xml" />
+    <Content Include="Data\AddOn\AppData\CPUZ\cpuz_x32.exe" />
+    <Content Include="Data\AddOn\AppData\CPUZ\cpuz_x64.exe" />
     <Content Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\css\css.css" />
     <Content Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\css\demo.css" />
     <Content Include="Data\AddOn\WebData\DocumentEditor\EditorJs\dist\develop\create-tool\bin\create-tool.js" />
@@ -1648,6 +1650,7 @@
     <Content Include="Data\AddOn\WebData\metro\js\metro5.js" />
     <Content Include="Data\AddOn\WebData\metro\js\metro5.min.js" />
     <Content Include="Data\AddOn\WebData\metro\mif\metro.svg" />
+    <Content Include="Data\AddOn\WebData\MikroAppCreator\docs\contribution\release\index.html" />
     <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\codemirror.js" />
     <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\index.html" />
     <Content Include="Data\AddOn\WebData\WebCodeEditor\InteliJsEditor\jseditor.js" />
@@ -5261,8 +5264,6 @@
     <None Include="Data\AddOn\WebSrvData\AngularTest\tsconfig.spec.json" />
     <Resource Include="Agendas\ExampleAgendas\CoreAgendas\roundcornersheet.png" />
     <Resource Include="Agendas\ExampleAgendas\GraphsPage\World.xml" />
-    <Content Include="Data\AddOn\AppData\CPUZ\cpuz_x32.exe" />
-    <Content Include="Data\AddOn\AppData\CPUZ\cpuz_x64.exe" />
     <Content Include="Data\AddOn\AppData\EasyCode\d3dcompiler_47.dll" />
     <Content Include="Data\AddOn\AppData\EasyCode\EasyCode.exe" />
     <Content Include="Data\AddOn\AppData\EasyCode\ffmpeg.dll" />
@@ -6412,7 +6413,6 @@
     <Content Include="Data\AddOn\WebData\MikroAppCreator\docs\contact\index.html" />
     <Content Include="Data\AddOn\WebData\MikroAppCreator\docs\contribution\adding-languages\index.html" />
     <Content Include="Data\AddOn\WebData\MikroAppCreator\docs\contribution\index.html" />
-    <Content Include="Data\AddOn\WebData\MikroAppCreator\docs\contribution\release\index.html" />
     <Content Include="Data\AddOn\WebData\MikroAppCreator\docs\credits\index.html" />
     <Content Include="Data\AddOn\WebData\MikroAppCreator\docs\examples\display-modes\codeblock\index.html" />
     <Content Include="Data\AddOn\WebData\MikroAppCreator\docs\examples\display-modes\editor\index.html" />
@@ -9083,6 +9083,7 @@
       <Version>0.2.218</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>robocopy "$(ProjectDir)Data" "$(ProjectDir)bin\$(ConfigurationName)\Data" /s /e 

@@ -688,7 +688,7 @@ namespace EasyITSystemCenter {
         #region Tools
 
         private void BtnKeyboardClick(object sender, RoutedEventArgs e) => TouchKeyboard.IsOpen = !TouchKeyboard.IsOpen;
-        private void BtnCalculatorClick(object sender, RoutedEventArgs e) => Calc.Visibility = (Calc.IsVisible != true) ? Visibility.Visible : Visibility.Hidden;
+       // private void BtnCalculatorClick(object sender, RoutedEventArgs e) => Calc.Visibility = (Calc.IsVisible != true) ? Visibility.Visible : Visibility.Hidden;
         private void BtnStartRdpServerClick(object sender, RoutedEventArgs e) {
             if (vncProcessId > 0) { vncProcess.Kill(); vncProcessId = 0; VncRunning = Brushes.Red;
             } else {

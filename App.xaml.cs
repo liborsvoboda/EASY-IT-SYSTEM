@@ -212,7 +212,7 @@ namespace EasyITSystemCenter {
                                 || (bool.Parse(appRuntimeData.AppClientSettings.First(a => a.Key == "sys_imDeveloper").Value) && !((MainWindow)Current.MainWindow).ServerLoggerSource && SystemLoggerWebSocketMonitor.ShowSystemLogger)
                             ) { ((MainWindow)Current.MainWindow).SystemLogger = customMessage; }
                         }
-                        //if (Setting.WriteToLog) log.Error(ex.Message + Environment.NewLine + ex.StackTrace + Environment.NewLine + customMessage);
+                        
                     }
                 });
             } catch { }

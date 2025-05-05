@@ -27,13 +27,13 @@ namespace EasyITSystemCenter {
             staticFilesProvider.Mappings[".javascript"] = "application/javascript"; staticFilesProvider.Mappings[".style"] = "text/css";
             staticFilesProvider.Mappings[".json"] = "text/json"; staticFilesProvider.Mappings[".code"] = "text/cs";
             staticFilesProvider.Mappings[".xaml"] = "text/xaml"; staticFilesProvider.Mappings[".archive"] = "application/zip";
-            staticFilesProvider.Mappings[".markdown"] = "text/markdown";
+            staticFilesProvider.Mappings[".markdown"] = "text/markdown"; staticFilesProvider.Mappings[".md"] = "text/markdown";
 
             StaticFileOptions staticStorage = new StaticFileOptions {
                 ServeUnknownFileTypes = true, ContentTypeProvider = staticFilesProvider, DefaultContentType = "text/html",
                 FileSystem = new PhysicalFileSystem(App.appRuntimeData.webDataPath), RequestPath = new PathString(string.Empty)
             };
-            bool browseModeEnabled = bool.Parse(App.appRuntimeData.AppClientSettings.First(a => a.Key == "sys_localWebServerEnableBrowse").Value);
+            bool browseModeEnabled = bool.Parse(App.appRuntimeData.AppClientSettings.FirstOrDefault(a => a.Key == "sys_localWebServerEnableBrowse").Value);
             FileServerOptions fileServer = new FileServerOptions {
                 EnableDefaultFiles = true,
                 FileSystem = new PhysicalFileSystem(App.appRuntimeData.webDataPath),
@@ -68,7 +68,7 @@ namespace EasyITSystemCenter {
             if (context.Request.Path.ToString() == "/SystemApi/GetSystemLanguage") {
                 context.Response.ContentType = "application/json";
                 await context.Response.WriteAsync(JsonSerializer.Serialize(
-                    SystemOperations.GetLanguageCode(App.appRuntimeData.AppClientSettings.First(a => a.Key == "sys_defaultLanguage").Value), 
+                    SystemOperations.GetLanguageCode(App.appRuntimeData.AppClientSettings.FirstOrDefault(a => a.Key == "sys_defaultLanguage").Value), 
                     new JsonSerializerOptions() { ReferenceHandler = ReferenceHandler.IgnoreCycles, WriteIndented = true,
                         DictionaryKeyPolicy = JsonNamingPolicy.CamelCase, PropertyNamingPolicy = JsonNamingPolicy.CamelCase
                     }));

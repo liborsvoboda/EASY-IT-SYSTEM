@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:TouchKeyboard="clr-namespace:EASYTools.Controls;assembly=EASYTools.TouchKeyboard"
     xmlns:XamlExt="clr-namespace:EasyITSystemCenter.GlobalStyles"
+    xmlns:calc="clr-namespace:EASYTools.Calculator;assembly=EASYTools.Calculator"
     xmlns:ctrl="clr-namespace:ControlzEx;assembly=MaterialDesignThemes.Wpf"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:dockablz="clr-namespace:Dragablz.Dockablz;assembly=Dragablz"
@@ -434,7 +435,8 @@
                 </dragablz:TabablzControl.InterTabController>
 
                 <dragablz:TabablzControl.ContentTemplate>
-                    <DataTemplate DataType="{x:Type local:SystemStructure.SystemTabs}">
+                    <!--  DataType="{x:Type local:SystemStructure.SystemTabs}"  -->
+                    <DataTemplate>
                         <ContentControl Margin="2" Content="{Binding Content}" />
                     </DataTemplate>
                 </dragablz:TabablzControl.ContentTemplate>
@@ -497,7 +499,7 @@
                         ToolTip="Show All ToolTips">
                         <iconPacks:PackIconMaterial Kind="Information" />
                     </Button>
-                    <!--<Button
+                    <Button
                         x:Name="ip_calculator"
                         Width="30"
                         Height="30"
@@ -506,7 +508,7 @@
                         Click="BtnCalculatorClick"
                         ToolTip="Show Calculator">
                         <iconPacks:PackIconMaterial Kind="Calculator" />
-                    </Button>-->
+                    </Button>
                     <Button
                         x:Name="ip_keyboard"
                         Width="30"
@@ -559,14 +561,14 @@
             </StatusBarItem>
         </StatusBar>
 
-        <!--<xctk:Calculator
+        <calc:Calc
             x:Name="Calc"
             Grid.Row="1"
             Grid.Column="0"
-            Width="180"
+            Width="400"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom"
-            Visibility="Hidden" />-->
+            Visibility="Hidden" />
         <TouchKeyboard:FloatingTouchScreenKeyboard
             x:Name="TouchKeyboard"
             Width="900"

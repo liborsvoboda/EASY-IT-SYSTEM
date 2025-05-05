@@ -67,13 +67,13 @@ namespace EasyITSystemCenter.GlobalOperations {
         public static async Task<string> ParameterCheck(string parameterName) {
             string result = null;
             try {
-                if (App.UserData.Authentification != null) {
+                if (App.UserData.Authentification != null && App.ParameterList.Any()) {
                     result = App.ParameterList.Where(a => a.SystemName.ToLower() == parameterName.ToLower() && a.UserId == App.UserData.Authentification.Id).Select(a => a.Value).FirstOrDefault();
                 }
             } catch (Exception Ex) { App.ApplicationLogging(Ex); }
 
             try {
-                if (result == null) {
+                if (result == null && App.ParameterList.Any()) {
                     result = App.ParameterList.Where(a => a.SystemName.ToLower() == parameterName.ToLower() && a.UserId == null).Select(a => a.Value).FirstOrDefault();
                     if (result == null) App.ApplicationLogging(new Exception(), $"{await DBOperations.DBTranslation("Missing Server Parameter")}: {parameterName}");
                 }

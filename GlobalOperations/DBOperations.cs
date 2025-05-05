@@ -80,7 +80,7 @@ namespace EasyITSystemCenter.GlobalOperations {
         /// <param name="message"> </param>
         /// <param name="logLevel"></param>
         public static async void SaveSystemFailMessage(string message, string logLevel) {
-            if (MainWindow.ServiceRunning && MainWindow.UserLogged) {
+            if (MainWindow.ServiceRunning && MainWindow.UserLogged && App.ParameterList.Any()) {
                 if (string.IsNullOrWhiteSpace(message)) return;
 
                 SolutionFailList SolutionFailList = new SolutionFailList() { InheritedLogMonitorType = "DesktopSystem", UserId = App.UserData.Authentification.Id, UserName = App.UserData.UserName, LogLevel = logLevel, Message = message, TimeStamp = DateTimeOffset.Now.DateTime };

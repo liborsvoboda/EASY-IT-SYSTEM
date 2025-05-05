@@ -5,6 +5,8 @@ namespace EasyITSystemCenter.GlobalClasses {
     public partial class SolutionFailList {
         public int Id { get; set; } = 0;
         public string InheritedLogMonitorType { get; set; } = null;
+        public string UserName { get; set; } = null;
+        public string LogLevel { get; set; } = null;
         public string Message { get; set; } = null;
 
         public string ImageName { get; set; } = null;
@@ -13,8 +15,7 @@ namespace EasyITSystemCenter.GlobalClasses {
         public byte[] Attachment { get; set; } = null;
 
         public int? UserId { get; set; } = null;
-        public string UserName { get; set; } = null;
-        public string LogLevel { get; set; } = null;
+
         public DateTime TimeStamp { get; set; }
     }
 }

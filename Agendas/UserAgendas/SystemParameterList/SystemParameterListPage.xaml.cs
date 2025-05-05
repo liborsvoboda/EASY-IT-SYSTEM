@@ -21,7 +21,7 @@ namespace EasyITSystemCenter.Pages {
         public static DataViewSupport dataViewSupport = new DataViewSupport();
         public static SystemParameterList selectedRecord = new SystemParameterList();
 
-        private List<SolutionMixedEnumList> mixedEnumTypesList = new List<SolutionMixedEnumList>();
+        private List<SolutionMixedEnumList> inheritedDataType = new List<SolutionMixedEnumList>();
         private List<SystemParameterList> parameterList = new List<SystemParameterList>();
 
         public SystemParameterListPage() {
@@ -45,7 +45,7 @@ namespace EasyITSystemCenter.Pages {
             try
             {
 
-                mixedEnumTypesList = await DBOperations.LoadInheritedDataList("DataType");
+                inheritedDataType = await DBOperations.LoadInheritedDataList("DataType");
                 parameterList = await CommunicationManager.GetApiRequest<List<SystemParameterList>>(ApiUrls.EasyITCenterSystemParameterList, App.UserData.Authentification.Id.ToString(), App.UserData.Authentification.Token);
                 userList = await CommunicationManager.GetApiRequest<List<SolutionUserList>>(ApiUrls.EasyITCenterSolutionUserList, null, App.UserData.Authentification.Token);
 
@@ -54,7 +54,7 @@ namespace EasyITSystemCenter.Pages {
                     param.User = userList.Where(a => a.Id == param.UserId).Select(a => a.Username).FirstOrDefault();
                 });
 
-                cb_type.ItemsSource = mixedEnumTypesList.OrderBy(a=>a.Name);
+                cb_type.ItemsSource = inheritedDataType.OrderBy(a=>a.Name);
                 DgListView.ItemsSource = parameterList;
                 DgListView.Items.Refresh();
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
@@ -137,7 +137,7 @@ namespace EasyITSystemCenter.Pages {
                 selectedRecord.Id = (int)((txt_id.Value != null) ? txt_id.Value : 0);
                 selectedRecord.SystemName = txt_systemName.Text;
                 selectedRecord.Value = txt_value.Text;
-                selectedRecord.Type = ((SolutionMixedEnumList)cb_type.SelectedItem).Name;
+                selectedRecord.InheritedDataType = ((SolutionMixedEnumList)cb_type.SelectedItem).Name;
                 selectedRecord.Description = txt_description.Text;
                 selectedRecord.UserId = App.UserData.Authentification.Id;
                 selectedRecord.TimeStamp = DateTimeOffset.Now.DateTime;
@@ -175,7 +175,7 @@ namespace EasyITSystemCenter.Pages {
                 desc_translation.Content = selectedRecord.Translation;
                 txt_systemName.Text = selectedRecord.SystemName;
                 txt_value.Text = selectedRecord.Value;
-                cb_type.Text = selectedRecord.Type;
+                cb_type.Text = selectedRecord.InheritedDataType;
                 txt_description.Text = selectedRecord.Description;
 
                 //Only for Admin: Owner/UserId Selection Allow Editing Server Default Values

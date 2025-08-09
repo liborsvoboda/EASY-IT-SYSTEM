@@ -68,7 +68,7 @@ namespace EasyITSystemCenter.Pages {
         private async void BtnApiTest_Click(object sender, RoutedEventArgs e) {
             using (HttpClient httpClient = new HttpClient()) {
                 try {
-                    string json = await httpClient.GetStringAsync(txt_apiAddress.Text + "/" + ApiUrls.EasyITCenterBackendCheck + "/Db");
+                    string json = await httpClient.GetStringAsync(txt_apiAddress.Text + "/" + ApiUrls.BackendCheckService + "/Db");
                     await MainWindow.ShowMessageOnMainWindow(false, json);
                 } catch (Exception ex) { await MainWindow.ShowMessageOnMainWindow(true, "Exception Error : " + ex.StackTrace); }
             }

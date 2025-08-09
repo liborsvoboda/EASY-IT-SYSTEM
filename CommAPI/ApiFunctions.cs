@@ -111,7 +111,7 @@ namespace EasyITSystemCenter.Api {
         public static async Task<bool> CheckApiConnection() {
             using (HttpClient httpClient = new HttpClient()) {
                 try {
-                    string json = await httpClient.GetStringAsync(App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + "/" + ApiUrls.EasyITCenterBackendCheck);
+                    string json = await httpClient.GetStringAsync(App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + "/" + ApiUrls.BackendCheckService);
                     return true;
                 } catch { return false; }
             }

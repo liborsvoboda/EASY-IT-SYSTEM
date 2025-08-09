@@ -643,12 +643,12 @@ namespace EasyITSystemCenter {
                 } else {
                     ProgressRing = Visibility.Visible;
                     App.UserData.UserName = result.Username;
-                    AuthentificationResponse dBResult = await CommunicationManager.BasicAuthApiRequest(ApiUrls.EasyITCenterAuthentication, result.Username, result.Password);
+                    AuthentificationResponse dBResult = await CommunicationManager.BasicAuthApiRequest(ApiUrls.AuthenticationService, result.Username, result.Password);
                     ProgressRing = Visibility.Hidden;
                     if (dBResult == null || dBResult.Token == null) {
                         
                         if (!UserLogged) {
-                            if (!serviceRunning) { this.ShowModalMessageExternal(Resources["login"].ToString(), Resources["loginServiceError"].ToString() + "\n" + App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + "/" + ApiUrls.EasyITCenterAuthentication + " " + Resources["loginServiceError1"].ToString()); }
+                            if (!serviceRunning) { this.ShowModalMessageExternal(Resources["login"].ToString(), Resources["loginServiceError"].ToString() + "\n" + App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value + "/" + ApiUrls.AuthenticationService + " " + Resources["loginServiceError1"].ToString()); }
                             else { this.ShowModalMessageExternal(Resources["login"].ToString(), Resources["incorrectNameOrPassword"].ToString() + (!string.IsNullOrWhiteSpace(dBResult.Message) ? Environment.NewLine + dBResult.Message : "")); }
                             ShowLoginDialog();
                         } else { this.ShowModalMessageExternal(Resources["login"].ToString(), Resources["loginError"].ToString() + (!string.IsNullOrWhiteSpace(dBResult.Message) ? Environment.NewLine + dBResult.Message : ""));  ShowLoginDialog(); }

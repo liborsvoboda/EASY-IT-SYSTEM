@@ -151,7 +151,7 @@ namespace EasyITSystemCenter.GlobalOperations {
         /// <param name="msgCount"> </param>
         /// <returns></returns>
         public static async Task<string> GetExceptionMessages(Exception exception, int msgCount = 1) {
-            if (exception != null && App.IgnoredExceptionList.Any() && App.IgnoredExceptionList.FirstOrDeault(a => a.ErrorNumber == exception.HResult.ToString() && a.Active == true) != null && !bool.Parse(await DataOperations.ParameterCheck("DeactivateIgnoredException"))) return null;
+            if (exception != null && App.IgnoredExceptionList.Any() && App.IgnoredExceptionList.FirstOrDefault(a => a.ErrorNumber == exception.HResult.ToString() && a.Active == true) != null && !bool.Parse(await DataOperations.ParameterCheck("DeactivateIgnoredException"))) return null;
             return exception != null ? string.Format("{0}: {1}\n{2}", msgCount, (exception.TargetSite?.ReflectedType?.FullName + Environment.NewLine + exception.Message + Environment.NewLine + exception.HResult.ToString() + Environment.NewLine + exception.StackTrace + Environment.NewLine), GetExceptionMessages(exception.InnerException, ++msgCount)) : string.Empty;
         }
 

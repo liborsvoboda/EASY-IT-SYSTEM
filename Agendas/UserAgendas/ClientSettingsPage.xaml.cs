@@ -260,14 +260,14 @@ namespace EasyITSystemCenter.Pages {
                             if (textbox.Name == "conn_apiAddress") { apiAddress = textbox.Text; };
                         });
                     });
-                    string json = await httpClient.GetStringAsync(apiAddress + "/" + ApiUrls.EasyITCenterBackendCheck);
+                    string json = await httpClient.GetStringAsync(apiAddress + "/" + ApiUrls.BackendCheckService);
 
                     MainWindow.ProgressRing = Visibility.Hidden;
                     await MainWindow.ShowMessageOnMainWindow(false, json);
                 } catch {
                     try {
                         MainWindow.ProgressRing = Visibility.Visible;
-                        string json = await httpClient.GetStringAsync(apiAddress + "/" + ApiUrls.EasyITCenterBackendCheck);
+                        string json = await httpClient.GetStringAsync(apiAddress + "/" + ApiUrls.BackendCheckService);
 
                         MainWindow.ProgressRing = Visibility.Hidden;
                         await MainWindow.ShowMessageOnMainWindow(true, json);

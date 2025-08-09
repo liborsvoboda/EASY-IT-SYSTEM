@@ -17,6 +17,8 @@ ROZSIRENI 50+
 https://github.com/microsoft/vscode-extension-samples
 https://packagecontrol.io/browse
 
+EO.Web.Editor
+
 
 UTAJENE INTELISENSE EDITORY PREHLED 300+
 https://github.com/Azure/bicep/tree/main/scripts

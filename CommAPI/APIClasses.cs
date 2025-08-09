@@ -6,8 +6,8 @@
     /// </summary>
     public enum ApiUrls {
         /*Authentication & Check APIs*/
-        EasyITCenterAuthentication,
-        EasyITCenterBackendCheck,
+        AuthenticationService,
+        BackendCheckService,
 
         /*Basic/Shared APIs*/
         EasyITCenterBasicAttachmentList,

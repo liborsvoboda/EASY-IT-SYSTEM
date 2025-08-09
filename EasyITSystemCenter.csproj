@@ -1209,6 +1209,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <None Include="Objekty.md" />
     <Resource Include="Assets\link.xml" />
     <Content Include="Data\AddOn\AppData\CPUZ\cpuz_x32.exe" />
     <Content Include="Data\AddOn\AppData\CPUZ\cpuz_x64.exe" />
@@ -8282,6 +8283,24 @@
     </PackageReference>
     <PackageReference Include="Elysium.Theme">
       <Version>2.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="EO.Pdf">
+      <Version>25.2.36</Version>
+    </PackageReference>
+    <PackageReference Include="EO.Pdf.Wpf">
+      <Version>25.2.36</Version>
+    </PackageReference>
+    <PackageReference Include="EO.Web">
+      <Version>25.2.36</Version>
+    </PackageReference>
+    <PackageReference Include="EO.WebBrowser">
+      <Version>25.2.36</Version>
+    </PackageReference>
+    <PackageReference Include="EO.WebBrowser.Wpf">
+      <Version>25.2.36</Version>
+    </PackageReference>
+    <PackageReference Include="EO.Wpf">
+      <Version>25.2.36</Version>
     </PackageReference>
     <PackageReference Include="FastMember">
       <Version>1.5.0</Version>

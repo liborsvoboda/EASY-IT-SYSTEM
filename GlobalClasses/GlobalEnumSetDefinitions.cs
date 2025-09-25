@@ -33,16 +33,5 @@ namespace EasyITSystemCenter.GlobalClasses {
                                                                 new TranslateSet() { Name ="behavior", Value = "behavior"},
                                                              };
 
-        /// <summary>
-        /// TODO FOR MOVE TO MICRODIAL
-        /// </summary>
-
-
-        public static ObservableCollection<TranslateSet> MenuTypes = new ObservableCollection<TranslateSet>() {
-            new TranslateSet() { Name = "Dial", Value = "Dial" },
-            new TranslateSet() { Name = "View", Value = "View" },
-            new TranslateSet() { Name = "Agenda", Value = "Agenda" }
-        };
-
     }
 }

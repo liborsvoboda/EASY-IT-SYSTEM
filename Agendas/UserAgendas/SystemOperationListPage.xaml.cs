@@ -119,11 +119,11 @@ namespace EasyITSystemCenter.Pages {
                 switch (selectedPanel.InheritedOperationTypes) {
                     case "DbSpDirectOperation":
                         if (selectedPanel.InheritedApiResultTypes == "Message") {
-                            messageResponse = await CommunicationManager.GetApiRequest<List<CustomMessageList>>(ApiUrls.ServerApi, "DatabaseServices/SpProcedure/Message/" + selectedPanel.InputData, App.UserData.Authentification.Token);
+                            messageResponse = await CommunicationManager.GetApiRequest<List<CustomMessageList>>(ApiUrls.DatabaseService, "DatabaseServices/SpProcedure/Message/" + selectedPanel.InputData, App.UserData.Authentification.Token);
                             json = messageResponse[0].MessageList;
                         }
                         else {
-                            jsonResponse = await CommunicationManager.GetApiRequest<List<GenericValue>>(ApiUrls.ServerApi, "DatabaseServices/SpProcedure/File/" + selectedPanel.InputData, App.UserData.Authentification.Token);
+                            jsonResponse = await CommunicationManager.GetApiRequest<List<GenericValue>>(ApiUrls.DatabaseService, "DatabaseServices/SpProcedure/File/" + selectedPanel.InputData, App.UserData.Authentification.Token);
                             JavaScriptSerializer serializer = new JavaScriptSerializer(); json = "{";
                             jsonResponse.ForEach(key => {
                                 DeserializedJson jsonObject = serializer.Deserialize<DeserializedJson>(key.Value);
@@ -133,7 +133,7 @@ namespace EasyITSystemCenter.Pages {
                         }
                         break;
                     case "DbSpConfigOperation":
-                        json = await CommunicationManager.ApiManagerGetRequest(UrlSourceTypes.EicWebServerAuth, ApiUrls.ServerApi + "/DatabaseServices/SpGetProcedureParams/" + selectedPanel.InputData);
+                        json = await CommunicationManager.ApiManagerGetRequest(UrlSourceTypes.EicWebServerAuth, ApiUrls.DatabaseService + "/DatabaseServices/SpGetProcedureParams/" + selectedPanel.InputData);
                         break;
                     case "ServerApiGetRequest":
                         json = await CommunicationManager.ApiManagerGetRequest(UrlSourceTypes.EicWebServerAuth, selectedPanel.InputData);

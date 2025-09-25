@@ -206,13 +206,13 @@ namespace EasyITSystemCenter.Api {
                     else if (UrlPrefix == UrlSourceTypes.EicWebServerGenericGetTableApi) {
                         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.UserData.Authentification.Token);
                         requestUrl = App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value
-                            + $"/{ApiUrls.ServerApi}/DatabaseServices/SpProcedure/GetGenericDataListByParams";
+                            + $"/{ApiUrls.DatabaseService}/DatabaseServices/SpProcedure/GetGenericDataListByParams";
                     }
                     else if (UrlPrefix == UrlSourceTypes.EicWebServerGenericSetTableApi)
                     {
                         httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", App.UserData.Authentification.Token);
                         requestUrl = App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value
-                            + $"/{ApiUrls.ServerApi}/DatabaseServices/SpProcedure/SetGenericDataListByParams";
+                            + $"/{ApiUrls.DatabaseService}/DatabaseServices/SpProcedure/SetGenericDataListByParams";
                     }
                     else {
                         _ = await MainWindow.ShowMessageOnMainWindow(false, $"Selected Definition {UrlPrefix} is Not Implemented.{Environment.NewLine}" +

@@ -7,6 +7,7 @@ using MahApps.Metro.Controls.Dialogs;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -48,7 +49,7 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                systemTableList = await CommunicationManager.GetApiRequest<List<GenericDataList>>(ApiUrls.ServerApi, "DatabaseServices/SpGetSystemPageList", App.UserData.Authentification.Token);
+                systemTableList = await CommunicationManager.GetApiRequest<List<GenericDataList>>(ApiUrls.DatabaseService, "DatabaseServices/SpGetSystemPageList", App.UserData.Authentification.Token);
                 userRoleList = await CommunicationManager.GetApiRequest<List<SolutionUserRoleList>>(ApiUrls.EasyITCenterSolutionUserRoleList, null, App.UserData.Authentification.Token);
                 systemGroupMenuList = await CommunicationManager.GetApiRequest<List<SystemGroupMenuList>>(ApiUrls.EasyITCenterSystemGroupMenuList, null, App.UserData.Authentification.Token);
                 systemMenuList = await CommunicationManager.GetApiRequest<List<SystemMenuList>>(ApiUrls.EasyITCenterSystemMenuList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
@@ -67,18 +68,18 @@ namespace EasyITSystemCenter.Pages {
                     menu.FormTranslate = await DBOperations.DBTranslation(menu.FormPageName);
                 });
 
-                SystemLocalEnumSets.MenuTypes.AsEnumerable().ToList().ForEach(async menutype => { menutype.Value = await DBOperations.DBTranslation(menutype.Name); });
+                //SystemLocalEnumSets.MenuTypes.AsEnumerable().ToList().ForEach(async menutype => { menutype.Value = await DBOperations.DBTranslation(menutype.Name); });
 
                 DgListView.ItemsSource = systemMenuList;
                 DgListView.Items.Refresh();
 
                 cb_groupName.ItemsSource = systemGroupMenuList.OrderBy(a => a.Translation).ToList();
-                cb_menuType.ItemsSource = SystemLocalEnumSets.MenuTypes.OrderBy(a => a.Value).ToList();
+                //cb_menuType.ItemsSource = SystemLocalEnumSets.MenuTypes.OrderBy(a => a.Value).ToList();
 
                 cb_formPageName.ItemsSource = systemTranslatedTableList.OrderBy(a => a.Translate).ToList();
                 cb_formPageName.Items.Refresh();
 
-                cb_accessRole.ItemsSource = userRoleList.OrderBy(a => a.Translation).ToList();
+                //cb_accessRole.ItemsSource = userRoleList.OrderBy(a => a.Translation).ToList();
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
             MainWindow.ProgressRing = Visibility.Hidden; return true;
         }
@@ -105,22 +106,18 @@ namespace EasyITSystemCenter.Pages {
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }
 
+
         public void Filter(string filter) {
             try {
                 if (filter.Length == 0) { dataViewSupport.FilteredValue = null; DgListView.Items.Filter = null; return; }
                 dataViewSupport.FilteredValue = filter;
                 DgListView.Items.Filter = (e) => {
-                    SystemMenuList user = e as SystemMenuList;
-                    return user.FormPageName.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(user.GroupName) && user.GroupName.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(user.AccessRole) && user.AccessRole.ToLower().Contains(filter.ToLower())
-                     || !string.IsNullOrEmpty(user.FormTranslate) && user.FormTranslate.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(user.MenuType) && user.MenuType.ToLower().Contains(filter.ToLower())
-                    || !string.IsNullOrEmpty(user.Description) && user.Description.ToLower().Contains(filter.ToLower())
-                    ;
+                    DataRowView search = e as DataRowView;
+                    return search.ObjectToJson().ToLower().Contains(filter.ToLower());
                 };
             } catch (Exception autoEx) { App.ApplicationLogging(autoEx); }
         }
+
 
         public void NewRecord() {
             selectedRecord = new SystemMenuList();
@@ -165,11 +162,11 @@ namespace EasyITSystemCenter.Pages {
                 selectedRecord.Id = (int)((txt_id.Value != null) ? txt_id.Value : 0);
 
                 selectedRecord.GroupId = ((SystemGroupMenuList)cb_groupName.SelectedItem).Id;
-                selectedRecord.MenuType = ((TranslateSet)cb_menuType.SelectedItem).Name;
+                selectedRecord.InheritedMenuType = ((TranslateSet)cb_menuType.SelectedItem).Name;
                 selectedRecord.FormPageName = ((SystemTranslatedTableList)cb_formPageName.SelectedItem).TableName;
 
                 selectedRecord.AccessRole = "";
-                for (int i = 0; i < cb_accessRole.SelectedItems.Count; i++) { selectedRecord.AccessRole += ((SolutionUserRoleList)cb_accessRole.SelectedItems[i]).SystemName + ","; }
+                //for (int i = 0; i < cb_accessRole.SelectedItems.Count; i++) { selectedRecord.AccessRole += ((SolutionUserRoleList)cb_accessRole.SelectedItems[i]).SystemName + ","; }
 
                 selectedRecord.Description = txt_description.Text;
                 selectedRecord.NotShowInMenu = (bool)chb_notShowInMenu.IsChecked;
@@ -205,7 +202,7 @@ namespace EasyITSystemCenter.Pages {
             cb_groupName.SelectedItem = (selectedRecord.Id == 0) ? systemGroupMenuList.FirstOrDefault() : systemGroupMenuList.First(a => a.Id == selectedRecord.GroupId);
 
             int index = 0;
-            cb_menuType.Items.SourceCollection.Cast<TranslateSet>().ToList().ForEach(language => { if (language.Name == selectedRecord.MenuType) { cb_menuType.SelectedIndex = index; } index++; });
+            cb_menuType.Items.SourceCollection.Cast<TranslateSet>().ToList().ForEach(language => { if (language.Name == selectedRecord.InheritedMenuType) { cb_menuType.SelectedIndex = index; } index++; });
 
             // Insert missing
             if (selectedRecord.FormPageName != null && systemTranslatedTableList.FirstOrDefault(a => a.TableName == selectedRecord.FormPageName) == null) {
@@ -217,8 +214,8 @@ namespace EasyITSystemCenter.Pages {
             cb_formPageName.SelectedItem = selectedRecord.FormPageName == null ? null : systemTranslatedTableList.FirstOrDefault(a => a.TableName == selectedRecord.FormPageName);
 
             cb_accessRole.SelectedItems.Clear();
-            if (!string.IsNullOrWhiteSpace(selectedRecord.AccessRole))
-                selectedRecord.AccessRole.Split(',').ToList().ForEach(role => { if (!string.IsNullOrEmpty(role)) cb_accessRole.SelectedItems.Add(userRoleList.First(a => a.SystemName == role)); });
+            //if (!string.IsNullOrWhiteSpace(selectedRecord.AccessRole))
+            //    selectedRecord.AccessRole.Split(',').ToList().ForEach(role => { if (!string.IsNullOrEmpty(role)) cb_accessRole.SelectedItems.Add(userRoleList.First(a => a.SystemName == role)); });
 
             txt_description.Text = selectedRecord.Description;
             chb_notShowInMenu.IsChecked = selectedRecord.NotShowInMenu;

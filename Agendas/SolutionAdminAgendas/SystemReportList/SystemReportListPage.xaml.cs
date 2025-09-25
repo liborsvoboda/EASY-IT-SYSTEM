@@ -51,7 +51,7 @@ namespace EasyITSystemCenter.Pages {
         public async Task<bool> LoadDataList() {
             MainWindow.ProgressRing = Visibility.Visible;
             try {
-                systemTableList = await CommunicationManager.GetApiRequest<List<GenericDataList>>(ApiUrls.ServerApi, "DatabaseServices/SpGetTableList", App.UserData.Authentification.Token);
+                systemTableList = await CommunicationManager.GetApiRequest<List<GenericDataList>>(ApiUrls.DatabaseService, "DatabaseServices/SpGetTableList", App.UserData.Authentification.Token);
                 reportList = await CommunicationManager.GetApiRequest<List<SystemReportList>>(ApiUrls.EasyITCenterSystemReportList, (dataViewSupport.AdvancedFilter == null) ? null : "Filter/" + WebUtility.UrlEncode(dataViewSupport.AdvancedFilter.Replace("[!]", "").Replace("{!}", "")), App.UserData.Authentification.Token);
 
                 systemTranslatedTableList.Clear();

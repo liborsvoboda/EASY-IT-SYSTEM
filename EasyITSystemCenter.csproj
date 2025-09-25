@@ -565,7 +565,6 @@
     <Compile Include="SystemWindow.xaml.cs">
       <DependentUpon>SystemWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Agendas\SolutionAdminAgendas\ServerSettingList\ServerServerSettingList.cs" />
     <Compile Include="Agendas\SolutionAdminAgendas\_Views\SystemLoginHistoryList\SystemLoginHistoryList.cs" />
     <Compile Include="Agendas\SolutionAdminAgendas\SystemReportList\SystemReportList.cs" />
     <Compile Include="Agendas\SolutionAdminAgendas\SolutionUserList\SolutionUserList.cs" />
@@ -594,9 +593,6 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Agendas\SolutionAdminAgendas\ServerSettingList\ServerSettingListPage.xaml.cs">
-      <DependentUpon>ServerSettingListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Agendas\ExampleAgendas\CoreAgendas\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
@@ -1062,10 +1058,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Agendas\UserAgendas\SystemParameterList\SystemParameterListPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Agendas\SolutionAdminAgendas\ServerSettingList\ServerSettingListPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

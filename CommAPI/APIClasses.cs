@@ -8,6 +8,8 @@
         /*Authentication & Check APIs*/
         AuthenticationService,
         BackendCheckService,
+        DatabaseService,
+
 
         /*Basic/Shared APIs*/
         EasyITCenterBasicAttachmentList,
@@ -94,7 +96,7 @@
         EasyITCenterSystemLoginHistoryList,
         EasyITCenterSystemMenuList,
         SystemModuleList,
-        EasyITCenterSystemParameterList,
+        EasyITCenterUserParameterList,
         EasyITCenterSystemReportQueueList,
         EasyITCenterSystemReportList,
         EasyITCenterSolutionFailList,
@@ -116,9 +118,6 @@
 
         /*WebHosting Apis*/
         EasyITCenterWebConfiguratorList,
-
-        /*Server APIs*/
-        ServerApi,
 
         /*Servers*/
         CoreServerRestart,

@@ -47,7 +47,7 @@ namespace EasyITSystemCenter.Pages {
                 inheritedSystemApiCallType = await DBOperations.LoadInheritedDataList("SystemApiCallType");
                 inheritedSystemApiCallType.ForEach(async apiCallType => { apiCallType.Translation = await DBOperations.DBTranslation(apiCallType.Name); });
 
-                systemTableList = await CommunicationManager.GetApiRequest<List<GenericDataList>>(ApiUrls.ServerApi, "DatabaseServices/SpGetTableList", App.UserData.Authentification.Token);
+                systemTableList = await CommunicationManager.GetApiRequest<List<GenericDataList>>(ApiUrls.DatabaseService, "DatabaseServices/SpGetTableList", App.UserData.Authentification.Token);
                 inheritedFormType = await DBOperations.LoadInheritedDataList("FormType");
                 inheritedFormType.ForEach(async agendaType => { agendaType.Translation = await DBOperations.DBTranslation(agendaType.Name); });
 
@@ -284,7 +284,7 @@ namespace EasyITSystemCenter.Pages {
 
         private async void TableSelected(object sender, SelectionChangedEventArgs e) {
             if (((ComboBox)sender).SelectedIndex > -1) {
-                tableSchema = await CommunicationManager.GetApiRequest<List<GenericDataList>>(ApiUrls.ServerApi, $"DatabaseServices/SpGetTableSchema/{((SystemTranslatedTableList)cb_DbtableName.SelectedItem).TableName}", App.UserData.Authentification.Token);
+                tableSchema = await CommunicationManager.GetApiRequest<List<GenericDataList>>(ApiUrls.DatabaseService, $"DatabaseServices/SpGetTableSchema/{((SystemTranslatedTableList)cb_DbtableName.SelectedItem).TableName}", App.UserData.Authentification.Token);
                 cb_ColumnName.ItemsSource = tableSchema;
                 if (selectedRecord.Id != 0) { cb_ColumnName.SelectedValue = selectedRecord.ColumnName; }
             }

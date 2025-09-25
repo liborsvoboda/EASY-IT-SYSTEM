@@ -431,11 +431,11 @@ namespace EasyITSystemCenter {
         /// </summary>
         private async Task<bool> LoadUserMenu() {
             try {
-                App.SystemMenuList = await CommunicationManager.GetApiRequest<List<SystemMenuList>>(ApiUrls.ServerApi, "DatabaseServices/SpGetUserMenuList", App.UserData.Authentification.Token);
+                List<SystemMenuList> test = App.SystemMenuList = await CommunicationManager.GetApiRequest<List<SystemMenuList>>(ApiUrls.DatabaseService, "SpGetUserMenuList", App.UserData.Authentification.Token);
                 App.SystemCustomList = await CommunicationManager.GetApiRequest<List<SystemCustomPageList>>(ApiUrls.EasyITCenterSystemCustomPageList, null, App.UserData.Authentification.Token);
 
                 tb_verticalSystemMenu.Items.Clear();
-                int? lastMenuGroupId = null; tb_verticalSystemMenu.Items.Clear(); TreeViewItem menuSection = null;
+                int? lastMenuGroupId = null; TreeViewItem menuSection = null;
                 App.SystemMenuList.ForEach(async menuItem => {
                     TreeViewItem menuUnit = null;
                     if (lastMenuGroupId != menuItem.GroupId) {
@@ -445,7 +445,7 @@ namespace EasyITSystemCenter {
                         menuUnit.PreviewMouseDown += Menu_Selected;
 
                         //Fill subMenuTypeItems
-                        SystemLocalEnumSets.MenuTypes.Where(a => a.Name.ToLower() != "agenda").ToList().ForEach(async menutype => {
+                        App.SolutionMixedEnumList.Where(x => x.ItemsGroup == "SystemMenuType").ToList().ForEach(async menutype => {
                             string sectionHeaderName = await DBOperations.DBTranslation(menutype.Name + "s");
                             TreeViewItem item = new TreeViewItem() {
                                 Name = "_" + menutype.Name.ToLower(),
@@ -468,15 +468,17 @@ namespace EasyITSystemCenter {
                     TreeViewItem menuPage = new TreeViewItem() { Name = menuItem.FormPageName, Header = pageName, ToolTip = (string.IsNullOrWhiteSpace(menuItem.Description) || !tooltipEnabled) ? null : menuItem.Description };
                     menuPage.PreviewMouseDown += Menu_Selected;
 
-                    if (menuItem.MenuType.ToLower() != "agenda" && menuPage != null) { menuUnit.FindChildren<TreeViewItem>(false).Where(a => a.Name.ToLower() == "_" + menuItem.MenuType.ToLower()).First().Items.Add(menuPage); }
-                    else { menuUnit.Items.Add(menuPage); }
+                    if (menuPage != null) { menuUnit.FindChildren<TreeViewItem>(false).Where(a => a.Name.ToLower() == "_" + menuItem.InheritedMenuType.ToLower()).First().Items.Add(menuPage); }
                     menuSection = menuUnit; lastMenuGroupId = menuItem.GroupId;
                 }); tb_verticalSystemMenu.Items.Add(menuSection);
-
-                tb_verticalSystemMenu.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending));
+                
+                //Remove empty MenuType
                 foreach (TreeViewItem menuItem in tb_verticalSystemMenu.Items) {
-                    menuItem.FindChildren<TreeViewItem>(false).ToList().ForEach(submenuitem => { if (submenuitem.Items.Count == 0 && (submenuitem.Name.ToLower() == "_dial" || submenuitem.Name.ToLower() == "_view")) { menuItem.Items.Remove(submenuitem); } });
+                    menuItem.FindChildren<TreeViewItem>(false).ToList().ForEach(submenuitem => { if (submenuitem.Items.Count == 0) { menuItem.Items.Remove(submenuitem); } });
                 }
+
+                //Sorting
+                tb_verticalSystemMenu.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending));
                 foreach (TreeViewItem menuItem in tb_verticalSystemMenu.Items) {
                     menuItem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending));
                     menuItem.FindChildren<TreeViewItem>(false).ToList().ForEach(submenuitem => { submenuitem.Items.SortDescriptions.Add(new SortDescription("Header", ListSortDirection.Ascending)); });
@@ -517,7 +519,7 @@ namespace EasyITSystemCenter {
                         mi_logout.Header = UserLogged ? Resources["logout"].ToString() : Resources["logon"].ToString();
 
                         //Load All startup DB Settings
-                        if (App.ServerSetting.Count() == 0) DBOperations.LoadStartupDBData();
+                        if (App.SolutionMixedEnumList.Count() == 0) DBOperations.LoadStartupDBData();
 
                         //ONETime Update
                         if (ServiceRunning && !updateChecked && UserLogged) {

@@ -22,10 +22,10 @@ namespace EasyITSystemCenter.GlobalOperations {
         /// </summary>
         public static async void LoadStartupDBData() {
             try {
-                App.ServerSetting = await CommunicationManager.GetApiRequest<List<ServerServerSettingList>>(ApiUrls.EasyITCenterServerSettingList, null, null);
+                App.SolutionMixedEnumList = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, null, null);
                 App.IgnoredExceptionList = await CommunicationManager.GetApiRequest<List<SystemIgnoredExceptionList>>(ApiUrls.EasyITCenterSystemIgnoredExceptionList, null, null);
                 App.LanguageList = await CommunicationManager.GetApiRequest<List<SystemTranslationList>>(ApiUrls.EasyITCenterSystemTranslationList, null, null);
-                App.ParameterList = await CommunicationManager.GetApiRequest<List<SystemParameterList>>(ApiUrls.EasyITCenterSystemParameterList, null, null);
+                App.UserParameterList = await CommunicationManager.GetApiRequest<List<SystemParameterList>>(ApiUrls.EasyITCenterUserParameterList, null, null);
                 App.ReloadLanguageListRequested = false;
             } catch { }
         }
@@ -47,10 +47,10 @@ namespace EasyITSystemCenter.GlobalOperations {
         /// User Login
         /// </summary>
         public static async Task<bool> LoadOrRefreshUserData() {
-            App.ServerSetting = await CommunicationManager.GetApiRequest<List<ServerServerSettingList>>(ApiUrls.EasyITCenterServerSettingList, null, App.UserData.Authentification.Token);
+            App.SolutionMixedEnumList = await CommunicationManager.GetApiRequest<List<SolutionMixedEnumList>>(ApiUrls.EasyITCenterSolutionMixedEnumList, null, null);
             App.IgnoredExceptionList = await CommunicationManager.GetApiRequest<List<SystemIgnoredExceptionList>>(ApiUrls.EasyITCenterSystemIgnoredExceptionList, null, App.UserData.Authentification.Token);
             App.LanguageList = await CommunicationManager.GetApiRequest<List<SystemTranslationList>>(ApiUrls.EasyITCenterSystemTranslationList, null, App.UserData.Authentification.Token);
-            App.ParameterList = await CommunicationManager.GetApiRequest<List<SystemParameterList>>(ApiUrls.EasyITCenterSystemParameterList, App.UserData.Authentification.Id.ToString(), App.UserData.Authentification.Token);
+            App.UserParameterList = await CommunicationManager.GetApiRequest<List<SystemParameterList>>(ApiUrls.EasyITCenterUserParameterList, App.UserData.Authentification.Id.ToString(), App.UserData.Authentification.Token);
             App.SystemModuleList = await CommunicationManager.GetApiRequest<List<SystemModuleList>>(ApiUrls.SystemModuleList, null, App.UserData.Authentification.Token);
             SetNonUserDataOnSuccessStartUp();
             return true;
@@ -62,7 +62,7 @@ namespace EasyITSystemCenter.GlobalOperations {
         /// </summary>
         private static async void SetNonUserDataOnSuccessStartUp() {
             try {
-                if (App.ParameterList != null) {
+                if (App.UserParameterList != null) {
                     //System Logger Socket MainData
                     App.SystemLoggerWebSocketMonitor.Url = App.appRuntimeData.AppClientSettings.First(b => b.Key == "conn_apiAddress").Value.ToLower().Replace("https:", "wss:").Replace("http:", "ws:") + await DataOperations.ParameterCheck("SystemLoggerServerWebSocketUrl");
                     App.SystemLoggerWebSocketMonitor.ShowSystemLogger = bool.Parse(await DataOperations.ParameterCheck("SystemLoggerAvailable"));
@@ -80,7 +80,7 @@ namespace EasyITSystemCenter.GlobalOperations {
         /// <param name="message"> </param>
         /// <param name="logLevel"></param>
         public static async void SaveSystemFailMessage(string message, string logLevel) {
-            if (MainWindow.ServiceRunning && MainWindow.UserLogged && App.ParameterList.Any()) {
+            if (MainWindow.ServiceRunning && MainWindow.UserLogged && App.UserParameterList.Any()) {
                 if (string.IsNullOrWhiteSpace(message)) return;
 
                 SolutionFailList SolutionFailList = new SolutionFailList() { InheritedLogMonitorType = "DesktopSystem", UserId = App.UserData.Authentification.Id, UserName = App.UserData.UserName, LogLevel = logLevel, Message = message, TimeStamp = DateTimeOffset.Now.DateTime };

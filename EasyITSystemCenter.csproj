@@ -100,9 +100,6 @@
   <PropertyGroup />
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="EASYTools.Calculator">
-      <HintPath>..\..\EASY-IT-EXTENSIONS\EICESB-MODULES\EASYIT-WPFTOOLS\EASYTools.Calculator\bin\Debug\net452\EASYTools.Calculator.dll</HintPath>
-    </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\dotnet\sdk\2.0.0\Microsoft\Microsoft.NET.Build.Extensions\net461\lib\netstandard.dll</HintPath>
@@ -8241,6 +8238,9 @@
     </PackageReference>
     <PackageReference Include="Dragablz">
       <Version>0.0.3.234</Version>
+    </PackageReference>
+    <PackageReference Include="EASYTools.Calculator">
+      <Version>1.0.0</Version>
     </PackageReference>
     <PackageReference Include="EASYTools.Calendar">
       <Version>1.0.1</Version>

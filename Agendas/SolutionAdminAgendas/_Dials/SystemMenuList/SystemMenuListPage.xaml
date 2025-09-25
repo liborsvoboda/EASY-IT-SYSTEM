@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:EasyITSystemCenter.Pages"
+    xmlns:msb="clr-namespace:MultiSelectComboBox;assembly=EASYTools.MultiSelectComboBox"
     xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
@@ -144,15 +145,13 @@
                 HorizontalAlignment="Right"
                 HorizontalContentAlignment="Right" />
 
-            <xctk:CheckComboBox
+            <msb:MultiSelectComboBox
                 x:Name="cb_accessRole"
                 Grid.Row="4"
                 Grid.Column="1"
                 Margin="0,2,0,2"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
-                DisplayMemberPath="Translation"
-                SelectedMemberPath="Id"
                 UseLayoutRounding="True" />
 
             <Label

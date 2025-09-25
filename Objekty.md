@@ -6,3 +6,4 @@ https://www.essentialobjects.com/doc/eo.web.fileexplorer.html
 https://www.essentialobjects.com/doc/wpf/controls/treeview/dragdrop.html
 
 
+EXIFTools  - super galerie obrazku

@@ -1,4 +1,13 @@
 ﻿# Nugets Solution For Make Apps
+Xceed.Products.Wpf.Toolkit.Full
+    xmlns:xctk="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit" 
+https://xceed.com/documentation/xceed-filesystem-for-net/Installation_Instructions_for_C.html
+
+https://github.com/xceedsoftware/wpftoolkit/wiki/Xceed-Toolkit-Plus-for-WPF
+https://xceed.com/support/
+
+DotNetProjects.Extended.Wpf.Toolkit
+Extended.Wpf.Toolkit
 
 
 # Bond Compiler 

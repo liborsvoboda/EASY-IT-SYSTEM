@@ -88,6 +88,8 @@ namespace EasyITSystemCenter {
         /// <param name="e"></param>
         protected override void OnStartup(StartupEventArgs e) {
 
+            //Xceed.Wpf.Toolkit.Licenser.LicenseKey = "WTK51-37GXJ-M1TCN-0A1A";
+            
             base.OnStartup(e);
             if (!bool.Parse(appRuntimeData.AppClientSettings.First(a => a.Key == "beh_hideStartVideo").Value))
             {
@@ -102,7 +104,7 @@ namespace EasyITSystemCenter {
             MetroWindow mainView = new MainWindow();
             MainWindow = mainView;
             mainView.Show(); mainView.Focus();
-
+            
             PrepareStartupTools();
         }
 

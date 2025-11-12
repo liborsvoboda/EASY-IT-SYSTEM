@@ -162,7 +162,7 @@ namespace EasyITSystemCenter.Pages {
                 selectedRecord.Id = (int)((txt_id.Value != null) ? txt_id.Value : 0);
 
                 selectedRecord.GroupId = ((SystemGroupMenuList)cb_groupName.SelectedItem).Id;
-                selectedRecord.InheritedMenuType = ((TranslateSet)cb_menuType.SelectedItem).Name;
+                selectedRecord.InheritedSystemMenuType = ((TranslateSet)cb_menuType.SelectedItem).Name;
                 selectedRecord.FormPageName = ((SystemTranslatedTableList)cb_formPageName.SelectedItem).TableName;
 
                 selectedRecord.AccessRole = "";
@@ -202,7 +202,7 @@ namespace EasyITSystemCenter.Pages {
             cb_groupName.SelectedItem = (selectedRecord.Id == 0) ? systemGroupMenuList.FirstOrDefault() : systemGroupMenuList.First(a => a.Id == selectedRecord.GroupId);
 
             int index = 0;
-            cb_menuType.Items.SourceCollection.Cast<TranslateSet>().ToList().ForEach(language => { if (language.Name == selectedRecord.InheritedMenuType) { cb_menuType.SelectedIndex = index; } index++; });
+            cb_menuType.Items.SourceCollection.Cast<TranslateSet>().ToList().ForEach(language => { if (language.Name == selectedRecord.InheritedSystemMenuType) { cb_menuType.SelectedIndex = index; } index++; });
 
             // Insert missing
             if (selectedRecord.FormPageName != null && systemTranslatedTableList.FirstOrDefault(a => a.TableName == selectedRecord.FormPageName) == null) {

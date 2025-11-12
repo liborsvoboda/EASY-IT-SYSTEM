@@ -468,7 +468,7 @@ namespace EasyITSystemCenter {
                     TreeViewItem menuPage = new TreeViewItem() { Name = menuItem.FormPageName, Header = pageName, ToolTip = (string.IsNullOrWhiteSpace(menuItem.Description) || !tooltipEnabled) ? null : menuItem.Description };
                     menuPage.PreviewMouseDown += Menu_Selected;
 
-                    if (menuPage != null) { menuUnit.FindChildren<TreeViewItem>(false).Where(a => a.Name.ToLower() == "_" + menuItem.InheritedMenuType.ToLower()).First().Items.Add(menuPage); }
+                    if (menuPage != null) { menuUnit.FindChildren<TreeViewItem>(false).Where(a => a.Name.ToLower() == "_" + menuItem.InheritedSystemMenuType.ToLower()).First().Items.Add(menuPage); }
                     menuSection = menuUnit; lastMenuGroupId = menuItem.GroupId;
                 }); tb_verticalSystemMenu.Items.Add(menuSection);
                 

@@ -40,6 +40,7 @@ namespace EasyITSystemCenter.Pages {
         private string itemVatPriceFormat = "N2"; private string documentVatPriceFormat = "N0";
 
         public BusinessOutgoingInvoiceListPage() {
+
             InitializeComponent();
             _ = SystemOperations.SetLanguageDictionary(Resources, App.appRuntimeData.AppClientSettings.First(a => a.Key == "sys_defaultLanguage").Value);
 

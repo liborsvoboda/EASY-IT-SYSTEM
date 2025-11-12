@@ -5,7 +5,7 @@ namespace EasyITSystemCenter.GlobalClasses {
 
     public partial class SystemMenuList {
         public int Id { get; set; } = 0;
-        public string InheritedMenuType { get; set; } = null;
+        public string InheritedSystemMenuType { get; set; } = null;
         public int GroupId { get; set; }
         public string FormPageName { get; set; } = null;
         public string AccessRole { get; set; } = null;
